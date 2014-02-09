@@ -1,0 +1,40 @@
+.nav {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  width: 30px;
+  z-index: 1;
+  .nav-reveal {
+    display: block;
+    background: #6b6b6b;
+    padding: 4px;
+    span {
+      background: #fff;
+      display: block;
+      height: 3px;
+      margin-top: 3px;
+    }
+  }
+  &[data-state=closed] {
+    ul {
+      display: none;
+    }
+  }
+  &[data-state=open] {
+    ul {
+      display: inherit;
+    }
+  }
+  ul {
+    width: 120px;
+    position: absolute;
+    right: 0;
+    background: #6b6b6b;
+    list-style: none;
+    padding: $pad-min/2;
+    a {
+      color: #fff;
+      font-size: 80%;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Using application on production / development environment without making changes"
+date: 2011-12-19 14:28:09 +0200
+comments: true
+categories: [Tutorials, Tips, Environment, Yii, Framework]
+permalink: /using-application-on-production-development-environment-without-making-changes
+path: /source/_posts/2011-12-19-using-application-on-production-slash-development-environment-without-making-changes.markdown
+redirects:
+    - 2011/12/19/using-application-on-productiondevelopment-environment-without-making-changes
+    - blog/3-using-application-production-development-environment-without-making-changes
+---
+
+When I was trying my first application on both development and production machines, the changes I had to make on index.php and config file was really starting to get on my nerves. I like working on my local machine as it’s much faster and I get much more configuration freedom.<!-- more --> But sooner or later (hopefully sooner as projects die from old age too) the time will come then you will have to test your application on a live environment. You might get lucky and your development and production environments will be the same, but most of the time it won’t. You framework on a production machine will be camping at different location, and you will need different credentials to get into ‘Database castle’ so it starts eating a lot of time and patience to keep these small changes between different environments. And you’re lucky if it’s only two machines, what about a third server with different configurations, what about the fourth.. oh what a nightmare..
+
+After reading a few wiki articles about working on different environments, a lazy mage guild in my head started having a discussion, and after a little bit of trial and error, I ended up with a solution I’m quite happy about, at least for now. With a few simple modifications, now I can work on my local machine, and then I decide how it will work in “real world” I just upload the files and that’s it. No time spent changing the database connection settings or any other differences, I can just high five myself and have a happy grin, rather that pulling a bunch of my hair. You can find the full tutorial on it at [Yii framework wiki article][yii-wiki-page].
+
+[yii-wiki-page]: http://www.yiiframework.com/wiki/289/use-application-on-production-development-environment-without-making-changes

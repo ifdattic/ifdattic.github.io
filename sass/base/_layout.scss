@@ -1,0 +1,99 @@
+$max-width: 1200px !default;
+
+// Padding used for layout margins
+$pad-min: 18px !default;
+$pad-narrow: 25px !default;
+$pad-medium: 35px !default;
+$pad-wide: 55px !default;
+
+$indented-lists: false !default;
+
+$header-font-size: 1em !default;
+$header-padding-top: 1em !default;
+$header-padding-bottom: 1em !default;
+
+.group { @include pie-clearfix; }
+
+body {
+  -webkit-text-size-adjust: none;
+  max-width: $max-width;
+  position: relative;
+  margin: 0 auto;
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
+    @extend .group;
+    padding-left: $pad-min;
+    padding-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      padding-left: $pad-narrow;
+      padding-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      padding-left: $pad-min/2;
+      padding-right: $pad-min/2;
+    }
+  }
+  div.pagination {
+    @extend .group;
+    margin-left: $pad-min;
+    margin-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      margin-left: $pad-narrow;
+      margin-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      margin-left: $pad-medium;
+      margin-right: $pad-medium;
+    }
+  }
+  > header {
+    font-size: $header-font-size;
+    padding-top: $header-padding-top;
+    padding-bottom: $header-padding-bottom;
+    border-bottom: 1px solid #CACACA;
+  }
+}
+
+#content {
+  overflow: hidden;
+  > div, > article { width: 100%; }
+}
+
+.flex-content { max-width: 100%; height: auto; }
+
+.basic-alignment {
+  &.left { float: left; margin-right: 1.5em; }
+  &.right { float: right; margin-left: 1.5em; }
+  &.center { display:block; margin: 0 auto 1.5em; }
+  &.left, &.right { margin-bottom: .8em; }
+}
+
+.wrapper {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media only screen and (min-width: 550px) {
+  body > header { font-size: $header-font-size; }
+}
+#main, #content, .sidebar {
+  @extend .group;
+}
+@media only screen and (min-width: 768px) {
+  body { -webkit-text-size-adjust: auto; }
+  body > header { font-size: $header-font-size * 1.2; }
+  #main {
+    padding: 0;
+    margin: 0 auto;
+  }
+  #content {
+    overflow: visible;
+    position: relative;
+  }
+}
+
+@if $indented-lists == false {
+  @media only screen and (min-width: 768px) {
+    ul, ol { margin-left: 0; }
+  }
+}

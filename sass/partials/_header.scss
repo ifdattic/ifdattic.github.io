@@ -1,0 +1,28 @@
+body > header {
+  background: $header-bg;
+  h1 {
+    display: inline-block;
+    margin: 0;
+    a, a:visited, a:hover {
+      color: $title_color;
+      text-decoration: none;
+    }
+  }
+  h2 {
+    margin: .2em 0 0;
+    @extend .sans;
+    font-size: 1em;
+    color: $subtitle-color;
+    font-weight: normal;
+  }
+}
+
+.sitelogo {
+    background: url(https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/ifdattic-logo.png) no-repeat;
+    width: 140px;
+    height: 38px;
+    .svg & {
+        background: url(https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/ifdattic-logo.svg) no-repeat;
+        background-size: 140px 38px;
+    }
+}
