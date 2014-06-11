@@ -3,7 +3,7 @@ layout: post
 title: "Converting px to ems with LESS"
 date: 2011-10-20 18:46:27 +0200
 comments: true
-categories: [Tutorial, LESS, Mixins, Responsive, Tips]
+categories: [Tutorials, LESS, Mixins, Responsive, Tips]
 permalink: /converting-px-to-ems-with-less
 path: /source/_posts/2011-10-20-converting-px-to-ems-with-less.markdown
 redirects:
