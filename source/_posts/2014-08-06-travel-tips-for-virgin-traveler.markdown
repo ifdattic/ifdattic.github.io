@@ -40,6 +40,14 @@ Here's an example from my trip to Amsterdam. The end of the trip was supposed to
 
 If you walk around with your phone or wallet half falling of your ass pocket, don't be surprised when it will get stolen or lost. You might look like a tourist (especially if you're dragging a bunch of luggage around) making you an easier target, but all the problems might as well happen in the country you live. Just use some common sense and you should minimize your chances of being robbed or something like it happening to you. Keep your valuables in front pockets or somewhere where it is not so easy to reach. Get a padlock for your backpack, it won't do any good, but will make you mind feel safer thinking it will be harder for someone to get into your backpack (placebo effect). Don't flash around all the expensive toys you have. And if someone comes to you and asks if they could use your phone just say "No" and get ready to fight.
 
+## Use zip lock and trash bags
+
+Put your chargers into one of them, small medkit/toiletries in a different one and have a few spare bags (they take almost no space/weight). Not only it helps with organization, but it might also save your things from getting destroyed, if for example you get in a rain storm.
+
+## Eat macadamia nuts
+
+They are not cheap, they take space, they are heavy (all points relative), but they will keep you going until you could put a steak or some other nice meal in your stomach. A couple of them will keep you going for a few hours and won't make you crash like some crappy carbs filled snacks you would put in yourself otherwise.
+
 ## Conclusion
 
 This isn't the end of the list as I'm sure it will be updated once I get more travel experience. But these are the tips I wish I knew about before having my first trip.
