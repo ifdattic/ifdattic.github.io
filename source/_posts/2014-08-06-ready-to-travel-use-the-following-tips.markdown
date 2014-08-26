@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "Travel tips for virgin traveler"
+title: "Ready to travel? Use the following tips"
 date: 2014-08-06 10:15:37 +0300
 comments: true
 categories: [Tips, Travel]
-permalink: /travel-tips-for-virgin-traveler
-path: /source/_posts/2014-08-06-travel-tips-for-virgin-traveler.markdown
+permalink: /ready-to-travel-use-the-following-tips
+path: /source/_posts/2014-08-06-ready-to-travel-use-the-following-tips.markdown
+redirects:
+    - travel-tips-for-virgin-traveler
 ---
 
 I'm not someone who backpacked around the world for years (maybe some day). Actually not that long ago I didn't even like traveling, just listening to someone who returned from somewhere made me tired. But some time in spring of 2014, I just got the itch of needing to travel. As a lazy person who is always looking for ways to optimize and simplify his life, I decided to share some tips which I wish I knew before I started traveling or just giving them to someone who is about to pop his cherry. Tips are in no particular order.
