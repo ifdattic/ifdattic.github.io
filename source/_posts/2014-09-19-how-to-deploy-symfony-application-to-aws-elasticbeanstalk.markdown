@@ -12,6 +12,7 @@ I while ago I started working on an application so I could learn Symfony and sol
 
 You can jump to any of the sections:
 
+* [Update on 2014-10-03](#update-20141003)
 * [Prerequisites](#prerequisites)
 * [Add AWSDevTools to Repository](#add-awsdevtools)
 * [Create a Key Pair (optional)](#create-key-pair)
@@ -26,7 +27,12 @@ You can jump to any of the sections:
 * [Remove dev Entry Point (optional)](#remove-dev-entry)
 * [Add Cron (optional)](#add-cron)
 * [Add New Relic Configuration (optional)](#add-new-relic-config)
+* [Install nodejs With Front-End Tools (2014-10-03)](#install-nodejs)
 * [Conclusion](#conclusion)
+
+## Update on 2014-10-03 <a name="update-20141003"></a>
+
+Thanks to the [tip from Philipp Rieber][http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk/#comment-1604895694] the code can be simplified by removing the environment in console applications. If your environment has `SYMFONY_ENV` and `SYMFONY_DEBUG` set, they will be automatically retrieved by console script. This will allow to remove `--env` and `--no-debug` from console commands. This will also allow you to leave scripts in `composer.json` as the correct environment will be chosen. 
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -239,8 +245,13 @@ Keeping credentials and other information (API keys, passwords, connection data,
 [
     {
         "Namespace": "aws:elasticbeanstalk:application:environment",
-        "OptionName": "APP_ENV",
+        "OptionName": "SYMFONY_ENV",
         "Value": "prod"
+    },
+    {
+        "Namespace": "aws:elasticbeanstalk:application:environment",
+        "OptionName": "SYMFONY_DEBUG",
+        "Value": "0"
     },
     {
         "Namespace": "aws:elasticbeanstalk:application:environment",
@@ -270,7 +281,7 @@ Keeping credentials and other information (API keys, passwords, connection data,
 ]
 ```
 
-You should fill the `Value` key with your values (just avoid committing the values to repository). The `APP_ENV` is the variable for describing the type of environment and will be used later. As the deployment should happen automatically and you won't be able to enter your parameters manually they should be set automatically using the environment variables. This can be done using variables which start with `SYMFONY__` as they are automatically converted (the `__` becomes a `.`). As an example the `SYMFONY__ENV__MONGODB__SERVER` will become `%env.mongodb.server%`. The `parameters.yml.dist` has to be updated for this to work, make sure it contains the following changes:
+You should fill the `Value` key with your values (just avoid committing the values to repository). The `SYMFONY_ENV` is the variable for describing the type of environment and will be used later. As the deployment should happen automatically and you won't be able to enter your parameters manually they should be set automatically using the environment variables. This can be done using variables which start with `SYMFONY__` as they are automatically converted (the `__` becomes a `.`). As an example the `SYMFONY__ENV__MONGODB__SERVER` will become `%env.mongodb.server%`. The `parameters.yml.dist` has to be updated for this to work, make sure it contains the following changes:
 
 ```yaml
 parameters:
@@ -346,53 +357,6 @@ container_commands:
 
 This will run composer install without `require-dev` packages (in production we don't need them), optimize the autoloader (performance improvements), preferring distribution packages (performance improvement) and without any interaction (as the deployment is being done automatically).
 
-This command will fail right now as composer runs scripts using the dev environment and required dev packages doesn't exist. At the moment there is no way to inform the commands to run with custom options. From my research of the commands being run by composer some are not really required after the first (which will happen when you create a new Symfony project) and some can be run "manually" giving you much more control of them.
-
-The scripts which are left will build the parameters file and the bootstrap file. Update your `composer.json` to have the following for `scripts` entry (makes changes according to your project):
-
-```json
-{
-    "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
-        "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
-        ],
-        "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap"
-        ]
-    }
-}
-```
-
-Mostly by default you want to remove the following scripts:
-
-```text
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache"
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
-"Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-```
-
-On your local environment run the `composer update` command to update your `composer.lock` file.
-
-Now because we removed scripts from composer we should run them from our environment configuration. Add the following to `03-main.config`:
-
-```yaml
-container_commands:
-    400-clear-cache:
-        command: "php app/console cache:clear --env=$APP_ENV --no-debug"
-    425-install-assets:
-        command: "php app/console assets:install --env=$APP_ENV --no-debug"
-    450-dump-assets:
-        command: "php app/console assetic:dump --env=$APP_ENV --no-debug"
-```
-
-The commands use `$APP_ENV` value for environment so for different environments you won't need to change your configuration file.
-
 ## Update Cache Files <a name="update-cache-files"></a>
 
 Because all commands are being run while in *"staging"* area the locations are incorrect after deployment (`/var/app/ondeck` should be changed to `/var/app/current`). This can be fixed by running a `sed` command on cache files. Add the following to `03-main.config`:
@@ -408,7 +372,7 @@ You have to run this command twice as it doesn't replace all of it during the fi
 ```bash
 #!/bin/bash
 
-sed -i -e "s/\/var\/app\/ondeck/\/var\/app\/current/" app/cache/$APP_ENV/*.php
+sed -i -e "s/\/var\/app\/ondeck/\/var\/app\/current/" app/cache/$SYMFONY_ENV/*.php
 ```
 
 This script will replace all `/var/app/ondeck` occurrences with `/var/app/current` in cache files.
@@ -484,7 +448,7 @@ container_commands:
 Your application might need to use the cron to run some tasks on schedule. Create a new file `.ebextensions/cron/main` and put your commands in it (just make sure this file ends with an empty line).
 
 ```bash
-*/5 * * * * . /opt/elasticbeanstalk/support/envvars && php /var/app/current/app/console --env=$APP_ENV --no-debug acme:hello
+*/5 * * * * . /opt/elasticbeanstalk/support/envvars && php /var/app/current/app/console acme:hello
 
 ```
 
@@ -593,10 +557,88 @@ To notify about deployment add a new container command to `03-main.config`:
 ```yaml
 container_commands:
     900-notify-deployment:
-        command: "php app/console newrelic:notify-deployment --env=$APP_ENV --no-debug --user=eb"
+        command: "php app/console newrelic:notify-deployment --user=eb"
 ```
 
 Push the application to your environment and if everything was done correctly you should start seeing some stats in your New Relic account.
+
+## Install nodejs With Front-End Tools (2014-10-03 <a name="install-nodejs"></a>
+
+If you watched a [Ryan Weaver - Cool like Frontend Developer][youtube-frontend-developer] or a similar talk you might want to add some front end goodness to your project. For this you will need to install nodejs, Grunt, Bower. Below are the steps on how to do it.
+
+Create `.ebextensions/bin/install-nodejs.sh` with the contents:
+
+```bash
+#!/bin/bash
+
+hash_file="/tmp/nodejshash"
+
+check_if_npm_packages_has_to_be_installed () {
+    if [ -f $hash_file ]; then
+        check_if_same_hash
+    else
+        return 0
+    fi
+}
+
+check_if_same_hash () {
+    hash_new="$(md5sum .ebextensions/bin/install-nodejs.sh 2> /dev/null | cut -d ' ' -f 1)"
+    hash_current="$(cat "$hash_file" 2> /dev/null | cut -d ' ' -f 1)"
+
+    if [ $hash_new == $hash_current ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+install_node () {
+    if hash nodejs 2> /dev/null; then
+        echo 'nodejs install, add more processing if needed' > /dev/null
+    else
+        curl -sL https://rpm.nodesource.com/setup | bash -
+        yum install -y nodejs-0.10.32
+    fi
+}
+
+install_npm_packages () {
+    npm install -g bower
+    npm install -g grunt-cli
+}
+
+update_current_hash () {
+    echo $hash_new > $hash_file
+}
+
+install_node
+
+if check_if_npm_packages_has_to_be_installed; then
+    install_npm_packages
+    update_current_hash
+fi
+```
+
+This script will install nodejs if it's not installed. Then it will check if npm packages have to be installed (new added or this is the first run) and install them if needed. Bower and Grunt-cli will be installed globally.
+
+Add a container command to `03-main.config` to run this install script:
+
+```json
+container_commands:
+    100-install-nodejs:
+        command: "source .ebextensions/bin/install-nodejs.sh"
+```
+
+To install local npm packages, bower packages and run grunt production tasks add the following container commands (see [repository][git-frontend-commit] for file contents):
+
+```json
+container_commands:
+    400-install-npm-packages:
+        command: "npm install"
+    425-install-bower-packages:
+        command: "bower install --allow-root"
+    450-run-grunt:
+        command: "grunt production"
+```
 
 ## Conclusion <a name="conclusion"></a>
 
@@ -614,3 +656,6 @@ This article might not had all the steps required for deploying your Symfony app
 [new-relic-home]: http://newrelic.com
 [ekino-newrelic-bundle]: https://github.com/ekino/EkinoNewRelicBundle
 [demo-app-repo-misc-directory]: https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code/tree/master/.ebextensions/misc
+[http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk/#comment-1604895694]: http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk/#comment-1604895694
+[youtube-frontend-developer]: https://www.youtube.com/watch?v=R7iN5SFglMo
+[git-frontend-commit]: https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code/commit/1a651a94c134a80eb9895b4eb5aee99d37ad5823
