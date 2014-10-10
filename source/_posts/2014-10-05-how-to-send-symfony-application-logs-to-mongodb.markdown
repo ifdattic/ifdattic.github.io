@@ -22,7 +22,7 @@ doctrine_mongodb:
                 username: "%mongodb_log_username%"
     document_managers:
         log:
-            auto_mapping: true
+            auto_mapping: false
             logging: false
 ```
 
