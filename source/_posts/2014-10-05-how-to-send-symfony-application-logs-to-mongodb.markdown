@@ -71,9 +71,10 @@ parameters:
     mongodb_log_collection: "%env.mongodb_log.collection%"
 ```
 
-Create the services used by Monolog handler. The services can be set in `config.yml` file, but then the code won't pass SensioLabs Insight minor check as services should not be global and should be added to bundle configuration. The choice is yours where to define them.
+Create the services used by Monolog handler.
 
 ```yaml
+# app/config/services.yml
 services:
     mongolog:
         class: Mongo
