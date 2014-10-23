@@ -32,7 +32,7 @@ First, because you can remove the noise everyone is making and exchange it with 
 
 Best choice would be to get a local sim card with a data plan. Doesn't always work. At least after I tried to put a local sim card in Netherlands it felt like my phone got an STD: it changed language everywhere to Dutch and everything stopped working. Didn't feel like giving it a second try. The most important thing to do is while you're connected to Internet just cache the area you will be visiting in Google Maps. Your GPS will work fine without the Internet and you won't need to fight with a paper map trying to figure out where you are. Just walk in the direction you want and from time to time check you position to correct your direction. Getting lost is just seeing more things than you planned and this way you will always have pointers how to get back to a familiar ground. You can also download a note with an information of where you're staying, a screen shot of a map (helped after trying to put local sim card) or anything else you might need.
 
-## Don't plan, adapt
+## Don't plan, adapt <a name="dont-plan-adapt"></a>
 
 I'm not saying you shouldn't plan your trip, but don't overdo it and better be ready to adapt. Like googling *"how to get from point A to point B"* or *"what to do in point C"* is fine and useful. *"On 2 pm I will be in point A, in 10 minutes the train will arrive, travel to point B for an hour, ..."* not so much.
 
@@ -49,6 +49,18 @@ Put your chargers into one of them, small medkit/toiletries in a different one a
 ## Eat macadamia nuts
 
 They are not cheap, they take space, they are heavy (all points relative), but they will keep you going until you could put a steak or some other nice meal in your stomach. A couple of them will keep you going for a few hours and won't make you crash like some crappy carbs filled snacks you would put in yourself otherwise.
+
+## Check your alarm five times <a name="check-alarm"></a>
+
+Learn from my mistakes and make sure your alarm is set correctly as you really DON'T want to miss your flight.
+
+{% img https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/check-your-alarm-five-times.jpg '' 'Screenshot of failed alarm' %}
+
+If you learn it the hard way just like I did (I had to learn this lesson sooner or later), please see [Don't plan, adapt](#dont-plan-adapt).
+
+And if you're trying to stay away from bad habits, like smoking or drinking, the urges for them will be much higher at this point. It's the perfect situation to have a smoke or a beer. Just acknowledge the urges and stay strong, they won't help at this point (at least I can't imagine how they might help at this point).
+
+Smile and enjoy an expensive story :)
 
 ## Conclusion
 
