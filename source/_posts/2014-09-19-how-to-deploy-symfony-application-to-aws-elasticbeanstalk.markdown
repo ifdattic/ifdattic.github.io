@@ -13,6 +13,7 @@ I while ago I started working on an application so I could learn Symfony and sol
 You can jump to any of the sections:
 
 * [Update on 2014-10-03](#update-20141003)
+* [Update on 2014-11-08](#update-20141108)
 * [Prerequisites](#prerequisites)
 * [Add AWSDevTools to Repository](#add-awsdevtools)
 * [Create a Key Pair (optional)](#create-key-pair)
@@ -33,6 +34,10 @@ You can jump to any of the sections:
 ## Update on 2014-10-03 <a name="update-20141003"></a>
 
 Thanks to the [tip from Philipp Rieber][http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk/#comment-1604895694] the code can be simplified by removing the environment in console applications. If your environment has `SYMFONY_ENV` and `SYMFONY_DEBUG` set, they will be automatically retrieved by console script. This will allow to remove `--env` and `--no-debug` from console commands. This will also allow you to leave scripts in `composer.json` as the correct environment will be chosen. 
+
+## Update on 2014-11-08 <a name="update-20141108"></a>
+
+Thanks to the tip from Nicolae Darie the `update-cache.sh` script was improved to replace all occurrences of `ondeck` in [cache files](#update-cache-files).
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -364,15 +369,17 @@ Because all commands are being run while in *"staging"* area the locations are i
 ```yaml
 container_commands:
     600-update-cache:
-        command: "source .ebextensions/bin/update-cache.sh && source .ebextensions/bin/update-cache.sh"
+        command: "source .ebextensions/bin/update-cache.sh"
 ```
 
-You have to run this command twice as it doesn't replace all of it during the first run. Create the file `.ebextensions/bin/update-cache.sh` with contents:
+Create the file `.ebextensions/bin/update-cache.sh` with contents:
 
 ```bash
 #!/bin/bash
 
-sed -i -e "s/\/var\/app\/ondeck/\/var\/app\/current/" app/cache/$SYMFONY_ENV/*.php
+for i in $(grep -l -R "ondeck" /var/app/ondeck/app/cache/$SYMFONY_ENV/*); do
+    sed -i -e "s/\/var\/app\/ondeck/\/var\/app\/current/g" $i
+done
 ```
 
 This script will replace all `/var/app/ondeck` occurrences with `/var/app/current` in cache files.
