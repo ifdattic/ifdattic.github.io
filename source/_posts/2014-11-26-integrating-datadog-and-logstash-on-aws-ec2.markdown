@@ -21,7 +21,7 @@ packages:
     yum:
         datadog-agent: []
     rpm:
-        datadog: http://yum.datadoghq.com/rpm/x86_64/datadog-agent-5.0.0-496.x86_64.rpm
+        datadog: http://yum.datadoghq.com/rpm/x86_64/datadog-agent-5.1.0-539.x86_64.rpm
 
 container_commands:
     100-copy-config:
