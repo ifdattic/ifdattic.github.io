@@ -14,6 +14,7 @@ You can jump to any of the sections:
 
 * [Update on 2014-10-03](#update-20141003)
 * [Update on 2014-11-08](#update-20141108)
+* [Update on 2014-12-07](#update-20141207)
 * [Prerequisites](#prerequisites)
 * [Add AWSDevTools to Repository](#add-awsdevtools)
 * [Create a Key Pair (optional)](#create-key-pair)
@@ -38,6 +39,10 @@ Thanks to the [tip from Philipp Rieber][http://ifdattic.com/how-to-deploy-symfon
 ## Update on 2014-11-08 <a name="update-20141108"></a>
 
 Thanks to the tip from Nicolae Darie the `update-cache.sh` script was improved to replace all occurrences of `ondeck` in [cache files](#update-cache-files).
+
+## Update on 2014-12-07 <a name="update-20141207"></a>
+
+Thanks to the tip from Sergio Marchesini the [Update Cache Files](#update-cache-files) section is not needed anymore if you're using at least Symfony 2.6.1.
 
 ## Prerequisites <a name="prerequisites"></a>
 
@@ -363,6 +368,8 @@ container_commands:
 This will run composer install without `require-dev` packages (in production we don't need them), optimize the autoloader (performance improvements), preferring distribution packages (performance improvement) and without any interaction (as the deployment is being done automatically).
 
 ## Update Cache Files <a name="update-cache-files"></a>
+
+**Important:** If you're using at least [Symfony 2.6.1](http://symfony.com/blog/symfony-2-6-1-released) this is not needed anymore as cache files are now relative.
 
 Because all commands are being run while in *"staging"* area the locations are incorrect after deployment (`/var/app/ondeck` should be changed to `/var/app/current`). This can be fixed by running a `sed` command on cache files. Add the following to `03-main.config`:
 
