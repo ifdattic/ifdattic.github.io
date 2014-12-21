@@ -458,9 +458,9 @@ First you should check if your `crontab` contains any existing values as you wou
 crontab -l
 ```
 
-If you will get something like "*no crontab for [username]*" you're good to go. Otherwise just add existing values to your crontab file. First create a file (name doesn't matter but we will name it `crontab.txt`) which will have the following contents:
+If you will get something like "*no crontab for [username]*" you're good to go. Otherwise just add existing values to your crontab file. First create a file (name doesn't matter but we will name it `crontab.sh`) which will have the following contents:
 
-```bash Contents of crontab.txt file
+```bash Contents of crontab.sh file
 */15 * * * * /home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup > /dev/null 2>&1
 
 ```
@@ -468,7 +468,7 @@ If you will get something like "*no crontab for [username]*" you're good to go. 
 Just make sure you have an empty line at the end, as you will get errors otherwise. After you done it just update your crontab by running:
 
 ```bash Update crontab jobs
-crontab crontab.txt
+crontab crontab.sh
 ```
 
 If everything was done correctly you should be getting backups every 15 minutes. You can check logs from time to time to make sure everything is running correctly (I'm just paranoid).
@@ -477,6 +477,14 @@ If you're having problems with cron backup, but it's working when you run comman
 
 ```bash Add as a second line to a config file if needed
 export PATH="/home/vagrant/custom/bin:$PATH"
+```
+
+**Update on 2014-12-21:** After getting paranoid during my trip I did some checking of the logs and learned that duplicity wasn't backing up as supposed due to an existing lock file. I would guess this might happen if you put your laptop to sleep during the back up (or something along those lines).
+
+To fix that, I just added additional command to crontab to remove old files from logs directory (this is where lock file is saved). Modify it to your needs.
+
+```bash Remove old log and lock files
+23 15 * * * find /home/vagrant/logs/duplicity -mtime +2 -type f -delete
 ```
 
 ## Extras & Troubleshooting
