@@ -17,3 +17,10 @@
   nav.addEventListener(device(), toggleNav, false);
 
 })( window, document);
+
+$(document).ready(function () {
+  $(window).on('scroll.socialite', function () {
+    Socialite.load();
+    $(window).off('scroll.socialite');
+  });
+});

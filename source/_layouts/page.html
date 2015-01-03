@@ -10,6 +10,9 @@ layout: default
   </header>
   {% endif %}
   {{ content }}
+  {% if page.social %}
+    {% include custom/social.html %}
+  {% endif %}
   {% unless page.footer == false %}
     <footer>
       {% if page.date or page.author %}<p class="meta">

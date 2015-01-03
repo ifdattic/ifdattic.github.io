@@ -5,6 +5,7 @@ date: 2013-08-02 08:21
 comments: false
 sharing: false
 footer: false
+social: true
 ---
 
 {% img left https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/andrewm-small.jpg %}

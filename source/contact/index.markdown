@@ -5,6 +5,7 @@ date: 2013-08-02 12:14
 comments: false
 sharing: false
 footer: false
+social: false
 ---
 
 Email me on <a href="http://www.google.com/recaptcha/mailhide/d?k=01YIYnLKkGckS7Nr3fsWsq2A==&amp;c=LZHQpPDrXvTOEukNZ6qVIsPFWtG3uKHO57vPF0PX-EY=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501YIYnLKkGckS7Nr3fsWsq2A\75\75\46c\75LZHQpPDrXvTOEukNZ6qVIsPFWtG3uKHO57vPF0PX-EY\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">[show email]</a> or send me a [tweet][ifdattic-twitter].
