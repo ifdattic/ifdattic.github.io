@@ -6,7 +6,7 @@
    * Nav
    */
   var nav = document.querySelector('.nav-reveal');
-  console.log(nav);
+
   var device = function () {
     return 'ontouchstart' in window ? 'touchstart' : 'click';
   };
