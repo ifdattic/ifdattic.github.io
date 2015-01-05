@@ -51,6 +51,15 @@ framework:
 
 Now your sessions should be saved in the MongoDB database.
 
+If you want to change how long the session is persisted and improve security, add the following code to your configuration:
+
+```yaml
+framework:
+    session:
+        cookie_lifetime: 1209600 # 14 days
+        cookie_httponly: true
+```
+
 You might also find "[How to save Symfony logs to MongoDB][article-symfony-logs-to-mongodb]" interesting.
 
 [article-symfony-logs-to-mongodb]: /how-to-send-symfony-application-logs-to-mongodb
