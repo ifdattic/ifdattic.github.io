@@ -25,6 +25,7 @@ You can jump to any particular tip:
 * [Eat macadamia nuts](#eat-nuts)
 * [Check your alarm five times](#check-alarm)
 * [Optimize your med-kit](#optimize-medkit)
+* [Learn about your lodgings](#lodgings)
 
 ## Travel lightly <a name="travel-lightly"></a>
 
@@ -88,9 +89,20 @@ On the other side I have problems with my nose being blocked which, when trying 
 
 Pack everything you wouldn't want to be an hour(s) without. If you have free space, pack that might be helpful to shorten the wait time and for everything else just wait it over.
 
+## Learn about your lodgings <a name="lodgings"></a>
+
+If you know where you will be staying (for example by booking through [airbnb][airbnb-site]) always ask about what is important for you. Don't assume things just from photos or description, always ask before booking.
+
+As a digital nomad I need good (even poor works) internet connection to be able to work and earn money for financing my trips. What I don't want to hear during it is: *"My internet connection isn't working, it will be fixed on Monday (which is after I check out)."*
+
+Also from now on I ask if any smoking is being done inside (including shared space). As for someone who stopped smoking, I find it nauseating when I have to walk through smoked area (or even worse, it starts getting inside my room).
+
+Even if something important for you is written in big letters, ask, don't assume.
+
 ## Conclusion
 
 This isn't the end of the list as I'm sure it will be updated once I get more travel experience. But these are the tips I wish I knew about before having my first trip.
 
 [paradox-of-choice-research]: http://blog.bufferapp.com/6-powerful-psychological-effects-that-explain-how-humans-tick
 [kiva-duffel-bag-amazon]: http://www.amazon.co.uk/Kiva-Convertible-Duffel-Bag-Ruby/dp/B002AA7LCI
+[airbnb-site]: https://www.airbnb.com
