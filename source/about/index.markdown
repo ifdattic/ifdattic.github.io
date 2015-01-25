@@ -9,6 +9,10 @@ footer: false
 
 {% img left https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/andrewm-small.jpg %}
 
+<a class="button-contact button-contact-red" href="mailto:consultation@ifdattic.com" data-ga-event="contact,click,button email">Contact via E-Mail</a>
+
+<a class="button-contact button-contact-blue" href="https://twitter.com/ifdattic" data-ga-event="contact,click,button twitter">Follow on Twitter</a>
+
 My name is Andrius Marcinkevičius (or Andrew M. in English, you can sprain your tongue with a last name like that). I'm a consultant / programmer with a digital nomad lifestyle, focusing on helping my Clients to solve their problems using technology.
 
 The consultation focus is to bring value to the Client suggesting on ways to lower their expenses, choosing technical stack for their application, making call to action plans for improving quality and security.
