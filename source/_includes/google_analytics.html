@@ -8,5 +8,10 @@
     ga('create', '{{ site.google_analytics_tracking_id }}', '{{ site.google_analytics_domain}}');
     ga('send', 'pageview');
 
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
   </script>
 {% endif %}
