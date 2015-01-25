@@ -7,7 +7,7 @@ sharing: false
 footer: false
 ---
 
-{% img left https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/andrewm-small.jpg %}
+{% img left https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/andrewm2015-small.jpg %}
 
 <a class="button-contact button-contact-red" href="mailto:consultation@ifdattic.com" data-ga-event="contact,click,button email">Contact via E-Mail</a>
 
