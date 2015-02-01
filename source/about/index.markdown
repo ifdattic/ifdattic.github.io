@@ -9,27 +9,29 @@ footer: false
 
 {% img left https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/images/andrewm2015-small.jpg %}
 
-<a class="button-contact button-contact-red" href="mailto:consultation@ifdattic.com" data-ga-event="contact,click,button email">Contact via E-Mail</a>
+<a class="button button-red button-contact" href="mailto:consultation@ifdattic.com" data-ga-event="contact,click,button email">Contact via E-Mail</a>
 
-<a class="button-contact button-contact-blue" href="https://twitter.com/ifdattic" data-ga-event="contact,click,button twitter">Follow on Twitter</a>
+<a class="button button-blue button-contact" href="https://twitter.com/ifdattic" data-ga-event="contact,click,button twitter">Follow on Twitter</a>
 
-My name is Andrius Marcinkevičius (or Andrew M. in English, you can sprain your tongue with a last name like that). I'm a consultant / programmer with a digital nomad lifestyle, focusing on helping my Clients to solve their problems using technology.
+My name is Andrius Marcinkevičius (or Andrew M. in English, you can sprain your tongue with a last name like that). I'm an engineer / business consultant with a digital nomad lifestyle. My focus is to help my Clients to solve their business problems.
 
-The consultation focus is to bring value to the Client suggesting on ways to lower their expenses, choosing technical stack for their application, making call to action plans for improving quality and security.
+The consultation focus is to bring value by applying my knowledge. It can be suggestions on how to lower their expenses, how to choose technical stack or road-map for improving quality and security.
 
-The programming focus is to get my hands dirty and go down the rabbit hole making custom applications and APIs. Currently working mostly on back-end using PHP, MySQL, Symfony framework, AWS, MongoDB, Node.js. Previously worked with Yii framework, front-end (HTML, CSS, Responsive Design, etc.), but I try to focus on what allows me to provide most value (back-end). Constantly following trends and learning new things to be able to choose the best tool for the job.
+The programming focus is to get my hands dirty by making custom applications and APIs. Currently working on back-end using PHP, MySQL, Symfony framework, AWS, MongoDB, Node.js. Previously worked with Yii framework, front-end (HTML, CSS, Responsive Design, etc.). I try to focus on what allows me to provide most value (back-end). Following trends and learning new things to be able to choose the best tool for the job.
+
+<a href="services" data-ga-event="contact,click,link services">Click to read more about provided services</a>
 
 A big believer in Open-Source & sharing knowledge with others.
 
 ## Contact <a name="contact"></a>
 
-The best way to contact me is using [email](mailto:consultation@ifdattic.com) or you can get the latest links to most important networks at the [AngelList](https://angel.co/ifdattic).
+The best way to contact me is using [email](mailto:consultation@ifdattic.com). You can get the latest links to most important networks at the [AngelList](https://angel.co/ifdattic).
 
 ## Personality
 
-Most of the time closer to the introverted side of the scale, but then needed or feeling like it I can be on the other side of the scale. Trying to live the lifestyle which makes me happiest and most productive.
+Most of the time closer to the introverted side of the scale. When needed or feeling like it, I can be on the other side of the scales. Trying to live the lifestyle which makes me happiest and most productive.
 
-A big knowledge sponge constantly looking for something new to learn, a good story (from books, people or other media), or some wisdom from Seneca or another philosopher.
+A big knowledge sponge looking for something new to learn. Enjoy a good story (from books, people or other media), or some wisdom from Seneca.
 
 I try to focus on values which in my opinion make me a better person. Striving to make sure that the one who went to bed is a better person than the one who woke up. Some of those values are:
 

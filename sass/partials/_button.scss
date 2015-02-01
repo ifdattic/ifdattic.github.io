@@ -1,4 +1,4 @@
-.button-contact {
+.button {
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
     border-radius:3px;
@@ -9,15 +9,14 @@
     font-size:13px;
     padding:6px 24px;
     text-decoration:none !important;
-    width: 235px;
 }
 
-.button-contact:active {
+.button:active {
     position:relative;
     top:1px;
 }
 
-.button-contact-red {
+.button-red {
     -moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
     -webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
     box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -44,7 +43,7 @@
     }
 }
 
-.button-contact-blue {
+.button-blue {
     -moz-box-shadow:inset 0px 1px 0px 0px #54a3f7;
     -webkit-box-shadow:inset 0px 1px 0px 0px #54a3f7;
     box-shadow:inset 0px 1px 0px 0px #54a3f7;
@@ -69,4 +68,8 @@
         filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
         background-color:#0061a7;
     }
+}
+
+.button-contact {
+    width: 235px;
 }
