@@ -13,7 +13,7 @@ footer: false
 
 <a class="button button-blue button-contact" href="https://twitter.com/ifdattic" data-ga-event="contact,click,button twitter">Follow on Twitter</a>
 
-My name is Andrius Marcinkevičius (or Andrew M. in English, you can sprain your tongue with a last name like that). I'm an engineer / business consultant with a digital nomad lifestyle. My focus is to help my Clients to solve their business problems.
+My name is Andrew Marcinkevičius. I'm software engineer (Zend & SensioLabs certified) & business consultant with a digital nomad lifestyle. My focus is to help my Clients to solve their business problems.
 
 The consultation focus is to bring value by applying my knowledge. It can be suggestions on how to lower their expenses, how to choose technical stack or road-map for improving quality and security.
 
