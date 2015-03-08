@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jQuery | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/jquery/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Review of jQuery Hotshot book]]></title>
+    <link href="http://ifdattic.github.io/review-of-jquery-hotshot-book"/>
+    <updated>2013-05-13T00:50:23+03:00</updated>
+    <id>http://ifdattic.github.io/review-of-jquery-hotshot-book</id>
+    <content type="html"><![CDATA[<p>This was the first I read something from the <em>Packt Hotshot</em> series, so I wasn&rsquo;t sure what to expect. For those who haven&rsquo;t tried this series let me explain a bit about them. All of this is more or less logical assumption by checking the table of contents for other books in the series (it&rsquo;s just a way my mind works, I take small pieces of information and then try to connect them together, much more fun and keeps cogs in my head sharp).<!-- more --> In my opinion <em>Hotshot</em> books are somewhere between regular books (where you have a project an add more features with every chapter) and cookbooks (where you have a bunch of recipes to expand your project). Hotshot books give you a few projects (it varies but mostly 8 or 10) concentrating on some topic, but the end result is a project which with a few more additions can be made to a production application. The books have an interesting format by splitting the projects into sub-chapters like <em>Mission Briefing</em>, <em>Mission Accomplished</em>, <em>Classified Intel</em> and tasks to complete for each project. If you have a mind which manufacturer forgot to refurbish (yes I&rsquo;m pointing at you mother Nature) or an overflowing imagination, the learning can be very fun. Just image you&rsquo;re a secret agent disarming an atomic bomb by sliding a puzzle or a cowboy ready to show his skills by gunning down a few bounties on Stack Overflow, or whatever rocks your boat. At the end of each project there is a few ideas provided how it can be expanded, but it&rsquo;s left for the reader to add those changes (even after finishing school homework keeps following you around).</p>
+
+<p>OK, lets get back to the book. The book starts with a common stuff like reviewers, introductions, conventions, errata and so on. So if you have read a Packt book before and itching for knowledge you might skip to the first project.</p>
+
+<p>The book is very well written and easy to follow, so if you decide to type the code yourself, you will have no problems knowing how the files should be named or where to add new code. But you will probably want to download the source code as most of the projects use common stylesheet, images or some other assets (or you will have to get creative, it&rsquo;s always possible to find a way around then you need it). Code is easy to understand with detailed explanations after each task, but if you never tried <em>jQuery</em> before, you probably should read a book or a few tutorials about basics of jQuery.</p>
+
+<p>jQuery Hotshot book has the following projects:</p>
+
+<ol>
+<li><strong>Sliding Puzzle</strong> &ndash; shows how to build a sliding puzzle game using jQuery &amp; jQuery UI (draggable). It also adds a sprinkle of <code>localStorage</code> API for keeping some data and explains a Fisher-Yates shuffle algorithm for randomizing puzzle pieces. We will probably see a big jump of sliding puzzle games in Facebook from now on.</li>
+<li><strong>A Fixed Position Sidebar with Animated Scrolling</strong> &ndash; is a project which improves user interface by adding a fixed navigation. The project focus is on CSS, events (like <code>hashchange</code>, <code>scroll</code>, <code>resize</code>) and animations. The page scrolls to the last position after reload for improved usability.</li>
+<li><strong>An Interactive Google Map</strong> &ndash; creates an interactive map using <strong>Google Maps API</strong>. Some of the tasks covered in a project: creating a map, adding markers, adding info window, getting an address and calculating a distance between two points. In my opinion in this day and age with geolocation and powerful smartphones, learning how to use Google Maps API is a must, as it can be used in your application to make it interactive for the end users.</li>
+<li><strong>A jQuery Mobile Single-page App</strong> &ndash; introduces you to jQuery Mobile framework. If you think about making a mobile application you should definitely give jQuery Mobile a try. Project gives you an intro into how to structure your mobile application, how to get data from <strong>Stack Exchange API</strong> and then how to use <strong>JsRender</strong> template engine.</li>
+<li><strong>jQuery File Uploader</strong> &ndash; creates a configurable jQuery plugin which will let you to upload files to your server using AJAX. Project uses jQuery for file uploads, jQuery UI for progressbar widget and HTML5 for working with files. The project concentrates on what can be done, so it will not work on all browsers and these tasks are left for the reader to implement. It&rsquo;s a great starting point if you want to create your own file uploader or just learn how they work.</li>
+<li><strong>Extending Chrome with jQuery</strong> &ndash; explains how to create a Chrome browser extension. During the project you create an extension which collects microdata from pages and uses <code>localStorage</code> for saving to make something similar to the address book. I found this project quite interesting and probably will have to look for more information about this topic as it opens a lot of new ways for applying your web development knowledge.</li>
+<li><strong>Build Your Own jQuery</strong> &ndash; takes you through steps of building a custom version of jQuery. At first it explains how to install (instructions are for Mac and Windows) required tools which includes <strong>Git</strong>, <strong>Node.js</strong>, <strong>Grunt.js</strong> and <strong>QUnit</strong>. After you have all the requisites the project shows how to build a custom jQuery version from source. You might be wondering what is the point then only a few clicks are needed to download it from a website, or even better, one copy-paste routine later your project already loads it from CDN. Well I haven&rsquo;t had a chance to use this for a project, but I started using dependency manager for PHP and it&rsquo;s bliss then after one command you have all the needed packages with the latest version.</li>
+<li><strong>Infinite Scrolling with jQuery</strong> &ndash; explains how to add another user interface feature &ndash; <em>infinite scrolling</em>. Adding this feature to your projects is very easy and takes only a few lines of code. Most of the project in the book is spent explaining how to get data from <em>YouTube</em> using AJAX. After all the rendering is done so page will have enough content for infinite scrolling to make sense the code to create a scroller is added.</li>
+<li><strong>A jQuery Heat Map</strong> &ndash; is split into two parts. The first one is for JavaScript which collects the clicks of visited pages. The second part focuses on explaining how to process collected information and display it for the administrator. To save time and space most of the project is from JavaScript side so you will have to make your own responsive design and server side code (or use the one included in the source code). This project can be really useful if you&rsquo;re thinking about collecting some analytical information about how your users interact with a website/application.</li>
+<li><strong>A Sortable, Paged Table with Knockout.js</strong> &ndash; shows how to build a dynamic application which stays in sync with data. This project uses <strong>Knockout.js</strong> which is an MVVM (Model-View-View Model) framework. A great thing about using Knockout.js is what your data and UI always stays in sync, so if you change your data, UI will automatically update itself (it also works the other way around). If you&rsquo;re are thinking about creating a dynamic application it would be really useful to get a better understanding of it and you won&rsquo;t need to write scripts for DOM manipulations and getting server side rendered content through AJAX.</li>
+</ol>
+
+
+<p>So it&rsquo;s time for a verdict, as you&rsquo;re probably already feeling bad that a cup of tea which you made before starting to read this review is getting cold in the kitchen. So should you buy it? In my opinion it will depend on your JavaScript/jQuery skills. If you&rsquo;re already a JavaScript guru/ninja/or whatever the latest swear word is, you&rsquo;re probably not reading this review anyway. Because if your knowledge is big enough not to trip on the tricky JavaScript parts, you&rsquo;re probably already plucking the benefits of using plain JavaScript. If you&rsquo;re jQuery master you might not find this book challenging enough. Of course maybe you had thoughts about learning something this book covers (for example jQuery Mobile or Chrome extensions) so you might consider to get this book for those topics. If your knowledge of jQuery is on the advanced or beginner level it might be worth to get this book. jQuery Hotshot book covers a wide range of topics which are interesting an can greatly expand your skillset. The book is very easy to follow so you won&rsquo;t catch yourself checking your Facebook status because you got bored from endless pages of text going round and round about the same thing. And if you still haven&rsquo;t given jQuery a chance I would suggest first to start with a book (or tutorials) which explains the inner workings of jQuery and then return to this book.</p>
+
+<p>You can buy this book from <a href="http://www.amazon.com/gp/product/1849519102/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1849519102&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Amazon</a> or <a href="http://www.packtpub.com/jquery-hotshot/book">PacktPub</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Review of Instant jQuery Drag-and-Drop Grids How-to book]]></title>
+    <link href="http://ifdattic.github.io/review-of-instant-jquery-drag-drop-grids-howto-book"/>
+    <updated>2013-04-25T01:26:53+03:00</updated>
+    <id>http://ifdattic.github.io/review-of-instant-jquery-drag-and-drop-grids-how-to-book</id>
+    <content type="html"><![CDATA[<p>I like <em>Packt Publishing</em> books for their simplicity and a chance to get starting knowledge on some topic without investing too much time. So recently I had a chance to try <em>&ldquo;Instant&rdquo;</em> series which provide short, fast, focused guide with immediate results.</p>
+
+<!-- more -->
+
+
+<p>The book focuses on <a href="http://gridster.net">Gridster</a>, a drag-and-drop jQuery plugin which recently ended in my &ldquo;check it out when you will have some available time&rdquo; list. As the web moves forward you should constantly look for a chance to provide something new and interesting for you visitors and <strong>Gridster</strong> might be what you need. I&rsquo;m sure frontend developers could think of a lot of interesting ways to use this plugin, however as a backend developer I was thinking more about enhancing the experience for the backend users. It can be really useful to provide customizable dashboard and layout for you backend users, because everyone has his personal preference, and something that works for one user might push away someone else.</p>
+
+<p>The book is split into six recipes which get more and more complex (not that complex that you might decide to look at the ceiling for an hour or two) and adds more features of the plugin and examples how you can use them. You can download the source code with all recipes if you don&rsquo;t feel like typing it yourself and just follow the step-by-step instructions and expanded explanation of how it works.</p>
+
+<p>However, the book ended a bit abruptly, at least for me. I knew I was somewhere near the end, but one more quick recipe or at least conclusion/summary would have ended the book nicely.</p>
+
+<p>In conclusion if you want to use <strong>Gridster</strong> for your project and don&rsquo;t feel like reading plugin documentation (which is quite poor at the moment) to figure out how it works, the book is definitely worth a read. It would give you a jump-start in an hour or few so you could start implementing interesting layout solutions in your projects.</p>
+
+<p>After proofreading my review I think some might still be wondering why they should spend money on the book then they can read the documentation for free (remember I&rsquo;m still new to the writing so please bear with me, I will get better at it). In my opinion it all leads to financial reason (or available time resources). If your hourly rate is small/nonexistent or you just have a few bored hours hiding in the corner you can definitely learn it by documentation or source code. If on the other hand your hourly rate is a bit higher or you need something working ASAP without wondering &ldquo;what is this variable for?&rdquo; the time saved compensates the cost of the book. Don&rsquo;t get me wrong, checking documentation and source code can be a great learning material, but it&rsquo;s a rare luxury messing around with something for hours. When a project manager says &ldquo;The project requires these new features, it should be finished two hours ago&rdquo; you just need to cut some corners to save your .. ummm .. bottom pillow.</p>
+
+<p>You can buy this book at <a href="http://www.amazon.com/gp/product/1782165002/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1782165002&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Amazon</a> or <a href="http://www.packtpub.com/jquery-drag-and-drop-grids/book">PacktPub</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
+    <link href="http://ifdattic.github.io/eupdatedialog-extension"/>
+    <updated>2011-10-18T20:04:24+03:00</updated>
+    <id>http://ifdattic.github.io/eupdatedialog-extension</id>
+    <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
+
+<p>This extension allows to run controller actions using jQuery UI dialog. This allows you to enhance your application making it act more like a desktop applications, which will be appreciated by your users.</p>
+
+<!-- more -->
+
+
+<p>It is used for extending your application to allow easy CRUD (create-read-update-delete) actions or any other action which returns a proper JSON response. Click event can be added to any link element using a jQuery selector, allowing you to extend your application with additional functionality, without sacrificing design.</p>
+
+<p>Extension degrades gracefully, so your application won’t lose any functionality if JavaScript is turned off.</p>
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by the extension:</p>
+
+<ul>
+<li>CRUD actions through AJAX calls;</li>
+<li>degrades gracefully with JavaScript turned off;</li>
+<li>works with grid view widget or links;</li>
+<li>no inline JavaScript needed;</li>
+<li>works with or without CSRF validation;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>i18n (Internationalization and localization).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EUpdateDialog">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eupdatedialog">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
+    <link href="http://ifdattic.github.io/ejuitimepicker-extension"/>
+    <updated>2011-10-18T20:01:41+03:00</updated>
+    <id>http://ifdattic.github.io/ejuitimepicker-extension</id>
+    <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://trentrichardson.com/examples/timepicker">Timepicker add-on</a> (I only wrote the extension, not the add-on) which adds a time picker to jQuery UI Datepicker.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>enhance your forms with time, date or date &amp; time pickers;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>support for internationalization and localization (I18N).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EJuiTimePicker">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/ejuitimepicker">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EChosen Extension]]></title>
+    <link href="http://ifdattic.github.io/echosen-extension"/>
+    <updated>2011-10-18T20:00:17+03:00</updated>
+    <id>http://ifdattic.github.io/echosen-extension</id>
+    <content type="html"><![CDATA[<p>EChosen is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://harvesthq.github.com/chosen">Chosen JavaScript plugin</a> (I only wrote the extension, not the plugin) which makes long, unwieldy select boxes much more user-friendly. The extension is very easy to install and can be used on your application just with a single line of code.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>easy to install and use;</li>
+<li>simple configuration to better suit your needs;</li>
+<li>available as jQuery or Prototype plugin.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EChosen">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/echosen">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

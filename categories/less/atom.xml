@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: LESS | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/less/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Converting px to ems with LESS]]></title>
+    <link href="http://ifdattic.github.io/converting-px-to-ems-with-less"/>
+    <updated>2011-10-20T19:46:27+03:00</updated>
+    <id>http://ifdattic.github.io/converting-px-to-ems-with-less</id>
+    <content type="html"><![CDATA[<p><a href="http://lesscss.org">LESS</a> is great with adding variables, mixins, operations and functions to CSS. Here is the little trick to convert pixels to ems I use when coding responsive designs:</p>
+
+<!-- more -->
+
+
+<p>``` css Mixin for converting px to em
+// Create variables [optional]
+@basefont: 14; // in pixels
+@baseline: 20; // in pixels</p>
+
+<p>// Create a converter namespace [optional]</p>
+
+<h1>pxtoem {</h1>
+
+<pre><code>// Create convert mixin [required]
+.font-size( @target: @basefont, @context: @basefont ) {
+    font-size: (@target / @context) + 0em;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Usage is pretty straight forward, for example if you want to make links the size of <code>10px</code> then parent element font size is <code>16px</code> you will use:</p>
+
+<p>``` css Usage of mixin
+a {</p>
+
+<pre><code>#pxtoem &gt; .font-size( 10, 16 );
+</code></pre>
+
+<p>}
+```</p>
+
+<p>You can expand it with mixins for margins, paddings, etc. The most important part to remember is what you use numbers without units and then convert it to a wanted unit by adding a zero value to it.</p>
+]]></content>
+  </entry>
+  
+</feed>

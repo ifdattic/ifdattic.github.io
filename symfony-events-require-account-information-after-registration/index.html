@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Symfony Events: Require Account Information After Registration - ifdattic</title>
+  <meta name="author" content="Andrew Marcinkevičius">
+
+  
+  <meta name="description" content="The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ifdattic.github.io/symfony-events-require-account-information-after-registration">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
+  <script src="/js/modernizr-2.8.3-custom.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./js/libs/jquery-2.1.3.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/111660522645911622239/posts" rel="author">
+<script src="//load.sumome.com/" data-sumo-site-id="c164debf0a268ada6ab9186c859e0f9e07ed6d194f1e9f7d9d80d283225e676e" async></script>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48134144-1', 'ifdattic.com');
+    ga('send', 'pageview');
+
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
+  </script>
+
+
+</head>
+
+<body >
+  <header role="banner">
+    <div class="wrapper"><hgroup>
+  <h1>
+    <a href="/">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="sitelogo" alt="ifdattic" />
+    </a>
+  </h1>
+</hgroup>
+
+<nav class="nav" data-state="closed">
+  <a href="#" class="nav-reveal">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+</div>
+  </header>
+  <div id="main">
+    <div id="content" class="wrapper">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Symfony Events: Require Account Information After Registration</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-03T10:04:45+02:00" pubdate data-updated="true">December  3, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users&#8217; email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
+
+<p><strong>Note:</strong> the tutorial assumes that your application is using <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> for user management.  If you want to add registration/login using social networks, I recommend using <a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> (not needed for this tutorial). Application assumes what when registering a user he is disabled and he is not enabled until he provides all the required information.</p>
+
+<p>First initialize the <code>src/Ifdattic/UserBundle/EventListener/AccountInformationListener.php</code> (change namespaces as required) with following contents:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">Ifdattic\UserBundle\EventListener</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">FOS\UserBundle\Event\FormEvent</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">FOS\UserBundle\FOSUserEvents</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Symfony\Component\EventDispatcher\EventSubscriberInterface</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\RedirectResponse</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Symfony\Component\HttpKernel\Event\FilterControllerEvent</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">AccountInformationListener</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Route to redirect to</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @var string</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$redirectRoute</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @param string $redirectRoute Route to redirect to if conditions not met</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$redirectRoute</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectRoute</span> <span class="o">=</span> <span class="nv">$redirectRoute</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * {@inheritDoc}</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getSubscribedEvents</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="p">[</span>
+</span><span class='line'>            <span class="s1">&#39;kernel.controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;onKernelController&#39;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nx">FOSUserEvents</span><span class="o">::</span><span class="na">PROFILE_EDIT_SUCCESS</span> <span class="o">=&gt;</span> <span class="s1">&#39;onProfileEdit&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="p">];</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The listener is provided a route name when initializing it (via constructor argument) and it subscribes to two events: <code>kernel.controller</code> and <code>FOSUserEvents::PROFILE_EDIT_SUCCESS</code>.</p>
+
+<p>Add the method which will be executed on <code>kernel.controller</code> event:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">AccountInformationListener</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * If user is not enabled (haven&#39;t provided all information) make him to</span>
+</span><span class='line'><span class="sd">     * finish it before using the application.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param  FilterControllerEvent $event</span>
+</span><span class='line'><span class="sd">     * @return mixed</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">onKernelController</span><span class="p">(</span><span class="nx">FilterControllerEvent</span> <span class="nv">$event</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectRoute</span> <span class="o">===</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getRequest</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;_route&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$controller</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getController</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$controller</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$controller</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;get&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$security</span> <span class="o">=</span> <span class="nv">$controller</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;security.context&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$security</span><span class="o">-&gt;</span><span class="na">isGranted</span><span class="p">(</span><span class="s1">&#39;IS_AUTHENTICATED_REMEMBERED&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$security</span><span class="o">-&gt;</span><span class="na">getToken</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getUser</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">isEnabled</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$redirectUrl</span> <span class="o">=</span> <span class="nv">$controller</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">generateUrl</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">redirectRoute</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">setController</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="k">use</span> <span class="p">(</span><span class="nv">$redirectUrl</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="k">new</span> <span class="nx">RedirectResponse</span><span class="p">(</span><span class="nv">$redirectUrl</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The method first checks what redirect route and controller is provided. Then using <code>security.context</code> service make sure the user is authenticated before continuing. If user is authenticated, but he is not enabled a URL is generated and controller is replaced with an anonymous function which returns a redirect response.</p>
+
+<p>Some might be wondering how much of an overhead this will add. Don&rsquo;t worry, it will probably won&rsquo;t even show on your profiler (if threshold is set to >0ms).</p>
+
+<p>It should be possible to enable a user when he provides all the required information. Add a method to execute on profile edit:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">class</span> <span class="nc">AccountInformationListener</span> <span class="k">implements</span> <span class="nx">EventSubscriberInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Enable user after he filled all the required account information.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param  FormEvent $event</span>
+</span><span class='line'><span class="sd">     * @return void</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">onProfileEdit</span><span class="p">(</span><span class="nx">FormEvent</span> <span class="nv">$event</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$user</span> <span class="o">=</span> <span class="nv">$event</span><span class="o">-&gt;</span><span class="na">getForm</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="k">false</span> <span class="o">===</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">isEnabled</span><span class="p">())</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setEnabled</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will return a user after successful form submit (after validation, etc.) and enable him if he was not enabled before. This point is a great place to collect some metrics to help you track activated users, how long it takes to activate, etc. It can be done simply by sending another event (event dispatcher can be returned from current event using <code>getDispatcher()</code> method).</p>
+
+<p>To enable the listener add it as a service (<code>src/Ifdattic/UserBundle/Resources/config/services.yml</code>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">ifdattic_user.account_information.listener</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Ifdattic\UserBundle\EventListener\AccountInformationListener</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;fos_user_profile_edit&quot;</span><span class="p-Indicator">]</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="p-Indicator">-</span> <span class="p-Indicator">{</span> <span class="nv">name</span><span class="p-Indicator">:</span> <span class="nv">kernel.event_subscriber</span> <span class="p-Indicator">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now if you visited the application with a user which is not enabled, he should be redirected to a profile edit page. If a new field which is required for using the application is added, you could disable a user to make sure he provides that information before continuing. If you want to send a user to a different page (e.g., profile edit page has a lot of optional fields and you want to display only required fields) just change the first argument for the listener.</p>
+
+<p>This is optional, but to help users understand the next step add some visuals.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># in app/Resources/FOSUserBundle/translations/FOSUserBundle.en.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">profile</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">edit</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="l-Scalar-Plain">message_for_disabled_user</span><span class="p-Indicator">:</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">header</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Required account information</span>
+</span><span class='line'>            <span class="l-Scalar-Plain">message</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Please provide the required information before using the application</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='jinja'><span class='line'><span class="c">{# in src/Ifdattic/UserBundle/Resources/views/Profile/_disabled_user_message.html.twig #}</span><span class="x"></span>
+</span><span class='line'><span class="cp">{%</span> <span class="k">trans_default_domain</span> <span class="s1">&#39;FOSUserBundle&#39;</span> <span class="cp">%}</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">{%</span> <span class="k">if</span> <span class="nv">app.user.isEnabled</span> <span class="o">==</span> <span class="kp">false</span> <span class="cp">%}</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;div&gt;</span>
+</span><span class='line'><span class="x">        &lt;h3&gt;</span><span class="cp">{{</span> <span class="s1">&#39;profile.edit.message_for_disabled_user.header&#39;</span><span class="o">|</span><span class="nf">trans</span> <span class="cp">}}</span><span class="x">&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">        &lt;p&gt;</span><span class="cp">{{</span> <span class="s1">&#39;profile.edit.message_for_disabled_user.message&#39;</span><span class="o">|</span><span class="nf">trans</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+</span><span class='line'><span class="x">    &lt;/div&gt;</span>
+</span><span class='line'><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='jinja'><span class='line'><span class="c">{# in src/Ifdattic/UserBundle/Resources/views/Profile/edit_content.html.twig #}</span><span class="x"></span>
+</span><span class='line'><span class="cp">{%</span> <span class="k">include</span> <span class="s2">&quot;IfdatticUserBundle:Profile:_disabled_user_message.html.twig&quot;</span> <span class="cp">%}</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Requiring account information was very easy to implement with a simple listener and now it can be extended by adding more logic and actions to it.</p>
+
+<p>Source files are available as a <a href="https://gist.github.com/ifdattic/21a0575dc4878633430e">gist</a>.</p>
+
+<p>Do you have any suggestions, ideas, questions? Please share them.</p>
+</div>
+
+
+  <footer>
+    <ul class="social-buttons">
+  <li>
+    <a class="socialite twitter-share"
+      href="https://twitter.com/share"
+      data-via="ifdattic"
+      data-count="vertical"
+      rel="nofollow"
+      target="_blank">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="socialite twitter-follow"
+      href="https://twitter.com/ifdattic"
+      data-count="vertical"
+      target="_blank">
+      Follow me
+    </a>
+  </li>
+  <li>
+    <a class="socialite googleplus-one"
+    href="https://plus.google.com/share"
+    data-size="tall"
+    rel="nofollow"
+    target="_blank">
+      Share on Google+
+    </a>
+  </li>
+  <li>
+    <a class="socialite facebook-like"
+      href="https://www.facebook.com/sharer.php"
+      data-layout="box_count"
+      data-width="60"
+      data-show-faces="false"
+      rel="nofollow"
+      target="_blank">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="socialite linkedin-share"
+      href="https://www.linkedin.com/shareArticle"
+      data-counter="top"
+      rel="nofollow"
+      target="_blank">
+      Share on LinkedIn
+    </a>
+  </li>
+</ul>
+
+    <p class="meta">
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2014-12-03-symfony-events-require-account-information-after-registration.markdown">Edit this page on GitHub</a><br />
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrew Marcinkevičius</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-03T10:04:45+02:00" pubdate data-updated="true">December  3, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/symfony/'>Symfony</a>, <a class='category' href='/categories/tips/'>Tips</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/integrating-datadog-and-logstash-on-aws-ec2" title="Previous Post: Integrating DataDog &amp; logstash on AWS EC2">&laquo; Integrating DataDog &amp; logstash on AWS EC2</a>
+      
+      
+        <a class="basic-alignment right" href="/review-nodejs-right-way-book" title="Next Post: Review of Node.js the Right Way Book">Review of Node.js the Right Way Book &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div class="wrapper"><p>&copy; 2015 - Andrew Marcinkevičius</p>
+<p>
+  Hosted on <a href="https://github.com/ifdattic/ifdattic.github.io">Github</a>
+  -
+  Powered by <a href="http://octopress.org">Octopress</a>
+</p>
+
+</div></footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ifdattic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ifdattic.github.io/symfony-events-require-account-information-after-registration';
+        var disqus_url = 'http://ifdattic.github.io/symfony-events-require-account-information-after-registration';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<script src="/javascripts/socialite.min.js"></script>
+<script src="/javascripts/scripts.js" type="text/javascript"></script>
+
+
+</body>
+</html>

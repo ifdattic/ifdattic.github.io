@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Personal | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/personal/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Most important skill I learned from stopping smoking &amp; drinking]]></title>
+    <link href="http://ifdattic.github.io/important-skill-learned-from-no-smoking-drinking"/>
+    <updated>2015-03-08T12:03:17+02:00</updated>
+    <id>http://ifdattic.github.io/most-important-skill-i-learned-from-stopping-smoking-and-drinking</id>
+    <content type="html"><![CDATA[<blockquote><p><strong>tl;dr; Headbutt the problem and solve it right now as it won&rsquo;t go away</strong></p></blockquote>
+
+<p>I stopped (will allow to say &ldquo;quit&rdquo; in 10 years) smoking about one year and 7 months ago (2013/08/10). I stopped drinking about 7 months ago (2014/08/15).</p>
+
+<p>Funny thing is on 2013 I was burning a bunch of personal crap (dreadlocks, paintings, clothes, etc). A year later, I&rsquo;m burning the rest of my personal crap (letters, talismans, diaries, photos, etc.). Remembered that a year before I was doing the same thing and stopped smoking. Thought that it would be great if I stopped drinking after this burning.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/16565367989" title="Burning personal crap, last day of drinking by Andrew Marcinkevičius, on Flickr" target="_blank"><img src="https://farm9.staticflickr.com/8743/16565367989_8462b9b24c_c.jpg" width="724" height="800" alt="Burning personal crap, last day of drinking"></a></p>
+
+<p>It wasn&rsquo;t exactly easy and my though always was to not give any of them away. I liked both of guilty pleasures a lot. Actually, I thought it would be impossible to give them away. But once you challenge yourself you find that &ldquo;impossible&rdquo; is just a state of mind. Everything is possible when you don&rsquo;t know it&rsquo;s impossible. Or don&rsquo;t allow yourself to fail before trying.</p>
+
+<p>I&rsquo;m not against smoking or drinking. I&rsquo;m not saying I won&rsquo;t start doing it ever again. I do know, I don&rsquo;t want to do them ever again, but I don&rsquo;t know if I&rsquo;m yet strong enough to keep it forever.</p>
+
+<p>Even writing this article requires a lot of willpower to keep yourself from thinking how delicious is a thick smoke filling your lungs or a cold alcoholic beverage touching the tip of your tongue.</p>
+
+<p>Only my thinking changed &ndash; they are the same as crutches are for a healthy person. Most of the time they are only hiding a deeper issue which won&rsquo;t go away. Feeling stressed? Go have a cigarette or a cold beer. Yes, it will get better. For now. The problem is that the issue is still there. Only hidden under a wall which will crumble like  a sand castle.</p>
+
+<p>An believe me, the mind/body plays tricks on you trying to trip you. <em>&ldquo;Oh, this is such a perfect problem to have a cold beer over. Let me start you salivating from your mouth.&rdquo;</em> But if you win and reply with <em>&ldquo;No. It won&rsquo;t help with a problem. It won&rsquo;t solve a problem. It won&rsquo;t make me feel any better now or tomorrow and I will still have the same problem the next day. It&rsquo;s time to think how to solve this problem.&rdquo;</em> This moment is so empowering as you know that you took the hard way out, not the easy one out.</p>
+
+<p>Stopping to drink and/or smoke might have improved my health &amp; finances. But the most important skill it taught me is to <strong>take the hard way out and solve a problem right away, not to hide away from it</strong>.</p>
+
+<p>Have you tried to stop drinking or smoking? Have it taught you anything?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
+    <link href="http://ifdattic.github.io/my-experience-sensiolabs-symfony-certification-exam"/>
+    <updated>2015-02-17T18:19:52+02:00</updated>
+    <id>http://ifdattic.github.io/my-experience-with-sensiolabs-symfony-certification-exam</id>
+    <content type="html"><![CDATA[<p>One day I check my email and see one from Fabien <em>&ldquo;Symfony turned 9 and for being one of top 100 contributors you get a free voucher.&rdquo;</em> It definitely lifted my spirits.</p>
+
+<p>Voucher was valid for a year so I just created a calendar reminder <em>&ldquo;Learn for Symfony certificate.&rdquo;</em> Made it due sometime in Summer and more or less forgot about it. More than enough time left for it.</p>
+
+<p>After the SymfonyCon Madrid I evaluated my career possibilities. Decided it&rsquo;s time to stop riding a dead horse and move the majority of my time working with Symfony framework. At the same time remembered the <a href="http://en.wikipedia.org/wiki/Parkinson%27s_law">Parkinson&rsquo;s Law</a>. <strong>The task will take as long as it&rsquo;s given time</strong>. Time to add the deadline. No matter how much I will learn for it, on March 1st I need to book the exam.</p>
+
+<p>Somehow I made January &amp; February months for learning a lot of new things. Because of that I didn&rsquo;t get as much practical experience as suspected. Still <strong>made a habit of 90 minutes reading Symfony documentation for breakfast</strong>, um, tasty. This habit was mandatory!</p>
+
+<p>The only preparation what I did was to take all the topics written in certification page and put them in a Trello card. Add items for cookbook topics, doctrine, etc. Not all are required for certification, but a good documentation is like a good book for me, so I didn&rsquo;t mind adding them. Add the links for easy access to as much of items as possible and that&rsquo;s it.</p>
+
+<p>At first the list of about 160 items makes you take a big breath. But one check-box at a time you can see the progress.</p>
+
+<p>This was also the <em>great chance to improve the documentation</em> (fixing typos, etc.). Changing it to the way you imagine it (changing formatting, etc.) and picking the brains of Symfony contributors (discussions in PRs, etc.).</p>
+
+<p><em>90 minutes each day was spent making a few notes once in a while, creating pull requests, experimenting a bit</em>. On February I did some calculations and estimated that around the middle of it I should be done. It was time to register for an exam. Really wanted to do it on February 13th the Friday (how cool does that sound). But the place I like staying at wasn&rsquo;t available for rent. Also it felt like trying to avoid the unavoidable (a bad habit to have). So just registered for Monday (the sooner the better).</p>
+
+<p>In the remaining days finished with the remaining topics. Did a <em>quick second round on the book</em> and it was time to take the exam the next day. <em>This took me about 6 weeks (~63 hours)</em>. I never believed about learning till the last second. My choice always is to put a good nights sleep between learning &amp; applying it. So Sunday documentation breakfast was the last one I will be taking for at least a while (<em>failure is always an option</em>).</p>
+
+<p>The next day I woke up feeling great. Slept well, had a nice meeting the day before, exercised, took a shower, ate and the day looked like it will be a great one. Or would it? Nah, it would be a good one. The worst that could happen is that I won&rsquo;t pass the exam and that&rsquo;s it. It&rsquo;s not the end of a world.</p>
+
+<p>OK, I worried a bit about slipping on the icy bridge while walking to the exam center and breaking my neck or dropping into a cold water. But this is the problem with my imagination. Other than that, I was trying to keep a relaxed attitude by taking a long slow walk along the snowed river to the exam center. Went out early to keep my paranoia in check about arriving late, <em>I like to stay safe</em>.</p>
+
+<p>It sounds silly, but after arriving <em>I noticed my legs getting a bit weaker and heart pounding a little harder. Stupid body</em>. Had about half an hour before the exam. I always try to prepare myself for the worst scenario (which never happens) just in case. And you get a pleasant surprise when the end result is better than that you were expecting. If you&rsquo;re prepared to lose both legs, losing only one of them is wonderful. But most of the time from my research (books, articles, etc.) the suggestion is to imagine the result you want and your mind will go towards it. I&rsquo;m still skeptic about it, but if it&rsquo;s repeated often there must be something to it. And <em>you can&rsquo;t learn without testing</em>, so why not, let&rsquo;s try it.</p>
+
+<p>I sat down. Closed my eyes. Started taking monotonic breaths and focusing my mind on passing the exam. At least my heart stopped pounding. A fresher head couldn&rsquo;t hurt either.</p>
+
+<p><em>I&rsquo;m personally a little skeptic about these exams as you could pass them with a good memory</em>. Especially after I met a person with a Java certificate when he shouldn&rsquo;t be a programmer in the first place. Unfortunately for me, <em>I  don&rsquo;t have a good memory, and it works in strange ways</em>. For example, trying to remember when I had my first operation (string of 10 characters) leads to the following flow: it was on my birthday, I finished school that year, it was my 19th birthday, I finished school one year after 18th birthday, on my school leaving certificate it&rsquo;s written 2006, so I had it on 2006-06-28. Not the best way to remember a date. <em>Fortunately for me, my logic module pick up the pace and helps were memory starts ramble. I just have to put enough resources to be able to link them together.</em></p>
+
+<p>By reminding myself that it wouldn&rsquo;t matter if I fail my head wasn&rsquo;t occupied by negative thoughts about that will happen if I fail. This allowed to take the exam with <em>stone cold focus. Read the question, read the answers, pick the one which is correct or makes most sense, keep going</em>. Flagged two questions for review, but after the second time told myself to stop doing that and simply believe in myself. <em>I enjoyed the exam a lot. It had a good flow &amp; presentation of questions</em>. A few of them made my head go &ldquo;What??&rdquo; (unlike Zend Certificate which contained quite a few &ldquo;WTF?!?&rdquo; questions). Solution to them was simple &ndash; read the question &amp; answers again, you can do this.</p>
+
+<p>75 questions later was confirming that I&rsquo;m finishing the exam and the moment of truth&hellip; Thinking I did good on exam. Still, took the big breath guessing if I should just wait for screen to change or close my eyes&hellip; The screen is still waiting&hellip; The screen finishes loading&hellip; And a log-in pop-up shoots to the front of the screen&hellip;</p>
+
+<p>(╯°□°）╯︵ ┻━┻</p>
+
+<p>After some fiddling I bring the screen back. My eyes start shooting around the screen scanning for required information. &hellip; &ldquo;<strong>Passed</strong>.&rdquo; Great, which level? &hellip; &ldquo;<strong>Expert</strong>.&rdquo; Yes *fist pump*</p>
+
+<p>Unlike with PHP certificate my reaction at the end of exam was much more &ldquo;professional.&rdquo; It still felt awesome!!!</p>
+
+<p>Note: For anyone who is interested I made a <a href="https://trello.com/c/aHnP3WUI/1-learn-for-symfony-certification">Trello card</a> public.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fighting Your Fears: Triple Combo - Flower Girl]]></title>
+    <link href="http://ifdattic.github.io/fighting-your-fears-triple-combo-flower-girl"/>
+    <updated>2014-09-24T19:12:18+03:00</updated>
+    <id>http://ifdattic.github.io/fighting-your-fears-triple-combo-flower-girl</id>
+    <content type="html"><![CDATA[<p>Today (2014-09-19), I hit a triple headshot on my &ldquo;did for the first time checklist.&rdquo; It was: gift someone flowers, ask for a name first, tell random girl she&rsquo;s amiable (I like the word translation in Lithuanian more so from now on in English &ldquo;cute&rdquo; will be used).</p>
+
+<p>Today was planed as the day off cause after an eye doctor visit I was not supposed to see anything (blind as a rabbit who doesn&rsquo;t eat carrots). Spent hours just walking in the sun, listening to audio books (activity I enjoy as it allows me to disconnect), relaxing.</p>
+
+<p>While walking through a shopping center in a flower section noticed a girl and kept walking (I look at walking like a shark looks at swimming &ndash; <em>you stop, you die</em>).</p>
+
+<p>But one of the voices in my head went <em>&ldquo;she&rsquo;s cute&rdquo;</em> and another replied <em>&ldquo;yea, as she is working in a flower shop it might be fun to ask for her suggestion of what to gift to a cute girl and then give it to her.&rdquo;</em> The previous voice replied with <em>&ldquo;sure, sure, we definitely should do it&rdquo;</em>, but you know in that tone were someone agrees with you, but deep inside they are praying you won&rsquo;t take them on their offer.</p>
+
+<p>Fortunately, during the past year, the voice which tries to throw me out of my comfort zone received much more control.</p>
+
+<p><em>&ldquo;Wait, is this idea making you uncomfortable?&rdquo;</em> Putting a hand on my chest, noticing the heart beating much faster. <em>&ldquo;It does! Oh, I will have so much fun making you do this!&rdquo;</em></p>
+
+<p>As I had a few minutes, before circling back to a flower shop, the first voice started to try haggle his way out (<em>&ldquo;You know, I&rsquo;m not feeling so well right now, maybe next time?&rdquo;</em>) or bribing the heart into a heart attack, but all of it was met with a bored reaction <em>&ldquo;take the last deep breath if you want, but you&rsquo;re doing this.&rdquo;</em></p>
+
+<p>A deep breath, and I start looking at flowers.</p>
+
+<p>The girl: <em>&ldquo;Hello, have you chosen something?&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Hello. I don&rsquo;t know. What you would suggest to gift to a cute girl?&rdquo;.</em></p>
+
+<p>Girl: <em>&ldquo;Uh, these are nice, and these, also this one.&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;This one looks nice, colorful. I will take it.&rdquo;</em></p>
+
+<p>Girl: <em>&ldquo;Should I wrap them?&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Sure. I will pay with a card.&rdquo;</em></p>
+
+<p>I think this is the part where <em>The Universe</em> came in with a bucket of popcorns and went <em>&ldquo;Oh, let&rsquo;s extend this awkward period where he is running all the terrible scenarios of how it could end.&rdquo;</em></p>
+
+<p>Card payment problems..</p>
+
+<p>Girl: <em>&ldquo;Can you pay in cash? We had some problems with card payments recently.&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Sure. How much was it? Here you go.&rdquo;</em></p>
+
+<p>Me standing like an idiot, waiting for her to finish with cash register and the second voice standing with a grin.</p>
+
+<p>Translation is a bit rough from this point, but it&rsquo;s as close as I could get.</p>
+
+<p>Me: <em>&ldquo;And let me gift these flowers to you.&rdquo;</em> (✓ gift someone flowers).</p>
+
+<p>Girl: <em>&ldquo;What?! Why?!.&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Cause you&rsquo;re cute and my mind thought &ndash; Let&rsquo;s gift some flowers to this cute girl.&rdquo;</em> (combo ✓ tell random girl she&rsquo;s cute).</p>
+
+<p>I end up in goofy situations (don&rsquo;t ask for examples, because I will provide them), but I was starting to think of a much more comfortable things I could be doing right now, like running barefoot through broken glass.</p>
+
+<p>Girl (while smiling, laughing and probably feeling much more uncomfortably than me): <em>&ldquo;**Random combination of: Really? Why? No. What? and a bunch of other words** Is this a prank or something like it?&rdquo;</em> [Oh come on! Stop extending this, just let me run to hide into some dark corner. Note: order hiding lessons from a cockroach].</p>
+
+<p>Me: <em>&ldquo;No, a gift, for real.&rdquo;</em></p>
+
+<p>At this point I think the voices in my head were starting a movie night as a new one went (in English accent) <em>&ldquo;Come on, we already have a combo, let&rsquo;s check off something else, ask her for her name!&rdquo;</em></p>
+
+<p>Deep breath, a shift in position to make sure I&rsquo;m still standing.</p>
+
+<p>Me: <em>&ldquo;What is your name?&rdquo;</em> (triple combo ✓ ask for a name first).</p>
+
+<p>Girl: <em>&ldquo;**:insert name here:**&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Pleased, Andrius.&rdquo;</em></p>
+
+<p>Could have tried to continue the combo and do something else for the first time, but as you should be careful with a cornered animal (he has nothing to lose so his reaction is unpredictable), it felt like a good time to allow the opening.</p>
+
+<p>Made my smile bigger (<a href="http://blog.bufferapp.com/the-science-of-smiling-a-guide-to-humans-most-powerful-gesture">research</a> says: you smile not because you&rsquo;re happy, but you are happy because you smile. So, I try to walk around with a smile. I might look like an idiot, but I think it works), said <em>&ldquo;Have a nice weekend&rdquo;</em> and backed off.</p>
+
+<p>Checked my heartbeat (reflection stage) which was more or less back at normal.. At this point my imagination (another daemon roaming in my head) tells <em>&ldquo;I don&rsquo;t think your heart was beating during that challenge&rdquo;</em> and a flash of red lights blinking, alarm sounds blaring, blood cells running in panic and a heart shouting <em>&ldquo;How is it going!?! I&rsquo;m ready to give him a heart attack right away!&rdquo;</em> (OK, this video made me chuckle).</p>
+
+<p>A pat on the head from a second voice followed by some wise words <em>&ldquo;Good boy. See, that wasn&rsquo;t so bad. After all, what is the worst that could happen?&rdquo;</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What learning to swim reminded me about life]]></title>
+    <link href="http://ifdattic.github.io/what-learning-to-swim-reminded-me-about-life"/>
+    <updated>2014-08-26T14:21:47+03:00</updated>
+    <id>http://ifdattic.github.io/what-learning-to-swim-reminded-me-about-life</id>
+    <content type="html"><![CDATA[<p>Recently I decided it would be a good idea to learn how to swim (as I like water and have a few activities planned which might lead to drowning). While doing that, it reminded me of a couple of things which might be used in life.</p>
+
+<h2>Relax</h2>
+
+<p>Panicking in water will lead you to drowning. Which isn&rsquo;t fun at all (I&rsquo;m a bit of an expert in drowning). In life, doing/executing decisions while panicking/stressed could lead to bad results. Try to put decisions until you have cleared your head, or if it&rsquo;s not possible, take a few deep breaths before proceeding.</p>
+
+<h2>Focus</h2>
+
+<p>A beach or pool might be not the easiest location to focus (damn you eyes and beautiful girls/boys), but losing focus will lead to mediocre results. Keep your focus straight to get the best results you can get. And after it&rsquo;s done, reward yourself with a little break.</p>
+
+<h2>Self correct and improve yourself</h2>
+
+<p>All my life I always tried to improve myself, sometimes with better results, sometimes with not so good results. It&rsquo;s a skill you have to grow. If you want to reach the end of the pool you have to improve your form. If you focus and reflect, it&rsquo;s easy to spot when you&rsquo;re not working enough with your legs, when you did something too soon, when you did something you wasn&rsquo;t supposed to do. Try to find something where you can improve, track your progress, improve the parts which doesn&rsquo;t feel right, remove steps if you can get away with it.</p>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Pareto_principle">Pareto principle</a> (80-20 rule) states that, for many events, roughly 80% of the effects come from 20% of the causes. Try to find that 20% and work on improving it as it will get you the most results.</p>
+
+<h2>Experiment</h2>
+
+<p><em>&ldquo;What is the smallest amount of movement, I have to do not to drown?&rdquo;</em> or <em>&ldquo;How long can I float like a corpse before I run out of air?&rdquo;</em>. It&rsquo;s hard to experiment when you&rsquo;re afraid of breaking things or doing something wrong. As soon as you get more confidence, start experimenting. Start asking yourself questions like <em>&ldquo;What if &hellip;?&rdquo;</em>, <em>&ldquo;How about &hellip;?&rdquo;</em>, <em>&ldquo;Why &hellip;?&rdquo;</em> and just do it. Best way to learn is from practice (a bit of theory never hurts). What is the worst that can happen? Well a lot! Just most of the time the worst outcome isn&rsquo;t as bad as you think and even a bad outcome most of the time has many pros (which can outweigh the cons).</p>
+
+<h2>Slow progress is better than no progress</h2>
+
+<p>It would be wonderful if after your finger touched the water you will start swimming like a shark (bitting legs is optional). Without hard work you&rsquo;re rarely good at something right away. As long as you keep working, sooner or later you gonna reach your goal. Even two steps forward, one step backwards is a progress.</p>
+
+<h2>When you stop chasing success it comes to you</h2>
+
+<p>Was reminded of this when for the first time reached the other side of the pool (~22 meters). It happened when I stopped trying to reach the other side and decided <em>&ldquo;just do what you&rsquo;re supposed to do, who cares if you reach the other side or the middle of the pool&rdquo;.</em> I think it must have something to do with your mind stepping away from putting sticks in the wheels and your body + subconscious just doing what they know they have to do.</p>
+
+<h2>You can&rsquo;t avoid bad days, survive them</h2>
+
+<p>Even if you have a very positive attitude to life and everything is great, still sooner or later a bad day will come. Just one of those days were no matter how hard you try the results are never what they should be. Bad days come and go, just try to get as much from it as you can.</p>
+
+<h2>Conclusion</h2>
+
+<p>Most of the points are basic and yet, it&rsquo;s hardest to see that what is simple and in front of your face. Sometimes you just need a slap in the face for you mind to go <em>&ldquo;Oh right, forgot about that one.&rdquo;</em></p>
+
+<p>How about you? Have something recently reminded you that you forgot about life?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Achievement unlocked: Put out trash can fire]]></title>
+    <link href="http://ifdattic.github.io/achievement-unlocked-put-out-trash-can-fire"/>
+    <updated>2014-05-26T21:41:36+03:00</updated>
+    <id>http://ifdattic.github.io/achievement-unlocked-put-out-trash-can-fire</id>
+    <content type="html"><![CDATA[<p>Today I did something I wanted to do for the long time, but chickened out before.</p>
+
+<p><strong>I put out the trash can fire.</strong></p>
+
+<p>Before I walked past a few trash can fires. Always wanted to put one out. Always was attacked by some stupid fear and just walked away. This time it looked like it will be the same scenario.</p>
+
+<p>Then I looked around at other people who walked past, or sitting like they don&rsquo;t see it. &ldquo;<em>Hey, maybe they don&rsquo;t have the equipment for putting it out?</em>&rdquo; Fine, but the outside bar is like a meter away, waiters could definitely find a cup of water somewhere. &ldquo;<em>Maybe they don&rsquo;t care, after all the smoke is going in the different direction than the customers are sitting.</em>&rdquo;</p>
+
+<p>At this point I decided, I don&rsquo;t want to be like everyone at this place and moment. I can be better, even if it&rsquo;s something as stupid as putting out a fire in progress.</p>
+
+<p>I changed direction determined to take care of the problem or die trying (overdramatization). It might have cost me my bottle of drinking water, but it felt good. I felt proud of myself for winning against some stupid fear and doing something that felt right.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: stats | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/stats/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
+    <link href="http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2"/>
+    <updated>2014-11-26T15:36:49+02:00</updated>
+    <id>http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2</id>
+    <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
+
+<p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>
+
+<h2>Add DataDog Config</h2>
+
+<p>To install and configure the DataDog agent create <code>.ebextensions/02-datadog.config</code> file with following contents:</p>
+
+<p>```yaml
+packages:</p>
+
+<pre><code>yum:
+    datadog-agent: []
+rpm:
+    datadog: http://yum.datadoghq.com/rpm/x86_64/datadog-agent-5.1.0-539.x86_64.rpm
+</code></pre>
+
+<p>container_commands:</p>
+
+<pre><code>100-copy-config:
+    command: "source .ebextensions/bin/copy-datadog-config.sh"
+200-restart-agent:
+    command: "/etc/init.d/datadog-agent restart"
+    test: "[ $SYMFONY__ENV__DATADOG__API__KEY ]"
+250-stop-agent:
+    command: "/etc/init.d/datadog-agent stop"
+    test: "[ ! $SYMFONY__ENV__DATADOG__API__KEY ]"
+</code></pre>
+
+<p>```</p>
+
+<p>And <code>.ebextensions/bin/copy-datadog-config.sh</code> file:</p>
+
+<p>```bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>sed &rsquo;s/api_key:.*/api_key: &lsquo;&ldquo;$SYMFONY<strong>ENV</strong>DATADOG<strong>API</strong>KEY&rdquo;&rsquo;/&lsquo; /etc/dd-agent/datadog.conf.example > /etc/dd-agent/datadog.conf
+```</p>
+
+<p>If you will deploy an application with these configuration files, EB will install DataDog agent and run the configuration script to update the API key. The API key should be set as an environment variable for the hosts you want to measure. When if <code>SYMFONY__ENV__DATADOG__API__KEY</code> environment variable is set on the host it will restart the DataDog agent to reload the configuration and give a deployment event in DataDog application. If the environment variable is not set (for example you don&rsquo;t want to track a host anymore) it would stop the agent.</p>
+
+<p>This is enough to start receiving some metrics about your hosts on DataDog application, but more can be done.</p>
+
+<h2>Apache Rewrite For Symfony</h2>
+
+<p>Apache has a <code>server-status</code> handler which provides some statistics about current server status. The Symfony application configuration blocks this route, add the following condition in your <code>.htaccess</code> or Apache configuration file (will depend on your project) before queries are rewritten to front controller:</p>
+
+<p>```apache</p>
+
+<h1>Allow internal requests</h1>
+
+<p>RewriteCond %{REQUEST_URI} !^/internal/.+$
+```</p>
+
+<p>This will allow requests to <code>/internal</code> URLS (in case you need to add more locations reachable by URL).</p>
+
+<h2>DataDog Apache Integration</h2>
+
+<p>To send server statistics first create internal server status location in your Apache configuration:</p>
+
+<p>```apache</p>
+
+<h1>Enable server-status for internal IP</h1>
+
+<p><Location /internal/server-status>
+   SetHandler server-status
+   Order Deny,Allow
+   Deny from all
+   Allow from 127.0.0.1
+</Location>
+```</p>
+
+<p>This will allow to get server statistics locally (when connected to a host or from the host).</p>
+
+<p>Next update <code>.ebextensions/02-datadog.config</code> file and add:</p>
+
+<p>```yaml
+files:</p>
+
+<pre><code>/etc/dd-agent/conf.d/apache.yaml:
+    mode: "000644"
+    owner: dd-agent
+    group: root
+    content: |
+        init_config:
+
+        instances:
+            -   apache_status_url: http://127.0.0.1/internal/server-status?auto
+</code></pre>
+
+<p>```</p>
+
+<p>This will create Apache configuration file for DataDog agent pointing it to an URL where it can get server statistics. After deployment you should start receiving metrics about your current server status.</p>
+
+<h2>Install &amp; logstash</h2>
+
+<p><a href="http://logstash.net/">logstash</a> is a tool for managing events and logs.</p>
+
+<p>To install logstash (optional: contrib plugin is installed only once, if you don&rsquo;t use it you can remove the <code>200-install-contrib-plugin</code> command) on deployment create <code>.ebextensions/02-logstash.config</code> file with following contents:</p>
+
+<p>```yaml
+files:</p>
+
+<pre><code>/etc/yum.repos.d/logstash.repo:
+    mode: "000644"
+    owner: root
+    group: root
+    content: |
+        [logstash-1.4]
+        name=logstash repository for 1.4.x packages
+        baseurl=http://packages.elasticsearch.org/logstash/1.4/centos
+        gpgcheck=1
+        gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+        enabled=1
+</code></pre>
+
+<p>commands:</p>
+
+<pre><code>100-install-logstash:
+    command: "yum -y install logstash-1.4.2"
+200-install-contrib-plugin:
+    command: "wget -O /tmp/logstash-contrib-1.4.2.tar.gz http://download.elasticsearch.org/logstash/logstash/logstash-contrib-1.4.2.tar.gz &amp;&amp; tar zxf /tmp/logstash-contrib-1.4.2.tar.gz -C /opt/logstash --strip 1 &amp;&amp; touch /tmp/logstash-contrib-installed"
+    test: "[ ! -f /tmp/logstash-contrib-installed ]"
+</code></pre>
+
+<p>```</p>
+
+<h2>Parse Apache Logs</h2>
+
+<p>To start parsing Apache logs the logstash first has to be configured. Add the contents bellow to <code>.ebextensions/02-logstash.config</code> file. You will notice what command <code>300-restart-service</code> is commented out, why will be explained shortly.</p>
+
+<p>```yaml
+container_commands:</p>
+
+<pre><code>100-delete-configs:
+    command: "rm -f /etc/logstash/conf.d/*"
+200-copy-configs:
+    command: "cp .ebextensions/logstash/* /etc/logstash/conf.d/"
+# 300-restart-service:
+#     command: "service logstash restart"
+</code></pre>
+
+<p>```</p>
+
+<p>Add the following to Apache configuration to have more information in Apache logs:</p>
+
+<p>```apache
+<IfModule log_config_module></p>
+
+<pre><code>LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\" %D %T" combined
+</code></pre>
+
+<p></IfModule>
+```</p>
+
+<p>Create logstash configuration for parsing Apache logs in <code>.ebextensions/logstash/apache.conf</code>:</p>
+
+<p>```
+input {
+  file {</p>
+
+<pre><code>exclude =&gt; "*.gz"
+path =&gt; "/var/log/httpd/*"
+type =&gt; "apache-access"
+</code></pre>
+
+<p>  }
+}</p>
+
+<p>filter {
+  grok {</p>
+
+<pre><code>match =&gt; ["message", "%{COMBINEDAPACHELOG} %{NUMBER:microseconds} %{NUMBER:seconds}"]
+</code></pre>
+
+<p>  }
+}</p>
+
+<p>output {
+  statsd {</p>
+
+<pre><code>count =&gt; ["apache.count.bytes", "%{bytes}"]
+increment =&gt; "apache.count.response.%{response}"
+increment =&gt; "apache.count.request.%{request}"
+timing =&gt; ["apache.timing.request.%{request}", "%{microseconds}"]
+</code></pre>
+
+<p>  }</p>
+
+<p>  if [response] =~ /^2\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.2XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^3\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.3XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^4\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.4XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^5\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.5XX" }
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>This will process apache logs and will send metrics using statsd output. Make changes to track what you need.</p>
+
+<p><img class="<a" src="href="https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png">https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png</a>" title="&lsquo;&rsquo; &lsquo;Chart of HTTP status responses&rsquo;" ></p>
+
+<p>As a use case one of tracked metrics with this configuration is HTTP status responses by type. You can create a graph helping you visualize for spikes of 4xx responses (e.g., a bug was introduced in latest deployment or hackers are scanning for vulnerabilities).</p>
+
+<p>Unfortunately I wasn&rsquo;t able to make any of logstash service scripts to work (this is why restart command was commented out). With all the scripts the logstash service is started fine, but no metrics are being output. If you have any suggestions please share. For now I&rsquo;m using the following way to run logstash.</p>
+
+<p>Create the <code>.ebextensions/01-pre.config</code> file with following contents:</p>
+
+<p>```yaml
+commands:</p>
+
+<pre><code>100-create-posthook-dir:
+    command: "mkdir /opt/elasticbeanstalk/hooks/appdeploy/post"
+    test: "[ ! -d /opt/elasticbeanstalk/hooks/appdeploy/post ]"
+</code></pre>
+
+<p>container_commands:</p>
+
+<pre><code>100-chmod-posthooks:
+    command: "chmod +x .ebextensions/hooks/appdeploy/post/*"
+200-copy-posthooks:
+    command: "cp .ebextensions/hooks/appdeploy/post/* /opt/elasticbeanstalk/hooks/appdeploy/post/"
+</code></pre>
+
+<p>```</p>
+
+<p>This will create a post hooks directory for ElasticBeanstalk and copy the post hooks to it. Create the <code>.ebextensions/hooks/appdeploy/post/logstash-background-job.sh</code> script which will start logstash after deployment:</p>
+
+<p>```bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>. /opt/elasticbeanstalk/support/envvars</p>
+
+<p>for pid in <code>ps aux | grep /etc/logstash/conf.d | grep -v grep | tr -s ' ' | cut -d ' ' -f 2</code>
+do</p>
+
+<pre><code>disown $pid
+kill -9 $pid
+</code></pre>
+
+<p>done</p>
+
+<p>export HOME=/var/lib/logstash</p>
+
+<p>/opt/logstash/bin/logstash \</p>
+
+<pre><code>-f /etc/logstash/conf.d \
+-l /var/log/logstash/logstash.log \
+&gt; /var/log/logstash/logstash.stdout \
+2&gt; /var/log/logstash/logstash.err \
+&amp;
+</code></pre>
+
+<p>```</p>
+
+<p>This script will first kill all the running logstash processes (you should have only one, otherwise your metrics would be sent multiple times) and then start a new logstash process. After deployment you should start receiving metrics from processed Apache logs.</p>
+
+<h2>Conclusion</h2>
+
+<p>You should be receiving a lot of different metrics in your DataDog account and it&rsquo;s easy to extend to receive even more. This will allow you to measure how your application is performing and make important business decisions.</p>
+
+<p>All files can be found in the <a href="https://gist.github.com/ifdattic/61a5b2708dff8811e7e2">gist</a>, the first line displays the full path for it and should be removed from files.</p>
+
+<p>What about you: are you tracking how your application is performing? Or maybe you have suggestions? Please share them in comments.</p>
+]]></content>
+  </entry>
+  
+</feed>

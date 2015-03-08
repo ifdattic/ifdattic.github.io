@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Security | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/security/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to set up encrypted backup with duplicity]]></title>
+    <link href="http://ifdattic.github.io/howto-encrypted-backup-with-duplicity"/>
+    <updated>2014-06-11T09:11:39+03:00</updated>
+    <id>http://ifdattic.github.io/how-to-set-up-encrypted-backup-with-duplicity</id>
+    <content type="html"><![CDATA[<p>In the last half year or so, I started moving to the point where for example getting my laptop stolen (or I noticed a lot of people like installing liquids on their laptops) would be just a loss of money and a few hours. Rather than a complete disaster which might take a few days to recover. The first step of course was cleaning up my hard drive from all the personal photos, videos and a bunch of other stuff you constantly keep, but never really use. The great step to automating everything was using <a href="https://github.com/ifdattic/dotfiles">dotfiles</a> (or you can check original project <a href="https://github.com/mathiasbynens/dotfiles">mathiasbynens/dotfiles</a>). Not only it allows to automate how my machine behaves, but if I will have to set up a different one I won&rsquo;t miss some step for setting it up. Mostly what was left to do, was keeping some files available for any device. <em>Google Drive</em> was working great for it at first, but unfortunately the files in the drive isn&rsquo;t encrypted. It&rsquo;s fine for simple un-important files, but once you start adding more important files you start wanting a bit more security. This let to searching for a solution which will back up and encrypt my files and <a href="http://duplicity.nongnu.org">duplicity</a> looked promising.</p>
+
+<h2>Prerequisites</h2>
+
+<p>After reading documentation about how to use it I was getting my data encrypted and synced. Of course being a programmer I wanted to write some script to automate some of the things. It was quite fun to hack and experiment with something I haven&rsquo;t tried before, but fortunately found an already mature project which automates usage of duplicity. For those interested (or for myself in the future) here is the <a href="https://gist.github.com/ifdattic/4200774f6c6531d7aefb">initial script</a> I was making.</p>
+
+<p>But from this point on we will be using <a href="https://github.com/zertrin/duplicity-backup">zertrin/duplicity-backup</a> bash script for automating and simplifying the working with duplicity.</p>
+
+<p>Because, I already have it all set up on my OS X everything will be done on the <em>precise64</em> (Ubuntu) box using <a href="https://www.vagrantup.com">Vagrant</a>. If you want to test everything on virtual machine first, just check the Vagrant documentation on how to get started, it&rsquo;s only a couple of steps.</p>
+
+<p>The biggest difference of making duplicity work on different operating systems (OS X, Centos, etc.) would be the installation of required programs.</p>
+
+<p>Our box is missing git and pip so lets install them by running:</p>
+
+<p><code>bash
+sudo apt-get install -y git
+sudo apt-get install -y python-pip
+</code></p>
+
+<p>To make it simpler at first we will backup to a different HDD location. Run the following commands to create the directories &amp; files to be used for tutorial:</p>
+
+<p>```bash Create directories &amp; files for testing
+mkdir directory-to-backup
+mkdir directory-to-backup/cache
+mkdir directory-holding-backup</p>
+
+<h1>Create some files to be used for backup</h1>
+
+<p>touch directory-to-backup/cache/20140601 directory-to-backup/cache/20140602 directory-to-backup/cache/20140603
+touch directory-to-backup/20140601 directory-to-backup/20140602 directory-to-backup/20140603 directory-to-backup/20140604 directory-to-backup/20140605
+```</p>
+
+<p>You should have the following structure for your backup directory:</p>
+
+<p><code>``bash Structure of backup directory
+directory-to-backup/
+|-- 20140601
+|-- 20140602
+|-- 20140603
+|-- 20140604
+|-- 20140605
+</code>&mdash; cache</p>
+
+<pre><code>|-- 20140601
+|-- 20140602
+`-- 20140603
+</code></pre>
+
+<p>```</p>
+
+<h2>Generate GPG keys for encryption</h2>
+
+<p>To encrypt the backup you will need two (for increased security) GPG keys which will be used by duplicity. As the passphrase will be used in clear text, try to avoid re-using your personal passphrase. For this tutorial we will be using the following passphrases (for <em>production</em> use your own and keep them in the secure place): <em>I34Bs$YXvn@</em> (for signing key) and <em>P$ts&amp;#@qgD</em> (for encryption key).</p>
+
+<p>Our Vagrant box has GPG installed, but if it&rsquo;s missing from your OS please install it first. If you&rsquo;re running this on the Vagrant you might need to give some work for your OS to generate random bytes. It can be done with the following commands:</p>
+
+<p>```bash Only for Vagrant box: random byte generation</p>
+
+<h1>Install the program</h1>
+
+<p>sudo apt-get install -y rng-tools</p>
+
+<h1>Run it</h1>
+
+<p>sudo rngd -r /dev/urandom</p>
+
+<h1>After finishing to generate keys, kill it</h1>
+
+<p>sudo service rng-tools stop
+```</p>
+
+<h3>Generate signing key</h3>
+
+<p>Generate the signing key with:</p>
+
+<p><code>bash
+gpg --gen-key
+</code></p>
+
+<p>And answer the prompts (just press enter if you want to use the default value):</p>
+
+<p><code>bash Answer prompts with following for signing key generation
+Your selection?: (1) RSA and RSA (default)
+What keysize do you want?: 2048
+Key is valid for?: 0 = key does not expire
+Is this correct?: y
+Real name: duplicitysign
+Email address: duplicitysign@example.com
+Comment:
+Change ... (O)kay/(Q)uit?: O
+Enter passphrase: I34Bs$YXvn@
+Repeat passphrase: I34Bs$YXvn@
+</code></p>
+
+<p>If everything was done correctly you should have the signing key.</p>
+
+<h3>Generate encryption key</h3>
+
+<p>Do this again for generating the encryption key:</p>
+
+<p>```bash Answer prompts with following for encryption key generation
+gpg &mdash;gen-key</p>
+
+<p>Your selection?: (1) RSA and RSA (default)
+What keysize do you want?: 2048
+Key is valid for?: 0 = key does not expire
+Is this correct?: y
+Real name: duplicityencrypt
+Email address: <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x64;&#x75;&#112;&#x6c;&#105;&#99;&#x69;&#x74;&#121;&#x65;&#x6e;&#x63;&#114;&#121;&#x70;&#116;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x64;&#x75;&#x70;&#108;&#105;&#x63;&#105;&#x74;&#x79;&#x65;&#110;&#x63;&#114;&#x79;&#112;&#x74;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a>
+Comment:
+Change &hellip; (O)kay/(Q)uit?: O
+Enter passphrase: P$ts&amp;#@qgD
+Repeat passphrase: P$ts&amp;#@qgD
+```</p>
+
+<h3>List and export GPG keys</h3>
+
+<p>At this point you should have your signing &amp; encryption keys. You can check your keys with the following command (this includes the output which might differ for you):</p>
+
+<p>```bash List GPG keys
+gpg &mdash;list-keys</p>
+
+<h2>/home/vagrant/.gnupg/pubring.gpg</h2>
+
+<p>pub   2048R/841BFBA2 2014-06-10
+uid                  duplicitysign <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x64;&#117;&#112;&#108;&#x69;&#x63;&#105;&#x74;&#121;&#115;&#x69;&#x67;&#x6e;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#100;&#x75;&#x70;&#108;&#x69;&#x63;&#x69;&#x74;&#x79;&#x73;&#x69;&#103;&#110;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;</a>
+sub   2048R/B5C9CA2B 2014-06-10</p>
+
+<p>pub   2048R/F953BE5A 2014-06-10
+uid                  duplicityencrypt <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x64;&#117;&#x70;&#x6c;&#x69;&#x63;&#105;&#116;&#121;&#x65;&#x6e;&#99;&#x72;&#x79;&#112;&#x74;&#x40;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x64;&#117;&#x70;&#108;&#x69;&#99;&#x69;&#116;&#x79;&#101;&#x6e;&#99;&#x72;&#121;&#112;&#x74;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;</a>
+sub   2048R/BE767308 2014-06-10
+```</p>
+
+<p>Export the public keys and save them in the secure place:</p>
+
+<p>```bash Export public keys</p>
+
+<h1>gpg &mdash;armor &mdash;export -a [gpg key id] > [name]public.key</h1>
+
+<p>gpg &mdash;armor &mdash;export -a 841BFBA2 > duplicitysignpublic.key
+gpg &mdash;armor &mdash;export -a F953BE5A > duplicityencryptpublic.key
+```</p>
+
+<p>Export the private keys and save them in the secure place:</p>
+
+<p>```bash Export private keys</p>
+
+<h1>gpg &mdash;armor &mdash;export-secret-keys -a [gpg key id] > [name]private.key</h1>
+
+<p>gpg &mdash;armor &mdash;export-secret-keys -a 841BFBA2 > duplicitysignprivate.key
+gpg &mdash;armor &mdash;export-secret-keys -a F953BE5A > duplicityencryptprivate.key
+```</p>
+
+<h3>Sign encryption key</h3>
+
+<p>To sign your encryption key run the following:</p>
+
+<p>```bash Answer the prompts to sing your encryption key
+gpg &mdash;sign-key duplicityencrypt</p>
+
+<p>Are you sure that you want to sign this key with your
+key &ldquo;duplicitysign <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#100;&#x75;&#112;&#x6c;&#x69;&#99;&#105;&#x74;&#x79;&#115;&#x69;&#103;&#x6e;&#64;&#101;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x64;&#x75;&#112;&#x6c;&#105;&#x63;&#x69;&#116;&#x79;&#115;&#x69;&#x67;&#110;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#x6d;</a>&rdquo; (841BFBA2)</p>
+
+<p>Really sign? (y/N) y</p>
+
+<p>Enter passphrase: I34Bs$YXvn@
+```</p>
+
+<h2>Install duplicity</h2>
+
+<p>First you will need to install duplicity:</p>
+
+<p><code>bash
+sudo apt-get install -y duplicity
+</code></p>
+
+<p>And download the wrapper script for managing the duplicity. You could just get the script or download the project using different ways (e.g., wget), but we will use git for it:</p>
+
+<p><code>bash
+git clone https://github.com/zertrin/duplicity-backup.git
+</code></p>
+
+<h2>Configure wrapper script (default configuration)</h2>
+
+<p>The wrapper script uses a configuration file for running a backup. It allows to fine tune your backup. As you can have multiple configurations (e.g., to backup to different locations) they will be kept in the <code>duplicity-conf</code> directory (or use one of your choosing). Run the following commands to initialize your first initial config:</p>
+
+<p><code>bash Initialize the backup configuration file
+mkdir duplicity-conf
+cp ./duplicity-backup/duplicity-backup.conf.example ./duplicity-conf/duplicity-backup.conf
+</code></p>
+
+<p>The default configuration file has sensible defaults (it has a very descriptive comments if you start wondering that something does), but you need to change a few values to change how the script behaves. Just make sure the file has the following changes inside it (lines wrapped in <code>#</code> explains what and why it should have this value):</p>
+
+<p>```bash duplicity-backup.conf should have the following changes</p>
+
+<h1>Your signing key passphrase.</h1>
+
+<h1>If your passphrase contains a <code>$</code> (dollar sign) make sure you</h1>
+
+<h1>escape it with <code>\</code>, only need to escape in config</h1>
+
+<p>PASSPHRASE=&ldquo;I34Bs\$YXvn@&rdquo;</p>
+
+<h1>ID of GPG encryption key</h1>
+
+<p>GPG_ENC_KEY=&ldquo;F953BE5A&rdquo;</p>
+
+<h1>ID of GPG signing key</h1>
+
+<p>GPG_SIGN_KEY=&ldquo;841BFBA2&rdquo;</p>
+
+<h1>The starting directory of your backup. You might want to change it</h1>
+
+<h1>to something like &ldquo;/Users&rdquo; if you&rsquo;re using OS X.</h1>
+
+<h1>You might also want to add the directory of the user who will be</h1>
+
+<h1>making backups, but it&rsquo;s completely up to you</h1>
+
+<p>ROOT=&ldquo;/home/vagrant&rdquo;</p>
+
+<h1>To make it simpler we just gonna back up to a different directory</h1>
+
+<h1>on the same machine.</h1>
+
+<h1>Later examples for different locations will be provided and the</h1>
+
+<h1>script file has examples for many different locations</h1>
+
+<p>DEST=&ldquo;file:///home/vagrant/directory-holding-backup/&rdquo;</p>
+
+<h1>Currently we only want to backup one directory, you can expand</h1>
+
+<h1>this list or even use a text file</h1>
+
+<p>INCLIST=( &ldquo;/home/vagrant/directory-to-backup/&rdquo; )</p>
+
+<h1>We don&rsquo;t want to backup OS X automatically generated files so we</h1>
+
+<h1>exclude them.</h1>
+
+<h1>We also don&rsquo;t want to backup contents of the directory, but we</h1>
+
+<h1>want to backup the directory itself (as an example)</h1>
+
+<p>EXCLIST=( &ldquo;/**.DS_Store&rdquo; \</p>
+
+<pre><code>      "/**Icon?" \
+      "/**.AppleDouble" \
+      "/home/vagrant/directory-to-backup/cache/*" \
+    )
+</code></pre>
+
+<h1>Just change to a directory where you want to keep your logs</h1>
+
+<p>LOGDIR=&ldquo;/home/vagrant/logs/duplicity/&rdquo;</p>
+
+<h1>You could leave it as a default, but I personally add additional</h1>
+
+<h1>placeholder to help me differentiate between config files</h1>
+
+<h1>(in this case &lsquo;main-&rsquo; was added)</h1>
+
+<p>LOG_FILE=&ldquo;duplicity-main-<code>date +%Y-%m-%d_%H-%M</code>.txt&rdquo;</p>
+
+<h1>Change to who will own the log files</h1>
+
+<p>LOG_FILE_OWNER=&ldquo;vagrant:vagrant&rdquo;</p>
+
+<h1>30 days is long enough to keep the logs, it allows to check</h1>
+
+<h1>if everything is running fine, but doesn&rsquo;t spam you with</h1>
+
+<h1>lots of files (depending on how often you will run your backup)</h1>
+
+<p>REMOVE_LOGS_OLDER_THAN=&lsquo;30&rsquo;
+```</p>
+
+<h2>Backup</h2>
+
+<p>Now that everything is ready you can just run your backup using the following command:</p>
+
+<p><code>bash Run backup
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup
+</code></p>
+
+<p>If you didn&rsquo;t run into any errors you should have the backup of the your whole directory. The directory containing the backup should look something like:</p>
+
+<p><code>bash Initial directory structure which contains backup files
+directory-holding-backup/
+|-- duplicity-full.20140610T045757Z.manifest.gpg
+|-- duplicity-full.20140610T045757Z.vol1.difftar.gpg
+`-- duplicity-full-signatures.20140610T045757Z.sigtar.gpg
+</code></p>
+
+<h3>List files in backup</h3>
+
+<p>To list the files in your current backup you can run the following command:</p>
+
+<p><code>bash List files in backup
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --list-current-files
+</code></p>
+
+<p>Which at the moment (if you&rsquo;re following the tutorial) should give the following output:</p>
+
+<p><code>bash List of files in backup (if following example)
+Last full backup date: Tue Jun 10 04:57:57 2014
+Tue Jun 10 04:53:56 2014 .
+Tue Jun 10 04:56:38 2014 directory-to-backup
+Tue Jun 10 04:49:32 2014 directory-to-backup/20140601
+Tue Jun 10 04:49:32 2014 directory-to-backup/20140602
+Tue Jun 10 04:49:32 2014 directory-to-backup/20140603
+Tue Jun 10 04:49:32 2014 directory-to-backup/20140604
+Tue Jun 10 04:49:32 2014 directory-to-backup/20140605
+Tue Jun 10 04:48:46 2014 directory-to-backup/cache
+</code></p>
+
+<h3>Restore from backup</h3>
+
+<p>You can run different commands to restore from your backup.</p>
+
+<p>To restore the entire backup run the following command:</p>
+
+<p>```bash Restore the entire backup
+/home/vagrant/duplicity-backup/duplicity-backup.sh &mdash;config /home/vagrant/duplicity-conf/duplicity-backup.conf &mdash;restore</p>
+
+<h1>/home/vagrant/duplicity-backup/duplicity-backup.sh &mdash;config /home/vagrant/duplicity-conf/duplicity-backup.conf &mdash;restore /home/vagrant/restoredir</h1>
+
+<p>```</p>
+
+<p>This will ask you for a directory where you want to restore your backup (or add it at the end of the command). The script will ask you if you really want to restore (if restore path wasn&rsquo;t provided with command, answer with <em>yes</em>) and your encryption key passphrase for decryption.</p>
+
+<p>If everything went successfully your restore directory should look like:</p>
+
+<p><code>``bash Directory structure of restored backup
+restoredir/
+</code>&mdash; directory-to-backup</p>
+
+<pre><code>|-- 20140601
+|-- 20140602
+|-- 20140603
+|-- 20140604
+|-- 20140605
+`-- cache
+</code></pre>
+
+<p>```</p>
+
+<p>You can also restore only a file or a directory. To restore a file in the current directory (provide a path at the end of command if you want to restore to a different directory) run the following command:</p>
+
+<p><code>bash Restore a file
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --restore-file directory-to-backup/20140603 restored-file
+</code></p>
+
+<p>Which will ask you if you really want to restore and for your encryption key passphrase.</p>
+
+<h2>Backup to Amazon S3</h2>
+
+<p>Amazon S3 allows you to store and retrieve any amount of data, at any time, from anywhere on the web. Duplicity allows you to backup to S3. This section will take you through steps how to safely do it.</p>
+
+<p>Because you don&rsquo;t want to have the credentials to your whole AWS account kept in plain text (at least I don&rsquo;t), you need to create an IAM user. If you never did it before here is the <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html">tutorial on how to create an IAM user</a>. Just name it any way you want (e.g., duplicity-backup) and make note of the generated Access &amp; Secret keys as you will need them soon.</p>
+
+<p>For security reasons you probably don&rsquo;t want this user to have the full control of your AWS account (IAM best practices suggests to give lowest permissions and add only the required permissions) you will want to attach the following policy to the user (<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html">tutorial on how to attach IAM policy</a>).</p>
+
+<p>This policy will only allow a user to work with a bucket used for backups and all the files in it. Also the user requires to have a permission to list all the buckets as otherwise you won&rsquo;t be able to do anything with your backup bucket (don&rsquo;t worry, he won&rsquo;t have any permissions on any other buckets). Just replace <code>duplicity-backup-article</code> with the name of the bucket you will be using for backups. Name the policy any way you want (e.g., <code>fullOnDuplicityBackupBucket</code>).</p>
+
+<p>```json IAM policy to only allow actions on backup bucket
+{
+  &ldquo;Version&rdquo;: &ldquo;2012-10-17&rdquo;,
+  &ldquo;Statement&rdquo;: [</p>
+
+<pre><code>{
+  "Effect": "Allow",
+  "Action": [
+    "s3:*"
+  ],
+  "Resource": [
+    "arn:aws:s3:::duplicity-backup-article",
+    "arn:aws:s3:::duplicity-backup-article/*"
+  ]
+},
+{
+  "Effect": "Allow",
+  "Action": "s3:ListAllMyBuckets",
+  "Resource": "arn:aws:s3:::*"
+}
+</code></pre>
+
+<p>  ]
+}
+```</p>
+
+<p>Now copy the default configuration file we use for backup:</p>
+
+<p><code>bash Create duplicity config file for S3 backup
+cp duplicity-conf/duplicity-backup.conf duplicity-conf/duplicity-backup-s3.conf
+</code></p>
+
+<p>And make the following changes to the newly created config file:</p>
+
+<p>```bash duplicity-backup-s3.conf should have the following changes</p>
+
+<h1>Just enter the values you received then you created duplicity IAM user</h1>
+
+<p>AWS_ACCESS_KEY_ID=&ldquo;Enter Access key provided after creating IAM user&rdquo;
+AWS_SECRET_ACCESS_KEY=&ldquo;Enter Secret key provided after creating IAM user&rdquo;</p>
+
+<h1>Replace the file destination with the following destination</h1>
+
+<h1>providing the bucket used for backup</h1>
+
+<h1>The folder &lsquo;s3&rsquo; in this example can be anything, but I use it</h1>
+
+<h1>to tell me which configuration is used</h1>
+
+<p>DEST=&ldquo;s3+<a href="http://duplicity-backup-article/s3">http://duplicity-backup-article/s3</a>&rdquo;</p>
+
+<h1>If you live in Europe you might want to add &lsquo;&mdash;s3-european-buckets&rsquo; option</h1>
+
+<h1>STATIC_OPTIONS=&ldquo;&mdash;full-if-older-than 14D &mdash;s3-use-new-style &mdash;s3-european-buckets&rdquo;</h1>
+
+<h1>To help distinguish it between other backup logs</h1>
+
+<p>LOG_FILE=&ldquo;duplicity-s3-<code>date +%Y-%m-%d_%H-%M</code>.txt&rdquo;
+```</p>
+
+<p>You also need to install <a href="https://github.com/boto/boto#installation">boto</a> for this to work. Just use the installation method you&rsquo;re most comfortable with:</p>
+
+<p>```bash Multiple methods for installing boto
+sudo apt-get install python-boto</p>
+
+<h1>or</h1>
+
+<p>pip install boto</p>
+
+<h1>or</h1>
+
+<p>git clone git://github.com/boto/boto.git
+cd boto
+python setup.py install
+```</p>
+
+<p>Run the following command to back up to S3:</p>
+
+<p><code>bash Run backup
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup-s3.conf --backup
+</code></p>
+
+<p>If you did everything correctly your backup bucket on S3 should contain the encrypted backup.</p>
+
+<h2>Backup to Google Drive</h2>
+
+<p>If you have a Google account then you might have some free space in your Google Drive which could be used for keeping your backups.</p>
+
+<p>Start by copying the default configuration file we use for backup:</p>
+
+<p><code>bash Create duplicity config file for Google Drive backup
+cp duplicity-conf/duplicity-backup.conf duplicity-conf/duplicity-backup-google.conf
+</code></p>
+
+<p>And make the following changes to the newly created config file:</p>
+
+<p>```bash duplicity-backup-google.conf should have the following changes</p>
+
+<h1>Just replace &lsquo;GOOGLEACCOUNT&rsquo; with your Google email (doesn&rsquo;t matter if</h1>
+
+<h1>it&rsquo;s @gmail or Google Apps based)</h1>
+
+<h1>You can use any folder(s) you like for keeping your backup</h1>
+
+<p>DEST=&ldquo;gdocs://GOOGLEACCOUNT/duplicity-backup/google&rdquo;</p>
+
+<h1>Enter your Google account password</h1>
+
+<h1>If you use 2-step authentication you will need to generate</h1>
+
+<h1>an application specific password</h1>
+
+<p>FTP_PASSWORD=&ldquo;Enter your Google password&rdquo;</p>
+
+<h1>To help distinguish it between other backup logs</h1>
+
+<p>LOG_FILE=&ldquo;duplicity-google-<code>date +%Y-%m-%d_%H-%M</code>.txt&rdquo;
+```</p>
+
+<p>You also need to install <a href="https://developers.google.com/gdata/articles/python_client_lib">Google Data Python Library</a> for this to work. Just use the installation method you&rsquo;re most comfortable with, for example:</p>
+
+<p><code>bash Install Google Data Python Library
+sudo pip install gdata
+</code></p>
+
+<p>Run the following command to back up to Google Drive:</p>
+
+<p><code>bash Run backup
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup-google.conf --backup
+</code></p>
+
+<p>Due to API changes, running this on Vagrant virtual machine was throwing an error. To fix it you should update duplicity to the latest version.</p>
+
+<p>The only problem I have with using Google Drive for backup is what the password has no fine tunning for permissions (like you have IAM policies in S3) and I just don&rsquo;t like the idea of keeping a password in plain text which allows full access to my Google account. So I chose to use S3 for backup destination.</p>
+
+<p>If I start disliking S3 for backup destination, I will probably try using Google Drive again. But only this time I will set up a simple file destination to the Google Drive folder on my machine and let the Google Drive application do the syncing. However I haven&rsquo;t tried this yet.</p>
+
+<h2>Run backup automatically with Cron</h2>
+
+<p>Even though duplicity helps a lot with encryption and backup, you won&rsquo;t get a lot of use from it if you just gonna forget to run a backup (an believe me sooner or later you will forget to run it). This is why you need to automate your backups (or automate everything you can once you start going a bit crazy).</p>
+
+<p>You can choose how often to run the backup, but currently I&rsquo;m using <em>every 15 minutes</em>. This looks like a great balance between having your files backed up, but not constantly using resources for it.</p>
+
+<p>First you should check if your <code>crontab</code> contains any existing values as you wouldn&rsquo;t want to remove them:</p>
+
+<p><code>bash Check your crontab list
+crontab -l
+</code></p>
+
+<p>If you will get something like &ldquo;<em>no crontab for [username]</em>&rdquo; you&rsquo;re good to go. Otherwise just add existing values to your crontab file. First create a file (name doesn&rsquo;t matter but we will name it <code>crontab.sh</code>) which will have the following contents:</p>
+
+<p>```bash Contents of crontab.sh file
+*/15 * * * * /home/vagrant/duplicity-backup/duplicity-backup.sh &mdash;config /home/vagrant/duplicity-conf/duplicity-backup.conf &mdash;backup > /dev/null 2>&amp;1</p>
+
+<p>```</p>
+
+<p>Just make sure you have an empty line at the end, as you will get errors otherwise. After you done it just update your crontab by running:</p>
+
+<p><code>bash Update crontab jobs
+crontab crontab.sh
+</code></p>
+
+<p>If everything was done correctly you should be getting backups every 15 minutes. You can check logs from time to time to make sure everything is running correctly (I&rsquo;m just paranoid).</p>
+
+<p>If you&rsquo;re having problems with cron backup, but it&rsquo;s working when you run command manually, you might have the problem with your <code>PATH</code> variable. I had this problem when I was setting it up on OS X (it would depend on where you install programs), but on the Vagrant virtual machine it was working fine. The fix to it is to update your <code>PATH</code> variable with additional required directories, so for example if you need to add <code>/home/vagrant/custom/bin</code> to your <code>PATH</code> add the following line (after a first line) to your duplicity configuration file:</p>
+
+<p><code>bash Add as a second line to a config file if needed
+export PATH="/home/vagrant/custom/bin:$PATH"
+</code></p>
+
+<p><strong>Update on 2014-12-21:</strong> After getting paranoid during my trip I did some checking of the logs and learned that duplicity wasn&rsquo;t backing up as supposed due to an existing lock file. I would guess this might happen if you put your laptop to sleep during the back up (or something along those lines).</p>
+
+<p>To fix that, I just added additional command to crontab to remove old files from logs directory (this is where lock file is saved). Modify it to your needs.</p>
+
+<p><code>bash Remove old log and lock files
+23 15 * * * find /home/vagrant/logs/duplicity -mtime +2 -type f -delete
+</code></p>
+
+<h2>Extras &amp; Troubleshooting</h2>
+
+<h3>Backup duplicity configuration file and GPG keys</h3>
+
+<p>You might want to export your duplicity configuration file with GPG keys for safekeeping. duplicity wrapper script allows you to easily do it. Just run the command bellow to export it as an encrypted tarfile in the current directory:</p>
+
+<p><code>bash Run to backup GPG keys &amp; configuration file
+/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup-script
+</code></p>
+
+<p>It will show you the information of what will be backed up and ask you if you want to continue. If you answer with <em>yes</em> it will ask for a password which will protect the archive (it&rsquo;s not asking for GPG passphrase, just for a different password used to encrypt the archive). If everything went fine it should output something like:</p>
+
+<p><code>bash Output of running --backup-script
+gpg -d duplicity-backup-2014-06-10.tar.gpg | tar x
+</code></p>
+
+<p>This is the command you will have to run if you want to decrypt your configuration and GPG keys. You should also probably keep this archive and a password someplace safe, but it&rsquo;s completely up to you.</p>
+
+<h3>OS X open files error</h3>
+
+<p>On OS X you might get the error &ldquo;<code>Too many open files in system</code>&rdquo; after which the backup stops. To take care of it just create an <code>/etc/launchd.conf</code> file with contents provided below. You might need to restart your OS. If you want to find more about it read the following <a href="http://superuser.com/a/443168/298391">superuser answer</a>.</p>
+
+<p><code>bash Contents of launchd.conf file
+limit maxfiles 1000000 1000000
+</code></p>
+
+<h3>Usage examples</h3>
+
+<p>If you want more duplicity wrapper usage examples read the <a href="https://github.com/zertrin/duplicity-backup#usage-examples">wrapper project documentation</a>.</p>
+
+<h2>Conclusion</h2>
+
+<p>By now you should have automatic encrypted backups running on your OS. You can finally enjoy the cup of tea, and if you will accidentally spill it on your machine, it is no big deal as you have all your data safely tucked away.</p>
+
+<p>Do you have any suggestions on how to automate your machine?</p>
+]]></content>
+  </entry>
+  
+</feed>

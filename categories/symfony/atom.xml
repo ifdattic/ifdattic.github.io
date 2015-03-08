@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Symfony | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/symfony/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
+    <link href="http://ifdattic.github.io/my-experience-sensiolabs-symfony-certification-exam"/>
+    <updated>2015-02-17T18:19:52+02:00</updated>
+    <id>http://ifdattic.github.io/my-experience-with-sensiolabs-symfony-certification-exam</id>
+    <content type="html"><![CDATA[<p>One day I check my email and see one from Fabien <em>&ldquo;Symfony turned 9 and for being one of top 100 contributors you get a free voucher.&rdquo;</em> It definitely lifted my spirits.</p>
+
+<p>Voucher was valid for a year so I just created a calendar reminder <em>&ldquo;Learn for Symfony certificate.&rdquo;</em> Made it due sometime in Summer and more or less forgot about it. More than enough time left for it.</p>
+
+<p>After the SymfonyCon Madrid I evaluated my career possibilities. Decided it&rsquo;s time to stop riding a dead horse and move the majority of my time working with Symfony framework. At the same time remembered the <a href="http://en.wikipedia.org/wiki/Parkinson%27s_law">Parkinson&rsquo;s Law</a>. <strong>The task will take as long as it&rsquo;s given time</strong>. Time to add the deadline. No matter how much I will learn for it, on March 1st I need to book the exam.</p>
+
+<p>Somehow I made January &amp; February months for learning a lot of new things. Because of that I didn&rsquo;t get as much practical experience as suspected. Still <strong>made a habit of 90 minutes reading Symfony documentation for breakfast</strong>, um, tasty. This habit was mandatory!</p>
+
+<p>The only preparation what I did was to take all the topics written in certification page and put them in a Trello card. Add items for cookbook topics, doctrine, etc. Not all are required for certification, but a good documentation is like a good book for me, so I didn&rsquo;t mind adding them. Add the links for easy access to as much of items as possible and that&rsquo;s it.</p>
+
+<p>At first the list of about 160 items makes you take a big breath. But one check-box at a time you can see the progress.</p>
+
+<p>This was also the <em>great chance to improve the documentation</em> (fixing typos, etc.). Changing it to the way you imagine it (changing formatting, etc.) and picking the brains of Symfony contributors (discussions in PRs, etc.).</p>
+
+<p><em>90 minutes each day was spent making a few notes once in a while, creating pull requests, experimenting a bit</em>. On February I did some calculations and estimated that around the middle of it I should be done. It was time to register for an exam. Really wanted to do it on February 13th the Friday (how cool does that sound). But the place I like staying at wasn&rsquo;t available for rent. Also it felt like trying to avoid the unavoidable (a bad habit to have). So just registered for Monday (the sooner the better).</p>
+
+<p>In the remaining days finished with the remaining topics. Did a <em>quick second round on the book</em> and it was time to take the exam the next day. <em>This took me about 6 weeks (~63 hours)</em>. I never believed about learning till the last second. My choice always is to put a good nights sleep between learning &amp; applying it. So Sunday documentation breakfast was the last one I will be taking for at least a while (<em>failure is always an option</em>).</p>
+
+<p>The next day I woke up feeling great. Slept well, had a nice meeting the day before, exercised, took a shower, ate and the day looked like it will be a great one. Or would it? Nah, it would be a good one. The worst that could happen is that I won&rsquo;t pass the exam and that&rsquo;s it. It&rsquo;s not the end of a world.</p>
+
+<p>OK, I worried a bit about slipping on the icy bridge while walking to the exam center and breaking my neck or dropping into a cold water. But this is the problem with my imagination. Other than that, I was trying to keep a relaxed attitude by taking a long slow walk along the snowed river to the exam center. Went out early to keep my paranoia in check about arriving late, <em>I like to stay safe</em>.</p>
+
+<p>It sounds silly, but after arriving <em>I noticed my legs getting a bit weaker and heart pounding a little harder. Stupid body</em>. Had about half an hour before the exam. I always try to prepare myself for the worst scenario (which never happens) just in case. And you get a pleasant surprise when the end result is better than that you were expecting. If you&rsquo;re prepared to lose both legs, losing only one of them is wonderful. But most of the time from my research (books, articles, etc.) the suggestion is to imagine the result you want and your mind will go towards it. I&rsquo;m still skeptic about it, but if it&rsquo;s repeated often there must be something to it. And <em>you can&rsquo;t learn without testing</em>, so why not, let&rsquo;s try it.</p>
+
+<p>I sat down. Closed my eyes. Started taking monotonic breaths and focusing my mind on passing the exam. At least my heart stopped pounding. A fresher head couldn&rsquo;t hurt either.</p>
+
+<p><em>I&rsquo;m personally a little skeptic about these exams as you could pass them with a good memory</em>. Especially after I met a person with a Java certificate when he shouldn&rsquo;t be a programmer in the first place. Unfortunately for me, <em>I  don&rsquo;t have a good memory, and it works in strange ways</em>. For example, trying to remember when I had my first operation (string of 10 characters) leads to the following flow: it was on my birthday, I finished school that year, it was my 19th birthday, I finished school one year after 18th birthday, on my school leaving certificate it&rsquo;s written 2006, so I had it on 2006-06-28. Not the best way to remember a date. <em>Fortunately for me, my logic module pick up the pace and helps were memory starts ramble. I just have to put enough resources to be able to link them together.</em></p>
+
+<p>By reminding myself that it wouldn&rsquo;t matter if I fail my head wasn&rsquo;t occupied by negative thoughts about that will happen if I fail. This allowed to take the exam with <em>stone cold focus. Read the question, read the answers, pick the one which is correct or makes most sense, keep going</em>. Flagged two questions for review, but after the second time told myself to stop doing that and simply believe in myself. <em>I enjoyed the exam a lot. It had a good flow &amp; presentation of questions</em>. A few of them made my head go &ldquo;What??&rdquo; (unlike Zend Certificate which contained quite a few &ldquo;WTF?!?&rdquo; questions). Solution to them was simple &ndash; read the question &amp; answers again, you can do this.</p>
+
+<p>75 questions later was confirming that I&rsquo;m finishing the exam and the moment of truth&hellip; Thinking I did good on exam. Still, took the big breath guessing if I should just wait for screen to change or close my eyes&hellip; The screen is still waiting&hellip; The screen finishes loading&hellip; And a log-in pop-up shoots to the front of the screen&hellip;</p>
+
+<p>(╯°□°）╯︵ ┻━┻</p>
+
+<p>After some fiddling I bring the screen back. My eyes start shooting around the screen scanning for required information. &hellip; &ldquo;<strong>Passed</strong>.&rdquo; Great, which level? &hellip; &ldquo;<strong>Expert</strong>.&rdquo; Yes *fist pump*</p>
+
+<p>Unlike with PHP certificate my reaction at the end of exam was much more &ldquo;professional.&rdquo; It still felt awesome!!!</p>
+
+<p>Note: For anyone who is interested I made a <a href="https://trello.com/c/aHnP3WUI/1-learn-for-symfony-certification">Trello card</a> public.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
+    <link href="http://ifdattic.github.io/symfony-events-require-account-information-after-registration"/>
+    <updated>2014-12-03T10:04:45+02:00</updated>
+    <id>http://ifdattic.github.io/symfony-events-require-account-information-after-registration</id>
+    <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users' email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
+
+<p><strong>Note:</strong> the tutorial assumes that your application is using <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> for user management.  If you want to add registration/login using social networks, I recommend using <a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> (not needed for this tutorial). Application assumes what when registering a user he is disabled and he is not enabled until he provides all the required information.</p>
+
+<p>First initialize the <code>src/Ifdattic/UserBundle/EventListener/AccountInformationListener.php</code> (change namespaces as required) with following contents:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace Ifdattic\UserBundle\EventListener;</p>
+
+<p>use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\FOSUserEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;</p>
+
+<p>class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>/**
+ * Route to redirect to
+ *
+ * @var string
+ */
+private $redirectRoute;
+
+/**
+ * @param string $redirectRoute Route to redirect to if conditions not met
+ */
+public function __construct($redirectRoute)
+{
+    $this-&gt;redirectRoute = $redirectRoute;
+}
+
+/**
+ * {@inheritDoc}
+ */
+public static function getSubscribedEvents()
+{
+    return [
+        'kernel.controller' =&gt; 'onKernelController',
+        FOSUserEvents::PROFILE_EDIT_SUCCESS =&gt; 'onProfileEdit',
+    ];
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The listener is provided a route name when initializing it (via constructor argument) and it subscribes to two events: <code>kernel.controller</code> and <code>FOSUserEvents::PROFILE_EDIT_SUCCESS</code>.</p>
+
+<p>Add the method which will be executed on <code>kernel.controller</code> event:</p>
+
+<p>```php
+class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>// ...
+
+/**
+ * If user is not enabled (haven't provided all information) make him to
+ * finish it before using the application.
+ *
+ * @param  FilterControllerEvent $event
+ * @return mixed
+ */
+public function onKernelController(FilterControllerEvent $event)
+{
+    if ($this-&gt;redirectRoute === $event-&gt;getRequest()-&gt;attributes-&gt;get('_route')) {
+        return;
+    }
+
+    $controller = $event-&gt;getController();
+
+    if (!is_array($controller) || !method_exists($controller[0], 'get')) {
+        return;
+    }
+
+    $security = $controller[0]-&gt;get('security.context');
+
+    if (!$security-&gt;isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        return;
+    }
+
+    $user = $security-&gt;getToken()-&gt;getUser();
+
+    if ($user-&gt;isEnabled()) {
+        return;
+    }
+
+    $redirectUrl = $controller[0]-&gt;generateUrl($this-&gt;redirectRoute);
+    $event-&gt;setController(function () use ($redirectUrl) {
+        return new RedirectResponse($redirectUrl);
+    });
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The method first checks what redirect route and controller is provided. Then using <code>security.context</code> service make sure the user is authenticated before continuing. If user is authenticated, but he is not enabled a URL is generated and controller is replaced with an anonymous function which returns a redirect response.</p>
+
+<p>Some might be wondering how much of an overhead this will add. Don&rsquo;t worry, it will probably won&rsquo;t even show on your profiler (if threshold is set to >0ms).</p>
+
+<p>It should be possible to enable a user when he provides all the required information. Add a method to execute on profile edit:</p>
+
+<p>```php
+class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>// ...
+
+/**
+ * Enable user after he filled all the required account information.
+ *
+ * @param  FormEvent $event
+ * @return void
+ */
+public function onProfileEdit(FormEvent $event)
+{
+    $user = $event-&gt;getForm()-&gt;getData();
+
+    if (false === $user-&gt;isEnabled()) {
+        $user-&gt;setEnabled(true);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This will return a user after successful form submit (after validation, etc.) and enable him if he was not enabled before. This point is a great place to collect some metrics to help you track activated users, how long it takes to activate, etc. It can be done simply by sending another event (event dispatcher can be returned from current event using <code>getDispatcher()</code> method).</p>
+
+<p>To enable the listener add it as a service (<code>src/Ifdattic/UserBundle/Resources/config/services.yml</code>):</p>
+
+<p>```yaml
+services:</p>
+
+<pre><code>ifdattic_user.account_information.listener:
+    class: Ifdattic\UserBundle\EventListener\AccountInformationListener
+    arguments: ["fos_user_profile_edit"]
+    tags:
+        - { name: kernel.event_subscriber }
+</code></pre>
+
+<p>```</p>
+
+<p>Now if you visited the application with a user which is not enabled, he should be redirected to a profile edit page. If a new field which is required for using the application is added, you could disable a user to make sure he provides that information before continuing. If you want to send a user to a different page (e.g., profile edit page has a lot of optional fields and you want to display only required fields) just change the first argument for the listener.</p>
+
+<p>This is optional, but to help users understand the next step add some visuals.</p>
+
+<p>```yaml</p>
+
+<h1>in app/Resources/FOSUserBundle/translations/FOSUserBundle.en.yml</h1>
+
+<p>profile:</p>
+
+<pre><code>edit:
+    message_for_disabled_user:
+        header: Required account information
+        message: Please provide the required information before using the application
+</code></pre>
+
+<p>```</p>
+
+<p>
+```jinja
+{# in src/Ifdattic/UserBundle/Resources/views/Profile/_disabled_user_message.html.twig #}
+{% trans_default_domain &lsquo;FOSUserBundle&rsquo; %}</p>
+
+<p>{% if app.user.isEnabled == false %}</p>
+
+<pre><code>&lt;div&gt;
+    &lt;h3&gt;{{ 'profile.edit.message_for_disabled_user.header'|trans }}&lt;/h3&gt;
+    &lt;p&gt;{{ 'profile.edit.message_for_disabled_user.message'|trans }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>{% endif %}
+```
+</p>
+
+<p>
+<code>jinja
+{# in src/Ifdattic/UserBundle/Resources/views/Profile/edit_content.html.twig #}
+{% include "IfdatticUserBundle:Profile:_disabled_user_message.html.twig" %}
+</code>
+</p>
+
+<p>Requiring account information was very easy to implement with a simple listener and now it can be extended by adding more logic and actions to it.</p>
+
+<p>Source files are available as a <a href="https://gist.github.com/ifdattic/21a0575dc4878633430e">gist</a>.</p>
+
+<p>Do you have any suggestions, ideas, questions? Please share them.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
+    <link href="http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2"/>
+    <updated>2014-11-26T15:36:49+02:00</updated>
+    <id>http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2</id>
+    <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
+
+<p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>
+
+<h2>Add DataDog Config</h2>
+
+<p>To install and configure the DataDog agent create <code>.ebextensions/02-datadog.config</code> file with following contents:</p>
+
+<p>```yaml
+packages:</p>
+
+<pre><code>yum:
+    datadog-agent: []
+rpm:
+    datadog: http://yum.datadoghq.com/rpm/x86_64/datadog-agent-5.1.0-539.x86_64.rpm
+</code></pre>
+
+<p>container_commands:</p>
+
+<pre><code>100-copy-config:
+    command: "source .ebextensions/bin/copy-datadog-config.sh"
+200-restart-agent:
+    command: "/etc/init.d/datadog-agent restart"
+    test: "[ $SYMFONY__ENV__DATADOG__API__KEY ]"
+250-stop-agent:
+    command: "/etc/init.d/datadog-agent stop"
+    test: "[ ! $SYMFONY__ENV__DATADOG__API__KEY ]"
+</code></pre>
+
+<p>```</p>
+
+<p>And <code>.ebextensions/bin/copy-datadog-config.sh</code> file:</p>
+
+<p>```bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>sed &rsquo;s/api_key:.*/api_key: &lsquo;&ldquo;$SYMFONY<strong>ENV</strong>DATADOG<strong>API</strong>KEY&rdquo;&rsquo;/&lsquo; /etc/dd-agent/datadog.conf.example > /etc/dd-agent/datadog.conf
+```</p>
+
+<p>If you will deploy an application with these configuration files, EB will install DataDog agent and run the configuration script to update the API key. The API key should be set as an environment variable for the hosts you want to measure. When if <code>SYMFONY__ENV__DATADOG__API__KEY</code> environment variable is set on the host it will restart the DataDog agent to reload the configuration and give a deployment event in DataDog application. If the environment variable is not set (for example you don&rsquo;t want to track a host anymore) it would stop the agent.</p>
+
+<p>This is enough to start receiving some metrics about your hosts on DataDog application, but more can be done.</p>
+
+<h2>Apache Rewrite For Symfony</h2>
+
+<p>Apache has a <code>server-status</code> handler which provides some statistics about current server status. The Symfony application configuration blocks this route, add the following condition in your <code>.htaccess</code> or Apache configuration file (will depend on your project) before queries are rewritten to front controller:</p>
+
+<p>```apache</p>
+
+<h1>Allow internal requests</h1>
+
+<p>RewriteCond %{REQUEST_URI} !^/internal/.+$
+```</p>
+
+<p>This will allow requests to <code>/internal</code> URLS (in case you need to add more locations reachable by URL).</p>
+
+<h2>DataDog Apache Integration</h2>
+
+<p>To send server statistics first create internal server status location in your Apache configuration:</p>
+
+<p>```apache</p>
+
+<h1>Enable server-status for internal IP</h1>
+
+<p><Location /internal/server-status>
+   SetHandler server-status
+   Order Deny,Allow
+   Deny from all
+   Allow from 127.0.0.1
+</Location>
+```</p>
+
+<p>This will allow to get server statistics locally (when connected to a host or from the host).</p>
+
+<p>Next update <code>.ebextensions/02-datadog.config</code> file and add:</p>
+
+<p>```yaml
+files:</p>
+
+<pre><code>/etc/dd-agent/conf.d/apache.yaml:
+    mode: "000644"
+    owner: dd-agent
+    group: root
+    content: |
+        init_config:
+
+        instances:
+            -   apache_status_url: http://127.0.0.1/internal/server-status?auto
+</code></pre>
+
+<p>```</p>
+
+<p>This will create Apache configuration file for DataDog agent pointing it to an URL where it can get server statistics. After deployment you should start receiving metrics about your current server status.</p>
+
+<h2>Install &amp; logstash</h2>
+
+<p><a href="http://logstash.net/">logstash</a> is a tool for managing events and logs.</p>
+
+<p>To install logstash (optional: contrib plugin is installed only once, if you don&rsquo;t use it you can remove the <code>200-install-contrib-plugin</code> command) on deployment create <code>.ebextensions/02-logstash.config</code> file with following contents:</p>
+
+<p>```yaml
+files:</p>
+
+<pre><code>/etc/yum.repos.d/logstash.repo:
+    mode: "000644"
+    owner: root
+    group: root
+    content: |
+        [logstash-1.4]
+        name=logstash repository for 1.4.x packages
+        baseurl=http://packages.elasticsearch.org/logstash/1.4/centos
+        gpgcheck=1
+        gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
+        enabled=1
+</code></pre>
+
+<p>commands:</p>
+
+<pre><code>100-install-logstash:
+    command: "yum -y install logstash-1.4.2"
+200-install-contrib-plugin:
+    command: "wget -O /tmp/logstash-contrib-1.4.2.tar.gz http://download.elasticsearch.org/logstash/logstash/logstash-contrib-1.4.2.tar.gz &amp;&amp; tar zxf /tmp/logstash-contrib-1.4.2.tar.gz -C /opt/logstash --strip 1 &amp;&amp; touch /tmp/logstash-contrib-installed"
+    test: "[ ! -f /tmp/logstash-contrib-installed ]"
+</code></pre>
+
+<p>```</p>
+
+<h2>Parse Apache Logs</h2>
+
+<p>To start parsing Apache logs the logstash first has to be configured. Add the contents bellow to <code>.ebextensions/02-logstash.config</code> file. You will notice what command <code>300-restart-service</code> is commented out, why will be explained shortly.</p>
+
+<p>```yaml
+container_commands:</p>
+
+<pre><code>100-delete-configs:
+    command: "rm -f /etc/logstash/conf.d/*"
+200-copy-configs:
+    command: "cp .ebextensions/logstash/* /etc/logstash/conf.d/"
+# 300-restart-service:
+#     command: "service logstash restart"
+</code></pre>
+
+<p>```</p>
+
+<p>Add the following to Apache configuration to have more information in Apache logs:</p>
+
+<p>```apache
+<IfModule log_config_module></p>
+
+<pre><code>LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\" %D %T" combined
+</code></pre>
+
+<p></IfModule>
+```</p>
+
+<p>Create logstash configuration for parsing Apache logs in <code>.ebextensions/logstash/apache.conf</code>:</p>
+
+<p>```
+input {
+  file {</p>
+
+<pre><code>exclude =&gt; "*.gz"
+path =&gt; "/var/log/httpd/*"
+type =&gt; "apache-access"
+</code></pre>
+
+<p>  }
+}</p>
+
+<p>filter {
+  grok {</p>
+
+<pre><code>match =&gt; ["message", "%{COMBINEDAPACHELOG} %{NUMBER:microseconds} %{NUMBER:seconds}"]
+</code></pre>
+
+<p>  }
+}</p>
+
+<p>output {
+  statsd {</p>
+
+<pre><code>count =&gt; ["apache.count.bytes", "%{bytes}"]
+increment =&gt; "apache.count.response.%{response}"
+increment =&gt; "apache.count.request.%{request}"
+timing =&gt; ["apache.timing.request.%{request}", "%{microseconds}"]
+</code></pre>
+
+<p>  }</p>
+
+<p>  if [response] =~ /^2\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.2XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^3\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.3XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^4\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.4XX" }
+</code></pre>
+
+<p>  } else if [response] =~ /^5\d\d/ {</p>
+
+<pre><code>statsd { increment =&gt; "apache.count.response.5XX" }
+</code></pre>
+
+<p>  }
+}
+```</p>
+
+<p>This will process apache logs and will send metrics using statsd output. Make changes to track what you need.</p>
+
+<p><img class="<a" src="href="https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png">https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png</a>" title="&lsquo;&rsquo; &lsquo;Chart of HTTP status responses&rsquo;" ></p>
+
+<p>As a use case one of tracked metrics with this configuration is HTTP status responses by type. You can create a graph helping you visualize for spikes of 4xx responses (e.g., a bug was introduced in latest deployment or hackers are scanning for vulnerabilities).</p>
+
+<p>Unfortunately I wasn&rsquo;t able to make any of logstash service scripts to work (this is why restart command was commented out). With all the scripts the logstash service is started fine, but no metrics are being output. If you have any suggestions please share. For now I&rsquo;m using the following way to run logstash.</p>
+
+<p>Create the <code>.ebextensions/01-pre.config</code> file with following contents:</p>
+
+<p>```yaml
+commands:</p>
+
+<pre><code>100-create-posthook-dir:
+    command: "mkdir /opt/elasticbeanstalk/hooks/appdeploy/post"
+    test: "[ ! -d /opt/elasticbeanstalk/hooks/appdeploy/post ]"
+</code></pre>
+
+<p>container_commands:</p>
+
+<pre><code>100-chmod-posthooks:
+    command: "chmod +x .ebextensions/hooks/appdeploy/post/*"
+200-copy-posthooks:
+    command: "cp .ebextensions/hooks/appdeploy/post/* /opt/elasticbeanstalk/hooks/appdeploy/post/"
+</code></pre>
+
+<p>```</p>
+
+<p>This will create a post hooks directory for ElasticBeanstalk and copy the post hooks to it. Create the <code>.ebextensions/hooks/appdeploy/post/logstash-background-job.sh</code> script which will start logstash after deployment:</p>
+
+<p>```bash</p>
+
+<h1>!/bin/bash</h1>
+
+<p>. /opt/elasticbeanstalk/support/envvars</p>
+
+<p>for pid in <code>ps aux | grep /etc/logstash/conf.d | grep -v grep | tr -s ' ' | cut -d ' ' -f 2</code>
+do</p>
+
+<pre><code>disown $pid
+kill -9 $pid
+</code></pre>
+
+<p>done</p>
+
+<p>export HOME=/var/lib/logstash</p>
+
+<p>/opt/logstash/bin/logstash \</p>
+
+<pre><code>-f /etc/logstash/conf.d \
+-l /var/log/logstash/logstash.log \
+&gt; /var/log/logstash/logstash.stdout \
+2&gt; /var/log/logstash/logstash.err \
+&amp;
+</code></pre>
+
+<p>```</p>
+
+<p>This script will first kill all the running logstash processes (you should have only one, otherwise your metrics would be sent multiple times) and then start a new logstash process. After deployment you should start receiving metrics from processed Apache logs.</p>
+
+<h2>Conclusion</h2>
+
+<p>You should be receiving a lot of different metrics in your DataDog account and it&rsquo;s easy to extend to receive even more. This will allow you to measure how your application is performing and make important business decisions.</p>
+
+<p>All files can be found in the <a href="https://gist.github.com/ifdattic/61a5b2708dff8811e7e2">gist</a>, the first line displays the full path for it and should be removed from files.</p>
+
+<p>What about you: are you tracking how your application is performing? Or maybe you have suggestions? Please share them in comments.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Use MongoDB for Sessions in Symfony Application]]></title>
+    <link href="http://ifdattic.github.io/how-to-mongodb-sessions-symfony-application"/>
+    <updated>2014-10-20T16:48:25+03:00</updated>
+    <id>http://ifdattic.github.io/how-to-use-mongodb-for-sessions-in-symfony-application</id>
+    <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
+
+<p>Add the services to <code>app/config/services.yml</code>:</p>
+
+<p>```yaml
+services:</p>
+
+<pre><code>mongo:
+    class: Mongo
+    factory_service: mongo.connection
+    factory_method: getMongo
+
+mongo.connection:
+    class: MongoDoctrine\MongoDB\Connection
+    factory_service: doctrine.odm.mongodb.document_manager
+    factory_method: getConnection
+    calls:
+        - [initialize, []]
+
+mongo.session.handler:
+    class: Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler
+    arguments: ["@mongo", "%mongo.session.options%"]
+</code></pre>
+
+<p>```</p>
+
+<p>Add the parameters for session handler:</p>
+
+<p>```yaml</p>
+
+<h1>app/config/parameters.yml.dist</h1>
+
+<p>parameters:</p>
+
+<pre><code>mongo.session.options:
+    database: "%mongodb_database%"
+    collection: sessions
+</code></pre>
+
+<p>```</p>
+
+<p>Change the session handler in <code>app/config/config.yml</code>:</p>
+
+<p>```yaml
+framework:</p>
+
+<pre><code>session:
+    handler_id: mongo.session.handler
+</code></pre>
+
+<p>```</p>
+
+<p>Now your sessions should be saved in the MongoDB database.</p>
+
+<p>If you want to change how long the session is persisted and improve security, add the following code to your configuration:</p>
+
+<p>```yaml
+framework:</p>
+
+<pre><code>session:
+    cookie_lifetime: 1209600 # 14 days
+    cookie_httponly: true
+</code></pre>
+
+<p>```</p>
+
+<p>You might also find &ldquo;<a href="/how-to-send-symfony-application-logs-to-mongodb">How to save Symfony logs to MongoDB</a>&rdquo; interesting.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
+    <link href="http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb"/>
+    <updated>2014-10-05T15:01:41+03:00</updated>
+    <id>http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb</id>
+    <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
+
+<p>Add the log connection to <code>app/config/config.yml</code>:</p>
+
+<p>```yaml
+doctrine_mongodb:</p>
+
+<pre><code>connections:
+    log:
+        server: "%mongodb_log_server%"
+        options:
+            password: "%mongodb_log_password%"
+            username: "%mongodb_log_username%"
+document_managers:
+    log:
+        auto_mapping: false
+        logging: false
+</code></pre>
+
+<p>```</p>
+
+<p>A separate connection is needed with <code>logging</code> disabled as otherwise it will lead to a circular reference error (as the connection is using a logger).</p>
+
+<p>In <code>app/config/config_prod.yml</code> add the mongo handler for Monolog and replace <code>fingers_crossed</code> handler with it:</p>
+
+<p>```yaml
+monolog:</p>
+
+<pre><code>handlers:
+    main:
+        type:         fingers_crossed
+        action_level: error
+        handler:      mongo
+    mongo:
+        type: mongo
+        level: debug
+        mongo:
+            id: mongolog
+            database: "%mongodb_log_database%"
+            collection: "%mongodb_log_collection%"
+</code></pre>
+
+<p>```</p>
+
+<p>If you want to log to MongoDB on development environment, replace main handler with following code (or add an additional handler):</p>
+
+<p>```yaml
+monolog:</p>
+
+<pre><code>handlers:
+    main:
+        type: mongo
+        level: debug
+        mongo:
+            id: mongolog
+            database: "%mongodb_log_database%"
+            collection: "logs_%kernel.environment%"
+</code></pre>
+
+<p>```</p>
+
+<p>Update the parameters file <code>app/config/parameters.yml.dist</code>:</p>
+
+<p>```yaml
+parameters:</p>
+
+<pre><code>mongodb_log_server: "%env.mongodb_log.server%"
+mongodb_log_database: "%env.mongodb_log.database%"
+mongodb_log_password: "%env.mongodb_log.password%"
+mongodb_log_username: "%env.mongodb_log.username%"
+mongodb_log_collection: "%env.mongodb_log.collection%"
+</code></pre>
+
+<p>```</p>
+
+<p>Create the services used by Monolog handler.</p>
+
+<p>```yaml</p>
+
+<h1>app/config/services.yml</h1>
+
+<p>services:</p>
+
+<pre><code>mongolog:
+    class: Mongo
+    factory_service: mongolog.connection
+    factory_method: getMongo
+
+mongolog.connection:
+    class: MongoDoctrine\MongoDB\Connection
+    factory_service: doctrine_mongodb.odm.log_document_manager
+    factory_method: getConnection
+    calls:
+        - [initialize, []]
+</code></pre>
+
+<p>```</p>
+
+<p>If everything was set correctly the logs should start appearing in MongoDB database.</p>
+]]></content>
+  </entry>
+  
+</feed>

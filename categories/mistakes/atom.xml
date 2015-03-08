@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mistakes | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/mistakes/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Scare Your Customers Away]]></title>
+    <link href="http://ifdattic.github.io/how-to-scare-your-customers-away"/>
+    <updated>2014-04-06T18:38:16+03:00</updated>
+    <id>http://ifdattic.github.io/how-to-scare-your-customers-away</id>
+    <content type="html"><![CDATA[<p>A while ago after quitting my job I decided it would be a great time to update all the passwords I use (hey my paranoia can sometimes get paranoid). It&rsquo;s no easy task, but you got to do what you got to do. So one Saturday I sit down armed with a bucket of tea (I&rsquo;m joking, it was only half a bucket) ready to change credentials for all my accounts. When you do a task like that you begin to notice that a lot of websites have made some choices that can really get on your nerves (personally, your experience might differ). At the end of the day my password manager had a lot less accounts to remember. I started to compile a list of that should be avoided unless you want to risk losing customers (again, this is personal preference). Through the series of articles I will try to provide every item from that list (order is of no particular importance).</p>
+
+<h2>Password max length at 16 characters</h2>
+
+<p>I promise if I go back in time a couple of decades, I would even use a password with the value of <em>&ldquo;password&rdquo;</em> and just throw a number at the end to make it impossible to brute force. But we live now at 201something, I think <strong>&ldquo;don&rsquo;t limit password length&rdquo;</strong> should be old news by now (but knowing situation about SQL injection I shouldn&rsquo;t get my hopes up). I&rsquo;m not saying you can&rsquo;t limit it, but choose some better limit (60 or so). Some people use password managers so they don&rsquo;t even know that is their 40 characters long random password (until you are cursed to type it on your mobile). I might don&rsquo;t pay attention to this if it was in some site on which I created an account for hell knows what reason, but most often you see this in online banks and financial services. I would at least like 20 characters before someone gets the hand on my money. Or worst case scenario, just don&rsquo;t show the error about max length restriction, I will be much happier believing my accounts are secure.</p>
+
+<h2>Send my password to email</h2>
+
+<p>You should know the scenario: finding some useful service, creating an account, checking an email for confirmation email. And in one of them finding something similar to: <em>&ldquo;Your password is <strong>plain-text-password-you-used</strong>&rdquo;</em>. Why? Why would you do this? Not only now I have to delete this email, but also I will have to go to trash and permanently delete it. You start to inconvenience me (your customer) and this is not a good idea. As an added bonus, I start thinking that you&rsquo;re saving passwords as plain text. This also happens when changing your password. And, <em>(Insert a name of higher entity)</em> forgive, you send the password I used after submitting <em>Forgot Password</em> form.</p>
+
+<h2>Send an email to all customers that they new password is &ldquo;test&rdquo;</h2>
+
+<p>(facepalm). One more time. (doublefacepalm). If you don&rsquo;t find anything wrong with this one, then&hellip; I don&rsquo;t know what.. see no future/salvation for humanity, or something like what&hellip; You probably want a story about this one? One summer morning I sit down to check my emails. I take care of them one by one while sipping my enormous cup of tea. Then I reach one with subject similar to &ldquo;We updated our shop!!!&rdquo;. My professional curiosity rises a bit trying to think about that changes they might have done. So I open it and start reading it. At first it is general text and pleasantries. Until I reach a bottom of email where black on white <em>&ldquo;We had to change passwords for all accounts and you can log in to your new account using &lsquo;test&rsquo;&rdquo;</em>. <strong>WTF?!!!</strong> <em>You have just received a critical facepalm, please insert a token to continue.</em> Programmers are born in WTF moments, they embrace those moments, they take strength from these moments.. But really, WTF??? The chance of only me getting that password is &ndash; impossible, and even then, WTF? So, just like a good puppy&hellip; I mean programmer, how about trying to debug that happened.</p>
+
+<p>Business is going well, so you decide to start using something new and more powerfull. All good so far. You import or re-type user accounts from old system to a new system and because you didn&rsquo;t do so bad on your old e-shop you don&rsquo;t know the passwords of your users. Nods of approvement continue. So then you change a password of your account to &ldquo;test&rdquo;, run a SQL query on all the rows to update them to the same value and then send an email to everyone that their new password is &ldquo;test&rdquo;. This is where people like me start raising their eyebrow(s) and embracing WTF moments. I think I made my point clear to everyone, but just in case, imagine me making growling sounds for a bit.</p>
+
+<h2>Conclusion</h2>
+
+<p>This should be enough for this article in the series. Did you run into any of the described issues? What was your reaction?</p>
+]]></content>
+  </entry>
+  
+</feed>

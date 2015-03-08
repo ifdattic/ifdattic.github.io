@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Syntax Highlighter | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/syntax-highlighter/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[EPrism Extension]]></title>
+    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <updated>2014-01-02T16:44:58+02:00</updated>
+    <id>http://ifdattic.github.io/eprism-extension</id>
+    <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>easy to install and use;</li>
+<li>simple configuration to better suit your needs;</li>
+<li>adds a great JavaScript syntax highlighter.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EPrism">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eprism">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

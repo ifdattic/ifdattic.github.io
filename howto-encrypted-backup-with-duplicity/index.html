@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>How to set up encrypted backup with duplicity - ifdattic</title>
+  <meta name="author" content="Andrew Marcinkevičius">
+
+  
+  <meta name="description" content="In the last half year or so, I started moving to the point where for example getting my laptop stolen (or I noticed a lot of people like installing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ifdattic.github.io/howto-encrypted-backup-with-duplicity">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
+  <script src="/js/modernizr-2.8.3-custom.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./js/libs/jquery-2.1.3.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/111660522645911622239/posts" rel="author">
+<script src="//load.sumome.com/" data-sumo-site-id="c164debf0a268ada6ab9186c859e0f9e07ed6d194f1e9f7d9d80d283225e676e" async></script>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48134144-1', 'ifdattic.com');
+    ga('send', 'pageview');
+
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
+  </script>
+
+
+</head>
+
+<body >
+  <header role="banner">
+    <div class="wrapper"><hgroup>
+  <h1>
+    <a href="/">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="sitelogo" alt="ifdattic" />
+    </a>
+  </h1>
+</hgroup>
+
+<nav class="nav" data-state="closed">
+  <a href="#" class="nav-reveal">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+</div>
+  </header>
+  <div id="main">
+    <div id="content" class="wrapper">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to set up encrypted backup with duplicity</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-11T09:11:39+03:00" pubdate data-updated="true">June 11, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>In the last half year or so, I started moving to the point where for example getting my laptop stolen (or I noticed a lot of people like installing liquids on their laptops) would be just a loss of money and a few hours. Rather than a complete disaster which might take a few days to recover. The first step of course was cleaning up my hard drive from all the personal photos, videos and a bunch of other stuff you constantly keep, but never really use. The great step to automating everything was using <a href="https://github.com/ifdattic/dotfiles">dotfiles</a> (or you can check original project <a href="https://github.com/mathiasbynens/dotfiles">mathiasbynens/dotfiles</a>). Not only it allows to automate how my machine behaves, but if I will have to set up a different one I won&rsquo;t miss some step for setting it up. Mostly what was left to do, was keeping some files available for any device. <em>Google Drive</em> was working great for it at first, but unfortunately the files in the drive isn&rsquo;t encrypted. It&rsquo;s fine for simple un-important files, but once you start adding more important files you start wanting a bit more security. This let to searching for a solution which will back up and encrypt my files and <a href="http://duplicity.nongnu.org">duplicity</a> looked promising.</p>
+
+<h2>Prerequisites</h2>
+
+<p>After reading documentation about how to use it I was getting my data encrypted and synced. Of course being a programmer I wanted to write some script to automate some of the things. It was quite fun to hack and experiment with something I haven&rsquo;t tried before, but fortunately found an already mature project which automates usage of duplicity. For those interested (or for myself in the future) here is the <a href="https://gist.github.com/ifdattic/4200774f6c6531d7aefb">initial script</a> I was making.</p>
+
+<p>But from this point on we will be using <a href="https://github.com/zertrin/duplicity-backup">zertrin/duplicity-backup</a> bash script for automating and simplifying the working with duplicity.</p>
+
+<p>Because, I already have it all set up on my OS X everything will be done on the <em>precise64</em> (Ubuntu) box using <a href="https://www.vagrantup.com">Vagrant</a>. If you want to test everything on virtual machine first, just check the Vagrant documentation on how to get started, it&rsquo;s only a couple of steps.</p>
+
+<p>The biggest difference of making duplicity work on different operating systems (OS X, Centos, etc.) would be the installation of required programs.</p>
+
+<p>Our box is missing git and pip so lets install them by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y git
+</span><span class='line'>sudo apt-get install -y python-pip
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To make it simpler at first we will backup to a different HDD location. Run the following commands to create the directories &amp; files to be used for tutorial:</p>
+
+<figure class='code'><figcaption><span>Create directories & files for testing</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir directory-to-backup
+</span><span class='line'>mkdir directory-to-backup/cache
+</span><span class='line'>mkdir directory-holding-backup
+</span><span class='line'>
+</span><span class='line'><span class="c"># Create some files to be used for backup</span>
+</span><span class='line'>touch directory-to-backup/cache/20140601 directory-to-backup/cache/20140602 directory-to-backup/cache/20140603
+</span><span class='line'>touch directory-to-backup/20140601 directory-to-backup/20140602 directory-to-backup/20140603 directory-to-backup/20140604 directory-to-backup/20140605
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You should have the following structure for your backup directory:</p>
+
+<figure class='code'><figcaption><span>Structure of backup directory</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>directory-to-backup/
+</span><span class='line'>|-- 20140601
+</span><span class='line'>|-- 20140602
+</span><span class='line'>|-- 20140603
+</span><span class='line'>|-- 20140604
+</span><span class='line'>|-- 20140605
+</span><span class='line'><span class="sb">`</span>-- cache
+</span><span class='line'>    |-- 20140601
+</span><span class='line'>    |-- 20140602
+</span><span class='line'>    <span class="sb">`</span>-- 20140603
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Generate GPG keys for encryption</h2>
+
+<p>To encrypt the backup you will need two (for increased security) GPG keys which will be used by duplicity. As the passphrase will be used in clear text, try to avoid re-using your personal passphrase. For this tutorial we will be using the following passphrases (for <em>production</em> use your own and keep them in the secure place): <em>I34Bs$YXvn@</em> (for signing key) and <em>P$ts&amp;#@qgD</em> (for encryption key).</p>
+
+<p>Our Vagrant box has GPG installed, but if it&rsquo;s missing from your OS please install it first. If you&rsquo;re running this on the Vagrant you might need to give some work for your OS to generate random bytes. It can be done with the following commands:</p>
+
+<figure class='code'><figcaption><span>Only for Vagrant box: random byte generation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Install the program</span>
+</span><span class='line'>sudo apt-get install -y rng-tools
+</span><span class='line'>
+</span><span class='line'><span class="c"># Run it</span>
+</span><span class='line'>sudo rngd -r /dev/urandom
+</span><span class='line'>
+</span><span class='line'><span class="c"># After finishing to generate keys, kill it</span>
+</span><span class='line'>sudo service rng-tools stop
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Generate signing key</h3>
+
+<p>Generate the signing key with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gpg --gen-key
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And answer the prompts (just press enter if you want to use the default value):</p>
+
+<figure class='code'><figcaption><span>Answer prompts with following for signing key generation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Your selection?: <span class="o">(</span>1<span class="o">)</span> RSA and RSA <span class="o">(</span>default<span class="o">)</span>
+</span><span class='line'>What keysize <span class="k">do </span>you want?: 2048
+</span><span class='line'>Key is valid <span class="k">for</span>?: <span class="nv">0</span> <span class="o">=</span> key does not expire
+</span><span class='line'>Is this correct?: y
+</span><span class='line'>Real name: duplicitysign
+</span><span class='line'>Email address: duplicitysign@example.com
+</span><span class='line'>Comment:
+</span><span class='line'>Change ... <span class="o">(</span>O<span class="o">)</span>kay/<span class="o">(</span>Q<span class="o">)</span>uit?: O
+</span><span class='line'>Enter passphrase: I34Bs<span class="nv">$YXvn</span>@
+</span><span class='line'>Repeat passphrase: I34Bs<span class="nv">$YXvn</span>@
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If everything was done correctly you should have the signing key.</p>
+
+<h3>Generate encryption key</h3>
+
+<p>Do this again for generating the encryption key:</p>
+
+<figure class='code'><figcaption><span>Answer prompts with following for encryption key generation</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gpg --gen-key
+</span><span class='line'>
+</span><span class='line'>Your selection?: <span class="o">(</span>1<span class="o">)</span> RSA and RSA <span class="o">(</span>default<span class="o">)</span>
+</span><span class='line'>What keysize <span class="k">do </span>you want?: 2048
+</span><span class='line'>Key is valid <span class="k">for</span>?: <span class="nv">0</span> <span class="o">=</span> key does not expire
+</span><span class='line'>Is this correct?: y
+</span><span class='line'>Real name: duplicityencrypt
+</span><span class='line'>Email address: duplicityencrypt@example.com
+</span><span class='line'>Comment:
+</span><span class='line'>Change ... <span class="o">(</span>O<span class="o">)</span>kay/<span class="o">(</span>Q<span class="o">)</span>uit?: O
+</span><span class='line'>Enter passphrase: P<span class="nv">$ts</span>&amp;#@qgD
+</span><span class='line'>Repeat passphrase: P<span class="nv">$ts</span>&amp;#@qgD
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>List and export GPG keys</h3>
+
+<p>At this point you should have your signing &amp; encryption keys. You can check your keys with the following command (this includes the output which might differ for you):</p>
+
+<figure class='code'><figcaption><span>List GPG keys</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gpg --list-keys
+</span><span class='line'>
+</span><span class='line'>/home/vagrant/.gnupg/pubring.gpg
+</span><span class='line'>--------------------------------
+</span><span class='line'>pub   2048R/841BFBA2 2014-06-10
+</span><span class='line'>uid                  duplicitysign &lt;duplicitysign@example.com&gt;
+</span><span class='line'>sub   2048R/B5C9CA2B 2014-06-10
+</span><span class='line'>
+</span><span class='line'>pub   2048R/F953BE5A 2014-06-10
+</span><span class='line'>uid                  duplicityencrypt &lt;duplicityencrypt@example.com&gt;
+</span><span class='line'>sub   2048R/BE767308 2014-06-10
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Export the public keys and save them in the secure place:</p>
+
+<figure class='code'><figcaption><span>Export public keys</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># gpg --armor --export -a [gpg key id] &gt; [name]public.key</span>
+</span><span class='line'>gpg --armor --export -a 841BFBA2 &gt; duplicitysignpublic.key
+</span><span class='line'>gpg --armor --export -a F953BE5A &gt; duplicityencryptpublic.key
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Export the private keys and save them in the secure place:</p>
+
+<figure class='code'><figcaption><span>Export private keys</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># gpg --armor --export-secret-keys -a [gpg key id] &gt; [name]private.key</span>
+</span><span class='line'>gpg --armor --export-secret-keys -a 841BFBA2 &gt; duplicitysignprivate.key
+</span><span class='line'>gpg --armor --export-secret-keys -a F953BE5A &gt; duplicityencryptprivate.key
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Sign encryption key</h3>
+
+<p>To sign your encryption key run the following:</p>
+
+<figure class='code'><figcaption><span>Answer the prompts to sing your encryption key</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gpg --sign-key duplicityencrypt
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>Are you sure that you want to sign this key with your
+</span><span class='line'>key <span class="s2">&quot;duplicitysign &lt;duplicitysign@example.com&gt;&quot;</span> <span class="o">(</span>841BFBA2<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>Really sign? <span class="o">(</span>y/N<span class="o">)</span> y
+</span><span class='line'>
+</span><span class='line'>Enter passphrase: I34Bs<span class="nv">$YXvn</span>@
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Install duplicity</h2>
+
+<p>First you will need to install duplicity:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install -y duplicity
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And download the wrapper script for managing the duplicity. You could just get the script or download the project using different ways (e.g., wget), but we will use git for it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/zertrin/duplicity-backup.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Configure wrapper script (default configuration)</h2>
+
+<p>The wrapper script uses a configuration file for running a backup. It allows to fine tune your backup. As you can have multiple configurations (e.g., to backup to different locations) they will be kept in the <code>duplicity-conf</code> directory (or use one of your choosing). Run the following commands to initialize your first initial config:</p>
+
+<figure class='code'><figcaption><span>Initialize the backup configuration file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir duplicity-conf
+</span><span class='line'>cp ./duplicity-backup/duplicity-backup.conf.example ./duplicity-conf/duplicity-backup.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The default configuration file has sensible defaults (it has a very descriptive comments if you start wondering that something does), but you need to change a few values to change how the script behaves. Just make sure the file has the following changes inside it (lines wrapped in <code>#</code> explains what and why it should have this value):</p>
+
+<figure class='code'><figcaption><span>duplicity-backup.conf should have the following changes</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Your signing key passphrase.</span>
+</span><span class='line'><span class="c"># If your passphrase contains a `$` (dollar sign) make sure you</span>
+</span><span class='line'><span class="c"># escape it with `\`, only need to escape in config</span>
+</span><span class='line'><span class="nv">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;I34Bs\$YXvn@&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># ID of GPG encryption key</span>
+</span><span class='line'><span class="nv">GPG_ENC_KEY</span><span class="o">=</span><span class="s2">&quot;F953BE5A&quot;</span>
+</span><span class='line'><span class="c"># ID of GPG signing key</span>
+</span><span class='line'><span class="nv">GPG_SIGN_KEY</span><span class="o">=</span><span class="s2">&quot;841BFBA2&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># The starting directory of your backup. You might want to change it</span>
+</span><span class='line'><span class="c"># to something like &quot;/Users&quot; if you&#39;re using OS X.</span>
+</span><span class='line'><span class="c"># You might also want to add the directory of the user who will be</span>
+</span><span class='line'><span class="c"># making backups, but it&#39;s completely up to you</span>
+</span><span class='line'><span class="nv">ROOT</span><span class="o">=</span><span class="s2">&quot;/home/vagrant&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># To make it simpler we just gonna back up to a different directory</span>
+</span><span class='line'><span class="c"># on the same machine.</span>
+</span><span class='line'><span class="c"># Later examples for different locations will be provided and the</span>
+</span><span class='line'><span class="c"># script file has examples for many different locations</span>
+</span><span class='line'><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;file:///home/vagrant/directory-holding-backup/&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Currently we only want to backup one directory, you can expand</span>
+</span><span class='line'><span class="c"># this list or even use a text file</span>
+</span><span class='line'><span class="nv">INCLIST</span><span class="o">=(</span> <span class="s2">&quot;/home/vagrant/directory-to-backup/&quot;</span> <span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># We don&#39;t want to backup OS X automatically generated files so we</span>
+</span><span class='line'><span class="c"># exclude them.</span>
+</span><span class='line'><span class="c"># We also don&#39;t want to backup contents of the directory, but we</span>
+</span><span class='line'><span class="c"># want to backup the directory itself (as an example)</span>
+</span><span class='line'><span class="nv">EXCLIST</span><span class="o">=(</span> <span class="s2">&quot;/**.DS_Store&quot;</span> <span class="se">\</span>
+</span><span class='line'>          <span class="s2">&quot;/**Icon?&quot;</span> <span class="se">\</span>
+</span><span class='line'>          <span class="s2">&quot;/**.AppleDouble&quot;</span> <span class="se">\</span>
+</span><span class='line'>          <span class="s2">&quot;/home/vagrant/directory-to-backup/cache/*&quot;</span> <span class="se">\</span>
+</span><span class='line'>        <span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Just change to a directory where you want to keep your logs</span>
+</span><span class='line'><span class="nv">LOGDIR</span><span class="o">=</span><span class="s2">&quot;/home/vagrant/logs/duplicity/&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># You could leave it as a default, but I personally add additional</span>
+</span><span class='line'><span class="c"># placeholder to help me differentiate between config files</span>
+</span><span class='line'><span class="c"># (in this case &#39;main-&#39; was added)</span>
+</span><span class='line'><span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&quot;duplicity-main-`date +%Y-%m-%d_%H-%M`.txt&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Change to who will own the log files</span>
+</span><span class='line'><span class="nv">LOG_FILE_OWNER</span><span class="o">=</span><span class="s2">&quot;vagrant:vagrant&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># 30 days is long enough to keep the logs, it allows to check</span>
+</span><span class='line'><span class="c"># if everything is running fine, but doesn&#39;t spam you with</span>
+</span><span class='line'><span class="c"># lots of files (depending on how often you will run your backup)</span>
+</span><span class='line'><span class="nv">REMOVE_LOGS_OLDER_THAN</span><span class="o">=</span><span class="s1">&#39;30&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Backup</h2>
+
+<p>Now that everything is ready you can just run your backup using the following command:</p>
+
+<figure class='code'><figcaption><span>Run backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you didn&rsquo;t run into any errors you should have the backup of the your whole directory. The directory containing the backup should look something like:</p>
+
+<figure class='code'><figcaption><span>Initial directory structure which contains backup files</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>directory-holding-backup/
+</span><span class='line'>|-- duplicity-full.20140610T045757Z.manifest.gpg
+</span><span class='line'>|-- duplicity-full.20140610T045757Z.vol1.difftar.gpg
+</span><span class='line'><span class="sb">`</span>-- duplicity-full-signatures.20140610T045757Z.sigtar.gpg
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>List files in backup</h3>
+
+<p>To list the files in your current backup you can run the following command:</p>
+
+<figure class='code'><figcaption><span>List files in backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --list-current-files
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Which at the moment (if you&rsquo;re following the tutorial) should give the following output:</p>
+
+<figure class='code'><figcaption><span>List of files in backup (if following example)</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Last full backup date: Tue Jun 10 04:57:57 2014
+</span><span class='line'>Tue Jun 10 04:53:56 2014 .
+</span><span class='line'>Tue Jun 10 04:56:38 2014 directory-to-backup
+</span><span class='line'>Tue Jun 10 04:49:32 2014 directory-to-backup/20140601
+</span><span class='line'>Tue Jun 10 04:49:32 2014 directory-to-backup/20140602
+</span><span class='line'>Tue Jun 10 04:49:32 2014 directory-to-backup/20140603
+</span><span class='line'>Tue Jun 10 04:49:32 2014 directory-to-backup/20140604
+</span><span class='line'>Tue Jun 10 04:49:32 2014 directory-to-backup/20140605
+</span><span class='line'>Tue Jun 10 04:48:46 2014 directory-to-backup/cache
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Restore from backup</h3>
+
+<p>You can run different commands to restore from your backup.</p>
+
+<p>To restore the entire backup run the following command:</p>
+
+<figure class='code'><figcaption><span>Restore the entire backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --restore
+</span><span class='line'>
+</span><span class='line'><span class="c"># /home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --restore /home/vagrant/restoredir</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will ask you for a directory where you want to restore your backup (or add it at the end of the command). The script will ask you if you really want to restore (if restore path wasn&rsquo;t provided with command, answer with <em>yes</em>) and your encryption key passphrase for decryption.</p>
+
+<p>If everything went successfully your restore directory should look like:</p>
+
+<figure class='code'><figcaption><span>Directory structure of restored backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>restoredir/
+</span><span class='line'><span class="sb">`</span>-- directory-to-backup
+</span><span class='line'>    |-- 20140601
+</span><span class='line'>    |-- 20140602
+</span><span class='line'>    |-- 20140603
+</span><span class='line'>    |-- 20140604
+</span><span class='line'>    |-- 20140605
+</span><span class='line'>    <span class="sb">`</span>-- cache
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also restore only a file or a directory. To restore a file in the current directory (provide a path at the end of command if you want to restore to a different directory) run the following command:</p>
+
+<figure class='code'><figcaption><span>Restore a file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --restore-file directory-to-backup/20140603 restored-file
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Which will ask you if you really want to restore and for your encryption key passphrase.</p>
+
+<h2>Backup to Amazon S3</h2>
+
+<p>Amazon S3 allows you to store and retrieve any amount of data, at any time, from anywhere on the web. Duplicity allows you to backup to S3. This section will take you through steps how to safely do it.</p>
+
+<p>Because you don&rsquo;t want to have the credentials to your whole AWS account kept in plain text (at least I don&rsquo;t), you need to create an IAM user. If you never did it before here is the <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_SettingUpUser.html">tutorial on how to create an IAM user</a>. Just name it any way you want (e.g., duplicity-backup) and make note of the generated Access &amp; Secret keys as you will need them soon.</p>
+
+<p>For security reasons you probably don&rsquo;t want this user to have the full control of your AWS account (IAM best practices suggests to give lowest permissions and add only the required permissions) you will want to attach the following policy to the user (<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html">tutorial on how to attach IAM policy</a>).</p>
+
+<p>This policy will only allow a user to work with a bucket used for backups and all the files in it. Also the user requires to have a permission to list all the buckets as otherwise you won&rsquo;t be able to do anything with your backup bucket (don&rsquo;t worry, he won&rsquo;t have any permissions on any other buckets). Just replace <code>duplicity-backup-article</code> with the name of the bucket you will be using for backups. Name the policy any way you want (e.g., <code>fullOnDuplicityBackupBucket</code>).</p>
+
+<figure class='code'><figcaption><span>IAM policy to only allow actions on backup bucket</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;Version&quot;</span><span class="p">:</span> <span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;Statement&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;s3:*&quot;</span>
+</span><span class='line'>      <span class="p">],</span>
+</span><span class='line'>      <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;arn:aws:s3:::duplicity-backup-article&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;arn:aws:s3:::duplicity-backup-article/*&quot;</span>
+</span><span class='line'>      <span class="p">]</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;Effect&quot;</span><span class="p">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;Action&quot;</span><span class="p">:</span> <span class="s2">&quot;s3:ListAllMyBuckets&quot;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nt">&quot;Resource&quot;</span><span class="p">:</span> <span class="s2">&quot;arn:aws:s3:::*&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">]</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now copy the default configuration file we use for backup:</p>
+
+<figure class='code'><figcaption><span>Create duplicity config file for S3 backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cp duplicity-conf/duplicity-backup.conf duplicity-conf/duplicity-backup-s3.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And make the following changes to the newly created config file:</p>
+
+<figure class='code'><figcaption><span>duplicity-backup-s3.conf should have the following changes</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Just enter the values you received then you created duplicity IAM user</span>
+</span><span class='line'><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s2">&quot;Enter Access key provided after creating IAM user&quot;</span>
+</span><span class='line'><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s2">&quot;Enter Secret key provided after creating IAM user&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Replace the file destination with the following destination</span>
+</span><span class='line'><span class="c"># providing the bucket used for backup</span>
+</span><span class='line'><span class="c"># The folder &#39;s3&#39; in this example can be anything, but I use it</span>
+</span><span class='line'><span class="c"># to tell me which configuration is used</span>
+</span><span class='line'><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;s3+http://duplicity-backup-article/s3&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># If you live in Europe you might want to add &#39;--s3-european-buckets&#39; option</span>
+</span><span class='line'><span class="c">#STATIC_OPTIONS=&quot;--full-if-older-than 14D --s3-use-new-style --s3-european-buckets&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># To help distinguish it between other backup logs</span>
+</span><span class='line'><span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&quot;duplicity-s3-`date +%Y-%m-%d_%H-%M`.txt&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You also need to install <a href="https://github.com/boto/boto#installation">boto</a> for this to work. Just use the installation method you&rsquo;re most comfortable with:</p>
+
+<figure class='code'><figcaption><span>Multiple methods for installing boto</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install python-boto
+</span><span class='line'>
+</span><span class='line'><span class="c"># or</span>
+</span><span class='line'>
+</span><span class='line'>pip install boto
+</span><span class='line'>
+</span><span class='line'><span class="c"># or</span>
+</span><span class='line'>
+</span><span class='line'>git clone git://github.com/boto/boto.git
+</span><span class='line'><span class="nb">cd </span>boto
+</span><span class='line'>python setup.py install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run the following command to back up to S3:</p>
+
+<figure class='code'><figcaption><span>Run backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup-s3.conf --backup
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you did everything correctly your backup bucket on S3 should contain the encrypted backup.</p>
+
+<h2>Backup to Google Drive</h2>
+
+<p>If you have a Google account then you might have some free space in your Google Drive which could be used for keeping your backups.</p>
+
+<p>Start by copying the default configuration file we use for backup:</p>
+
+<figure class='code'><figcaption><span>Create duplicity config file for Google Drive backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cp duplicity-conf/duplicity-backup.conf duplicity-conf/duplicity-backup-google.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And make the following changes to the newly created config file:</p>
+
+<figure class='code'><figcaption><span>duplicity-backup-google.conf should have the following changes</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Just replace &#39;GOOGLEACCOUNT&#39; with your Google email (doesn&#39;t matter if</span>
+</span><span class='line'><span class="c"># it&#39;s @gmail or Google Apps based)</span>
+</span><span class='line'><span class="c"># You can use any folder(s) you like for keeping your backup</span>
+</span><span class='line'><span class="nv">DEST</span><span class="o">=</span><span class="s2">&quot;gdocs://GOOGLEACCOUNT/duplicity-backup/google&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Enter your Google account password</span>
+</span><span class='line'><span class="c"># If you use 2-step authentication you will need to generate</span>
+</span><span class='line'><span class="c"># an application specific password</span>
+</span><span class='line'><span class="nv">FTP_PASSWORD</span><span class="o">=</span><span class="s2">&quot;Enter your Google password&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># To help distinguish it between other backup logs</span>
+</span><span class='line'><span class="nv">LOG_FILE</span><span class="o">=</span><span class="s2">&quot;duplicity-google-`date +%Y-%m-%d_%H-%M`.txt&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You also need to install <a href="https://developers.google.com/gdata/articles/python_client_lib">Google Data Python Library</a> for this to work. Just use the installation method you&rsquo;re most comfortable with, for example:</p>
+
+<figure class='code'><figcaption><span>Install Google Data Python Library</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo pip install gdata
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run the following command to back up to Google Drive:</p>
+
+<figure class='code'><figcaption><span>Run backup</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup-google.conf --backup
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Due to API changes, running this on Vagrant virtual machine was throwing an error. To fix it you should update duplicity to the latest version.</p>
+
+<p>The only problem I have with using Google Drive for backup is what the password has no fine tunning for permissions (like you have IAM policies in S3) and I just don&rsquo;t like the idea of keeping a password in plain text which allows full access to my Google account. So I chose to use S3 for backup destination.</p>
+
+<p>If I start disliking S3 for backup destination, I will probably try using Google Drive again. But only this time I will set up a simple file destination to the Google Drive folder on my machine and let the Google Drive application do the syncing. However I haven&rsquo;t tried this yet.</p>
+
+<h2>Run backup automatically with Cron</h2>
+
+<p>Even though duplicity helps a lot with encryption and backup, you won&rsquo;t get a lot of use from it if you just gonna forget to run a backup (an believe me sooner or later you will forget to run it). This is why you need to automate your backups (or automate everything you can once you start going a bit crazy).</p>
+
+<p>You can choose how often to run the backup, but currently I&rsquo;m using <em>every 15 minutes</em>. This looks like a great balance between having your files backed up, but not constantly using resources for it.</p>
+
+<p>First you should check if your <code>crontab</code> contains any existing values as you wouldn&rsquo;t want to remove them:</p>
+
+<figure class='code'><figcaption><span>Check your crontab list</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>crontab -l
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you will get something like &ldquo;<em>no crontab for [username]</em>&rdquo; you&rsquo;re good to go. Otherwise just add existing values to your crontab file. First create a file (name doesn&rsquo;t matter but we will name it <code>crontab.sh</code>) which will have the following contents:</p>
+
+<figure class='code'><figcaption><span>Contents of crontab.sh file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>*/15 * * * * /home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup &gt; /dev/null 2&gt;&amp;1
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just make sure you have an empty line at the end, as you will get errors otherwise. After you done it just update your crontab by running:</p>
+
+<figure class='code'><figcaption><span>Update crontab jobs</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>crontab crontab.sh
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If everything was done correctly you should be getting backups every 15 minutes. You can check logs from time to time to make sure everything is running correctly (I&rsquo;m just paranoid).</p>
+
+<p>If you&rsquo;re having problems with cron backup, but it&rsquo;s working when you run command manually, you might have the problem with your <code>PATH</code> variable. I had this problem when I was setting it up on OS X (it would depend on where you install programs), but on the Vagrant virtual machine it was working fine. The fix to it is to update your <code>PATH</code> variable with additional required directories, so for example if you need to add <code>/home/vagrant/custom/bin</code> to your <code>PATH</code> add the following line (after a first line) to your duplicity configuration file:</p>
+
+<figure class='code'><figcaption><span>Add as a second line to a config file if needed</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/home/vagrant/custom/bin:$PATH&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Update on 2014-12-21:</strong> After getting paranoid during my trip I did some checking of the logs and learned that duplicity wasn&rsquo;t backing up as supposed due to an existing lock file. I would guess this might happen if you put your laptop to sleep during the back up (or something along those lines).</p>
+
+<p>To fix that, I just added additional command to crontab to remove old files from logs directory (this is where lock file is saved). Modify it to your needs.</p>
+
+<figure class='code'><figcaption><span>Remove old log and lock files</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>23 15 * * * find /home/vagrant/logs/duplicity -mtime +2 -type f -delete
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Extras &amp; Troubleshooting</h2>
+
+<h3>Backup duplicity configuration file and GPG keys</h3>
+
+<p>You might want to export your duplicity configuration file with GPG keys for safekeeping. duplicity wrapper script allows you to easily do it. Just run the command bellow to export it as an encrypted tarfile in the current directory:</p>
+
+<figure class='code'><figcaption><span>Run to backup GPG keys & configuration file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/home/vagrant/duplicity-backup/duplicity-backup.sh --config /home/vagrant/duplicity-conf/duplicity-backup.conf --backup-script
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It will show you the information of what will be backed up and ask you if you want to continue. If you answer with <em>yes</em> it will ask for a password which will protect the archive (it&rsquo;s not asking for GPG passphrase, just for a different password used to encrypt the archive). If everything went fine it should output something like:</p>
+
+<figure class='code'><figcaption><span>Output of running &#8211;backup-script</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>gpg -d duplicity-backup-2014-06-10.tar.gpg | tar x
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is the command you will have to run if you want to decrypt your configuration and GPG keys. You should also probably keep this archive and a password someplace safe, but it&rsquo;s completely up to you.</p>
+
+<h3>OS X open files error</h3>
+
+<p>On OS X you might get the error &ldquo;<code>Too many open files in system</code>&rdquo; after which the backup stops. To take care of it just create an <code>/etc/launchd.conf</code> file with contents provided below. You might need to restart your OS. If you want to find more about it read the following <a href="http://superuser.com/a/443168/298391">superuser answer</a>.</p>
+
+<figure class='code'><figcaption><span>Contents of launchd.conf file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>limit maxfiles 1000000 1000000
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Usage examples</h3>
+
+<p>If you want more duplicity wrapper usage examples read the <a href="https://github.com/zertrin/duplicity-backup#usage-examples">wrapper project documentation</a>.</p>
+
+<h2>Conclusion</h2>
+
+<p>By now you should have automatic encrypted backups running on your OS. You can finally enjoy the cup of tea, and if you will accidentally spill it on your machine, it is no big deal as you have all your data safely tucked away.</p>
+
+<p>Do you have any suggestions on how to automate your machine?</p>
+</div>
+
+
+  <footer>
+    <ul class="social-buttons">
+  <li>
+    <a class="socialite twitter-share"
+      href="https://twitter.com/share"
+      data-via="ifdattic"
+      data-count="vertical"
+      rel="nofollow"
+      target="_blank">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="socialite twitter-follow"
+      href="https://twitter.com/ifdattic"
+      data-count="vertical"
+      target="_blank">
+      Follow me
+    </a>
+  </li>
+  <li>
+    <a class="socialite googleplus-one"
+    href="https://plus.google.com/share"
+    data-size="tall"
+    rel="nofollow"
+    target="_blank">
+      Share on Google+
+    </a>
+  </li>
+  <li>
+    <a class="socialite facebook-like"
+      href="https://www.facebook.com/sharer.php"
+      data-layout="box_count"
+      data-width="60"
+      data-show-faces="false"
+      rel="nofollow"
+      target="_blank">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="socialite linkedin-share"
+      href="https://www.linkedin.com/shareArticle"
+      data-counter="top"
+      rel="nofollow"
+      target="_blank">
+      Share on LinkedIn
+    </a>
+  </li>
+</ul>
+
+    <p class="meta">
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2014-06-11-how-to-set-up-encrypted-backup-with-duplicity.markdown">Edit this page on GitHub</a><br />
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrew Marcinkevičius</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-11T09:11:39+03:00" pubdate data-updated="true">June 11, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/backup/'>Backup</a>, <a class='category' href='/categories/security/'>Security</a>, <a class='category' href='/categories/tutorials/'>Tutorials</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/achievement-unlocked-put-out-trash-can-fire" title="Previous Post: Achievement unlocked: Put out trash can fire">&laquo; Achievement unlocked: Put out trash can fire</a>
+      
+      
+        <a class="basic-alignment right" href="/review-of-sql-performance-explained-book" title="Next Post: Review of SQL Performance Explained book">Review of SQL Performance Explained book &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div class="wrapper"><p>&copy; 2015 - Andrew Marcinkevičius</p>
+<p>
+  Hosted on <a href="https://github.com/ifdattic/ifdattic.github.io">Github</a>
+  -
+  Powered by <a href="http://octopress.org">Octopress</a>
+</p>
+
+</div></footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ifdattic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ifdattic.github.io/howto-encrypted-backup-with-duplicity';
+        var disqus_url = 'http://ifdattic.github.io/howto-encrypted-backup-with-duplicity';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<script src="/javascripts/socialite.min.js"></script>
+<script src="/javascripts/scripts.js" type="text/javascript"></script>
+
+
+</body>
+</html>

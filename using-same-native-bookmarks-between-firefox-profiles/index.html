@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Using same native bookmarks between Firefox profiles - ifdattic</title>
+  <meta name="author" content="Andrew Marcinkevičius">
+
+  
+  <meta name="description" content="Firefox profiles are a great way to keep your personal and work habits separate. For example to save yourself from procrastinating you can log in to &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ifdattic.github.io/using-same-native-bookmarks-between-firefox-profiles">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
+  <script src="/js/modernizr-2.8.3-custom.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./js/libs/jquery-2.1.3.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/111660522645911622239/posts" rel="author">
+<script src="//load.sumome.com/" data-sumo-site-id="c164debf0a268ada6ab9186c859e0f9e07ed6d194f1e9f7d9d80d283225e676e" async></script>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48134144-1', 'ifdattic.com');
+    ga('send', 'pageview');
+
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
+  </script>
+
+
+</head>
+
+<body >
+  <header role="banner">
+    <div class="wrapper"><hgroup>
+  <h1>
+    <a href="/">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="sitelogo" alt="ifdattic" />
+    </a>
+  </h1>
+</hgroup>
+
+<nav class="nav" data-state="closed">
+  <a href="#" class="nav-reveal">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+</div>
+  </header>
+  <div id="main">
+    <div id="content" class="wrapper">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using same native bookmarks between Firefox profiles</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-19T19:32:33+03:00" pubdate data-updated="true">October 19, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Firefox profiles are a great way to keep your personal and work habits separate. For example to save yourself from procrastinating you can log in to Facebook only on your personal profile, or you can save yourself from clutter and performance problems by keeping your work extensions on your work profile. However, one thing I wanted to keep between profiles were bookmarks, as few bookmarks are used on both profiles. Or I find a bookmark while I’m on personal profile and I would like to check it then I’m in a work mood, and vice versa.</p>
+
+<!-- more -->
+
+
+<h2>Story which led to this hack</h2>
+
+<p>I looked at available extensions for synchronizing bookmarks, but none of them met my standards.</p>
+
+<p><a href="https://services.mozilla.com">Firefox Sync</a> was my first choice as it was already built-in Firefox browser. At first it looked like a good choice, but after testing it for some time, I run into few problems. The problem was that Firefox Sync wasn’t synchronizing my bookmarks constantly, so after exiting one profile and opening another one, I would be left with old bookmarks and with no idea when it would be updated. Using a sync button didn’t help either. After searching the internet on how to change synchronization interval I found that you can change it in config, but it won’t matter as Firefox Sync would decide by itself when to synchronize, based on its mood. What was the point when I decided it’s not what I’m looking for. Of course after it messed my bookmarks (I don’t know, maybe it was reading my mind, but it’s a great way to learn that you need to back up everything) I decided I won’t be looking into this service anymore.</p>
+
+<blockquote><p>We lost (probably) quite a few good bookmarks in the journey.</p></blockquote>
+
+<p>My next choice was <a href="https://addons.mozilla.org/en-US/firefox/addon/gmarks">GMarks</a> extension which uses <em>Google Bookmarks</em> for synchronizing bookmarks. As I enjoy using Google services (yes, I know Google is “evil”, and I don’t care) that looked like a good solution as I will be able to sync my bookmarks between profiles and keep them with my Google account just in case. Of course like it happens most of the time, good impressions didn’t last for long. I had to wait for data to move back and forth every time I wanted to search for bookmarks, or just to browse through them. GMarks is completely separate from your Firefox bookmarks, which is probably a good thing. But I don’t like things getting in my way so using a sidebar just wasn’t for me. This is when I decided to add another requirement: extension must use native Firefox bookmarks.</p>
+
+<p>After that I was looking into <a href="https://addons.mozilla.org/en-US/firefox/addon/xmarks-sync">Xmarks Sync</a> extension. I heard good things about this service and though this one will be the winner. Third time’s the charm, right? There were some comments suggesting not to use this service as it was bought by <a href="http://lastpass.com">LastPass</a> and you shouldn’t trust them. That made me think for a second, but LastPass already has all my passwords, I might as well give my bookmarks to them. I removed Xmarks Sync after few weeks, mostly because I though it was messing with my browser, but also I knew I won’t be using it as it wasn’t what I was looking for. I’m not saying it’s a bad service, but it’s just not for me, as I don’t care about checking the rankings of the link or any other information about it. Also most of the time it was asking me to wait while it synchronizes my bookmarks when exiting my browser, this was really getting on my nerves (I’m not a very patient person).</p>
+
+<h2>Hacking Firefox bookmarks</h2>
+
+<p>At this point it looked like I would have to get my hands dirty and use an axe to fix something that is not broken. If you need help on how to create a profile you can find it on <a href="http://support.mozilla.com/en-US/kb/Managing-profiles">Firefox help website</a>.</p>
+
+<p>The first logical solution was to use symbolic links to share bookmarks between profiles. After digging (you need an axe, a shovel and some duct tape if you want to do some real work) around the Firefox profile folder, I found out that Firefox keeps bookmarks inside <code>places.sqlite</code> file. (Make a backup first and I take no responsibility if something bad will happen). So just move this file from your profile folder somewhere else (you can move it to your Dropbox folder to use between different machines) and then delete <code>places.sqlite</code> file from your profile folders. You can create symbolic links the easy way or the hard way. The hard way will be using <code>windows command shell (cmd)</code>. Open <code>cmd</code> and enter <code>mklink driveletter:\path\to\profile\folder\places.sqlite driveletter:\path\to\moved\file\places.sqlite</code> and press enter.</p>
+
+<p>I keep my <code>places.sqlite</code> file in <code>D:\Other\Firefox</code> which also contains profile folders named <code>ifd-personal-profile</code> and <code>ifd-work-profile</code>, so I will need to run these two commands to create symbolic links:</p>
+
+<figure class='code'><figcaption><span>Create symbolic places.sqlite link in Windows</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mklink d:<span class="se">\o</span>ther<span class="se">\f</span>irefox<span class="se">\i</span>fd-personal-profile<span class="se">\p</span>laces.sqlite d:<span class="se">\o</span>ther<span class="se">\f</span>irefox<span class="se">\p</span>laces.sqlite
+</span><span class='line'>mklink d:<span class="se">\o</span>ther<span class="se">\f</span>irefox<span class="se">\i</span>fd-work-profile<span class="se">\p</span>laces.sqlite d:<span class="se">\o</span>ther<span class="se">\f</span>irefox<span class="se">\p</span>laces.sqlite
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to go the easy way (which I would suggest in this case) you will need to install <a href="http://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html">Link Shell Extension</a> which allows you to create symbolic links by dragging the file. Simply drag your <code>places.sqlite</code> file on your Firefox profile folder while holding right mouse button and select <code>Drop Here... -&gt; Symbolic Link</code> from the menu after you release it.</p>
+
+<p><img src="https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/lse-create-places-sqlite-symbolic-link.jpg"  alt="Screenshot of creating symbolic link using Link Shell Extension"></p>
+
+<p>Of course then your start “fixing” something that isn’t broken, you can’t expect it to work perfectly every time. However, I’m using this trick for about half a year now and haven’t run into too much problems. Just remember to keep backups, at least until you get used to this hack. Actually the only problem I had so far is when <code>places.sqlite</code> file gets corrupted. This is very easy to fix. You just need to quit your browser, delete <code>places.sqlite</code> and <code>places.sqlite.corrupt</code> files from your profile folder and re-create symbolic link again (this is why I suggested the easy way). The corruption is very easy to spot if you are using Bookmarks Toolbar as all your bookmark favicons will disappear. <code>places.sqlite</code> might get corrupted when:</p>
+
+<ul>
+<li>browser doesn’t exit properly</li>
+<li>sometimes after extension updates</li>
+<li>if <code>browser.bookmarks.autoExportHTML</code> is enabled</li>
+<li>influenced by mysterious powers.</li>
+</ul>
+
+
+<p>Using different profiles at the same time might also lead to <code>places.sqlite</code> corruption. Also changes to bookmarks won’t be synchronized, so if you add a new bookmark in one profile, it won’t be visible in another profile. You can still use multiple windows of the same profile without any problems.</p>
+
+<p>This hack doesn’t work very well on Linux (tested on Ubuntu 11.04). Temporary bookmark files doesn’t get removed after closing Firefox which leads to corrupted or un-synchronized <code>places.sqlite</code> file. You can still give it a shot, maybe you will have more luck than I did.</p>
+
+<p>Just remember to make backups (just in case) and watch for bookmarks file corruption (re-create symbolic links then this happens). This looks like a lot of work, but if you want to use same native bookmarks between different profiles it works quite well.</p>
+</div>
+
+
+  <footer>
+    <ul class="social-buttons">
+  <li>
+    <a class="socialite twitter-share"
+      href="https://twitter.com/share"
+      data-via="ifdattic"
+      data-count="vertical"
+      rel="nofollow"
+      target="_blank">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="socialite twitter-follow"
+      href="https://twitter.com/ifdattic"
+      data-count="vertical"
+      target="_blank">
+      Follow me
+    </a>
+  </li>
+  <li>
+    <a class="socialite googleplus-one"
+    href="https://plus.google.com/share"
+    data-size="tall"
+    rel="nofollow"
+    target="_blank">
+      Share on Google+
+    </a>
+  </li>
+  <li>
+    <a class="socialite facebook-like"
+      href="https://www.facebook.com/sharer.php"
+      data-layout="box_count"
+      data-width="60"
+      data-show-faces="false"
+      rel="nofollow"
+      target="_blank">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="socialite linkedin-share"
+      href="https://www.linkedin.com/shareArticle"
+      data-counter="top"
+      rel="nofollow"
+      target="_blank">
+      Share on LinkedIn
+    </a>
+  </li>
+</ul>
+
+    <p class="meta">
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2011-10-19-using-same-native-bookmarks-between-firefox-profiles.markdown">Edit this page on GitHub</a><br />
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrew Marcinkevičius</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-19T19:32:33+03:00" pubdate data-updated="true">October 19, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/bookmarks/'>Bookmarks</a>, <a class='category' href='/categories/firefox/'>Firefox</a>, <a class='category' href='/categories/hack/'>Hack</a>, <a class='category' href='/categories/tutorials/'>Tutorials</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/ewymeditor-extension" title="Previous Post: EWYMeditor Extension">&laquo; EWYMeditor Extension</a>
+      
+      
+        <a class="basic-alignment right" href="/converting-px-to-ems-with-less" title="Next Post: Converting px to ems with LESS">Converting px to ems with LESS &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div class="wrapper"><p>&copy; 2015 - Andrew Marcinkevičius</p>
+<p>
+  Hosted on <a href="https://github.com/ifdattic/ifdattic.github.io">Github</a>
+  -
+  Powered by <a href="http://octopress.org">Octopress</a>
+</p>
+
+</div></footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ifdattic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ifdattic.github.io/using-same-native-bookmarks-between-firefox-profiles';
+        var disqus_url = 'http://ifdattic.github.io/using-same-native-bookmarks-between-firefox-profiles';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<script src="/javascripts/socialite.min.js"></script>
+<script src="/javascripts/scripts.js" type="text/javascript"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Extensions | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/extensions/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Create Yii Extension by Example - EPrism]]></title>
+    <link href="http://ifdattic.github.io/create-yii-extension-by-example-eprism"/>
+    <updated>2014-03-05T21:46:37+02:00</updated>
+    <id>http://ifdattic.github.io/create-yii-extension-by-example-eprism</id>
+    <content type="html"><![CDATA[<p>This is the tutorial about how to make a simple <a href="http://www.yiiframework.com/">Yii</a> extension. It would be most useful to people who are just starting with Yii framework. The tutorial is step-by-step guide using an <a href="http://www.yiiframework.com/extension/eprism">EPrism</a> extension as a base. This would be really helpful if for example you found a nice JavaScript plugin and want to use it as a part of framework rather than just adding it statically in your application.</p>
+
+<h2>1. Set up</h2>
+
+<p>Everything needs to start from something, so do the following steps to have a base on which you can build your extension:</p>
+
+<ul>
+<li>Create a folder <code>EPrism</code> for extension</li>
+<li>Create an extension file name <code>EPrism.php</code> inside the folder</li>
+<li>Create a class <code>EPrism</code> which extends a framework class of <code>CWidget</code> in the <code>EPrism.php</code> file</li>
+<li>Add <code>init()</code> and <code>run()</code> methods</li>
+</ul>
+
+
+<p><a href="http://www.yiiframework.com/doc/api/1.1/CWidget/"><code>CWidget</code> class</a> is a base class for widgets. You can think of a widget as a self-contained component that may generate presentation based on model data.</p>
+
+<p>The <a href="http://www.yiiframework.com/doc/api/1.1/CWidget#init-detail"><code>init()</code> method</a> initializes the widget.</p>
+
+<p>The <a href="http://www.yiiframework.com/doc/api/1.1/CWidget#run-detail"><code>run()</code> method</a> executes the widget.</p>
+
+<h4>Step results</h4>
+
+<p>By now your folder structure should be:</p>
+
+<p><code>bash Folder structure after first step
+EPrism/
+└── EPrism.php
+</code></p>
+
+<p>The contents of <code>EPrism.php</code> file should be:</p>
+
+<p>```php Extension contents after first step
+class EPrism extends CWidget
+{</p>
+
+<pre><code>public function init()
+{
+    return parent::init();
+}
+
+public function run()
+{
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>2. Add extension assets</h2>
+
+<p>To be able to use the extension <em>out of the box</em>, you need to add the assets for it. Start by creating a folder <code>assets</code> which will contain the extension assets.</p>
+
+<p>Now go to the <a href="http://prismjs.com/download.html">Prism download page</a>, generate the wanted configuration, and download provided code. Save JavaScript code as <code>prism.js</code> in <code>assets</code> folder, and CSS code as <code>prism.css</code> in the same folder.</p>
+
+<p>To use the downloaded assets you will need to add the code to <code>run()</code> method.</p>
+
+<p>First you want to <a href="http://www.yiiframework.com/doc/api/1.1/CAssetManager/#publish-detail">publish your assets</a> to a web accessible directory:</p>
+
+<p><code>php Publish assets to a web accessible directory
+$assets = Yii::app()-&gt;getAssetManager()-&gt;publish(dirname(__FILE__) . '/assets');
+</code></p>
+
+<p>Also get <em>ClientScript</em> component to help you with registering your assets:</p>
+
+<p><code>php Get &amp; assign ClientScript component to a variable
+$cs = Yii::app()-&gt;getClientScript();
+</code></p>
+
+<p>Because <em>Prism</em> only needs the asset files added to page for it to run, all that is left is to register the assets:</p>
+
+<p>```php Register assets to the page
+$cs->registerCssFile($assets . &lsquo;/prism.css&rsquo;);</p>
+
+<p>$cs->registerScriptFile($assets . &lsquo;/prism.js&rsquo;);
+```</p>
+
+<p>The <a href="http://www.yiiframework.com/doc/api/1.1/CClientScript/#registerCssFile-detail"><code>registerCssFile()</code></a> and <a href="http://www.yiiframework.com/doc/api/1.1/CClientScript/#registerScriptFile-detail"><code>registerScriptFile()</code></a> adds the CSS and JavaScript files to the rendered page. If you needed to run some JavaScript code to run the plugin then you will need to add a call to <a href="http://www.yiiframework.com/doc/api/1.1/CClientScript/#registerScript-detail"><code>registerScript()</code></a> method which will add your JavaScript code to the page.</p>
+
+<p>And this is it. You only need this much code to create a simple Yii extension. But of course it can be improved so continue reading if you want to get some ideas how to improve your extensions after having the minimal needed code.</p>
+
+<h4>Step results</h4>
+
+<p>By now your folder structure should be:</p>
+
+<p>```bash Folder structure after second step (minimal working extension)
+EPrism/
+├── EPrism.php
+└── assets</p>
+
+<pre><code>├── prism.css
+└── prism.js
+</code></pre>
+
+<p>```</p>
+
+<p>The contents of <code>EPrism.php</code> file should be:</p>
+
+<p>```php Extension contents after second step (minimal working extension)
+class EPrism extends CWidget
+{</p>
+
+<pre><code>public function init()
+{
+    return parent::init();
+}
+
+public function run()
+{
+    $assets = Yii::app()-&gt;getAssetManager()-&gt;publish(dirname(__FILE__) . '/assets');
+
+    $cs = Yii::app()-&gt;getClientScript();
+
+    $cs-&gt;registerCssFile($assets . '/prism.css');
+
+    $cs-&gt;registerScriptFile($assets . '/prism.js');
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>3. Add customizations for script</h2>
+
+<p>The extension currently does what it&rsquo;s supposed to do, but how about adding a couple of customizations like allowing to change the position of where script is inserted and disabling automatic highlighting.</p>
+
+<h3>Change script position</h3>
+
+<p>First add the class variable which will tell where JavaScript files should be inserted:</p>
+
+<p><code>php Add variable to hold script position
+public $scriptPosition;
+</code></p>
+
+<p>Then add the following code at the start of <code>init()</code> method:</p>
+
+<p>```php Set to default position if none provided
+if (is_null($this->scriptPosition)) {</p>
+
+<pre><code>$this-&gt;scriptPosition = Yii::app()-&gt;clientScript-&gt;defaultScriptFilePosition;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>It will make sure that if you don&rsquo;t set a custom script position for the extension, the default position for all script files will be used.</p>
+
+<p>To finish it off just set the position then registering script file in <code>run()</code> method:</p>
+
+<p><code>php Set the position of script through second parameter
+$cs-&gt;registerScriptFile($assets . '/prism.js', $this-&gt;scriptPosition);
+</code></p>
+
+<p>Now if for example you need to have some script loaded in the <code>&lt;head&gt;</code> element while your application is configured to add all scripts before closing <code>&lt;body&gt;</code> it is very simple to do in a widget configuration.</p>
+
+<h3>Disable automatic highlighting</h3>
+
+<p><em>Prism</em> automatically highlights the code in your page, but you can turn it off by adding <code>data-manual</code> attribute to the <code>&lt;script&gt;</code> element which loads the plugin.</p>
+
+<p>You will need to add two variables, one for holding all the options for script and another as a flag for manual highlighting:</p>
+
+<p>```php Add variables to allow script customization
+private $scriptOptions = [];</p>
+
+<p>public $manualHighlight = false;
+```</p>
+
+<p>The <code>$scriptOptions</code> variable is private because you don&rsquo;t want anyone changing it (the widget will populate it with needed values). To make sure it happens add the following code in the <code>init()</code> method before returning parent method:</p>
+
+<p>```php Populate script options from public variables
+if ($this->manualHighlight) {</p>
+
+<pre><code>$this-&gt;scriptOptions['data-manual'] = true;
+</code></pre>
+
+<p>}
+```</p>
+
+<p>And then add options then registering your script file:</p>
+
+<p>```php Customize registered script with 3rd parameter
+$cs->registerScriptFile(</p>
+
+<pre><code>$assets . '/prism.js',
+$this-&gt;scriptPosition,
+$this-&gt;scriptOptions
+</code></pre>
+
+<p>);
+```</p>
+
+<p>Now you can disable the automatic highlighting when you call the widget just by setting <code>manualHighlight</code> attribute to <code>true</code>.</p>
+
+<h3>Allow to use custom asset files</h3>
+
+<p>To make extension re-usable and easy to use we added the JavaScript and CSS assets to it, but in some cases you might not want to use them. Maybe you only need to use a small portion of highlighter or maybe you have all the needed code in another file. To take care of those cases lets make asset files configurable using the following rules:</p>
+
+<ul>
+<li>If value is <code>false</code> don&rsquo;t register asset</li>
+<li>If value is <code>null</code> register default asset</li>
+<li>If value is <code>string</code> register the provided value</li>
+</ul>
+
+
+<p>To allow for this configuration first add the following class variables:</p>
+
+<p>```php Add variables for asset files customization
+public $cssFile</p>
+
+<p>public $scriptFile
+```</p>
+
+<p>And then change the asset registration lines with extended logic:</p>
+
+<p>```php Extend the asset registration
+if ($this->cssFile !== false) {</p>
+
+<pre><code>$cs-&gt;registerCssFile(
+    $this-&gt;cssFile ? $this-&gt;cssFile : $assets . '/prism.css'
+);
+</code></pre>
+
+<p>}</p>
+
+<p>if ($this->scriptFile !== false) {</p>
+
+<pre><code>$cs-&gt;registerScriptFile(
+    $this-&gt;scriptFile ? $this-&gt;scriptFile : $assets . '/prism.js',
+    $this-&gt;scriptPosition,
+    $this-&gt;scriptOptions
+);
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This simple change allows you to be much more flexible with widget usage.</p>
+
+<h4>Step results</h4>
+
+<p>You folder structure hasn&rsquo;t changed so it will be the same as before.</p>
+
+<p>The contents of <code>EPrism.php</code> file should be:</p>
+
+<p>```php Extension contents with all improvements
+class EPrism extends CWidget
+{</p>
+
+<pre><code>private $scriptOptions = [];
+
+public $manualHighlight = false;
+
+public $scriptPosition;
+
+public $cssFile;
+
+public $scriptFile;
+
+public function init()
+{
+    if (is_null($this-&gt;scriptPosition)) {
+        $this-&gt;scriptPosition = Yii::app()-&gt;clientScript-&gt;defaultScriptFilePosition;
+    }
+
+    if ($this-&gt;manualHighlight) {
+        $this-&gt;scriptOptions['data-manual'] = true;
+    }
+
+    return parent::init();
+}
+
+public function run()
+{
+    $assets = Yii::app()-&gt;getAssetManager()-&gt;publish(dirname(__FILE__) . '/assets');
+
+    $cs = Yii::app()-&gt;getClientScript();
+
+    if ($this-&gt;cssFile !== false) {
+        $cs-&gt;registerCssFile(
+            $this-&gt;cssFile ? $this-&gt;cssFile : $assets . '/prism.css'
+        );
+    }
+
+    if ($this-&gt;scriptFile !== false) {
+        $cs-&gt;registerScriptFile(
+            $this-&gt;scriptFile ? $this-&gt;scriptFile : $assets . '/prism.js',
+            $this-&gt;scriptPosition,
+            $this-&gt;scriptOptions
+        );
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>Bonus points: Sharing is caring</h2>
+
+<p>At this point you have a working, customizable extension which will kick ass in your project. But how about sharing it with your fellow programmers?</p>
+
+<p>Simply add <strong>readme</strong> explaining how to use your extension and some comments in the code explaining what is what. Even if you&rsquo;re not going to share the extension with others, you will thank yourself later when the time comes to improve it. Include the <code>composer.json</code> file to make it possible to use your extension through <a href="https://getcomposer.org/">Composer</a> and just share it on <a href="https://github.com/">GitHub</a> or somewhere else for everyone to enjoy.</p>
+
+<h2>Conclussion</h2>
+
+<p>Now you can relax and take a well deserved cup of tea.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EPrism Extension]]></title>
+    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <updated>2014-01-02T16:44:58+02:00</updated>
+    <id>http://ifdattic.github.io/eprism-extension</id>
+    <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>easy to install and use;</li>
+<li>simple configuration to better suit your needs;</li>
+<li>adds a great JavaScript syntax highlighter.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EPrism">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eprism">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EWYMeditor Extension]]></title>
+    <link href="http://ifdattic.github.io/ewymeditor-extension"/>
+    <updated>2011-10-18T20:07:53+03:00</updated>
+    <id>http://ifdattic.github.io/ewymeditor-extension</id>
+    <content type="html"><![CDATA[<p>EWYMeditor is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://www.wymeditor.org">WYMeditor</a> (I only wrote the extension and modifications, not the editor) which is a web-based WYSIWYM (What You See Is What You Mean) XHTML editor (not WYSIWYG).</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>different ways for adding editor to your forms;</li>
+<li>easy to add plugins;</li>
+<li>powerful and simple XHTML editor.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EWYMeditor">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/ewymeditor">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
+    <link href="http://ifdattic.github.io/eupdatedialog-extension"/>
+    <updated>2011-10-18T20:04:24+03:00</updated>
+    <id>http://ifdattic.github.io/eupdatedialog-extension</id>
+    <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
+
+<p>This extension allows to run controller actions using jQuery UI dialog. This allows you to enhance your application making it act more like a desktop applications, which will be appreciated by your users.</p>
+
+<!-- more -->
+
+
+<p>It is used for extending your application to allow easy CRUD (create-read-update-delete) actions or any other action which returns a proper JSON response. Click event can be added to any link element using a jQuery selector, allowing you to extend your application with additional functionality, without sacrificing design.</p>
+
+<p>Extension degrades gracefully, so your application won’t lose any functionality if JavaScript is turned off.</p>
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by the extension:</p>
+
+<ul>
+<li>CRUD actions through AJAX calls;</li>
+<li>degrades gracefully with JavaScript turned off;</li>
+<li>works with grid view widget or links;</li>
+<li>no inline JavaScript needed;</li>
+<li>works with or without CSRF validation;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>i18n (Internationalization and localization).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EUpdateDialog">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eupdatedialog">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
+    <link href="http://ifdattic.github.io/ejuitimepicker-extension"/>
+    <updated>2011-10-18T20:01:41+03:00</updated>
+    <id>http://ifdattic.github.io/ejuitimepicker-extension</id>
+    <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://trentrichardson.com/examples/timepicker">Timepicker add-on</a> (I only wrote the extension, not the add-on) which adds a time picker to jQuery UI Datepicker.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>enhance your forms with time, date or date &amp; time pickers;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>support for internationalization and localization (I18N).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EJuiTimePicker">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/ejuitimepicker">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

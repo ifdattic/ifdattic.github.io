@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SQL | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/sql/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Review of SQL Performance Explained book]]></title>
+    <link href="http://ifdattic.github.io/review-of-sql-performance-explained-book"/>
+    <updated>2014-07-30T09:36:33+03:00</updated>
+    <id>http://ifdattic.github.io/review-of-sql-performance-explained-book</id>
+    <content type="html"><![CDATA[<p>This is the review of <strong>SQL Performance Explained</strong> book by <strong><a href="http://use-the-index-luke.com/about">Markus Winand</a></strong>. The book explains everything developers need to know about the SQL performance. And the only thing that developers need to learn is how to index <a href="http://www.commitstrip.com/en/2014/06/03/the-problem-is-not-the-tool-itself/">(comic strip explaining it)</a>.</p>
+
+<!-- more -->
+
+
+<p>Below is the list of the chapters in a book:</p>
+
+<ol>
+<li><strong>Anatomy of an Index</strong> doesn&rsquo;t cover SQL specifically, but it explains the fundamental structure of an index.</li>
+<li><strong>The Where Clause</strong> explains all aspects of the <code>where</code> clause. This is the biggest chapter in the book and after learning the techniques provided, you will be able to write much faster SQL.</li>
+<li><strong>Performance and Scalability</strong> is about performance measurements and database scalability. It will explain why adding hardware is not the best solution to slow queries.</li>
+<li><strong>The Join Operation</strong> gives explanation about how to use indexes to perform a fast table join.</li>
+<li><strong>Clustering Data</strong> explains how to get best performance when selecting only part of columns.</li>
+<li><strong>Sorting and Grouping</strong> is about how to use indexes with <code>order by</code> and <code>group by</code>.</li>
+<li><strong>Partial Results</strong> explains how to benefit from a &ldquo;pipelined&rdquo; execution if you don&rsquo;t need the full result set.</li>
+<li><strong>Insert, Delete and Update</strong> deals with performance when executing write queries.</li>
+</ol>
+
+
+<p>The book is very well written so once you start reading it it&rsquo;s not so easy to put it down. The examples are for Oracle database, but it also covers all other databases (MySQL, MSSQL, PostgreSQL) so any differences or things to know won&rsquo;t be left out for database you&rsquo;re using.</p>
+
+<p>I had this book for a while, but constantly prioritized something else. I was really glad I finally read it and wish I did it earlier. I don&rsquo;t think I&rsquo;m a novice when it comes to SQL (at least I knew about SQL injections, indexes, etc.), but reading this book really expanded my knowledge about improving my SQL. If you&rsquo;re working with relational databases I would suggest to read this book sooner than later. Other examples are provided in different languages (PHP, Java, etc.), so you won&rsquo;t be left in the dark thinking where to start.</p>
+
+<p>You can buy this book from <a href="http://sql-performance-explained.com/">SQL Performance Explained website</a> or paperback from <a href="http://www.amazon.com/Performance-Explained-Everything-Developers-about/dp/3950307826">Amazon</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

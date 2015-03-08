@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Converting px to ems with LESS - ifdattic</title>
+  <meta name="author" content="Andrew Marcinkevičius">
+
+  
+  <meta name="description" content="LESS is great with adding variables, mixins, operations and functions to CSS. Here is the little trick to convert pixels to ems I use when coding &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ifdattic.github.io/converting-px-to-ems-with-less">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
+  <script src="/js/modernizr-2.8.3-custom.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./js/libs/jquery-2.1.3.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/111660522645911622239/posts" rel="author">
+<script src="//load.sumome.com/" data-sumo-site-id="c164debf0a268ada6ab9186c859e0f9e07ed6d194f1e9f7d9d80d283225e676e" async></script>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48134144-1', 'ifdattic.com');
+    ga('send', 'pageview');
+
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
+  </script>
+
+
+</head>
+
+<body >
+  <header role="banner">
+    <div class="wrapper"><hgroup>
+  <h1>
+    <a href="/">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="sitelogo" alt="ifdattic" />
+    </a>
+  </h1>
+</hgroup>
+
+<nav class="nav" data-state="closed">
+  <a href="#" class="nav-reveal">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+</div>
+  </header>
+  <div id="main">
+    <div id="content" class="wrapper">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Converting px to ems with LESS</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T19:46:27+03:00" pubdate data-updated="true">October 20, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://lesscss.org">LESS</a> is great with adding variables, mixins, operations and functions to CSS. Here is the little trick to convert pixels to ems I use when coding responsive designs:</p>
+
+<!-- more -->
+
+
+
+
+<figure class='code'><figcaption><span>Mixin for converting px to em</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">Create</span> <span class="nt">variables</span> <span class="o">[</span><span class="nt">optional</span><span class="o">]</span>
+</span><span class='line'><span class="k">@basefont</span><span class="o">:</span> <span class="nt">14</span><span class="p">;</span> <span class="o">//</span> <span class="nt">in</span> <span class="nt">pixels</span>
+</span><span class='line'><span class="k">@baseline</span><span class="o">:</span> <span class="nt">20</span><span class="p">;</span> <span class="o">//</span> <span class="nt">in</span> <span class="nt">pixels</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="nt">Create</span> <span class="nt">a</span> <span class="nt">converter</span> <span class="nt">namespace</span> <span class="o">[</span><span class="nt">optional</span><span class="o">]</span>
+</span><span class='line'><span class="nf">#pxtoem</span> <span class="p">{</span>
+</span><span class='line'>    <span class="o">//</span> <span class="n">Create</span> <span class="n">convert</span> <span class="n">mixin</span> <span class="p">[</span><span class="n">required</span><span class="p">]</span>
+</span><span class='line'>    <span class="o">.</span><span class="k">font-size</span><span class="p">(</span> <span class="o">@</span><span class="n">target</span><span class="o">:</span> <span class="o">@</span><span class="n">basefont</span><span class="o">,</span> <span class="o">@</span><span class="n">context</span><span class="o">:</span> <span class="o">@</span><span class="n">basefont</span> <span class="p">)</span> <span class="err">{</span>
+</span><span class='line'>        <span class="k">font-size</span><span class="o">:</span> <span class="p">(</span><span class="o">@</span><span class="n">target</span> <span class="o">/</span> <span class="o">@</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="m">0em</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="err">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Usage is pretty straight forward, for example if you want to make links the size of <code>10px</code> then parent element font size is <code>16px</code> you will use:</p>
+
+<figure class='code'><figcaption><span>Usage of mixin</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">a</span> <span class="p">{</span>
+</span><span class='line'>    <span class="m">#pxtoem</span> <span class="o">&gt;</span> <span class="o">.</span><span class="k">font-size</span><span class="p">(</span> <span class="m">10</span><span class="o">,</span> <span class="m">16</span> <span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can expand it with mixins for margins, paddings, etc. The most important part to remember is what you use numbers without units and then convert it to a wanted unit by adding a zero value to it.</p>
+</div>
+
+
+  <footer>
+    <ul class="social-buttons">
+  <li>
+    <a class="socialite twitter-share"
+      href="https://twitter.com/share"
+      data-via="ifdattic"
+      data-count="vertical"
+      rel="nofollow"
+      target="_blank">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="socialite twitter-follow"
+      href="https://twitter.com/ifdattic"
+      data-count="vertical"
+      target="_blank">
+      Follow me
+    </a>
+  </li>
+  <li>
+    <a class="socialite googleplus-one"
+    href="https://plus.google.com/share"
+    data-size="tall"
+    rel="nofollow"
+    target="_blank">
+      Share on Google+
+    </a>
+  </li>
+  <li>
+    <a class="socialite facebook-like"
+      href="https://www.facebook.com/sharer.php"
+      data-layout="box_count"
+      data-width="60"
+      data-show-faces="false"
+      rel="nofollow"
+      target="_blank">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="socialite linkedin-share"
+      href="https://www.linkedin.com/shareArticle"
+      data-counter="top"
+      rel="nofollow"
+      target="_blank">
+      Share on LinkedIn
+    </a>
+  </li>
+</ul>
+
+    <p class="meta">
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2011-10-20-converting-px-to-ems-with-less.markdown">Edit this page on GitHub</a><br />
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrew Marcinkevičius</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-10-20T19:46:27+03:00" pubdate data-updated="true">October 20, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/less/'>LESS</a>, <a class='category' href='/categories/mixins/'>Mixins</a>, <a class='category' href='/categories/responsive/'>Responsive</a>, <a class='category' href='/categories/tips/'>Tips</a>, <a class='category' href='/categories/tutorials/'>Tutorials</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/using-same-native-bookmarks-between-firefox-profiles" title="Previous Post: Using same native bookmarks between Firefox profiles">&laquo; Using same native bookmarks between Firefox profiles</a>
+      
+      
+        <a class="basic-alignment right" href="/using-application-on-production-development-environment-without-making-changes" title="Next Post: Using application on production / development environment without making changes">Using application on production / development environment without making changes &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div class="wrapper"><p>&copy; 2015 - Andrew Marcinkevičius</p>
+<p>
+  Hosted on <a href="https://github.com/ifdattic/ifdattic.github.io">Github</a>
+  -
+  Powered by <a href="http://octopress.org">Octopress</a>
+</p>
+
+</div></footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ifdattic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ifdattic.github.io/converting-px-to-ems-with-less';
+        var disqus_url = 'http://ifdattic.github.io/converting-px-to-ems-with-less';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<script src="/javascripts/socialite.min.js"></script>
+<script src="/javascripts/scripts.js" type="text/javascript"></script>
+
+
+</body>
+</html>

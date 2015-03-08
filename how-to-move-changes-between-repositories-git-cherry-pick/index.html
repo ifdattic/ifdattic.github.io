@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>How to move changes between repositories (git cherry-pick) - ifdattic</title>
+  <meta name="author" content="Andrew Marcinkevičius">
+
+  
+  <meta name="description" content="I&rsquo;m currently refactoring a project which has a lot of similar copies with some slight (most often) differences between them. A difference can &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ifdattic.github.io/how-to-move-changes-between-repositories-git-cherry-pick">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
+  <script src="/js/modernizr-2.8.3-custom.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./js/libs/jquery-2.1.3.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="https://plus.google.com/111660522645911622239/posts" rel="author">
+<script src="//load.sumome.com/" data-sumo-site-id="c164debf0a268ada6ab9186c859e0f9e07ed6d194f1e9f7d9d80d283225e676e" async></script>
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48134144-1', 'ifdattic.com');
+    ga('send', 'pageview');
+
+    window.onscroll = function () {
+        window.onscroll = null;
+        ga('send', 'event', 'ga bounce scroll');
+    }
+
+  </script>
+
+
+</head>
+
+<body >
+  <header role="banner">
+    <div class="wrapper"><hgroup>
+  <h1>
+    <a href="/">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="sitelogo" alt="ifdattic" />
+    </a>
+  </h1>
+</hgroup>
+
+<nav class="nav" data-state="closed">
+  <a href="#" class="nav-reveal">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+  <ul>
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+
+</div>
+  </header>
+  <div id="main">
+    <div id="content" class="wrapper">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">How to move changes between repositories (git cherry-pick)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-29T21:21:07+02:00" pubdate data-updated="true">December 29, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&rsquo;m currently refactoring a project which has a lot of similar copies with some slight (most often) differences between them. A difference can be from a simple value to a complete feature. Of course the best way would be to move everything to be modular and configurable, but unfortunately in real life this doesn&rsquo;t always happen instantly (you can always dream about it).</p>
+
+<!-- more -->
+
+
+<p>So to save myself from doing any copy-paste I started playing around with different ideas how to do it using <em>git</em> (at least I would be able to play around with a terminal). At first experimentation started using <code>rebase</code>, but unfortunately after some bigger changes it began to mess the history. So then I started experimenting with a <code>cherry-pick</code> command. This gives me quite a good control of what commits to pick up and keeps the history clean. It just adds a little bit more typing.</p>
+
+<p>If you feel confident in <em>git</em>, then check a &ldquo;<a href="https://gist.github.com/ifdattic/8174883#file-git-cherry-pick-between-repositories-sh">summary</a>&rdquo; of commands to get the idea.</p>
+
+<p>Otherwise the step by step tutorial is available below (I tried my best to make it, but it can be improved a lot, suggestions are welcome). It doesn&rsquo;t contain any images as I don&rsquo;t think they are needed. Tutorial can be easily typed in the terminal, the only difference will be file system changes depending on operating system you are using.</p>
+
+<h2>Step-by-step tutorial</h2>
+
+<p>The set up for a tutorial is simple:</p>
+
+<ul>
+<li>The <strong>repoone</strong> directory contains <strong>README.md</strong> files with the line <em>This line will be the same between both repositories</em>.</li>
+<li><strong>repoone</strong> directory is a <em>git</em> repository.</li>
+<li>The <strong>repotwo</strong> directory is a copy of <strong>repoone</strong>.</li>
+</ul>
+
+
+<p>Now make a change in <strong>repoone</strong>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> -e <span class="s2">&quot;\n\nThis will be moved from one repository to another\n\n&quot;</span> &gt;&gt; README.md
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then commit the changes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add README.md
+</span><span class='line'>git commit -m <span class="s2">&quot;Add line about moving&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now add another change which is only for <strong>repoone</strong>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> <span class="s2">&quot;This is only for repoone&quot;</span> &gt; repoone.config
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then commit the changes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add repoone.config
+</span><span class='line'>git commit -m <span class="s2">&quot;Add repoone configuration&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This should start feeling similar. Add one more change and commit it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> <span class="s2">&quot;__*.config__ files contain the configuration values&quot;</span> &gt;&gt; README.md
+</span><span class='line'>
+</span><span class='line'>git add README.md
+</span><span class='line'>git commit -m <span class="s2">&quot;Add explanation about .config files&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For the next part of tutorial move to the second repository by executing: <code>cd ../repotwo</code>.</p>
+
+<p>To start moving changes between the repositories first we need to add it as a remote and download objects and refs from it.</p>
+
+<p><strong>Important:</strong> Note that I&rsquo;m using <em>Windows</em> for the code example so you should escape the <code>\</code>. The <code>D:\\gitcherrybetweenrepos\\repoone</code> will be different depending on your OS and/or file organization, replace as needed.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git remote add repoone D:<span class="se">\\</span>gitcherrybetweenrepos<span class="se">\\</span>repoone
+</span><span class='line'>git fetch --progress -prune repoone
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now when running the following command (<em>tip:</em> add it as an alias to your <code>.gitconfig</code>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It will output the following results (<em>commit id</em>s might be different on your run, replace as needed):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>* f761364 <span class="o">(</span>repoone/master<span class="o">)</span> Add explanation about .config files
+</span><span class='line'>* 80a8db4 Add repoone configuration
+</span><span class='line'>* 2ac430f Add line about moving
+</span><span class='line'>* 5745330 <span class="o">(</span>HEAD, master<span class="o">)</span> Initial commit
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So we want to add <strong>2ac430f</strong> &amp; <strong>f761364</strong> commits to this repository. The <code>cherry-pick</code> command can be used for that:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git cherry-pick 2ac430f
+</span><span class='line'>git cherry-pick f761364
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>[<strong>Optional</strong>] Let&rsquo;s try it with a branch:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># go back to the first repository</span>
+</span><span class='line'><span class="nb">cd</span> ../repoone
+</span><span class='line'>
+</span><span class='line'><span class="c"># create a branch</span>
+</span><span class='line'>git checkout -b add-branch-example
+</span><span class='line'>
+</span><span class='line'><span class="c"># add some changes and commits</span>
+</span><span class='line'>touch branch-example.md
+</span><span class='line'>
+</span><span class='line'>git add branch-example.md
+</span><span class='line'>git commit -m <span class="s2">&quot;Initial commit&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> -e <span class="s2">&quot;\n\nThis line only for repoone\n\n&quot;</span> &gt;&gt; README.md
+</span><span class='line'>git add README.md
+</span><span class='line'>git commit -m <span class="s2">&quot;Add repoone specific commit&quot;</span>
+</span><span class='line'>
+</span><span class='line'>date &gt;&gt; branch-example.md
+</span><span class='line'>git add branch-example.md
+</span><span class='line'>git commit -m <span class="s2">&quot;Add current date value&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Leave <strong>repoone</strong> here and return to <strong>repotwo</strong> (also at the same time retrieve the data from <strong>repoone</strong>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ../repotwo
+</span><span class='line'>
+</span><span class='line'><span class="c"># check the branches of repoone</span>
+</span><span class='line'>git remote show repoone
+</span><span class='line'>
+</span><span class='line'><span class="c"># imagine we got a lot of stuff going on in the remote repository</span>
+</span><span class='line'><span class="c"># so just get back one branch and no tags</span>
+</span><span class='line'>git fetch --progress -n repoone refs/heads/add-branch-example:refs/remotes/repoone/add-branch-example
+</span><span class='line'>
+</span><span class='line'><span class="c"># check the git log</span>
+</span><span class='line'>git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
+</span><span class='line'>* 13b1080 <span class="o">(</span>repoone/add-branch-example<span class="o">)</span> Add current date value
+</span><span class='line'>* 94b5a67 Add repoone specific commit
+</span><span class='line'>* 240ae14 Initial commit
+</span><span class='line'>* f761364 <span class="o">(</span>repoone/master<span class="o">)</span> Add explanation about .config files
+</span><span class='line'>* 80a8db4 Add repoone configuration
+</span><span class='line'>* 2ac430f Add line about moving
+</span><span class='line'>| * 78427ed <span class="o">(</span>HEAD, master<span class="o">)</span> Add explanation about .config files
+</span><span class='line'>| * 54bd60b Add line about moving
+</span><span class='line'>|/
+</span><span class='line'>* 5745330 Initial commit
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now get the changes what are needed from the branch and merge it back to the master:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout -b add-branch-example
+</span><span class='line'>
+</span><span class='line'>git cherry-pick 240ae14
+</span><span class='line'>git cherry-pick 13b1080
+</span><span class='line'>
+</span><span class='line'>git checkout master
+</span><span class='line'>git merge --no-ff add-branch-example
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And because we&rsquo;re done the branch and remote can be removed (cleanup time):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git branch -d add-branch-example
+</span><span class='line'>git remote rm repoone
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>You probably won&rsquo;t use this trick in your everyday projects, but it can definitely come in handy in case you will get into similar situation like me (refactoring a lot of copies of similar project).</p>
+
+<p>What tricks you&rsquo;re using for similar situations?</p>
+</div>
+
+
+  <footer>
+    <ul class="social-buttons">
+  <li>
+    <a class="socialite twitter-share"
+      href="https://twitter.com/share"
+      data-via="ifdattic"
+      data-count="vertical"
+      rel="nofollow"
+      target="_blank">
+      Share on Twitter
+    </a>
+  </li>
+  <li>
+    <a class="socialite twitter-follow"
+      href="https://twitter.com/ifdattic"
+      data-count="vertical"
+      target="_blank">
+      Follow me
+    </a>
+  </li>
+  <li>
+    <a class="socialite googleplus-one"
+    href="https://plus.google.com/share"
+    data-size="tall"
+    rel="nofollow"
+    target="_blank">
+      Share on Google+
+    </a>
+  </li>
+  <li>
+    <a class="socialite facebook-like"
+      href="https://www.facebook.com/sharer.php"
+      data-layout="box_count"
+      data-width="60"
+      data-show-faces="false"
+      rel="nofollow"
+      target="_blank">
+      Share on Facebook
+    </a>
+  </li>
+  <li>
+    <a class="socialite linkedin-share"
+      href="https://www.linkedin.com/shareArticle"
+      data-counter="top"
+      rel="nofollow"
+      target="_blank">
+      Share on LinkedIn
+    </a>
+  </li>
+</ul>
+
+    <p class="meta">
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2013-12-29-how-to-move-changes-between-repositories-git-cherry-pick.markdown">Edit this page on GitHub</a><br />
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Andrew Marcinkevičius</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-29T21:21:07+02:00" pubdate data-updated="true">December 29, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/git/'>Git</a>, <a class='category' href='/categories/tips/'>Tips</a>, <a class='category' href='/categories/tutorials/'>Tutorials</a>
+  
+</span>
+
+
+    </p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/review-of-vagrant-up-and-running-book" title="Previous Post: Review of Vagrant: Up and Running book">&laquo; Review of Vagrant: Up and Running book</a>
+      
+      
+        <a class="basic-alignment right" href="/eprism-extension" title="Next Post: EPrism Extension">EPrism Extension &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><div class="wrapper"><p>&copy; 2015 - Andrew Marcinkevičius</p>
+<p>
+  Hosted on <a href="https://github.com/ifdattic/ifdattic.github.io">Github</a>
+  -
+  Powered by <a href="http://octopress.org">Octopress</a>
+</p>
+
+</div></footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'ifdattic';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ifdattic.github.io/how-to-move-changes-between-repositories-git-cherry-pick';
+        var disqus_url = 'http://ifdattic.github.io/how-to-move-changes-between-repositories-git-cherry-pick';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+<script src="/javascripts/socialite.min.js"></script>
+<script src="/javascripts/scripts.js" type="text/javascript"></script>
+
+
+</body>
+</html>

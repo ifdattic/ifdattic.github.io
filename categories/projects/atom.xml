@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Projects | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/projects/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[EPrism Extension]]></title>
+    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <updated>2014-01-02T16:44:58+02:00</updated>
+    <id>http://ifdattic.github.io/eprism-extension</id>
+    <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>easy to install and use;</li>
+<li>simple configuration to better suit your needs;</li>
+<li>adds a great JavaScript syntax highlighter.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EPrism">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eprism">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EWYMeditor Extension]]></title>
+    <link href="http://ifdattic.github.io/ewymeditor-extension"/>
+    <updated>2011-10-18T20:07:53+03:00</updated>
+    <id>http://ifdattic.github.io/ewymeditor-extension</id>
+    <content type="html"><![CDATA[<p>EWYMeditor is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://www.wymeditor.org">WYMeditor</a> (I only wrote the extension and modifications, not the editor) which is a web-based WYSIWYM (What You See Is What You Mean) XHTML editor (not WYSIWYG).</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>different ways for adding editor to your forms;</li>
+<li>easy to add plugins;</li>
+<li>powerful and simple XHTML editor.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EWYMeditor">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/ewymeditor">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
+    <link href="http://ifdattic.github.io/eupdatedialog-extension"/>
+    <updated>2011-10-18T20:04:24+03:00</updated>
+    <id>http://ifdattic.github.io/eupdatedialog-extension</id>
+    <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
+
+<p>This extension allows to run controller actions using jQuery UI dialog. This allows you to enhance your application making it act more like a desktop applications, which will be appreciated by your users.</p>
+
+<!-- more -->
+
+
+<p>It is used for extending your application to allow easy CRUD (create-read-update-delete) actions or any other action which returns a proper JSON response. Click event can be added to any link element using a jQuery selector, allowing you to extend your application with additional functionality, without sacrificing design.</p>
+
+<p>Extension degrades gracefully, so your application won’t lose any functionality if JavaScript is turned off.</p>
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by the extension:</p>
+
+<ul>
+<li>CRUD actions through AJAX calls;</li>
+<li>degrades gracefully with JavaScript turned off;</li>
+<li>works with grid view widget or links;</li>
+<li>no inline JavaScript needed;</li>
+<li>works with or without CSRF validation;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>i18n (Internationalization and localization).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EUpdateDialog">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eupdatedialog">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
+    <link href="http://ifdattic.github.io/ejuitimepicker-extension"/>
+    <updated>2011-10-18T20:01:41+03:00</updated>
+    <id>http://ifdattic.github.io/ejuitimepicker-extension</id>
+    <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://trentrichardson.com/examples/timepicker">Timepicker add-on</a> (I only wrote the extension, not the add-on) which adds a time picker to jQuery UI Datepicker.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>enhance your forms with time, date or date &amp; time pickers;</li>
+<li>a lot of configuration options to better suit your needs;</li>
+<li>support for internationalization and localization (I18N).</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EJuiTimePicker">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/ejuitimepicker">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EChosen Extension]]></title>
+    <link href="http://ifdattic.github.io/echosen-extension"/>
+    <updated>2011-10-18T20:00:17+03:00</updated>
+    <id>http://ifdattic.github.io/echosen-extension</id>
+    <content type="html"><![CDATA[<p>EChosen is an extension for Yii framework.</p>
+
+<p>This extension is a wrapper for <a href="http://harvesthq.github.com/chosen">Chosen JavaScript plugin</a> (I only wrote the extension, not the plugin) which makes long, unwieldy select boxes much more user-friendly. The extension is very easy to install and can be used on your application just with a single line of code.</p>
+
+<!-- more -->
+
+
+<h2>Features</h2>
+
+<p>Here&rsquo;s some of the features provided by extension:</p>
+
+<ul>
+<li>easy to install and use;</li>
+<li>simple configuration to better suit your needs;</li>
+<li>available as jQuery or Prototype plugin.</li>
+</ul>
+
+
+<p>You can find more information and source code at <a href="https://github.com/ifdattic/EChosen">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/echosen">Yii Framework website</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

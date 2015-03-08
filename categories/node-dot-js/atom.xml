@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Node.js | ifdattic]]></title>
+  <link href="http://ifdattic.github.io/categories/node-dot-js/atom.xml" rel="self"/>
+  <link href="http://ifdattic.github.io/"/>
+  <updated>2015-03-08T12:49:50+02:00</updated>
+  <id>http://ifdattic.github.io/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
+    <link href="http://ifdattic.github.io/how-to-mongodb-nodejs-docker"/>
+    <updated>2015-01-09T19:29:10+02:00</updated>
+    <id>http://ifdattic.github.io/how-to-mongodb-nodejs-docker</id>
+    <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
+
+<p><del datetime="2015-01-27">A few months ago a friend mentioned a <a href="https://university.mongodb.com/courses/M101JS/about">MongoDB course from MongoDBUniversity</a>, which sounded like a lot of fun so of course I enrolled into it. It started a few days ago and it&rsquo;s a lot of fun. As I like to keep my OS clean the Docker looked like a great solution (one of the reasons I like it, just do something and throw it away after you&rsquo;re done, just like with cloud computing). This way I could take three rabbits with one shot learning <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://nodejs.org/">Node.js</a> and <a href="https://www.docker.com/">Docker</a> at the same time.</del></p>
+
+<p><del datetime="2015-01-27">I just noticed that because I had to figure some things to make it all work this can be a great opportunity for an article to help my fellow companions with this step.</del></p>
+
+<p>Please note that I&rsquo;m using Mac OS so you might need to adjust examples to your OS and/or user. Please use the <a href="https://docs.docker.com/installation/#installation">installation instructions</a> to launch the docker on your machine.</p>
+
+<h2>MongoDB</h2>
+
+<p>First get the latest <a href="https://registry.hub.docker.com/_/mongo/">mongo image</a>:</p>
+
+<p><code>bash
+docker pull mongo:latest
+</code></p>
+
+<p>And when launch your MongoDB container:</p>
+
+<p><code>bash
+docker run -v "$(pwd)":/data --name mongo -d mongo mongod --smallfiles
+</code></p>
+
+<p>The current directory you&rsquo;re running this command from will be used as data directory in your container (provided by <code>$(pwd)</code>). Change it if you need to by entering the full path.</p>
+
+<p>The running containers can be checked by:</p>
+
+<p>```bash</p>
+
+<h1>display only running containers</h1>
+
+<p>docker ps</p>
+
+<h1>or if you want all containers displayed</h1>
+
+<p>docker ps -a
+```</p>
+
+<p>There are two options for connecting to your Mongo database.</p>
+
+<p>```bash
+docker run -it \</p>
+
+<pre><code>--link mongo:mongo \
+--rm mongo sh \
+-c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
+</code></pre>
+
+<h1>or on one line for easier copy-paste</h1>
+
+<p>docker run -it &mdash;link mongo:mongo &mdash;rm mongo sh -c &lsquo;exec mongo &ldquo;$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test&rdquo;&rsquo;
+```</p>
+
+<p>This will create a new mongo container which is linked with an existing mongo container. After container is created the command which connects to database is executed.</p>
+
+<p>Personally, I like just connecting to a running container and executing needed commands from it. You can do what with:</p>
+
+<p>```bash
+docker exec -it 442c2541fe1a bash # by ID</p>
+
+<h1>or</h1>
+
+<p>docker exec -it mongo bash # by Name
+```</p>
+
+<p>To test that your mongo database is working execute the following commands from mongo container:</p>
+
+<p><code>bash
+mongo
+db.col.insert({"a": 4})
+db.col.find().pretty()
+</code></p>
+
+<p>The new document should have been inserted and displayed back to you. You Mongo database is up and ready to be used in your projects.</p>
+
+<h3>Dump and restore the database</h3>
+
+<p>Please note that depending on your set up the database files might not be synced with your host OS. You can check this by listing the files of database directory:</p>
+
+<p><code>bash
+ls -la db
+</code></p>
+
+<p>If it&rsquo;s empty then database files are not synced.</p>
+
+<p>If the data you have in your database is important and you don&rsquo;t want to lose it export it before removing your container (stopping the container will preserve the files).</p>
+
+<p>Please check the documentation or <code>--help</code> output for more information, but to do a simple export run the following from the container (export <code>test</code> database to <code>/data/test-backup</code> destination):</p>
+
+<p><code>bash
+mongodump --db test --out /data/test-backup
+</code></p>
+
+<p>Your data directory (from the container) should now contain the backup files and it should be synced with your host OS.</p>
+
+<p>To restore the data run the following from container (restore <code>/data/test-backup/test/</code> into a <code>test-restored</code> database):</p>
+
+<p><code>bash
+mongorestore --db test-restored /data/test-backup/test
+</code></p>
+
+<h2>Node.js</h2>
+
+<p>First get the latest <a href="https://registry.hub.docker.com/_/node/">node image</a>:</p>
+
+<p><code>bash
+docker pull node:latest
+</code></p>
+
+<p>To launch the NodeJS container run:</p>
+
+<p><code>bash
+docker run -it --rm node
+</code></p>
+
+<p>This will run the node container and will put you in the interactive shell (REPL) from which you can execute code. You can test it by entering:</p>
+
+<p><code>bash
+console.log('It works!!')
+</code></p>
+
+<p>To exit the interactive shell and remove the container (as it contains <code>--rm</code> option) press <code>Control+C</code> twice.</p>
+
+<p>You have multiple ways of running your NodeJS applications. One which I personally like (especially for MongoDB course) is to create a container which has all the required data mounted and is linked to mongo container. This allows to run multiple applications without having to create new containers. It also exposes the port to host machine so you could open the application in your browser. If you want you can set working directory with <code>-w</code> option.</p>
+
+<p><code>bash
+docker run -it --name node -v "$(pwd)":/data --link mongo:mongo -w /data -p 8082:8082 node bash
+</code></p>
+
+<p>Now to run the application just enter its directory, install dependencies and run front controller script:</p>
+
+<p>```bash</p>
+
+<h1>execute commands in container</h1>
+
+<p>cd hw3-2and3-3/blog
+npm install
+node app.js
+```</p>
+
+<p>If you&rsquo;re running these examples with MongoDB course examples it will fail. This is because it&rsquo;s trying to connect to Mongo database on localhost, but our Mongo database isn&rsquo;t on local machine. There are multiple ways to fix this:</p>
+
+<ul>
+<li>hard code the connection string (with linked container IP);</li>
+<li>use environment variables which are added automatically by Docker (when linking);</li>
+<li>use hosts entry which is added automatically by Docker (when linking).</li>
+</ul>
+
+
+<p>Example below contains the representation of all those methods. Please choose the one which you like most or is best for your use case.</p>
+
+<p>```javascript
+// Original connect
+MongoClient.connect(&lsquo;mongodb://localhost:27017/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});</p>
+
+<p>// Connect using environment variables
+MongoClient.connect(&lsquo;mongodb://&rsquo;+process.env.MONGO_PORT_27017_TCP_ADDR+&lsquo;:&rsquo;+process.env.MONGO_PORT_27017_TCP_PORT+&lsquo;/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});</p>
+
+<p>// Connect using hosts entry
+MongoClient.connect(&lsquo;mongodb://mongo:27017/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});
+```</p>
+
+<p>After fixing the <code>connect()</code> method the application should run successfully. You can reach it by opening <code>http://192.168.59.103:8082</code> (if it was IP address of your Docker application) or if you added the Docker IP as <code>docker</code> in your hosts file <code>http://docker:8082</code>.</p>
+
+<p>To exit your application press <code>Control-C</code></p>
+
+<p>It&rsquo;s also possible to run the application in container directly.</p>
+
+<p>```bash</p>
+
+<h1>from host OS terminal</h1>
+
+<p>docker run \</p>
+
+<pre><code>--name nodeapp \
+-v "$(pwd)":/data \
+--link mongo:mongo \
+-w /data/hw3-2and3-3/blog \
+-p 8082:8082 \
+-d node node app.js
+</code></pre>
+
+<h1>or on one line for easy copy-paste</h1>
+
+<p>docker run &mdash;name nodeapp -v &ldquo;$(pwd)&rdquo;:/data &mdash;link mongo:mongo -w /data/hw3-2and3-3/blog -p 8082:8082 -d node node app.js
+```</p>
+
+<p>The following commands might be useful when running containers as daemons (replace <code>nodeapp</code> with ID or name of container):</p>
+
+<p>```bash</p>
+
+<h1>to see running containers</h1>
+
+<p>docker ps</p>
+
+<h1>to check output of container</h1>
+
+<p>docker logs nodeapp</p>
+
+<h1>to tail the output of container</h1>
+
+<p>docker logs -f nodeapp</p>
+
+<h1>to stop running container</h1>
+
+<p>docker stop nodeapp
+```</p>
+
+<h2>MongoDB Course Manual Validation Tips</h2>
+
+<p>If you using this for MongoDB University course and chose to do manual validation (haven&rsquo;t tested with MongoProc validation) you will need to keep a few things in your mind.</p>
+
+<p>For second week second homework it&rsquo;s not possible to configure the validation script and it tries to connect to Mongo database which is on localhost. To fix this open your <code>/etc/hosts</code> file (you might need to install some editor on your container), enter the <code>MONGOIP localhost</code> as the first entry (<strong>replace <code>MONGOIP</code> with mongo container IP address, should be in the same hosts file</strong>) and comment out the real <code>localhost</code> entry. Now running validation script should succeed and you should receive the validation code if you did homework assignment correctly. <strong>Don&rsquo;t forget to revert the changes to <code>/etc/hosts</code> file!!!</strong></p>
+
+<p>Other assignment validation is simpler as it allows to configure the validation script. Run validation with <code>--help</code> to see what is available for configuration. The defaults for web server should be correct (as you should have one container and two terminals for it, one running the application, another executing validation) you only need to change connection string for Mongo database. Enter the following to validate third week second assignment:</p>
+
+<p><code>bash
+node hw3-2validate.js --db mongodb://mongo:27017/blog
+</code></p>
+
+<p>If you done your homework correctly you should receive the validation code.</p>
+
+<h2>Conclusion</h2>
+
+<p>Now you should have enough knowledge to be able to run MongoDB and NodeJS using Docker. You can take most of that knowledge and expand it to other containers even if you don&rsquo;t want to learn more about Docker. This would still provide you with ability to rapidly test your ideas and throw away the resources as needed.</p>
+
+<p>If you&rsquo;re using this for MongoDB University course it should help with most of the issues you could run while completing your assignments.</p>
+
+<p>If you&rsquo;re willing to hurt your ears by listening to my voice you can find the screen cast of this whole tutorial at <a href="https://www.youtube.com/playlist?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt">YouTube</a>. If you&rsquo;re listening on mute or can&rsquo;t understand what I&rsquo;m saying the <a href="scripts/screencast-how-to-mongo-node-docker">script for screen cast is available</a>.</p>
+
+<p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
+    <link href="http://ifdattic.github.io/review-nodejs-right-way-book"/>
+    <updated>2014-12-25T16:08:52+02:00</updated>
+    <id>http://ifdattic.github.io/review-of-node-dot-js-the-right-way-book</id>
+    <content type="html"><![CDATA[<p><img class="left <a" src="href="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg">http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg</a>" title="&lsquo;Node.js the Right Way Book Cover&rsquo; &lsquo;Node.js the Right Way Book Cover&rsquo;" ></p>
+
+<p>I&rsquo;m a big fan of learning something new. After enrolling into <a href="https://university.mongodb.com/courses/M101JS/about">MongoUniversity MongoDB course</a> where all the examples would be in Node.js, decided it would be great time to at least get acquainted with Node.js. Then as the luck would have it, someone tweeted about &ldquo;<a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Node.js The Right Way</a> by <a href="https://twitter.com/hexlib">Jim. R. Wilson</a>&rdquo; from <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>, which is always a great place to look for books. As the ebook version is available on Amazon (screw the discounts, I require my ebooks to be locked into the Amazon ecosystem), I bought it. Now I knew how I will be spending my mornings for a while.</p>
+
+<!-- more -->
+
+
+<p>The book is made from the following chapters:</p>
+
+<ol>
+<li><strong>Getting Started</strong> introduces the Node.js event loop, outlines the five aspects of Node.js development and provides instructions you would need for the following chapters.</li>
+<li><strong>Wrangling the File System</strong> will help you write your first Node.js program &ndash; using Node&rsquo;s filesystem tools to create asynchronous, nonblocking file utilities.</li>
+<li><strong>Networking with Sockets</strong> is were you will create a TCP servers and client programs for accessing them. This chapter will offer insight into Node application design and provide experience creating testable and fault-tolerant systems.</li>
+<li><strong>Robust Message-Passing</strong> will introduce you to using third-party libraries. Using ØMQ (ZeroMQ) you will create suites of programs that work together in concert, and you will learn the clustering tools for managing them.</li>
+<li><strong>Accessing Databases</strong> introduces databases and how to interact with them asynchronously in Node. The database created in this chapter is the foundation for RESTful APIs you&rsquo;ll be developing in later chapters.</li>
+<li><strong>Scalable Web Services</strong> chapter will use Express, a popular Node.js web framework for routing requests. It will introduce objects called promises for managing asynchronous code flows and how to couple them in interesting ways with generator functions.</li>
+<li><strong>Web Apps</strong> is the final chapter were you will build a single-page web application for integrating with web services created in previous chapters. In this chapter you will be using Passport module for authenticating with Google account credentials and storing session data in Redis.</li>
+</ol>
+
+
+<p>Each chapter provides some aspects of Node.js development like: Architecture and Core, Patterns, JavaScriptisms, Supporting Code.</p>
+
+<p>A few issues (suggestions) for the book is that code samples could be more concise. It does not take any value away from them, but would just be nicer.</p>
+
+<p>The database chapter requires a dataset which extracts to at least 500 MB (didn&rsquo;t wait for it to finish). My suggestion would be to provide a cropped dataset or simply add a note to kill the extraction at some point (just extract enough to make the examples work).</p>
+
+<p>In my opinion it would be great if book provided a Vagrant or Docker file for having an environment which contains all the required software and working code examples.</p>
+
+<p>The book has a very nice flow. Providing a lot of code examples and giving explanations for each line (block) of code. Still, you should have at least some JavaScript knowledge.</p>
+
+<p>At the end of each chapter, questions and exercises are provided for improving your knowledge of what you learned from the chapter.</p>
+
+<p>If you want to learn Node.js in my opinion this is the great book for that. It would provide you with enough knowledge where you will be confident to start using it in your everyday life and continue learning it through practice.</p>
+
+<p>You can buy it from <a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Amazon</a> or <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
