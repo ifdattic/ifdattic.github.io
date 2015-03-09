@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: DataDog | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/datadog/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/datadog/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
-    <link href="http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2"/>
+    <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
     <updated>2014-11-26T15:36:49+02:00</updated>
-    <id>http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2</id>
+    <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 
 <p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>

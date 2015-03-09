@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Projects | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/projects/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/projects/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[EPrism Extension]]></title>
-    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <link href="http://ifdattic.com/eprism-extension"/>
     <updated>2014-01-02T16:44:58+02:00</updated>
-    <id>http://ifdattic.github.io/eprism-extension</id>
+    <id>http://ifdattic.com/eprism-extension</id>
     <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
@@ -42,9 +42,9 @@
   
   <entry>
     <title type="html"><![CDATA[EWYMeditor Extension]]></title>
-    <link href="http://ifdattic.github.io/ewymeditor-extension"/>
+    <link href="http://ifdattic.com/ewymeditor-extension"/>
     <updated>2011-10-18T20:07:53+03:00</updated>
-    <id>http://ifdattic.github.io/ewymeditor-extension</id>
+    <id>http://ifdattic.com/ewymeditor-extension</id>
     <content type="html"><![CDATA[<p>EWYMeditor is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://www.wymeditor.org">WYMeditor</a> (I only wrote the extension and modifications, not the editor) which is a web-based WYSIWYM (What You See Is What You Mean) XHTML editor (not WYSIWYG).</p>
@@ -69,9 +69,9 @@
   
   <entry>
     <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
-    <link href="http://ifdattic.github.io/eupdatedialog-extension"/>
+    <link href="http://ifdattic.com/eupdatedialog-extension"/>
     <updated>2011-10-18T20:04:24+03:00</updated>
-    <id>http://ifdattic.github.io/eupdatedialog-extension</id>
+    <id>http://ifdattic.com/eupdatedialog-extension</id>
     <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
 
 <p>This extension allows to run controller actions using jQuery UI dialog. This allows you to enhance your application making it act more like a desktop applications, which will be appreciated by your users.</p>
@@ -104,9 +104,9 @@
   
   <entry>
     <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
-    <link href="http://ifdattic.github.io/ejuitimepicker-extension"/>
+    <link href="http://ifdattic.com/ejuitimepicker-extension"/>
     <updated>2011-10-18T20:01:41+03:00</updated>
-    <id>http://ifdattic.github.io/ejuitimepicker-extension</id>
+    <id>http://ifdattic.com/ejuitimepicker-extension</id>
     <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://trentrichardson.com/examples/timepicker">Timepicker add-on</a> (I only wrote the extension, not the add-on) which adds a time picker to jQuery UI Datepicker.</p>
@@ -131,9 +131,9 @@
   
   <entry>
     <title type="html"><![CDATA[EChosen Extension]]></title>
-    <link href="http://ifdattic.github.io/echosen-extension"/>
+    <link href="http://ifdattic.com/echosen-extension"/>
     <updated>2011-10-18T20:00:17+03:00</updated>
-    <id>http://ifdattic.github.io/echosen-extension</id>
+    <id>http://ifdattic.com/echosen-extension</id>
     <content type="html"><![CDATA[<p>EChosen is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://harvesthq.github.com/chosen">Chosen JavaScript plugin</a> (I only wrote the extension, not the plugin) which makes long, unwieldy select boxes much more user-friendly. The extension is very easy to install and can be used on your application just with a single line of code.</p>

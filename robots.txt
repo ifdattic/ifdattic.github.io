@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://ifdattic.github.io/sitemap.xml 
+Sitemap: http://ifdattic.com/sitemap.xml 

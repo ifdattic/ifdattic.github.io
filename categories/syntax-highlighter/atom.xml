@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Syntax Highlighter | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/syntax-highlighter/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/syntax-highlighter/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[EPrism Extension]]></title>
-    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <link href="http://ifdattic.com/eprism-extension"/>
     <updated>2014-01-02T16:44:58+02:00</updated>
-    <id>http://ifdattic.github.io/eprism-extension</id>
+    <id>http://ifdattic.com/eprism-extension</id>
     <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>

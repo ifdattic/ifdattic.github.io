@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[ifdattic]]></title>
-  <link href="http://ifdattic.github.io/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Most important skill I learned from stopping smoking &amp; drinking]]></title>
-    <link href="http://ifdattic.github.io/important-skill-learned-from-no-smoking-drinking"/>
+    <link href="http://ifdattic.com/important-skill-learned-from-no-smoking-drinking"/>
     <updated>2015-03-08T12:03:17+02:00</updated>
-    <id>http://ifdattic.github.io/most-important-skill-i-learned-from-stopping-smoking-and-drinking</id>
+    <id>http://ifdattic.com/most-important-skill-i-learned-from-stopping-smoking-and-drinking</id>
     <content type="html"><![CDATA[<blockquote><p><strong>tl;dr; Headbutt the problem and solve it right now as it won&rsquo;t go away</strong></p></blockquote>
 
 <p>I stopped (will allow to say &ldquo;quit&rdquo; in 10 years) smoking about one year and 7 months ago (2013/08/10). I stopped drinking about 7 months ago (2014/08/15).</p>
@@ -44,9 +44,9 @@
   
   <entry>
     <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
-    <link href="http://ifdattic.github.io/my-experience-sensiolabs-symfony-certification-exam"/>
+    <link href="http://ifdattic.com/my-experience-sensiolabs-symfony-certification-exam"/>
     <updated>2015-02-17T18:19:52+02:00</updated>
-    <id>http://ifdattic.github.io/my-experience-with-sensiolabs-symfony-certification-exam</id>
+    <id>http://ifdattic.com/my-experience-with-sensiolabs-symfony-certification-exam</id>
     <content type="html"><![CDATA[<p>One day I check my email and see one from Fabien <em>&ldquo;Symfony turned 9 and for being one of top 100 contributors you get a free voucher.&rdquo;</em> It definitely lifted my spirits.</p>
 
 <p>Voucher was valid for a year so I just created a calendar reminder <em>&ldquo;Learn for Symfony certificate.&rdquo;</em> Made it due sometime in Summer and more or less forgot about it. More than enough time left for it.</p>
@@ -91,9 +91,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
-    <link href="http://ifdattic.github.io/how-to-mongodb-nodejs-docker"/>
+    <link href="http://ifdattic.com/how-to-mongodb-nodejs-docker"/>
     <updated>2015-01-09T19:29:10+02:00</updated>
-    <id>http://ifdattic.github.io/how-to-mongodb-nodejs-docker</id>
+    <id>http://ifdattic.com/how-to-mongodb-nodejs-docker</id>
     <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
 
 <p><del datetime="2015-01-27">A few months ago a friend mentioned a <a href="https://university.mongodb.com/courses/M101JS/about">MongoDB course from MongoDBUniversity</a>, which sounded like a lot of fun so of course I enrolled into it. It started a few days ago and it&rsquo;s a lot of fun. As I like to keep my OS clean the Docker looked like a great solution (one of the reasons I like it, just do something and throw it away after you&rsquo;re done, just like with cloud computing). This way I could take three rabbits with one shot learning <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://nodejs.org/">Node.js</a> and <a href="https://www.docker.com/">Docker</a> at the same time.</del></p>
@@ -383,9 +383,9 @@
   
   <entry>
     <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
-    <link href="http://ifdattic.github.io/review-nodejs-right-way-book"/>
+    <link href="http://ifdattic.com/review-nodejs-right-way-book"/>
     <updated>2014-12-25T16:08:52+02:00</updated>
-    <id>http://ifdattic.github.io/review-of-node-dot-js-the-right-way-book</id>
+    <id>http://ifdattic.com/review-of-node-dot-js-the-right-way-book</id>
     <content type="html"><![CDATA[<p><img class="left" src="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg" title="Node.js the Right Way Book Cover" alt="Node.js the Right Way Book Cover"></p>
 
 <p>I&rsquo;m a big fan of learning something new. After enrolling into <a href="https://university.mongodb.com/courses/M101JS/about">MongoUniversity MongoDB course</a> where all the examples would be in Node.js, decided it would be great time to at least get acquainted with Node.js. Then as the luck would have it, someone tweeted about &ldquo;<a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Node.js The Right Way</a> by <a href="https://twitter.com/hexlib">Jim. R. Wilson</a>&rdquo; from <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>, which is always a great place to look for books. As the ebook version is available on Amazon (screw the discounts, I require my ebooks to be locked into the Amazon ecosystem), I bought it. Now I knew how I will be spending my mornings for a while.</p>
@@ -426,9 +426,9 @@
   
   <entry>
     <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
-    <link href="http://ifdattic.github.io/symfony-events-require-account-information-after-registration"/>
+    <link href="http://ifdattic.com/symfony-events-require-account-information-after-registration"/>
     <updated>2014-12-03T10:04:45+02:00</updated>
-    <id>http://ifdattic.github.io/symfony-events-require-account-information-after-registration</id>
+    <id>http://ifdattic.com/symfony-events-require-account-information-after-registration</id>
     <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users&#8217; email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
 
 <p><strong>Note:</strong> the tutorial assumes that your application is using <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> for user management.  If you want to add registration/login using social networks, I recommend using <a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> (not needed for this tutorial). Application assumes what when registering a user he is disabled and he is not enabled until he provides all the required information.</p>
@@ -730,12 +730,12 @@
   
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
-    <link href="http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2"/>
+    <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
     <updated>2014-11-26T15:36:49+02:00</updated>
-    <id>http://ifdattic.github.io/integrating-datadog-and-logstash-on-aws-ec2</id>
+    <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 
-<p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="http://ifdattic.github.io/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>
+<p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>
 
 <h2>Add DataDog Config</h2>
 
@@ -1086,9 +1086,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Use MongoDB for Sessions in Symfony Application]]></title>
-    <link href="http://ifdattic.github.io/how-to-mongodb-sessions-symfony-application"/>
+    <link href="http://ifdattic.com/how-to-mongodb-sessions-symfony-application"/>
     <updated>2014-10-20T16:48:25+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-use-mongodb-for-sessions-in-symfony-application</id>
+    <id>http://ifdattic.com/how-to-use-mongodb-for-sessions-in-symfony-application</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 
 <p>Add the services to <code>app/config/services.yml</code>:</p>
@@ -1169,15 +1169,15 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>You might also find &ldquo;<a href="http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb">How to save Symfony logs to MongoDB</a>&rdquo; interesting.</p>
+<p>You might also find &ldquo;<a href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb">How to save Symfony logs to MongoDB</a>&rdquo; interesting.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
-    <link href="http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb"/>
+    <link href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb"/>
     <updated>2014-10-05T15:01:41+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb</id>
+    <id>http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 
 <p>Add the log connection to <code>app/config/config.yml</code>:</p>
@@ -1317,9 +1317,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fighting Your Fears: Triple Combo - Flower Girl]]></title>
-    <link href="http://ifdattic.github.io/fighting-your-fears-triple-combo-flower-girl"/>
+    <link href="http://ifdattic.com/fighting-your-fears-triple-combo-flower-girl"/>
     <updated>2014-09-24T19:12:18+03:00</updated>
-    <id>http://ifdattic.github.io/fighting-your-fears-triple-combo-flower-girl</id>
+    <id>http://ifdattic.com/fighting-your-fears-triple-combo-flower-girl</id>
     <content type="html"><![CDATA[<p>Today (2014-09-19), I hit a triple headshot on my &ldquo;did for the first time checklist.&rdquo; It was: gift someone flowers, ask for a name first, tell random girl she&rsquo;s amiable (I like the word translation in Lithuanian more so from now on in English &ldquo;cute&rdquo; will be used).</p>
 
 <p>Today was planed as the day off cause after an eye doctor visit I was not supposed to see anything (blind as a rabbit who doesn&rsquo;t eat carrots). Spent hours just walking in the sun, listening to audio books (activity I enjoy as it allows me to disconnect), relaxing.</p>
@@ -1394,9 +1394,9 @@
   
   <entry>
     <title type="html"><![CDATA[How-to: Deploy Symfony Application to AWS ElasticBeanstalk]]></title>
-    <link href="http://ifdattic.github.io/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
+    <link href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
     <updated>2014-09-19T09:03:02+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
+    <id>http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
     <content type="html"><![CDATA[<p>I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to &ldquo;production&rdquo; environment I chose to push it to AWS ElasticBeanstalk as I&rsquo;m quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">github</a>.</p>
 
 <blockquote><p>I&rsquo;m doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,top" target="_blank">Google Forms</a>. It&rsquo;s fine if you don&rsquo;t want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.</p></blockquote>
@@ -2402,9 +2402,9 @@
   
   <entry>
     <title type="html"><![CDATA[What learning to swim reminded me about life]]></title>
-    <link href="http://ifdattic.github.io/what-learning-to-swim-reminded-me-about-life"/>
+    <link href="http://ifdattic.com/what-learning-to-swim-reminded-me-about-life"/>
     <updated>2014-08-26T14:21:47+03:00</updated>
-    <id>http://ifdattic.github.io/what-learning-to-swim-reminded-me-about-life</id>
+    <id>http://ifdattic.com/what-learning-to-swim-reminded-me-about-life</id>
     <content type="html"><![CDATA[<p>Recently I decided it would be a good idea to learn how to swim (as I like water and have a few activities planned which might lead to drowning). While doing that, it reminded me of a couple of things which might be used in life.</p>
 
 <h2>Relax</h2>
@@ -2447,9 +2447,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ready to travel? Use the following tips]]></title>
-    <link href="http://ifdattic.github.io/ready-to-travel-use-the-following-tips"/>
+    <link href="http://ifdattic.com/ready-to-travel-use-the-following-tips"/>
     <updated>2014-08-06T10:15:37+03:00</updated>
-    <id>http://ifdattic.github.io/ready-to-travel-use-the-following-tips</id>
+    <id>http://ifdattic.com/ready-to-travel-use-the-following-tips</id>
     <content type="html"><![CDATA[<p>I&rsquo;m not someone who backpacked around the world for years (maybe some day). Actually not that long ago I didn&rsquo;t even like traveling, just listening to someone who returned from somewhere made me tired. But some time in spring of 2014, I just got the itch of needing to travel. As a lazy person who is always looking for ways to optimize and simplify his life, I decided to share some tips which I wish I knew before I started traveling or just giving them to someone who is about to pop his cherry. Tips are in no particular order.</p>
 
 <p>You can jump to any particular tip:</p>
@@ -2550,9 +2550,9 @@
   
   <entry>
     <title type="html"><![CDATA[Review of SQL Performance Explained book]]></title>
-    <link href="http://ifdattic.github.io/review-of-sql-performance-explained-book"/>
+    <link href="http://ifdattic.com/review-of-sql-performance-explained-book"/>
     <updated>2014-07-30T09:36:33+03:00</updated>
-    <id>http://ifdattic.github.io/review-of-sql-performance-explained-book</id>
+    <id>http://ifdattic.com/review-of-sql-performance-explained-book</id>
     <content type="html"><![CDATA[<p>This is the review of <strong>SQL Performance Explained</strong> book by <strong><a href="http://use-the-index-luke.com/about">Markus Winand</a></strong>. The book explains everything developers need to know about the SQL performance. And the only thing that developers need to learn is how to index <a href="http://www.commitstrip.com/en/2014/06/03/the-problem-is-not-the-tool-itself/">(comic strip explaining it)</a>.</p>
 
 <!-- more -->
@@ -2582,9 +2582,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to set up encrypted backup with duplicity]]></title>
-    <link href="http://ifdattic.github.io/howto-encrypted-backup-with-duplicity"/>
+    <link href="http://ifdattic.com/howto-encrypted-backup-with-duplicity"/>
     <updated>2014-06-11T09:11:39+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-set-up-encrypted-backup-with-duplicity</id>
+    <id>http://ifdattic.com/how-to-set-up-encrypted-backup-with-duplicity</id>
     <content type="html"><![CDATA[<p>In the last half year or so, I started moving to the point where for example getting my laptop stolen (or I noticed a lot of people like installing liquids on their laptops) would be just a loss of money and a few hours. Rather than a complete disaster which might take a few days to recover. The first step of course was cleaning up my hard drive from all the personal photos, videos and a bunch of other stuff you constantly keep, but never really use. The great step to automating everything was using <a href="https://github.com/ifdattic/dotfiles">dotfiles</a> (or you can check original project <a href="https://github.com/mathiasbynens/dotfiles">mathiasbynens/dotfiles</a>). Not only it allows to automate how my machine behaves, but if I will have to set up a different one I won&rsquo;t miss some step for setting it up. Mostly what was left to do, was keeping some files available for any device. <em>Google Drive</em> was working great for it at first, but unfortunately the files in the drive isn&rsquo;t encrypted. It&rsquo;s fine for simple un-important files, but once you start adding more important files you start wanting a bit more security. This let to searching for a solution which will back up and encrypt my files and <a href="http://duplicity.nongnu.org">duplicity</a> looked promising.</p>
 
 <h2>Prerequisites</h2>
@@ -3332,9 +3332,9 @@
   
   <entry>
     <title type="html"><![CDATA[Achievement unlocked: Put out trash can fire]]></title>
-    <link href="http://ifdattic.github.io/achievement-unlocked-put-out-trash-can-fire"/>
+    <link href="http://ifdattic.com/achievement-unlocked-put-out-trash-can-fire"/>
     <updated>2014-05-26T21:41:36+03:00</updated>
-    <id>http://ifdattic.github.io/achievement-unlocked-put-out-trash-can-fire</id>
+    <id>http://ifdattic.com/achievement-unlocked-put-out-trash-can-fire</id>
     <content type="html"><![CDATA[<p>Today I did something I wanted to do for the long time, but chickened out before.</p>
 
 <p><strong>I put out the trash can fire.</strong></p>
@@ -3351,9 +3351,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Scare Your Customers Away]]></title>
-    <link href="http://ifdattic.github.io/how-to-scare-your-customers-away"/>
+    <link href="http://ifdattic.com/how-to-scare-your-customers-away"/>
     <updated>2014-04-06T18:38:16+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-scare-your-customers-away</id>
+    <id>http://ifdattic.com/how-to-scare-your-customers-away</id>
     <content type="html"><![CDATA[<p>A while ago after quitting my job I decided it would be a great time to update all the passwords I use (hey my paranoia can sometimes get paranoid). It&rsquo;s no easy task, but you got to do what you got to do. So one Saturday I sit down armed with a bucket of tea (I&rsquo;m joking, it was only half a bucket) ready to change credentials for all my accounts. When you do a task like that you begin to notice that a lot of websites have made some choices that can really get on your nerves (personally, your experience might differ). At the end of the day my password manager had a lot less accounts to remember. I started to compile a list of that should be avoided unless you want to risk losing customers (again, this is personal preference). Through the series of articles I will try to provide every item from that list (order is of no particular importance).</p>
 
 <h2>Password max length at 16 characters</h2>
@@ -3378,9 +3378,9 @@
   
   <entry>
     <title type="html"><![CDATA[Create Yii Extension by Example - EPrism]]></title>
-    <link href="http://ifdattic.github.io/create-yii-extension-by-example-eprism"/>
+    <link href="http://ifdattic.com/create-yii-extension-by-example-eprism"/>
     <updated>2014-03-05T21:46:37+02:00</updated>
-    <id>http://ifdattic.github.io/create-yii-extension-by-example-eprism</id>
+    <id>http://ifdattic.com/create-yii-extension-by-example-eprism</id>
     <content type="html"><![CDATA[<p>This is the tutorial about how to make a simple <a href="http://www.yiiframework.com/">Yii</a> extension. It would be most useful to people who are just starting with Yii framework. The tutorial is step-by-step guide using an <a href="http://www.yiiframework.com/extension/eprism">EPrism</a> extension as a base. This would be really helpful if for example you found a nice JavaScript plugin and want to use it as a part of framework rather than just adding it statically in your application.</p>
 
 <h2>1. Set up</h2>
@@ -3782,9 +3782,9 @@
   
   <entry>
     <title type="html"><![CDATA[EPrism Extension]]></title>
-    <link href="http://ifdattic.github.io/eprism-extension"/>
+    <link href="http://ifdattic.com/eprism-extension"/>
     <updated>2014-01-02T16:44:58+02:00</updated>
-    <id>http://ifdattic.github.io/eprism-extension</id>
+    <id>http://ifdattic.com/eprism-extension</id>
     <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
 
 <p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
@@ -3809,9 +3809,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to move changes between repositories (git cherry-pick)]]></title>
-    <link href="http://ifdattic.github.io/how-to-move-changes-between-repositories-git-cherry-pick"/>
+    <link href="http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick"/>
     <updated>2013-12-29T21:21:07+02:00</updated>
-    <id>http://ifdattic.github.io/how-to-move-changes-between-repositories-git-cherry-pick</id>
+    <id>http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick</id>
     <content type="html"><![CDATA[<p>I&rsquo;m currently refactoring a project which has a lot of similar copies with some slight (most often) differences between them. A difference can be from a simple value to a complete feature. Of course the best way would be to move everything to be modular and configurable, but unfortunately in real life this doesn&rsquo;t always happen instantly (you can always dream about it).</p>
 
 <!-- more -->
@@ -4049,9 +4049,9 @@
   
   <entry>
     <title type="html"><![CDATA[Review of Vagrant: Up and Running book]]></title>
-    <link href="http://ifdattic.github.io/review-of-vagrant-up-and-running-book"/>
+    <link href="http://ifdattic.com/review-of-vagrant-up-and-running-book"/>
     <updated>2013-10-15T19:35:14+03:00</updated>
-    <id>http://ifdattic.github.io/review-of-vagrant-up-and-running-book</id>
+    <id>http://ifdattic.com/review-of-vagrant-up-and-running-book</id>
     <content type="html"><![CDATA[<p>This is the review of <a href="http://www.amazon.com/gp/product/1449335837/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1449335837&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Vagrant: Up and Running by Mitchell Hashimoto</a>. The book gets you started with using <a href="http://www.vagrantup.com">Vagrant</a>. Vagrant allows you to create environments which can be similar or exactly like the environment your application will run on then it reaches the production stage.<!-- more --> Have you ever had a situation where application works perfectly on your Windows environment, but when you push it to Linux server you get errors, because you have a case typo in your code? Or how about when you need some third-party library and installation on Windows is as simple as building an Eiffel Tower, and even then, documentation says it might not work on Windows? Or maybe you&rsquo;re working on a few projects which require different PHP versions? Sounds familiar? Well, this is where Vagrant is going to help you, especially with &ldquo;<em>works on my machine</em>&rdquo; bugs.</p>
 
 <p>All the bugs described above can really get on your nerves, especially if the deadline is already nibbling at your fingers, and the last thing you need is some bug running around, having a party at your expense. So I was thinking about starting to use manually created virtual machines which have their own cons, so I was putting this away <em>for &ldquo;tomorrow&rdquo;</em> for some time. And recently I learned about Vagrant, which sounded like a perfect way to get rid of a couple headaches and work more professionally. I just wish I found about it sooner, because it&rsquo;s very easy to start using it, doesn&rsquo;t take forever to configure, if you mess something up it&rsquo;s easy to start over, and my application will be running on the environment which is the same or similar to the production environment.</p>

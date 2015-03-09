@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Logs | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/logs/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/logs/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
-    <link href="http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb"/>
+    <link href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb"/>
     <updated>2014-10-05T15:01:41+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-send-symfony-application-logs-to-mongodb</id>
+    <id>http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 
 <p>Add the log connection to <code>app/config/config.yml</code>:</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: LESS | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/less/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/less/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Converting px to ems with LESS]]></title>
-    <link href="http://ifdattic.github.io/converting-px-to-ems-with-less"/>
+    <link href="http://ifdattic.com/converting-px-to-ems-with-less"/>
     <updated>2011-10-20T19:46:27+03:00</updated>
-    <id>http://ifdattic.github.io/converting-px-to-ems-with-less</id>
+    <id>http://ifdattic.com/converting-px-to-ems-with-less</id>
     <content type="html"><![CDATA[<p><a href="http://lesscss.org">LESS</a> is great with adding variables, mixins, operations and functions to CSS. Here is the little trick to convert pixels to ems I use when coding responsive designs:</p>
 
 <!-- more -->

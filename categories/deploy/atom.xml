@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Deploy | ifdattic]]></title>
-  <link href="http://ifdattic.github.io/categories/deploy/atom.xml" rel="self"/>
-  <link href="http://ifdattic.github.io/"/>
-  <updated>2015-03-08T12:49:50+02:00</updated>
-  <id>http://ifdattic.github.io/</id>
+  <link href="http://ifdattic.com/categories/deploy/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-09T12:41:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[How-to: Deploy Symfony Application to AWS ElasticBeanstalk]]></title>
-    <link href="http://ifdattic.github.io/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
+    <link href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
     <updated>2014-09-19T09:03:02+03:00</updated>
-    <id>http://ifdattic.github.io/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
+    <id>http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
     <content type="html"><![CDATA[<p>I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to &ldquo;production&rdquo; environment I chose to push it to AWS ElasticBeanstalk as I&rsquo;m quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">github</a>.</p>
 
 <blockquote><p>I&rsquo;m doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,top" target="_blank">Google Forms</a>. It&rsquo;s fine if you don&rsquo;t want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.</p></blockquote>
