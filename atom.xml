@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-03-09T12:41:05+02:00</updated>
+  <updated>2015-03-16T19:21:18+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Digital Nomad One Backpack Packing for 6 Weeks Trip (Video)]]></title>
+    <link href="http://ifdattic.com/one-backpack-packing"/>
+    <updated>2015-03-16T19:02:17+02:00</updated>
+    <id>http://ifdattic.com/digital-nomad-one-backpack-packing-for-6-weeks-trip-video</id>
+    <content type="html"><![CDATA[<p>In 2014 I took the 6 weeks trip to Spain. Forgot to record a video of packing my backpack at that moment. After talking with other digital nomads about packing thought that it might be really fun to try recording a video of it. This is the first time I did something like it, so feedback would be appreciated. Here&rsquo;s the video:</p>
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/xH3QEfMXjh0?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>For the list of gear mentioned in the video check the <a href="https://bitly.com/bundles/ifdattic/1#">bitly collection</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Most important skill I learned from stopping smoking &amp; drinking]]></title>
@@ -4044,49 +4058,6 @@
 <p>You probably won&rsquo;t use this trick in your everyday projects, but it can definitely come in handy in case you will get into similar situation like me (refactoring a lot of copies of similar project).</p>
 
 <p>What tricks you&rsquo;re using for similar situations?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Review of Vagrant: Up and Running book]]></title>
-    <link href="http://ifdattic.com/review-of-vagrant-up-and-running-book"/>
-    <updated>2013-10-15T19:35:14+03:00</updated>
-    <id>http://ifdattic.com/review-of-vagrant-up-and-running-book</id>
-    <content type="html"><![CDATA[<p>This is the review of <a href="http://www.amazon.com/gp/product/1449335837/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1449335837&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Vagrant: Up and Running by Mitchell Hashimoto</a>. The book gets you started with using <a href="http://www.vagrantup.com">Vagrant</a>. Vagrant allows you to create environments which can be similar or exactly like the environment your application will run on then it reaches the production stage.<!-- more --> Have you ever had a situation where application works perfectly on your Windows environment, but when you push it to Linux server you get errors, because you have a case typo in your code? Or how about when you need some third-party library and installation on Windows is as simple as building an Eiffel Tower, and even then, documentation says it might not work on Windows? Or maybe you&rsquo;re working on a few projects which require different PHP versions? Sounds familiar? Well, this is where Vagrant is going to help you, especially with &ldquo;<em>works on my machine</em>&rdquo; bugs.</p>
-
-<p>All the bugs described above can really get on your nerves, especially if the deadline is already nibbling at your fingers, and the last thing you need is some bug running around, having a party at your expense. So I was thinking about starting to use manually created virtual machines which have their own cons, so I was putting this away <em>for &ldquo;tomorrow&rdquo;</em> for some time. And recently I learned about Vagrant, which sounded like a perfect way to get rid of a couple headaches and work more professionally. I just wish I found about it sooner, because it&rsquo;s very easy to start using it, doesn&rsquo;t take forever to configure, if you mess something up it&rsquo;s easy to start over, and my application will be running on the environment which is the same or similar to the production environment.</p>
-
-<p>So, I was about to hit the Vagrant documentation when I found that this book was available to read an on-line version for free (some kind of promotion or something like that). And because I like reading (and books) which led to this review.</p>
-
-<p>Vagrant: Up and Running is very well written, so it was a pleasure to read it. Most of the time it actually didn&rsquo;t feel like you&rsquo;re reading a technical book, it felt more like you asked a colleague or a friend to teach Vagrant to you (just hope it&rsquo;s not someone like me as I&rsquo;m not very good at explaining, probably should work on that a bit).</p>
-
-<p>The book has clear topics with progressive tasks, code examples, code results and notes. This allows you to read again any topic for reference without the need to re-read a previous topic, but you still need to have a least some understanding of what was done before (it would be hard to provision a virtual machine if you don&rsquo;t know how to start it first). There are also a couple of images to help you along the way. Of course it&rsquo;s nice sometimes to see something else than just a bunch of &ldquo;letter monsters&rdquo;, but in my opinion the chosen images are not that useful (image of two words command, which gives three words output feels a bit like a waste of space/money/bytes/etc.).</p>
-
-<p>If you want to follow the examples when you&rsquo;re reading the book, Internet connection is a must. You can download Vagrant, VirtualBox and a vagrant box beforehand, but as soon as you reach the provisioning of the virtual machine it will be impossible to follow the examples without Internet. Also unless you have a blazingly fast connection, you might want to jump around the book a little bit. If it feels like something that needs to be downloaded is coming up, I would suggest skipping a bit, start the download and go back to continue reading while it&rsquo;s downloading. This way you won&rsquo;t end waiting until it is possible to continue reading.</p>
-
-<p>The book is made from the following chapters:</p>
-
-<ul>
-<li><strong>An Introduction to Vagrant</strong> &ndash; provides information why you should be using Vagrant, the alternatives to Vagrant, and full installation with setup. The installation is provided for Windows, Linux, Mac OS X so no matter which OS you&rsquo;re using there will be no need for figuring out how it&rsquo;s installed.</li>
-<li><strong>Your First Vagrant Machine</strong> &ndash; is where you end running a vagrant machine (two commands &amp; that&rsquo;s it, I&rsquo;m not lying). Of course the chapter won&rsquo;t leave you hanging. It will provide extensive explanations about <em>Vagrantfile</em> (configuration file), how to configure your machine, and what to do with your machine once the work is done and it&rsquo;s time to relax.</li>
-<li><strong>Provisioning Your Vagrant VM</strong> &ndash; explains about virtual machine provisioning (how to do it manually or automatically). An empty running machine probably won&rsquo;t be very useful without needed software so the chapter explains how to provision your machine through <em>SSH</em>, <em>shell</em>, <em>Chef</em>, <em>Puppet</em>. It also has some other information you might need for provisioning.</li>
-<li><strong>Networking in Vagrant</strong> &ndash; the chapter is about how to configure Vagrant virtual machine so it could communicate with a host and/or other devices.</li>
-<li><strong>Modeling Multimachine Clusters</strong> &ndash; shows how to configure Vagrant to use multiple machines. This is especially useful if you work in the cloud where web/db/cache/etc. is on different machines. This will allow you to get close to your production environment (helping to get rid of &ldquo;works on my machine&rdquo; bugs), and you will be able to test in a controllable environment, what will happen if one of machines goes down.</li>
-<li><strong>Boxes</strong> &ndash; is a chapter about Vagrant boxes. You will learn about boxes in general, how to manage them and how to create them from an existing environment or completely from scratch.</li>
-<li><strong>Extending Vagrant with Plug-Ins</strong> &ndash; is quite a long chapter about managing and creating Vagrant plug-ins. But unless you know <em>Ruby</em> and think about creating plug-ins, you won&rsquo;t lose (just save a lot of time) anything skipping the whole chapter after the plug-in management section.</li>
-<li><strong>Appendix A/B</strong> &ndash; is two appendix chapters giving some information about Vagrant variables for quick reference.</li>
-</ul>
-
-
-<p>The book takes about <em>11 hours</em> to finish. This of course will depend on your reading speed, how long you will play with the code and a couple more things.</p>
-
-<p>Now, would I suggest reading it? I actually not sure.. It&rsquo;s a nice book which I really enjoyed reading, and it will get you up and ready for using Vagrant for your projects, but in my opinion you can easily get it just from reading the documentation. Vagrant documentation is really good, without circling about the same topic for ages, and in couple hours of reading and playing around you would be just as ready to use Vagrant as with the book. Also, something that really got on my nerves while reading the book was that the book wasn&rsquo;t released that long ago, but it uses version 1 of configuration while <code>vagrant init</code> gives you Vagrantfile in version 2. Of course Vagrant is made in a way which allows to use any configuration version together, but it&rsquo;s not fun jumping around (and plug-ins chapter goes with V2, because otherwise it won&rsquo;t work).</p>
-
-<p>Even if a documentation is good enough, you might want to get this book for different reasons. For example if you have some free time while taking a train to work. It would be a great chance to put yourself on &ldquo;<em>the next level</em>&rdquo;. Also, I know a lot of people hate reading ebooks or documentations on-line, so getting a paper book would be a great investment. Don&rsquo;t get me wrong, I love paper books, but just not then the topic is technical, it&rsquo;s just no fun trying to juggle an open book and typing an example at the same time.</p>
-
-<p>That I do know is that if you&rsquo;re a programmer, you definitely won&rsquo;t lose if you will learn Vagrant. Especially when there are services like <a href="https://puphpet.com">PuPHPet</a> which allows you to create virtual machines using a simple GUI.</p>
-
-<p>You can buy this book from <a href="http://www.amazon.com/gp/product/1449335837/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1449335837&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Amazon</a> or <a href="http://shop.oreilly.com/product/0636920026358.do">O&#8217;Reilly</a>.</p>
 ]]></content>
   </entry>
   

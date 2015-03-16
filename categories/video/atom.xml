@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Video | ifdattic]]></title>
+  <link href="http://ifdattic.com/categories/video/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-16T19:21:18+02:00</updated>
+  <id>http://ifdattic.com/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Digital Nomad One Backpack Packing for 6 Weeks Trip (Video)]]></title>
+    <link href="http://ifdattic.com/one-backpack-packing"/>
+    <updated>2015-03-16T19:02:17+02:00</updated>
+    <id>http://ifdattic.com/digital-nomad-one-backpack-packing-for-6-weeks-trip-video</id>
+    <content type="html"><![CDATA[<p>In 2014 I took the 6 weeks trip to Spain. Forgot to record a video of packing my backpack at that moment. After talking with other digital nomads about packing thought that it might be really fun to try recording a video of it. This is the first time I did something like it, so feedback would be appreciated. Here&rsquo;s the video:</p>
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/xH3QEfMXjh0?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>For the list of gear mentioned in the video check the <a href="https://bitly.com/bundles/ifdattic/1#">bitly collection</a></p>
+]]></content>
+  </entry>
+  
+</feed>
