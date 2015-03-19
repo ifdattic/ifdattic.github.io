@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-03-16T19:21:18+02:00</updated>
+  <updated>2015-03-19T16:27:58+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dummy Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/dummy-test-double-using-prophecy"/>
+    <updated>2015-03-19T16:23:51+02:00</updated>
+    <id>http://ifdattic.com/dummy-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Dummy is the simplest test double.</p>
+
+<p>It doesn&rsquo;t contain any logic and you use it when you need to satisfy a dependency which is not needed for functionality being tested.</p>
+
+<p>Below is the class which has a constructor dependency:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The dependency can be satisfied by providing a dummy object:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @test</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">new_questioner_has_no_questions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$outputDummy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$questioner</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputDummy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">getQuestionsCount</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Digital Nomad One Backpack Packing for 6 Weeks Trip (Video)]]></title>
@@ -3818,246 +3915,6 @@
 
 
 <p>You can find more information and source code at <a href="https://github.com/ifdattic/EPrism">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eprism">Yii Framework website</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to move changes between repositories (git cherry-pick)]]></title>
-    <link href="http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick"/>
-    <updated>2013-12-29T21:21:07+02:00</updated>
-    <id>http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m currently refactoring a project which has a lot of similar copies with some slight (most often) differences between them. A difference can be from a simple value to a complete feature. Of course the best way would be to move everything to be modular and configurable, but unfortunately in real life this doesn&rsquo;t always happen instantly (you can always dream about it).</p>
-
-<!-- more -->
-
-
-<p>So to save myself from doing any copy-paste I started playing around with different ideas how to do it using <em>git</em> (at least I would be able to play around with a terminal). At first experimentation started using <code>rebase</code>, but unfortunately after some bigger changes it began to mess the history. So then I started experimenting with a <code>cherry-pick</code> command. This gives me quite a good control of what commits to pick up and keeps the history clean. It just adds a little bit more typing.</p>
-
-<p>If you feel confident in <em>git</em>, then check a &ldquo;<a href="https://gist.github.com/ifdattic/8174883#file-git-cherry-pick-between-repositories-sh">summary</a>&rdquo; of commands to get the idea.</p>
-
-<p>Otherwise the step by step tutorial is available below (I tried my best to make it, but it can be improved a lot, suggestions are welcome). It doesn&rsquo;t contain any images as I don&rsquo;t think they are needed. Tutorial can be easily typed in the terminal, the only difference will be file system changes depending on operating system you are using.</p>
-
-<h2>Step-by-step tutorial</h2>
-
-<p>The set up for a tutorial is simple:</p>
-
-<ul>
-<li>The <strong>repoone</strong> directory contains <strong>README.md</strong> files with the line <em>This line will be the same between both repositories</em>.</li>
-<li><strong>repoone</strong> directory is a <em>git</em> repository.</li>
-<li>The <strong>repotwo</strong> directory is a copy of <strong>repoone</strong>.</li>
-</ul>
-
-
-<p>Now make a change in <strong>repoone</strong>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> -e <span class="s2">&quot;\n\nThis will be moved from one repository to another\n\n&quot;</span> &gt;&gt; README.md
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then commit the changes:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add README.md
-</span><span class='line'>git commit -m <span class="s2">&quot;Add line about moving&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now add another change which is only for <strong>repoone</strong>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> <span class="s2">&quot;This is only for repoone&quot;</span> &gt; repoone.config
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then commit the changes:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add repoone.config
-</span><span class='line'>git commit -m <span class="s2">&quot;Add repoone configuration&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This should start feeling similar. Add one more change and commit it:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">echo</span> <span class="s2">&quot;__*.config__ files contain the configuration values&quot;</span> &gt;&gt; README.md
-</span><span class='line'>
-</span><span class='line'>git add README.md
-</span><span class='line'>git commit -m <span class="s2">&quot;Add explanation about .config files&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For the next part of tutorial move to the second repository by executing: <code>cd ../repotwo</code>.</p>
-
-<p>To start moving changes between the repositories first we need to add it as a remote and download objects and refs from it.</p>
-
-<p><strong>Important:</strong> Note that I&rsquo;m using <em>Windows</em> for the code example so you should escape the <code>\</code>. The <code>D:\\gitcherrybetweenrepos\\repoone</code> will be different depending on your OS and/or file organization, replace as needed.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git remote add repoone D:<span class="se">\\</span>gitcherrybetweenrepos<span class="se">\\</span>repoone
-</span><span class='line'>git fetch --progress -prune repoone
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now when running the following command (<em>tip:</em> add it as an alias to your <code>.gitconfig</code>):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It will output the following results (<em>commit id</em>s might be different on your run, replace as needed):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>* f761364 <span class="o">(</span>repoone/master<span class="o">)</span> Add explanation about .config files
-</span><span class='line'>* 80a8db4 Add repoone configuration
-</span><span class='line'>* 2ac430f Add line about moving
-</span><span class='line'>* 5745330 <span class="o">(</span>HEAD, master<span class="o">)</span> Initial commit
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So we want to add <strong>2ac430f</strong> &amp; <strong>f761364</strong> commits to this repository. The <code>cherry-pick</code> command can be used for that:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git cherry-pick 2ac430f
-</span><span class='line'>git cherry-pick f761364
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>[<strong>Optional</strong>] Let&rsquo;s try it with a branch:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># go back to the first repository</span>
-</span><span class='line'><span class="nb">cd</span> ../repoone
-</span><span class='line'>
-</span><span class='line'><span class="c"># create a branch</span>
-</span><span class='line'>git checkout -b add-branch-example
-</span><span class='line'>
-</span><span class='line'><span class="c"># add some changes and commits</span>
-</span><span class='line'>touch branch-example.md
-</span><span class='line'>
-</span><span class='line'>git add branch-example.md
-</span><span class='line'>git commit -m <span class="s2">&quot;Initial commit&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">echo</span> -e <span class="s2">&quot;\n\nThis line only for repoone\n\n&quot;</span> &gt;&gt; README.md
-</span><span class='line'>git add README.md
-</span><span class='line'>git commit -m <span class="s2">&quot;Add repoone specific commit&quot;</span>
-</span><span class='line'>
-</span><span class='line'>date &gt;&gt; branch-example.md
-</span><span class='line'>git add branch-example.md
-</span><span class='line'>git commit -m <span class="s2">&quot;Add current date value&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Leave <strong>repoone</strong> here and return to <strong>repotwo</strong> (also at the same time retrieve the data from <strong>repoone</strong>):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd</span> ../repotwo
-</span><span class='line'>
-</span><span class='line'><span class="c"># check the branches of repoone</span>
-</span><span class='line'>git remote show repoone
-</span><span class='line'>
-</span><span class='line'><span class="c"># imagine we got a lot of stuff going on in the remote repository</span>
-</span><span class='line'><span class="c"># so just get back one branch and no tags</span>
-</span><span class='line'>git fetch --progress -n repoone refs/heads/add-branch-example:refs/remotes/repoone/add-branch-example
-</span><span class='line'>
-</span><span class='line'><span class="c"># check the git log</span>
-</span><span class='line'>git log --graph --decorate --pretty<span class="o">=</span>oneline --abbrev-commit --all
-</span><span class='line'>* 13b1080 <span class="o">(</span>repoone/add-branch-example<span class="o">)</span> Add current date value
-</span><span class='line'>* 94b5a67 Add repoone specific commit
-</span><span class='line'>* 240ae14 Initial commit
-</span><span class='line'>* f761364 <span class="o">(</span>repoone/master<span class="o">)</span> Add explanation about .config files
-</span><span class='line'>* 80a8db4 Add repoone configuration
-</span><span class='line'>* 2ac430f Add line about moving
-</span><span class='line'>| * 78427ed <span class="o">(</span>HEAD, master<span class="o">)</span> Add explanation about .config files
-</span><span class='line'>| * 54bd60b Add line about moving
-</span><span class='line'>|/
-</span><span class='line'>* 5745330 Initial commit
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now get the changes what are needed from the branch and merge it back to the master:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git checkout -b add-branch-example
-</span><span class='line'>
-</span><span class='line'>git cherry-pick 240ae14
-</span><span class='line'>git cherry-pick 13b1080
-</span><span class='line'>
-</span><span class='line'>git checkout master
-</span><span class='line'>git merge --no-ff add-branch-example
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And because we&rsquo;re done the branch and remote can be removed (cleanup time):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git branch -d add-branch-example
-</span><span class='line'>git remote rm repoone
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Conclusion</h2>
-
-<p>You probably won&rsquo;t use this trick in your everyday projects, but it can definitely come in handy in case you will get into similar situation like me (refactoring a lot of copies of similar project).</p>
-
-<p>What tricks you&rsquo;re using for similar situations?</p>
 ]]></content>
   </entry>
   

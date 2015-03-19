@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Prophecy | ifdattic]]></title>
+  <link href="http://ifdattic.com/categories/prophecy/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-03-19T16:27:58+02:00</updated>
+  <id>http://ifdattic.com/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dummy Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/dummy-test-double-using-prophecy"/>
+    <updated>2015-03-19T16:23:51+02:00</updated>
+    <id>http://ifdattic.com/dummy-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Dummy is the simplest test double.</p>
+
+<p>It doesn&rsquo;t contain any logic and you use it when you need to satisfy a dependency which is not needed for functionality being tested.</p>
+
+<p>Below is the class which has a constructor dependency:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>class Questioner
+{</p>
+
+<pre><code>private $output;
+
+public function __construct(OutputInterface $output)
+{
+    $this-&gt;output = $output;
+}
+
+public function getQuestionsCount()
+{
+    return 0;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The dependency can be satisfied by providing a dummy object:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace tests;</p>
+
+<p>use App\Output;
+use App\Questioner;</p>
+
+<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
+{</p>
+
+<pre><code>/**
+ * @test
+ */
+function new_questioner_has_no_questions()
+{
+    $outputDummy = $this-&gt;prophesize(Output::class);
+    $questioner  = new Questioner($outputDummy-&gt;reveal());
+
+    $this-&gt;assertSame(0, $questioner-&gt;getQuestionsCount());
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
