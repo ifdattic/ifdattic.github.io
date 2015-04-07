@@ -3,7 +3,7 @@ layout: post
 title: "Integrating DataDog &amp; logstash on AWS EC2"
 date: 2014-11-26 14:36:49 +0100
 comments: true
-categories: [Symfony, AWS, ElasticBeanstalk, DataDog, logstash, stats, Tips]
+categories: [Symfony, AWS, ElasticBeanstalk, DataDog, logstash, stats, Tips, Technical]
 permalink: /integrating-datadog-and-logstash-on-aws-ec2
 path: /source/_posts/2014-11-26-integrating-datadog-and-logstash-on-aws-ec2.markdown
 ---

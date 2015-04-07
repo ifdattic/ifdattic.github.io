@@ -3,7 +3,7 @@ layout: post
 title: "EChosen Extension"
 date: 2011-10-18 19:00:17 +0200
 comments: true
-categories: [Yii, jQuery, Extensions, Projects]
+categories: [Yii, jQuery, Extensions, Projects, Technical]
 permalink: /echosen-extension
 path: /source/_posts/2011-10-18-echosen-extension.markdown
 redirects:

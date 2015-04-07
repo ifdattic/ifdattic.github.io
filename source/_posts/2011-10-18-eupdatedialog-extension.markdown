@@ -3,7 +3,7 @@ layout: post
 title: "EUpdateDialog Extension"
 date: 2011-10-18 19:04:24 +0200
 comments: true
-categories: [Yii, jQuery, Extensions, Projects]
+categories: [Yii, jQuery, Extensions, Projects, Technical]
 permalink: /eupdatedialog-extension
 path: /source/_posts/2011-10-18-eupdatedialog-extension.markdown
 redirects:

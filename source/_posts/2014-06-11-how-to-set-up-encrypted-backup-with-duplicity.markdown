@@ -3,7 +3,7 @@ layout: post
 title: "How to set up encrypted backup with duplicity"
 date: 2014-06-11 09:11:39 +0300
 comments: true
-categories: [Backup, Security, Tutorials]
+categories: [Backup, Security, Tutorials, Technical]
 permalink: /howto-encrypted-backup-with-duplicity
 path: /source/_posts/2014-06-11-how-to-set-up-encrypted-backup-with-duplicity.markdown
 ---

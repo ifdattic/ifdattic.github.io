@@ -3,7 +3,7 @@ layout: post
 title: "How-to: Deploy Symfony Application to AWS ElasticBeanstalk"
 date: 2014-09-19 09:03:02 +0300
 comments: true
-categories: [Symfony, AWS, ElasticBeanstalk, Deploy, Tips]
+categories: [Symfony, AWS, ElasticBeanstalk, Deploy, Tips, Technical]
 permalink: /how-to-deploy-symfony-application-to-aws-elasticbeanstalk
 path: /source/_posts/2014-09-19-how-to-deploy-symfony-application-to-aws-elasticbeanstalk.markdown
 ---

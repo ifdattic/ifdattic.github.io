@@ -3,7 +3,7 @@ layout: post
 title: "Using same native bookmarks between Firefox profiles"
 date: 2011-10-19 18:32:33 +0200
 comments: true
-categories: [Bookmarks, Firefox, Hack, Tutorials]
+categories: [Bookmarks, Firefox, Hack, Tutorials, Technical]
 permalink: /using-same-native-bookmarks-between-firefox-profiles
 path: /source/_posts/2011-10-19-using-same-native-bookmarks-between-firefox-profiles.markdown
 redirects:

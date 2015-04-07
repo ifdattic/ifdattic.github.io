@@ -3,7 +3,7 @@ layout: post
 title: "Ready to travel? Use the following tips"
 date: 2014-08-06 10:15:37 +0300
 comments: true
-categories: [Tips, Travel]
+categories: [Tips, Travel, Personal]
 permalink: /ready-to-travel-use-the-following-tips
 path: /source/_posts/2014-08-06-ready-to-travel-use-the-following-tips.markdown
 redirects:

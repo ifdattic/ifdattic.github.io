@@ -3,7 +3,7 @@ layout: post
 title: "How to move changes between repositories (git cherry-pick)"
 date: 2013-12-29 21:21:07 +0200
 comments: true
-categories: [Tutorials, Tips, Git]
+categories: [Tutorials, Tips, Git, Technical]
 permalink: /how-to-move-changes-between-repositories-git-cherry-pick
 path: /source/_posts/2013-12-29-how-to-move-changes-between-repositories-git-cherry-pick.markdown
 redirects:

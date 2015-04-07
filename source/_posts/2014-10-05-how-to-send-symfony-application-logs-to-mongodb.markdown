@@ -3,7 +3,7 @@ layout: post
 title: "How to Send Symfony Application Logs to MongoDB"
 date: 2014-10-05 15:01:41 +0300
 comments: true
-categories: [Symfony, Tutorials, Logs, MongoDB]
+categories: [Symfony, Tutorials, Logs, MongoDB, Technical]
 permalink: /how-to-send-symfony-application-logs-to-mongodb
 path: /source/_posts/2014-10-05-how-to-send-symfony-application-logs-to-mongodb.markdown
 ---

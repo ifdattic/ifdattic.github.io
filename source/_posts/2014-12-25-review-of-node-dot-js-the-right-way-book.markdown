@@ -3,7 +3,7 @@ layout: post
 title: "Review of Node.js the Right Way Book"
 date: 2014-12-25 16:08:52 +0200
 comments: true
-categories: [Node.js, Review, Books]
+categories: [Node.js, Review, Books, Technical]
 permalink: /review-nodejs-right-way-book
 path: /source/_posts/2014-12-25-review-of-node-dot-js-the-right-way-book.markdown
 ---

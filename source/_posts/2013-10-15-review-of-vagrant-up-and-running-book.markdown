@@ -3,7 +3,7 @@ layout: post
 title: "Review of Vagrant: Up and Running book"
 date: 2013-10-15 18:35:14 +0200
 comments: true
-categories: [Review, Books, Vagrant]
+categories: [Review, Books, Vagrant, Technical]
 permalink: /review-of-vagrant-up-and-running-book
 path: /source/_posts/2013-10-15-review-of-vagrant-up-and-running-book.markdown
 redirects:

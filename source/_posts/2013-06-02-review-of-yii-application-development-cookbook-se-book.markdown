@@ -3,7 +3,7 @@ layout: post
 title: "Review of Yii Application Development Cookbook SE book"
 date: 2013-06-02 22:53:41 +0200
 comments: true
-categories: [Yii, Review, Books]
+categories: [Yii, Review, Books, Technical]
 permalink: /review-of-yii-application-development-cookbook-se-book
 path: /source/_posts/2013-06-02-review-of-yii-application-development-cookbook-se-book.markdown
 redirects:

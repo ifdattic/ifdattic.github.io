@@ -3,7 +3,7 @@ layout: post
 title: "Review of Instant jQuery Drag-and-Drop Grids How-to book"
 date: 2013-04-25 00:26:53 +0200
 comments: true
-categories: [Review, jQuery, Books]
+categories: [Review, jQuery, Books, Technical]
 permalink: /review-of-instant-jquery-drag-drop-grids-howto-book
 path: /source/_posts/2013-04-25-review-of-instant-jquery-drag-and-drop-grids-how-to-book.markdown
 redirects:

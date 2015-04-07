@@ -3,7 +3,7 @@ layout: post
 title: "Review of jQuery Hotshot book"
 date: 2013-05-12 23:50:23 +0200
 comments: true
-categories: [Review, jQuery, Books]
+categories: [Review, jQuery, Books, Technical]
 permalink: /review-of-jquery-hotshot-book
 path: /source/_posts/2013-05-12-review-of-jquery-hotshot-book.markdown
 redirects:

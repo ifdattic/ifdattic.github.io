@@ -3,7 +3,7 @@ layout: post
 title: "Symfony Events: Require Account Information After Registration"
 date: 2014-12-03 09:04:45 +0100
 comments: true
-categories: [Symfony, Tips]
+categories: [Symfony, Tips, Technical]
 permalink: /symfony-events-require-account-information-after-registration
 path: /source/_posts/2014-12-03-symfony-events-require-account-information-after-registration.markdown
 ---

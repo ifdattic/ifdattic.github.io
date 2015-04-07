@@ -3,7 +3,7 @@ layout: post
 title: "Create Yii Extension by Example - EPrism"
 date: 2014-03-05 21:46:37 +0200
 comments: true
-categories: [Yii, Extensions, Tutorials]
+categories: [Yii, Extensions, Tutorials, Technical]
 permalink: /create-yii-extension-by-example-eprism
 path: /source/_posts/2014-03-05-create-yii-extension-by-example-eprism.markdown
 ---

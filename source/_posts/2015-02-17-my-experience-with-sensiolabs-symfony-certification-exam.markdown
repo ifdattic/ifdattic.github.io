@@ -3,7 +3,7 @@ layout: post
 title: "My experience with SensioLabs Symfony certification exam"
 date: 2015-02-17 18:19:52 +0200
 comments: true
-categories: [Personal, Symfony]
+categories: [Personal, Symfony, Technical]
 permalink: /my-experience-sensiolabs-symfony-certification-exam
 path: /source/_posts/2015-02-17-my-experience-with-sensiolabs-symfony-certification-exam.markdown
 ---

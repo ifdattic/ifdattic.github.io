@@ -3,7 +3,7 @@ layout: post
 title: "How to Use MongoDB for Sessions in Symfony Application"
 date: 2014-10-20 16:48:25 +0300
 comments: true
-categories: [Symfony, Tutorials, MongoDB]
+categories: [Symfony, Tutorials, MongoDB, Technical]
 permalink: /how-to-mongodb-sessions-symfony-application
 path: /source/_posts/2014-10-20-how-to-use-mongodb-for-sessions-in-symfony-application.markdown
 ---

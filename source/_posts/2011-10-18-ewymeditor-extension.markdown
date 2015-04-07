@@ -3,7 +3,7 @@ layout: post
 title: "EWYMeditor Extension"
 date: 2011-10-18 19:07:53 +0200
 comments: true
-categories: [Yii, Extensions, Projects]
+categories: [Yii, Extensions, Projects, Technical]
 permalink: /ewymeditor-extension
 path: /source/_posts/2011-10-18-ewymeditor-extension.markdown
 redirects:

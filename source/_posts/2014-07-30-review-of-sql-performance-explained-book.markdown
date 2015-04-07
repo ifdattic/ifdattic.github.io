@@ -3,7 +3,7 @@ layout: post
 title: "Review of SQL Performance Explained book"
 date: 2014-07-30 09:36:33 +0300
 comments: true
-categories: [SQL, Review, Books]
+categories: [SQL, Review, Books, Technical]
 permalink: /review-of-sql-performance-explained-book
 path: /source/_posts/2014-07-30-review-of-sql-performance-explained-book.markdown
 ---

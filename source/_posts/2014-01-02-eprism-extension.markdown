@@ -3,7 +3,7 @@ layout: post
 title: "EPrism Extension"
 date: 2014-01-02 16:44:58 +0200
 comments: true
-categories: [Yii, Extensions, Syntax Highlighter, Projects]
+categories: [Yii, Extensions, Syntax Highlighter, Projects, Technical]
 permalink: /eprism-extension
 path: /source/_posts/2014-01-02-eprism-extension.markdown
 redirects:

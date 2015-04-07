@@ -3,7 +3,7 @@ layout: post
 title: "How to use MongoDB & NodeJS with Docker (video included)"
 date: 2015-01-09 19:29:10 +0200
 comments: true
-categories: [Tips, MongoDB, Docker, Node.js]
+categories: [Tips, MongoDB, Docker, Node.js, Technical]
 permalink: /how-to-mongodb-nodejs-docker
 path: /source/_posts/2015-01-28-how-to-mongodb-nodejs-docker.markdown
 redirects:

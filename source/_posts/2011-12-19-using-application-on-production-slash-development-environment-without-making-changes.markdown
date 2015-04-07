@@ -3,7 +3,7 @@ layout: post
 title: "Using application on production / development environment without making changes"
 date: 2011-12-19 14:28:09 +0200
 comments: true
-categories: [Tutorials, Tips, Environment, Yii, Framework]
+categories: [Tutorials, Tips, Environment, Yii, Framework, Technical]
 permalink: /using-application-on-production-development-environment-without-making-changes
 path: /source/_posts/2011-12-19-using-application-on-production-slash-development-environment-without-making-changes.markdown
 redirects:

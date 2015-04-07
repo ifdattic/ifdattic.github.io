@@ -3,7 +3,7 @@ layout: post
 title: "How to Scare Your Customers Away"
 date: 2014-04-06 18:38:16 +0300
 comments: true
-categories: [Mistakes, Tips]
+categories: [Mistakes, Tips, Technical]
 permalink: /how-to-scare-your-customers-away
 path: /source/_posts/2014-04-06-how-to-scare-your-customers-away.markdown
 ---
