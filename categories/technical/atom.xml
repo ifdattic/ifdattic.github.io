@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-03-30T20:19:54+03:00</updated>
+  <updated>2015-04-07T08:54:05+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -75,6 +75,552 @@ function new_questioner_has_no_questions()
 
 <p>}
 ```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
+    <link href="http://ifdattic.com/my-experience-sensiolabs-symfony-certification-exam"/>
+    <updated>2015-02-17T18:19:52+02:00</updated>
+    <id>http://ifdattic.com/my-experience-with-sensiolabs-symfony-certification-exam</id>
+    <content type="html"><![CDATA[<p>One day I check my email and see one from Fabien <em>&ldquo;Symfony turned 9 and for being one of top 100 contributors you get a free voucher.&rdquo;</em> It definitely lifted my spirits.</p>
+
+<p>Voucher was valid for a year so I just created a calendar reminder <em>&ldquo;Learn for Symfony certificate.&rdquo;</em> Made it due sometime in Summer and more or less forgot about it. More than enough time left for it.</p>
+
+<p>After the SymfonyCon Madrid I evaluated my career possibilities. Decided it&rsquo;s time to stop riding a dead horse and move the majority of my time working with Symfony framework. At the same time remembered the <a href="http://en.wikipedia.org/wiki/Parkinson%27s_law">Parkinson&rsquo;s Law</a>. <strong>The task will take as long as it&rsquo;s given time</strong>. Time to add the deadline. No matter how much I will learn for it, on March 1st I need to book the exam.</p>
+
+<p>Somehow I made January &amp; February months for learning a lot of new things. Because of that I didn&rsquo;t get as much practical experience as suspected. Still <strong>made a habit of 90 minutes reading Symfony documentation for breakfast</strong>, um, tasty. This habit was mandatory!</p>
+
+<p>The only preparation what I did was to take all the topics written in certification page and put them in a Trello card. Add items for cookbook topics, doctrine, etc. Not all are required for certification, but a good documentation is like a good book for me, so I didn&rsquo;t mind adding them. Add the links for easy access to as much of items as possible and that&rsquo;s it.</p>
+
+<p>At first the list of about 160 items makes you take a big breath. But one check-box at a time you can see the progress.</p>
+
+<p>This was also the <em>great chance to improve the documentation</em> (fixing typos, etc.). Changing it to the way you imagine it (changing formatting, etc.) and picking the brains of Symfony contributors (discussions in PRs, etc.).</p>
+
+<p><em>90 minutes each day was spent making a few notes once in a while, creating pull requests, experimenting a bit</em>. On February I did some calculations and estimated that around the middle of it I should be done. It was time to register for an exam. Really wanted to do it on February 13th the Friday (how cool does that sound). But the place I like staying at wasn&rsquo;t available for rent. Also it felt like trying to avoid the unavoidable (a bad habit to have). So just registered for Monday (the sooner the better).</p>
+
+<p>In the remaining days finished with the remaining topics. Did a <em>quick second round on the book</em> and it was time to take the exam the next day. <em>This took me about 6 weeks (~63 hours)</em>. I never believed about learning till the last second. My choice always is to put a good nights sleep between learning &amp; applying it. So Sunday documentation breakfast was the last one I will be taking for at least a while (<em>failure is always an option</em>).</p>
+
+<p>The next day I woke up feeling great. Slept well, had a nice meeting the day before, exercised, took a shower, ate and the day looked like it will be a great one. Or would it? Nah, it would be a good one. The worst that could happen is that I won&rsquo;t pass the exam and that&rsquo;s it. It&rsquo;s not the end of a world.</p>
+
+<p>OK, I worried a bit about slipping on the icy bridge while walking to the exam center and breaking my neck or dropping into a cold water. But this is the problem with my imagination. Other than that, I was trying to keep a relaxed attitude by taking a long slow walk along the snowed river to the exam center. Went out early to keep my paranoia in check about arriving late, <em>I like to stay safe</em>.</p>
+
+<p>It sounds silly, but after arriving <em>I noticed my legs getting a bit weaker and heart pounding a little harder. Stupid body</em>. Had about half an hour before the exam. I always try to prepare myself for the worst scenario (which never happens) just in case. And you get a pleasant surprise when the end result is better than that you were expecting. If you&rsquo;re prepared to lose both legs, losing only one of them is wonderful. But most of the time from my research (books, articles, etc.) the suggestion is to imagine the result you want and your mind will go towards it. I&rsquo;m still skeptic about it, but if it&rsquo;s repeated often there must be something to it. And <em>you can&rsquo;t learn without testing</em>, so why not, let&rsquo;s try it.</p>
+
+<p>I sat down. Closed my eyes. Started taking monotonic breaths and focusing my mind on passing the exam. At least my heart stopped pounding. A fresher head couldn&rsquo;t hurt either.</p>
+
+<p><em>I&rsquo;m personally a little skeptic about these exams as you could pass them with a good memory</em>. Especially after I met a person with a Java certificate when he shouldn&rsquo;t be a programmer in the first place. Unfortunately for me, <em>I  don&rsquo;t have a good memory, and it works in strange ways</em>. For example, trying to remember when I had my first operation (string of 10 characters) leads to the following flow: it was on my birthday, I finished school that year, it was my 19th birthday, I finished school one year after 18th birthday, on my school leaving certificate it&rsquo;s written 2006, so I had it on 2006-06-28. Not the best way to remember a date. <em>Fortunately for me, my logic module pick up the pace and helps were memory starts ramble. I just have to put enough resources to be able to link them together.</em></p>
+
+<p>By reminding myself that it wouldn&rsquo;t matter if I fail my head wasn&rsquo;t occupied by negative thoughts about that will happen if I fail. This allowed to take the exam with <em>stone cold focus. Read the question, read the answers, pick the one which is correct or makes most sense, keep going</em>. Flagged two questions for review, but after the second time told myself to stop doing that and simply believe in myself. <em>I enjoyed the exam a lot. It had a good flow &amp; presentation of questions</em>. A few of them made my head go &ldquo;What??&rdquo; (unlike Zend Certificate which contained quite a few &ldquo;WTF?!?&rdquo; questions). Solution to them was simple &ndash; read the question &amp; answers again, you can do this.</p>
+
+<p>75 questions later was confirming that I&rsquo;m finishing the exam and the moment of truth&hellip; Thinking I did good on exam. Still, took the big breath guessing if I should just wait for screen to change or close my eyes&hellip; The screen is still waiting&hellip; The screen finishes loading&hellip; And a log-in pop-up shoots to the front of the screen&hellip;</p>
+
+<p>(╯°□°）╯︵ ┻━┻</p>
+
+<p>After some fiddling I bring the screen back. My eyes start shooting around the screen scanning for required information. &hellip; &ldquo;<strong>Passed</strong>.&rdquo; Great, which level? &hellip; &ldquo;<strong>Expert</strong>.&rdquo; Yes *fist pump*</p>
+
+<p>Unlike with PHP certificate my reaction at the end of exam was much more &ldquo;professional.&rdquo; It still felt awesome!!!</p>
+
+<p>Note: For anyone who is interested I made a <a href="https://trello.com/c/aHnP3WUI/1-learn-for-symfony-certification">Trello card</a> public.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
+    <link href="http://ifdattic.com/how-to-mongodb-nodejs-docker"/>
+    <updated>2015-01-09T19:29:10+02:00</updated>
+    <id>http://ifdattic.com/how-to-mongodb-nodejs-docker</id>
+    <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
+
+<p><del datetime="2015-01-27">A few months ago a friend mentioned a <a href="https://university.mongodb.com/courses/M101JS/about">MongoDB course from MongoDBUniversity</a>, which sounded like a lot of fun so of course I enrolled into it. It started a few days ago and it&rsquo;s a lot of fun. As I like to keep my OS clean the Docker looked like a great solution (one of the reasons I like it, just do something and throw it away after you&rsquo;re done, just like with cloud computing). This way I could take three rabbits with one shot learning <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://nodejs.org/">Node.js</a> and <a href="https://www.docker.com/">Docker</a> at the same time.</del></p>
+
+<p><del datetime="2015-01-27">I just noticed that because I had to figure some things to make it all work this can be a great opportunity for an article to help my fellow companions with this step.</del></p>
+
+<p>Please note that I&rsquo;m using Mac OS so you might need to adjust examples to your OS and/or user. Please use the <a href="https://docs.docker.com/installation/#installation">installation instructions</a> to launch the docker on your machine.</p>
+
+<h2>MongoDB</h2>
+
+<p>First get the latest <a href="https://registry.hub.docker.com/_/mongo/">mongo image</a>:</p>
+
+<p><code>bash
+docker pull mongo:latest
+</code></p>
+
+<p>And when launch your MongoDB container:</p>
+
+<p><code>bash
+docker run -v "$(pwd)":/data --name mongo -d mongo mongod --smallfiles
+</code></p>
+
+<p>The current directory you&rsquo;re running this command from will be used as data directory in your container (provided by <code>$(pwd)</code>). Change it if you need to by entering the full path.</p>
+
+<p>The running containers can be checked by:</p>
+
+<p>```bash</p>
+
+<h1>display only running containers</h1>
+
+<p>docker ps</p>
+
+<h1>or if you want all containers displayed</h1>
+
+<p>docker ps -a
+```</p>
+
+<p>There are two options for connecting to your Mongo database.</p>
+
+<p>```bash
+docker run -it \</p>
+
+<pre><code>--link mongo:mongo \
+--rm mongo sh \
+-c 'exec mongo "$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test"'
+</code></pre>
+
+<h1>or on one line for easier copy-paste</h1>
+
+<p>docker run -it &mdash;link mongo:mongo &mdash;rm mongo sh -c &lsquo;exec mongo &ldquo;$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test&rdquo;&rsquo;
+```</p>
+
+<p>This will create a new mongo container which is linked with an existing mongo container. After container is created the command which connects to database is executed.</p>
+
+<p>Personally, I like just connecting to a running container and executing needed commands from it. You can do what with:</p>
+
+<p>```bash
+docker exec -it 442c2541fe1a bash # by ID</p>
+
+<h1>or</h1>
+
+<p>docker exec -it mongo bash # by Name
+```</p>
+
+<p>To test that your mongo database is working execute the following commands from mongo container:</p>
+
+<p><code>bash
+mongo
+db.col.insert({"a": 4})
+db.col.find().pretty()
+</code></p>
+
+<p>The new document should have been inserted and displayed back to you. You Mongo database is up and ready to be used in your projects.</p>
+
+<h3>Dump and restore the database</h3>
+
+<p>Please note that depending on your set up the database files might not be synced with your host OS. You can check this by listing the files of database directory:</p>
+
+<p><code>bash
+ls -la db
+</code></p>
+
+<p>If it&rsquo;s empty then database files are not synced.</p>
+
+<p>If the data you have in your database is important and you don&rsquo;t want to lose it export it before removing your container (stopping the container will preserve the files).</p>
+
+<p>Please check the documentation or <code>--help</code> output for more information, but to do a simple export run the following from the container (export <code>test</code> database to <code>/data/test-backup</code> destination):</p>
+
+<p><code>bash
+mongodump --db test --out /data/test-backup
+</code></p>
+
+<p>Your data directory (from the container) should now contain the backup files and it should be synced with your host OS.</p>
+
+<p>To restore the data run the following from container (restore <code>/data/test-backup/test/</code> into a <code>test-restored</code> database):</p>
+
+<p><code>bash
+mongorestore --db test-restored /data/test-backup/test
+</code></p>
+
+<h2>Node.js</h2>
+
+<p>First get the latest <a href="https://registry.hub.docker.com/_/node/">node image</a>:</p>
+
+<p><code>bash
+docker pull node:latest
+</code></p>
+
+<p>To launch the NodeJS container run:</p>
+
+<p><code>bash
+docker run -it --rm node
+</code></p>
+
+<p>This will run the node container and will put you in the interactive shell (REPL) from which you can execute code. You can test it by entering:</p>
+
+<p><code>bash
+console.log('It works!!')
+</code></p>
+
+<p>To exit the interactive shell and remove the container (as it contains <code>--rm</code> option) press <code>Control+C</code> twice.</p>
+
+<p>You have multiple ways of running your NodeJS applications. One which I personally like (especially for MongoDB course) is to create a container which has all the required data mounted and is linked to mongo container. This allows to run multiple applications without having to create new containers. It also exposes the port to host machine so you could open the application in your browser. If you want you can set working directory with <code>-w</code> option.</p>
+
+<p><code>bash
+docker run -it --name node -v "$(pwd)":/data --link mongo:mongo -w /data -p 8082:8082 node bash
+</code></p>
+
+<p>Now to run the application just enter its directory, install dependencies and run front controller script:</p>
+
+<p>```bash</p>
+
+<h1>execute commands in container</h1>
+
+<p>cd hw3-2and3-3/blog
+npm install
+node app.js
+```</p>
+
+<p>If you&rsquo;re running these examples with MongoDB course examples it will fail. This is because it&rsquo;s trying to connect to Mongo database on localhost, but our Mongo database isn&rsquo;t on local machine. There are multiple ways to fix this:</p>
+
+<ul>
+<li>hard code the connection string (with linked container IP);</li>
+<li>use environment variables which are added automatically by Docker (when linking);</li>
+<li>use hosts entry which is added automatically by Docker (when linking).</li>
+</ul>
+
+
+<p>Example below contains the representation of all those methods. Please choose the one which you like most or is best for your use case.</p>
+
+<p>```javascript
+// Original connect
+MongoClient.connect(&lsquo;mongodb://localhost:27017/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});</p>
+
+<p>// Connect using environment variables
+MongoClient.connect(&lsquo;mongodb://&rsquo;+process.env.MONGO_PORT_27017_TCP_ADDR+&lsquo;:&rsquo;+process.env.MONGO_PORT_27017_TCP_PORT+&lsquo;/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});</p>
+
+<p>// Connect using hosts entry
+MongoClient.connect(&lsquo;mongodb://mongo:27017/blog&rsquo;, function(err, db) {</p>
+
+<pre><code>// ...
+</code></pre>
+
+<p>});
+```</p>
+
+<p>After fixing the <code>connect()</code> method the application should run successfully. You can reach it by opening <code>http://192.168.59.103:8082</code> (if it was IP address of your Docker application) or if you added the Docker IP as <code>docker</code> in your hosts file <code>http://docker:8082</code>.</p>
+
+<p>To exit your application press <code>Control-C</code></p>
+
+<p>It&rsquo;s also possible to run the application in container directly.</p>
+
+<p>```bash</p>
+
+<h1>from host OS terminal</h1>
+
+<p>docker run \</p>
+
+<pre><code>--name nodeapp \
+-v "$(pwd)":/data \
+--link mongo:mongo \
+-w /data/hw3-2and3-3/blog \
+-p 8082:8082 \
+-d node node app.js
+</code></pre>
+
+<h1>or on one line for easy copy-paste</h1>
+
+<p>docker run &mdash;name nodeapp -v &ldquo;$(pwd)&rdquo;:/data &mdash;link mongo:mongo -w /data/hw3-2and3-3/blog -p 8082:8082 -d node node app.js
+```</p>
+
+<p>The following commands might be useful when running containers as daemons (replace <code>nodeapp</code> with ID or name of container):</p>
+
+<p>```bash</p>
+
+<h1>to see running containers</h1>
+
+<p>docker ps</p>
+
+<h1>to check output of container</h1>
+
+<p>docker logs nodeapp</p>
+
+<h1>to tail the output of container</h1>
+
+<p>docker logs -f nodeapp</p>
+
+<h1>to stop running container</h1>
+
+<p>docker stop nodeapp
+```</p>
+
+<h2>MongoDB Course Manual Validation Tips</h2>
+
+<p>If you using this for MongoDB University course and chose to do manual validation (haven&rsquo;t tested with MongoProc validation) you will need to keep a few things in your mind.</p>
+
+<p>For second week second homework it&rsquo;s not possible to configure the validation script and it tries to connect to Mongo database which is on localhost. To fix this open your <code>/etc/hosts</code> file (you might need to install some editor on your container), enter the <code>MONGOIP localhost</code> as the first entry (<strong>replace <code>MONGOIP</code> with mongo container IP address, should be in the same hosts file</strong>) and comment out the real <code>localhost</code> entry. Now running validation script should succeed and you should receive the validation code if you did homework assignment correctly. <strong>Don&rsquo;t forget to revert the changes to <code>/etc/hosts</code> file!!!</strong></p>
+
+<p>Other assignment validation is simpler as it allows to configure the validation script. Run validation with <code>--help</code> to see what is available for configuration. The defaults for web server should be correct (as you should have one container and two terminals for it, one running the application, another executing validation) you only need to change connection string for Mongo database. Enter the following to validate third week second assignment:</p>
+
+<p><code>bash
+node hw3-2validate.js --db mongodb://mongo:27017/blog
+</code></p>
+
+<p>If you done your homework correctly you should receive the validation code.</p>
+
+<h2>Conclusion</h2>
+
+<p>Now you should have enough knowledge to be able to run MongoDB and NodeJS using Docker. You can take most of that knowledge and expand it to other containers even if you don&rsquo;t want to learn more about Docker. This would still provide you with ability to rapidly test your ideas and throw away the resources as needed.</p>
+
+<p>If you&rsquo;re using this for MongoDB University course it should help with most of the issues you could run while completing your assignments.</p>
+
+<p>If you&rsquo;re willing to hurt your ears by listening to my voice you can find the screen cast of this whole tutorial at <a href="https://www.youtube.com/playlist?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt">YouTube</a>. If you&rsquo;re listening on mute or can&rsquo;t understand what I&rsquo;m saying the <a href="scripts/screencast-how-to-mongo-node-docker">script for screen cast is available</a>.</p>
+
+<p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
+    <link href="http://ifdattic.com/review-nodejs-right-way-book"/>
+    <updated>2014-12-25T16:08:52+02:00</updated>
+    <id>http://ifdattic.com/review-of-node-dot-js-the-right-way-book</id>
+    <content type="html"><![CDATA[<p><img class="left <a" src="href="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg">http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg</a>" title="&lsquo;Node.js the Right Way Book Cover&rsquo; &lsquo;Node.js the Right Way Book Cover&rsquo;" ></p>
+
+<p>I&rsquo;m a big fan of learning something new. After enrolling into <a href="https://university.mongodb.com/courses/M101JS/about">MongoUniversity MongoDB course</a> where all the examples would be in Node.js, decided it would be great time to at least get acquainted with Node.js. Then as the luck would have it, someone tweeted about &ldquo;<a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Node.js The Right Way</a> by <a href="https://twitter.com/hexlib">Jim. R. Wilson</a>&rdquo; from <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>, which is always a great place to look for books. As the ebook version is available on Amazon (screw the discounts, I require my ebooks to be locked into the Amazon ecosystem), I bought it. Now I knew how I will be spending my mornings for a while.</p>
+
+<!-- more -->
+
+
+<p>The book is made from the following chapters:</p>
+
+<ol>
+<li><strong>Getting Started</strong> introduces the Node.js event loop, outlines the five aspects of Node.js development and provides instructions you would need for the following chapters.</li>
+<li><strong>Wrangling the File System</strong> will help you write your first Node.js program &ndash; using Node&rsquo;s filesystem tools to create asynchronous, nonblocking file utilities.</li>
+<li><strong>Networking with Sockets</strong> is were you will create a TCP servers and client programs for accessing them. This chapter will offer insight into Node application design and provide experience creating testable and fault-tolerant systems.</li>
+<li><strong>Robust Message-Passing</strong> will introduce you to using third-party libraries. Using ØMQ (ZeroMQ) you will create suites of programs that work together in concert, and you will learn the clustering tools for managing them.</li>
+<li><strong>Accessing Databases</strong> introduces databases and how to interact with them asynchronously in Node. The database created in this chapter is the foundation for RESTful APIs you&rsquo;ll be developing in later chapters.</li>
+<li><strong>Scalable Web Services</strong> chapter will use Express, a popular Node.js web framework for routing requests. It will introduce objects called promises for managing asynchronous code flows and how to couple them in interesting ways with generator functions.</li>
+<li><strong>Web Apps</strong> is the final chapter were you will build a single-page web application for integrating with web services created in previous chapters. In this chapter you will be using Passport module for authenticating with Google account credentials and storing session data in Redis.</li>
+</ol>
+
+
+<p>Each chapter provides some aspects of Node.js development like: Architecture and Core, Patterns, JavaScriptisms, Supporting Code.</p>
+
+<p>A few issues (suggestions) for the book is that code samples could be more concise. It does not take any value away from them, but would just be nicer.</p>
+
+<p>The database chapter requires a dataset which extracts to at least 500 MB (didn&rsquo;t wait for it to finish). My suggestion would be to provide a cropped dataset or simply add a note to kill the extraction at some point (just extract enough to make the examples work).</p>
+
+<p>In my opinion it would be great if book provided a Vagrant or Docker file for having an environment which contains all the required software and working code examples.</p>
+
+<p>The book has a very nice flow. Providing a lot of code examples and giving explanations for each line (block) of code. Still, you should have at least some JavaScript knowledge.</p>
+
+<p>At the end of each chapter, questions and exercises are provided for improving your knowledge of what you learned from the chapter.</p>
+
+<p>If you want to learn Node.js in my opinion this is the great book for that. It would provide you with enough knowledge where you will be confident to start using it in your everyday life and continue learning it through practice.</p>
+
+<p>You can buy it from <a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Amazon</a> or <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
+    <link href="http://ifdattic.com/symfony-events-require-account-information-after-registration"/>
+    <updated>2014-12-03T10:04:45+02:00</updated>
+    <id>http://ifdattic.com/symfony-events-require-account-information-after-registration</id>
+    <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users' email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
+
+<p><strong>Note:</strong> the tutorial assumes that your application is using <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> for user management.  If you want to add registration/login using social networks, I recommend using <a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> (not needed for this tutorial). Application assumes what when registering a user he is disabled and he is not enabled until he provides all the required information.</p>
+
+<p>First initialize the <code>src/Ifdattic/UserBundle/EventListener/AccountInformationListener.php</code> (change namespaces as required) with following contents:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace Ifdattic\UserBundle\EventListener;</p>
+
+<p>use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\FOSUserEvents;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;</p>
+
+<p>class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>/**
+ * Route to redirect to
+ *
+ * @var string
+ */
+private $redirectRoute;
+
+/**
+ * @param string $redirectRoute Route to redirect to if conditions not met
+ */
+public function __construct($redirectRoute)
+{
+    $this-&gt;redirectRoute = $redirectRoute;
+}
+
+/**
+ * {@inheritDoc}
+ */
+public static function getSubscribedEvents()
+{
+    return [
+        'kernel.controller' =&gt; 'onKernelController',
+        FOSUserEvents::PROFILE_EDIT_SUCCESS =&gt; 'onProfileEdit',
+    ];
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The listener is provided a route name when initializing it (via constructor argument) and it subscribes to two events: <code>kernel.controller</code> and <code>FOSUserEvents::PROFILE_EDIT_SUCCESS</code>.</p>
+
+<p>Add the method which will be executed on <code>kernel.controller</code> event:</p>
+
+<p>```php
+class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>// ...
+
+/**
+ * If user is not enabled (haven't provided all information) make him to
+ * finish it before using the application.
+ *
+ * @param  FilterControllerEvent $event
+ * @return mixed
+ */
+public function onKernelController(FilterControllerEvent $event)
+{
+    if ($this-&gt;redirectRoute === $event-&gt;getRequest()-&gt;attributes-&gt;get('_route')) {
+        return;
+    }
+
+    $controller = $event-&gt;getController();
+
+    if (!is_array($controller) || !method_exists($controller[0], 'get')) {
+        return;
+    }
+
+    $security = $controller[0]-&gt;get('security.context');
+
+    if (!$security-&gt;isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+        return;
+    }
+
+    $user = $security-&gt;getToken()-&gt;getUser();
+
+    if ($user-&gt;isEnabled()) {
+        return;
+    }
+
+    $redirectUrl = $controller[0]-&gt;generateUrl($this-&gt;redirectRoute);
+    $event-&gt;setController(function () use ($redirectUrl) {
+        return new RedirectResponse($redirectUrl);
+    });
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>The method first checks what redirect route and controller is provided. Then using <code>security.context</code> service make sure the user is authenticated before continuing. If user is authenticated, but he is not enabled a URL is generated and controller is replaced with an anonymous function which returns a redirect response.</p>
+
+<p>Some might be wondering how much of an overhead this will add. Don&rsquo;t worry, it will probably won&rsquo;t even show on your profiler (if threshold is set to >0ms).</p>
+
+<p>It should be possible to enable a user when he provides all the required information. Add a method to execute on profile edit:</p>
+
+<p>```php
+class AccountInformationListener implements EventSubscriberInterface
+{</p>
+
+<pre><code>// ...
+
+/**
+ * Enable user after he filled all the required account information.
+ *
+ * @param  FormEvent $event
+ * @return void
+ */
+public function onProfileEdit(FormEvent $event)
+{
+    $user = $event-&gt;getForm()-&gt;getData();
+
+    if (false === $user-&gt;isEnabled()) {
+        $user-&gt;setEnabled(true);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This will return a user after successful form submit (after validation, etc.) and enable him if he was not enabled before. This point is a great place to collect some metrics to help you track activated users, how long it takes to activate, etc. It can be done simply by sending another event (event dispatcher can be returned from current event using <code>getDispatcher()</code> method).</p>
+
+<p>To enable the listener add it as a service (<code>src/Ifdattic/UserBundle/Resources/config/services.yml</code>):</p>
+
+<p>```yaml
+services:</p>
+
+<pre><code>ifdattic_user.account_information.listener:
+    class: Ifdattic\UserBundle\EventListener\AccountInformationListener
+    arguments: ["fos_user_profile_edit"]
+    tags:
+        - { name: kernel.event_subscriber }
+</code></pre>
+
+<p>```</p>
+
+<p>Now if you visited the application with a user which is not enabled, he should be redirected to a profile edit page. If a new field which is required for using the application is added, you could disable a user to make sure he provides that information before continuing. If you want to send a user to a different page (e.g., profile edit page has a lot of optional fields and you want to display only required fields) just change the first argument for the listener.</p>
+
+<p>This is optional, but to help users understand the next step add some visuals.</p>
+
+<p>```yaml</p>
+
+<h1>in app/Resources/FOSUserBundle/translations/FOSUserBundle.en.yml</h1>
+
+<p>profile:</p>
+
+<pre><code>edit:
+    message_for_disabled_user:
+        header: Required account information
+        message: Please provide the required information before using the application
+</code></pre>
+
+<p>```</p>
+
+<p>
+```jinja
+{# in src/Ifdattic/UserBundle/Resources/views/Profile/_disabled_user_message.html.twig #}
+{% trans_default_domain &lsquo;FOSUserBundle&rsquo; %}</p>
+
+<p>{% if app.user.isEnabled == false %}</p>
+
+<pre><code>&lt;div&gt;
+    &lt;h3&gt;{{ 'profile.edit.message_for_disabled_user.header'|trans }}&lt;/h3&gt;
+    &lt;p&gt;{{ 'profile.edit.message_for_disabled_user.message'|trans }}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>{% endif %}
+```
+</p>
+
+<p>
+<code>jinja
+{# in src/Ifdattic/UserBundle/Resources/views/Profile/edit_content.html.twig #}
+{% include "IfdatticUserBundle:Profile:_disabled_user_message.html.twig" %}
+</code>
+</p>
+
+<p>Requiring account information was very easy to implement with a simple listener and now it can be extended by adding more logic and actions to it.</p>
+
+<p>Source files are available as a <a href="https://gist.github.com/ifdattic/21a0575dc4878633430e">gist</a>.</p>
+
+<p>Do you have any suggestions, ideas, questions? Please share them.</p>
 ]]></content>
   </entry>
   
