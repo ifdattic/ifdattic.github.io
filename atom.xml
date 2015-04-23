@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-04-17T15:09:14+03:00</updated>
+  <updated>2015-04-23T09:25:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,218 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/stub-test-double-using-prophecy"/>
+    <updated>2015-04-23T09:11:17+03:00</updated>
+    <id>http://ifdattic.com/stub-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Stub is the next simplest test double after the <a href="dummy-test-double-using-prophecy">Dummy</a>.</p>
+
+<p>It doesn&rsquo;t have any expectations about the object behavior, but behaves in a specific way when put in a specific environment.</p>
+
+<p>Below is the class under the test:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$questions</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/** @return int */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Save under a new name.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param  string $name</span>
+</span><span class='line'><span class="sd">     * @return boolean</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveAs</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">questions</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>saveAs</code> method can be tested by using a stub test double:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @test</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">new_questioner_has_no_questions</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$outputDummy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$questioner</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputDummy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">getQuestionsCount</span><span class="p">());</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @test</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">questioner_is_saved_under_a_new_name</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="s1">&#39;new name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;new name&#39;</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The test will pass as long as first parameter for <code>save</code> method is an empty array (<code>[]</code>) and the second parameter is <code>new name</code>. Prophecy allows you to use argument wildcards making your tests more durable. Below you can see a new test which allows any string for a name:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// ...</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Prophecy\Argument</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @test</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">questioner_is_saved_under_any_name</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="nx">Argument</span><span class="o">::</span><span class="na">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;any name&#39;</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For the full list of arguments you can you check the code of <code>Prophecy\Argument</code> class. Here&rsquo;s some of them you might want to use in your tests:</p>
+
+<ul>
+<li><code>Argument::is($value)</code> checks that the argument is identical to a specific value</li>
+<li><code>Argument::exact($value)</code> checks that the arguments matches a specific value</li>
+<li><code>Argument::type($typeOrClass)</code> checks that the argument matches a specific type or class name</li>
+<li><code>Argument::any()</code> matches any argument</li>
+</ul>
+
+
+<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
+
+<ul>
+<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Dummy Test Double Using Prophecy]]></title>
@@ -106,6 +318,14 @@
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
+
+<ul>
+<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+</ul>
 
 ]]></content>
   </entry>
@@ -3888,33 +4108,6 @@
 <h2>Conclussion</h2>
 
 <p>Now you can relax and take a well deserved cup of tea.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[EPrism Extension]]></title>
-    <link href="http://ifdattic.com/eprism-extension"/>
-    <updated>2014-01-02T16:44:58+02:00</updated>
-    <id>http://ifdattic.com/eprism-extension</id>
-    <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
-
-<p>This extension is a wrapper for <a href="http://prismjs.com">Prism</a> by <a href="http://lea.verou.me">Lea Verou</a> (I only wrote the extension, not the syntax highlighter). <em>Prism</em> is a lightweight, extensible syntax highlighter, built with modern web standards in mind. This extension adds this great syntax highlighter using a <code>widget()</code> method.</p>
-
-<!-- more -->
-
-
-<h2>Features</h2>
-
-<p>Here&rsquo;s some of the features provided by extension:</p>
-
-<ul>
-<li>easy to install and use;</li>
-<li>simple configuration to better suit your needs;</li>
-<li>adds a great JavaScript syntax highlighter.</li>
-</ul>
-
-
-<p>You can find more information and source code at <a href="https://github.com/ifdattic/EPrism">GitHub repository</a> or <a href="http://www.yiiframework.com/extension/eprism">Yii Framework website</a>.</p>
 ]]></content>
   </entry>
   

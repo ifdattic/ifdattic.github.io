@@ -130,15 +130,19 @@
     </url>
     <url>
         <loc>http://ifdattic.com/dummy-test-double-using-prophecy</loc>
-        <lastmod>2015-03-19T16:27:05+02:00</lastmod>
+        <lastmod>2015-04-23T09:24:27+03:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ifdattic.com/stub-test-double-using-prophecy</loc>
+        <lastmod>2015-04-23T09:23:22+03:00</lastmod>
     </url>
     <url>
         <loc>http://ifdattic.com/blog/archives/</loc>
-        <lastmod>2015-04-07T08:53:30+03:00</lastmod>
+        <lastmod>2015-04-23T09:24:27+03:00</lastmod>
     </url>
     <url>
         <loc>http://ifdattic.com/</loc>
-        <lastmod>2015-04-07T08:53:30+03:00</lastmod>
+        <lastmod>2015-04-23T09:24:27+03:00</lastmod>
     </url>
     <url>
         <loc>http://ifdattic.com/robots.txt</loc>
