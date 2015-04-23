@@ -59,3 +59,5 @@ class QuestionerTest extends \PHPUnit_Framework_TestCase
     }
 }
 ```
+
+{% render_partial series/test-doubles-using-prophecy.markdown %}
