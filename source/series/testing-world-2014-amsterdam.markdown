@@ -1,2 +1,3 @@
-* Intro
+* [Amsterdam - First Experiences](/amsterdam-first-experiences)
+* [Photo album](http://bit.ly/1IvAlYb)
 * to be continued...
