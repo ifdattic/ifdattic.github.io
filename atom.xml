@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-05-12T12:45:58+03:00</updated>
+  <updated>2015-05-20T13:54:19+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,168 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Spy Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/spy-test-double-using-prophecy"/>
+    <updated>2015-05-20T13:47:25+03:00</updated>
+    <id>http://ifdattic.com/spy-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Spy is a test double which records its actions. After code execution you can check if interaction is as expected. You use it to make sure the method(s) was called.</p>
+
+<p>Below is the class which has an optional dependency which is called:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$questions</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$scorer</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">,</span> <span class="nx">ScorerInterface</span> <span class="nv">$scorer</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span> <span class="o">=</span> <span class="nv">$scorer</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/** @return int */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Save under a new name.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param  string $name</span>
+</span><span class='line'><span class="sd">     * @return boolean</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveAs</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$saved</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">questions</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$saved</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="nv">$saved</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To check that the <code>update()</code> method on <code>Scorer</code> is called use the following spy test double:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Scorer</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Prophecy\Argument</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * @test</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">score_is_updated_on_save</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">CLASS</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="nx">Argument</span><span class="o">::</span><span class="na">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$scorerSpy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Scorer</span><span class="o">::</span><span class="na">CLASS</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">(),</span> <span class="nv">$scorerSpy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;any name&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nv">$scorerSpy</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">shouldHaveBeenCalled</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
+
+<ul>
+<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Amsterdam - First Experiences (part 1) - Testing the World and Looking for Home series]]></title>
@@ -298,6 +460,7 @@
 <ul>
 <li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -403,6 +566,7 @@
 <ul>
 <li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -3736,25 +3900,6 @@
 <p>By now you should have automatic encrypted backups running on your OS. You can finally enjoy the cup of tea, and if you will accidentally spill it on your machine, it is no big deal as you have all your data safely tucked away.</p>
 
 <p>Do you have any suggestions on how to automate your machine?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Achievement unlocked: Put out trash can fire]]></title>
-    <link href="http://ifdattic.com/achievement-unlocked-put-out-trash-can-fire"/>
-    <updated>2014-05-26T21:41:36+03:00</updated>
-    <id>http://ifdattic.com/achievement-unlocked-put-out-trash-can-fire</id>
-    <content type="html"><![CDATA[<p>Today I did something I wanted to do for the long time, but chickened out before.</p>
-
-<p><strong>I put out the trash can fire.</strong></p>
-
-<p>Before I walked past a few trash can fires. Always wanted to put one out. Always was attacked by some stupid fear and just walked away. This time it looked like it will be the same scenario.</p>
-
-<p>Then I looked around at other people who walked past, or sitting like they don&rsquo;t see it. &ldquo;<em>Hey, maybe they don&rsquo;t have the equipment for putting it out?</em>&rdquo; Fine, but the outside bar is like a meter away, waiters could definitely find a cup of water somewhere. &ldquo;<em>Maybe they don&rsquo;t care, after all the smoke is going in the different direction than the customers are sitting.</em>&rdquo;</p>
-
-<p>At this point I decided, I don&rsquo;t want to be like everyone at this place and moment. I can be better, even if it&rsquo;s something as stupid as putting out a fire in progress.</p>
-
-<p>I changed direction determined to take care of the problem or die trying (overdramatization). It might have cost me my bottle of drinking water, but it felt good. I felt proud of myself for winning against some stupid fear and doing something that felt right.</p>
 ]]></content>
   </entry>
   

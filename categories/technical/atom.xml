@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-05-12T12:45:58+03:00</updated>
+  <updated>2015-05-20T13:54:19+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Spy Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/spy-test-double-using-prophecy"/>
+    <updated>2015-05-20T13:47:25+03:00</updated>
+    <id>http://ifdattic.com/spy-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Spy is a test double which records its actions. After code execution you can check if interaction is as expected. You use it to make sure the method(s) was called.</p>
+
+<p>Below is the class which has an optional dependency which is called:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>class Questioner
+{</p>
+
+<pre><code>private $output;
+private $questions = [];
+private $scorer;
+
+public function __construct(OutputInterface $output, ScorerInterface $scorer = null)
+{
+    $this-&gt;output = $output;
+    $this-&gt;scorer = $scorer;
+}
+
+/** @return int */
+public function getQuestionsCount()
+{
+    return 0;
+}
+
+/**
+ * Save under a new name.
+ *
+ * @param  string $name
+ * @return boolean
+ */
+public function saveAs($name)
+{
+    $saved = $this-&gt;output-&gt;save($this-&gt;questions, $name);
+
+    if ($saved &amp;&amp; $this-&gt;scorer) {
+        $this-&gt;scorer-&gt;update();
+    }
+
+    return $saved;
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>To check that the <code>update()</code> method on <code>Scorer</code> is called use the following spy test double:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace tests;</p>
+
+<p>use App\Output;
+use App\Questioner;
+use App\Scorer;
+use Prophecy\Argument;</p>
+
+<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
+{</p>
+
+<pre><code>// ...
+
+/**
+ * @test
+ */
+function score_is_updated_on_save()
+{
+    $outputStub = $this-&gt;prophesize(Output::CLASS);
+    $outputStub-&gt;save([], Argument::type('string'))-&gt;willReturn(true);
+    $scorerSpy = $this-&gt;prophesize(Scorer::CLASS);
+    $questioner = new Questioner($outputStub-&gt;reveal(), $scorerSpy-&gt;reveal());
+
+    $questioner-&gt;saveAs('any name');
+
+    $scorerSpy-&gt;update()-&gt;shouldHaveBeenCalled();
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
+
+* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
+* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
+* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
@@ -144,6 +243,7 @@ function questioner_is_saved_under_any_name()
 
 * [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
+* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>
@@ -215,6 +315,7 @@ function new_questioner_has_no_questions()
 
 * [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
+* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>
@@ -516,49 +617,6 @@ node hw3-2validate.js --db mongodb://mongo:27017/blog
 <p>If you&rsquo;re willing to hurt your ears by listening to my voice you can find the screen cast of this whole tutorial at <a href="https://www.youtube.com/playlist?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt">YouTube</a>. If you&rsquo;re listening on mute or can&rsquo;t understand what I&rsquo;m saying the <a href="scripts/screencast-how-to-mongo-node-docker">script for screen cast is available</a>.</p>
 
 <p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
-    <link href="http://ifdattic.com/review-nodejs-right-way-book"/>
-    <updated>2014-12-25T16:08:52+02:00</updated>
-    <id>http://ifdattic.com/review-of-node-dot-js-the-right-way-book</id>
-    <content type="html"><![CDATA[<p><img class="left <a" src="href="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg">http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg</a>" title="&lsquo;Node.js the Right Way Book Cover&rsquo; &lsquo;Node.js the Right Way Book Cover&rsquo;" ></p>
-
-<p>I&rsquo;m a big fan of learning something new. After enrolling into <a href="https://university.mongodb.com/courses/M101JS/about">MongoUniversity MongoDB course</a> where all the examples would be in Node.js, decided it would be great time to at least get acquainted with Node.js. Then as the luck would have it, someone tweeted about &ldquo;<a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Node.js The Right Way</a> by <a href="https://twitter.com/hexlib">Jim. R. Wilson</a>&rdquo; from <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>, which is always a great place to look for books. As the ebook version is available on Amazon (screw the discounts, I require my ebooks to be locked into the Amazon ecosystem), I bought it. Now I knew how I will be spending my mornings for a while.</p>
-
-<!-- more -->
-
-
-<p>The book is made from the following chapters:</p>
-
-<ol>
-<li><strong>Getting Started</strong> introduces the Node.js event loop, outlines the five aspects of Node.js development and provides instructions you would need for the following chapters.</li>
-<li><strong>Wrangling the File System</strong> will help you write your first Node.js program &ndash; using Node&rsquo;s filesystem tools to create asynchronous, nonblocking file utilities.</li>
-<li><strong>Networking with Sockets</strong> is were you will create a TCP servers and client programs for accessing them. This chapter will offer insight into Node application design and provide experience creating testable and fault-tolerant systems.</li>
-<li><strong>Robust Message-Passing</strong> will introduce you to using third-party libraries. Using ØMQ (ZeroMQ) you will create suites of programs that work together in concert, and you will learn the clustering tools for managing them.</li>
-<li><strong>Accessing Databases</strong> introduces databases and how to interact with them asynchronously in Node. The database created in this chapter is the foundation for RESTful APIs you&rsquo;ll be developing in later chapters.</li>
-<li><strong>Scalable Web Services</strong> chapter will use Express, a popular Node.js web framework for routing requests. It will introduce objects called promises for managing asynchronous code flows and how to couple them in interesting ways with generator functions.</li>
-<li><strong>Web Apps</strong> is the final chapter were you will build a single-page web application for integrating with web services created in previous chapters. In this chapter you will be using Passport module for authenticating with Google account credentials and storing session data in Redis.</li>
-</ol>
-
-
-<p>Each chapter provides some aspects of Node.js development like: Architecture and Core, Patterns, JavaScriptisms, Supporting Code.</p>
-
-<p>A few issues (suggestions) for the book is that code samples could be more concise. It does not take any value away from them, but would just be nicer.</p>
-
-<p>The database chapter requires a dataset which extracts to at least 500 MB (didn&rsquo;t wait for it to finish). My suggestion would be to provide a cropped dataset or simply add a note to kill the extraction at some point (just extract enough to make the examples work).</p>
-
-<p>In my opinion it would be great if book provided a Vagrant or Docker file for having an environment which contains all the required software and working code examples.</p>
-
-<p>The book has a very nice flow. Providing a lot of code examples and giving explanations for each line (block) of code. Still, you should have at least some JavaScript knowledge.</p>
-
-<p>At the end of each chapter, questions and exercises are provided for improving your knowledge of what you learned from the chapter.</p>
-
-<p>If you want to learn Node.js in my opinion this is the great book for that. It would provide you with enough knowledge where you will be confident to start using it in your everyday life and continue learning it through practice.</p>
-
-<p>You can buy it from <a href="http://www.amazon.com/gp/product/B00HSO6YD8/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B00HSO6YD8&amp;linkCode=as2&amp;tag=if015-20&amp;linkId=2KSSTQD6Z2X2CDRS">Amazon</a> or <a href="https://pragprog.com/book/jwnode/node-js-the-right-way">The Pragmatic Programmers</a>.</p>
 ]]></content>
   </entry>
   
