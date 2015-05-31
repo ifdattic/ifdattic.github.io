@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/git/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-05-20T13:54:19+03:00</updated>
+  <updated>2015-05-31T13:26:54+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -83,7 +83,7 @@ git commit -m &ldquo;Add explanation about .config files&rdquo;
 
 <p><code>bash
 git remote add repoone D:\\gitcherrybetweenrepos\\repoone
-git fetch --progress -prune repoone
+git fetch --progress --prune repoone
 </code></p>
 
 <p>Now when running the following command (<em>tip:</em> add it as an alias to your <code>.gitconfig</code>):</p>
