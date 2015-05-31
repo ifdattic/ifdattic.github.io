@@ -71,7 +71,7 @@ To start moving changes between the repositories first we need to add it as a re
 
 ``` bash
 git remote add repoone D:\\gitcherrybetweenrepos\\repoone
-git fetch --progress -prune repoone
+git fetch --progress --prune repoone
 ```
 
 Now when running the following command (*tip:* add it as an alias to your `.gitconfig`):
