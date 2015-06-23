@@ -4,7 +4,7 @@
   <title><![CDATA[Category: stats | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/stats/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-18T16:20:01+03:00</updated>
+  <updated>2015-06-23T12:27:38+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
     <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
-    <updated>2014-11-26T15:36:49+02:00</updated>
+    <updated>2014-11-26T14:36:49+01:00</updated>
     <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 

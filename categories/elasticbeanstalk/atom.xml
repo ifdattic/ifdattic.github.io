@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ElasticBeanstalk | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/elasticbeanstalk/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-18T16:20:01+03:00</updated>
+  <updated>2015-06-23T12:27:38+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
     <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
-    <updated>2014-11-26T15:36:49+02:00</updated>
+    <updated>2014-11-26T14:36:49+01:00</updated>
     <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 
@@ -305,7 +305,7 @@ kill -9 $pid
   <entry>
     <title type="html"><![CDATA[How-to: Deploy Symfony Application to AWS ElasticBeanstalk]]></title>
     <link href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
-    <updated>2014-09-19T09:03:02+03:00</updated>
+    <updated>2014-09-19T08:03:02+02:00</updated>
     <id>http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
     <content type="html"><![CDATA[<p>I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to &ldquo;production&rdquo; environment I chose to push it to AWS ElasticBeanstalk as I&rsquo;m quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">github</a>.</p>
 

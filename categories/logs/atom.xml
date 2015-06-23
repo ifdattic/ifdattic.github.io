@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Logs | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/logs/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-18T16:20:01+03:00</updated>
+  <updated>2015-06-23T12:27:38+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
     <link href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb"/>
-    <updated>2014-10-05T15:01:41+03:00</updated>
+    <updated>2014-10-05T14:01:41+02:00</updated>
     <id>http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 

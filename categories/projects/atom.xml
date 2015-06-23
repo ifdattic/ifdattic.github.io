@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Projects | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/projects/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-18T16:20:01+03:00</updated>
+  <updated>2015-06-23T12:27:38+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[EPrism Extension]]></title>
     <link href="http://ifdattic.com/eprism-extension"/>
-    <updated>2014-01-02T16:44:58+02:00</updated>
+    <updated>2014-01-02T15:44:58+01:00</updated>
     <id>http://ifdattic.com/eprism-extension</id>
     <content type="html"><![CDATA[<p>EPrism is an extension for Yii framework.</p>
 
@@ -43,7 +43,7 @@
   <entry>
     <title type="html"><![CDATA[EWYMeditor Extension]]></title>
     <link href="http://ifdattic.com/ewymeditor-extension"/>
-    <updated>2011-10-18T20:07:53+03:00</updated>
+    <updated>2011-10-18T19:07:53+02:00</updated>
     <id>http://ifdattic.com/ewymeditor-extension</id>
     <content type="html"><![CDATA[<p>EWYMeditor is an extension for Yii framework.</p>
 
@@ -70,7 +70,7 @@
   <entry>
     <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
     <link href="http://ifdattic.com/eupdatedialog-extension"/>
-    <updated>2011-10-18T20:04:24+03:00</updated>
+    <updated>2011-10-18T19:04:24+02:00</updated>
     <id>http://ifdattic.com/eupdatedialog-extension</id>
     <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
 
@@ -105,7 +105,7 @@
   <entry>
     <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
     <link href="http://ifdattic.com/ejuitimepicker-extension"/>
-    <updated>2011-10-18T20:01:41+03:00</updated>
+    <updated>2011-10-18T19:01:41+02:00</updated>
     <id>http://ifdattic.com/ejuitimepicker-extension</id>
     <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
 
@@ -132,7 +132,7 @@
   <entry>
     <title type="html"><![CDATA[EChosen Extension]]></title>
     <link href="http://ifdattic.com/echosen-extension"/>
-    <updated>2011-10-18T20:00:17+03:00</updated>
+    <updated>2011-10-18T19:00:17+02:00</updated>
     <id>http://ifdattic.com/echosen-extension</id>
     <content type="html"><![CDATA[<p>EChosen is an extension for Yii framework.</p>
 

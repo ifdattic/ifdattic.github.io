@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Prophecy | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/prophecy/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-18T16:20:01+03:00</updated>
+  <updated>2015-06-23T12:27:38+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Spy Test Double Using Prophecy]]></title>
     <link href="http://ifdattic.com/spy-test-double-using-prophecy"/>
-    <updated>2015-05-20T13:47:25+03:00</updated>
+    <updated>2015-05-20T12:47:25+02:00</updated>
     <id>http://ifdattic.com/spy-test-double-using-prophecy</id>
     <content type="html"><![CDATA[<p>Spy is a test double which records its actions. After code execution you can check if interaction is as expected. You use it to make sure the method(s) was called.</p>
 
@@ -115,7 +115,7 @@ function score_is_updated_on_save()
   <entry>
     <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
     <link href="http://ifdattic.com/stub-test-double-using-prophecy"/>
-    <updated>2015-04-23T09:11:17+03:00</updated>
+    <updated>2015-04-23T08:11:17+02:00</updated>
     <id>http://ifdattic.com/stub-test-double-using-prophecy</id>
     <content type="html"><![CDATA[<p>Stub is the next simplest test double after the <a href="dummy-test-double-using-prophecy">Dummy</a>.</p>
 
@@ -251,7 +251,7 @@ function questioner_is_saved_under_any_name()
   <entry>
     <title type="html"><![CDATA[Dummy Test Double Using Prophecy]]></title>
     <link href="http://ifdattic.com/dummy-test-double-using-prophecy"/>
-    <updated>2015-03-19T16:23:51+02:00</updated>
+    <updated>2015-03-19T15:23:51+01:00</updated>
     <id>http://ifdattic.com/dummy-test-double-using-prophecy</id>
     <content type="html"><![CDATA[<p>Dummy is the simplest test double.</p>
 
