@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-23T15:51:54+02:00</updated>
+  <updated>2015-06-24T07:35:17+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
+    <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
+    <updated>2015-06-24T07:16:35+02:00</updated>
+    <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
+    <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
+
+<p>While developing an application I try to keep the code separated. I also love testing and one wonderful tool which helps me produce good quality code is <a href="http://www.phpspec.net/">phpspec</a>. The issue is what by default it keeps all the tests in the root directory.</p>
+
+<p>phpspec requires some configuration to keep the tests where they belong. You might notice that I&rsquo;m using Symfony framework for my application. When you do DDD development the framework used isn&rsquo;t that important. My domain login is kept in <code>src/Domain</code> directory &amp; infrastructure code is kept as bundles in <code>src</code> directory.</p>
+
+<p>The following configuration is required to make phpspec work correctly (finding specs, creating/updating specs, running specs):</p>
+
+<p>```yml
+suites:</p>
+
+<pre><code>core_suite:
+    namespace: Domain\Core
+    psr4_prefix: Domain\Core
+    spec_path: src/Domain/Core
+    src_path: src/Domain/Core
+    spec_prefix: Spec
+
+user_infrastructure_suite:
+    namespace: UserBundle
+    psr4_prefix: UserBundle
+    spec_path: src/UserBundle
+    src_path: src/UserBundle
+    spec_prefix: Spec
+
+user_suite:
+    namespace: Domain\User
+    psr4_prefix: Domain\User
+    spec_path: src/Domain/User
+    src_path: src/Domain/User
+    spec_prefix: Spec
+</code></pre>
+
+<p>```</p>
+
+<p>Save the file as <code>phpspec.yml</code> in root directory.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/18485964273" title="Configure phpspec for DDD by Andrew Marcinkevičius, on Flickr"><img src="https://c4.staticflickr.com/4/3898/18485964273_ac0e4e5e5b_z.jpg" width="640" height="296" alt="Configure phpspec for DDD"></a></p>
+
+<p>If you would run:</p>
+
+<p><code>bash
+phpspec describe Domain/User/ValueObject/UserName
+</code></p>
+
+<p>It should create a file <code>UserNameSpec.php</code> in <code>src/Domain/User/Spec/ValueObject</code>.</p>
+
+<p>Some lines in suites might look like duplication, but I found that you have to set all the options. Otherwise there are issues with file creation/updating. You could skip <code>spec_prefix</code> option if you don&rsquo;t mind specifications directory in lowercase.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
@@ -1526,51 +1582,6 @@ container_commands:</p>
 <p>This article might not had all the steps required for deploying your Symfony application to ElasticBeanstalk, but it should point you on the right way to deploying your application. If something was not informative enough or confusing, please let me know and I will try to clarify it. If you have any questions or ideas, leave them in the comments to start the knowledge sharing.</p>
 
 <blockquote><p>I&rsquo;m doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,bottom" target="_blank">Google Forms</a>. It&rsquo;s fine if you don&rsquo;t want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What learning to swim reminded me about life]]></title>
-    <link href="http://ifdattic.com/what-learning-to-swim-reminded-me-about-life"/>
-    <updated>2014-08-26T13:21:47+02:00</updated>
-    <id>http://ifdattic.com/what-learning-to-swim-reminded-me-about-life</id>
-    <content type="html"><![CDATA[<p>Recently I decided it would be a good idea to learn how to swim (as I like water and have a few activities planned which might lead to drowning). While doing that, it reminded me of a couple of things which might be used in life.</p>
-
-<h2>Relax</h2>
-
-<p>Panicking in water will lead you to drowning. Which isn&rsquo;t fun at all (I&rsquo;m a bit of an expert in drowning). In life, doing/executing decisions while panicking/stressed could lead to bad results. Try to put decisions until you have cleared your head, or if it&rsquo;s not possible, take a few deep breaths before proceeding.</p>
-
-<h2>Focus</h2>
-
-<p>A beach or pool might be not the easiest location to focus (damn you eyes and beautiful girls/boys), but losing focus will lead to mediocre results. Keep your focus straight to get the best results you can get. And after it&rsquo;s done, reward yourself with a little break.</p>
-
-<h2>Self correct and improve yourself</h2>
-
-<p>All my life I always tried to improve myself, sometimes with better results, sometimes with not so good results. It&rsquo;s a skill you have to grow. If you want to reach the end of the pool you have to improve your form. If you focus and reflect, it&rsquo;s easy to spot when you&rsquo;re not working enough with your legs, when you did something too soon, when you did something you wasn&rsquo;t supposed to do. Try to find something where you can improve, track your progress, improve the parts which doesn&rsquo;t feel right, remove steps if you can get away with it.</p>
-
-<p>The <a href="http://en.wikipedia.org/wiki/Pareto_principle">Pareto principle</a> (80-20 rule) states that, for many events, roughly 80% of the effects come from 20% of the causes. Try to find that 20% and work on improving it as it will get you the most results.</p>
-
-<h2>Experiment</h2>
-
-<p><em>&ldquo;What is the smallest amount of movement, I have to do not to drown?&rdquo;</em> or <em>&ldquo;How long can I float like a corpse before I run out of air?&rdquo;</em>. It&rsquo;s hard to experiment when you&rsquo;re afraid of breaking things or doing something wrong. As soon as you get more confidence, start experimenting. Start asking yourself questions like <em>&ldquo;What if &hellip;?&rdquo;</em>, <em>&ldquo;How about &hellip;?&rdquo;</em>, <em>&ldquo;Why &hellip;?&rdquo;</em> and just do it. Best way to learn is from practice (a bit of theory never hurts). What is the worst that can happen? Well a lot! Just most of the time the worst outcome isn&rsquo;t as bad as you think and even a bad outcome most of the time has many pros (which can outweigh the cons).</p>
-
-<h2>Slow progress is better than no progress</h2>
-
-<p>It would be wonderful if after your finger touched the water you will start swimming like a shark (bitting legs is optional). Without hard work you&rsquo;re rarely good at something right away. As long as you keep working, sooner or later you gonna reach your goal. Even two steps forward, one step backwards is a progress.</p>
-
-<h2>When you stop chasing success it comes to you</h2>
-
-<p>Was reminded of this when for the first time reached the other side of the pool (~22 meters). It happened when I stopped trying to reach the other side and decided <em>&ldquo;just do what you&rsquo;re supposed to do, who cares if you reach the other side or the middle of the pool&rdquo;.</em> I think it must have something to do with your mind stepping away from putting sticks in the wheels and your body + subconscious just doing what they know they have to do.</p>
-
-<h2>You can&rsquo;t avoid bad days, survive them</h2>
-
-<p>Even if you have a very positive attitude to life and everything is great, still sooner or later a bad day will come. Just one of those days were no matter how hard you try the results are never what they should be. Bad days come and go, just try to get as much from it as you can.</p>
-
-<h2>Conclusion</h2>
-
-<p>Most of the points are basic and yet, it&rsquo;s hardest to see that what is simple and in front of your face. Sometimes you just need a slap in the face for you mind to go <em>&ldquo;Oh right, forgot about that one.&rdquo;</em></p>
-
-<p>How about you? Have something recently reminded you that you forgot about life?</p>
 ]]></content>
   </entry>
   

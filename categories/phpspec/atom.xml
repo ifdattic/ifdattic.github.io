@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: phpspec | ifdattic]]></title>
+  <link href="http://ifdattic.com/categories/phpspec/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-06-24T07:35:17+02:00</updated>
+  <id>http://ifdattic.com/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
+    <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
+    <updated>2015-06-24T07:16:35+02:00</updated>
+    <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
+    <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
+
+<p>While developing an application I try to keep the code separated. I also love testing and one wonderful tool which helps me produce good quality code is <a href="http://www.phpspec.net/">phpspec</a>. The issue is what by default it keeps all the tests in the root directory.</p>
+
+<p>phpspec requires some configuration to keep the tests where they belong. You might notice that I&rsquo;m using Symfony framework for my application. When you do DDD development the framework used isn&rsquo;t that important. My domain login is kept in <code>src/Domain</code> directory &amp; infrastructure code is kept as bundles in <code>src</code> directory.</p>
+
+<p>The following configuration is required to make phpspec work correctly (finding specs, creating/updating specs, running specs):</p>
+
+<p>```yml
+suites:</p>
+
+<pre><code>core_suite:
+    namespace: Domain\Core
+    psr4_prefix: Domain\Core
+    spec_path: src/Domain/Core
+    src_path: src/Domain/Core
+    spec_prefix: Spec
+
+user_infrastructure_suite:
+    namespace: UserBundle
+    psr4_prefix: UserBundle
+    spec_path: src/UserBundle
+    src_path: src/UserBundle
+    spec_prefix: Spec
+
+user_suite:
+    namespace: Domain\User
+    psr4_prefix: Domain\User
+    spec_path: src/Domain/User
+    src_path: src/Domain/User
+    spec_prefix: Spec
+</code></pre>
+
+<p>```</p>
+
+<p>Save the file as <code>phpspec.yml</code> in root directory.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/18485964273" title="Configure phpspec for DDD by Andrew Marcinkevičius, on Flickr"><img src="https://c4.staticflickr.com/4/3898/18485964273_ac0e4e5e5b_z.jpg" width="640" height="296" alt="Configure phpspec for DDD"></a></p>
+
+<p>If you would run:</p>
+
+<p><code>bash
+phpspec describe Domain/User/ValueObject/UserName
+</code></p>
+
+<p>It should create a file <code>UserNameSpec.php</code> in <code>src/Domain/User/Spec/ValueObject</code>.</p>
+
+<p>Some lines in suites might look like duplication, but I found that you have to set all the options. Otherwise there are issues with file creation/updating. You could skip <code>spec_prefix</code> option if you don&rsquo;t mind specifications directory in lowercase.</p>
+]]></content>
+  </entry>
+  
+</feed>
