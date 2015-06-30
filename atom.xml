@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-24T07:35:17+02:00</updated>
+  <updated>2015-06-30T10:32:04+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Review of Dutch PHP 2015 Conference]]></title>
+    <link href="http://ifdattic.com/dutch-php-2015-conference-review"/>
+    <updated>2015-06-29T19:51:19+02:00</updated>
+    <id>http://ifdattic.com/review-of-dutch-php-2015-conference</id>
+    <content type="html"><![CDATA[<p>On June of 2015 I attended the Dutch PHP conference and this is a short review of it.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/19264000576" title="Dutch PHP 2015 Conference by Andrew Marcinkevičius, on Flickr"><img src="https://c1.staticflickr.com/1/408/19264000576_4272fa2fa2_z.jpg" width="640" height="303" alt="Dutch PHP 2015 Conference"></a></p>
+
+<p>The conference was at Amsterdam RAI venue which is outside city center. Organizers provided directions how to get to it from city center and it&rsquo;s not hard to find. Depending on where you&rsquo;re staying for conference it might have been easier or harder to reach it. I heard some people that they would like it closer to their hotel as they don&rsquo;t want to figure out how to use public transport or take it for 20 minutes to get to the venue. I didn&rsquo;t had a direct route from my airbnb place to the venue, but it was not a big problem for me. For someone who likes exploring places by choosing a direction and walking in it a 45 minute walk to venue is a good way to freshen up my head.</p>
+
+<p>Venue is big and well supported by staff. Signs make it easy to find where you need to go. The staff is always available to provide you with refreshments (tea, coffee, juice, water) and clean up. Stand up tables make it easy to discuss with other people while having a refreshment and sitting desks are comfortable if you need to do some work.</p>
+
+<p>This might be normal for Dutch people, but I don&rsquo;t think of a bunch of cold sandwiches as a normal lunch. For someone who tries to avoid carbs it&rsquo;s nerving to think how many days will be spent feeling like crap from all that bread. I guess this is my own problem for not preparing and bringing something to eat. Still, from all my experience I personally hate Dutch food, not my cuisine.</p>
+
+<p>On first day I was attending <a href="https://joind.in/talk/view/14190">Introduction to Event Sourcing and CQRS</a> by <a href="https://twitter.com/beausimensen">Beau D. Simensen</a> &amp; <a href="https://twitter.com/willemjanz">Willem-Jan Zijderveld</a>. Lately I&rsquo;m very into Domain Driven Design and similar ways of improving applications so this workshop gave a good introduction into CQRS. The first part of workshop was explaining all the principles. Found that trying to follow the host and do it on my own laptop wasn&rsquo;t very easy due to it going too fast and having some issues. After deciding to just follow the host found the experience much better. This allowed to focus better on that is going on rather than trying to multi-task. The second part of the workshop was doing the same things, but using Broadway library. Think the workshop was well done. It might be better if the git repository was tagged after each step, so for anyone trying to follow along if they are getting behind they could just checkout the step being currently done.</p>
+
+<p>After the workshops anyone who wanted could attend code night. During it you could work on one of available open source projects helping to improve them. It had drinks, pizza and great people to talk &amp; work with. At the end of code night during the raffle it was possible to win some prizes. It was well organized and think the code night was a success. Watch the time lapse videos of it (<a href="https://www.youtube.com/watch?v=ShfMqa57PMM">part 1</a> &amp; <a href="https://www.youtube.com/watch?v=R4d04rImZAU">part 2</a>).</p>
+
+<p>The conference had a lot of sponsors. You could play games, pick up swag, learn about new tools in sponsor booths. At the end of the conference it was possible to win prizes through the raffle.</p>
+
+<p>Only the second talk was delayed by 15 minutes, but otherwise all conference run like well maintained clock. All talks were on time, none went over, good amount of breaks between tasks.</p>
+
+<p>For each time slot 5 different talks were going at the same time. For anyone interested an un-official talks were available. The talks were very well done with all/most of the problems fixed (from the talks I attended). The talks weren&rsquo;t just about PHP so you could always choose topics which interest you most (devops, testing, JavaScript, CSS, etc.).</p>
+
+<p>The opening keynote was <a href="https://joind.in/talk/view/14478">Hacking Foresight from Hindsight</a> by <a href="https://twitter.com/joshholmes">Josh Holmes</a>. The important point of the talk was that we shouldn&rsquo;t try to do everything ourselves and should try to find mentors who will help us grow faster professionally &amp; personally.</p>
+
+<p>For the first talk I went to <a href="https://joind.in/talk/view/14208">Get some hypermedia up in your API</a> by <a href="https://twitter.com/victorwelling">Victor Welling</a>. During it he explained how to solve problems like documentation, versioning, visibility of your API by extending with with HAL.</p>
+
+<p>I&rsquo;m a tall guy and ergonomically it&rsquo;s more comfortable to stay farther away from the screen. At that moment decided to experiment with sitting in the front rows. You don&rsquo;t need to spend all the time looking at the screen and found that I enjoyed having a closer proximity/relationship with a speaker much more than being able to see the screen all the time.</p>
+
+<p>The second talk I chose was <a href="https://joind.in/talk/view/14211">Automation made simple with Ansible</a> by <a href="https://twitter.com/erikaheidi">Erika Heidi</a>. I played a little with Ansible before. Repetition helps with retaining information. The talk gradually explains what is possible with Ansible and after it you should be in a good position to play around with it in your projects. After talking with Erika between talks, I think now I know how my phone feels when I plug it to charge the batteries. She is a very positive girl and talking with her you can feel your own batteries charging.</p>
+
+<p>Had a hard choice for third talk as Mathias Verraes &amp; Matthias Noback was talking at the same slot. Chose to go to <a href="https://joind.in/talk/view/14214">Towards Modelling Processes</a> by <a href="https://twitter.com/mathiasverraes">Mathias Verraes</a>. Talk had a simulated event storming and the main point of talk was explaining how to think in temporal model, not just structural.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/18667538394" title="DPC15 - Towards Modelling Processes by Mathias Verraes by Andrew Marcinkevičius, on Flickr"><img src="https://c1.staticflickr.com/1/256/18667538394_8203dbba5e_z.jpg" width="640" height="480" alt="DPC15 - Towards Modelling Processes by Mathias Verraes"></a></p>
+
+<p>Was a little late for <a href="https://joind.in/talk/view/14219">Command Bus to Awesome Town</a> by <a href="https://twitter.com/rosstuck">Ross Tuck</a> talk. The speaker was lively with enough jokes between the slides. The talk explained what is command bus &amp; why/how you might want to use one in your project.</p>
+
+<p>During the conference I went to enough talks about event sourcing and similar topics, but going to <a href="https://joind.in/talk/view/14226">Let&rsquo;s Write Some History!</a> by <a href="https://twitter.com/willemjanz">Willem-Jan Zijderveld</a> helped me to understand a few more concepts I was missing/confused.</p>
+
+<p>For last first day talk I chose <a href="https://joind.in/talk/view/14231">Journey into your Lizard Brain</a> by <a href="https://twitter.com/rdohms">Rafael Dohms</a>. During it he shared a personal story, explained how developers think &amp; gave tips on how to become a better developer. One of the most important points in my opinion would be to focus on the current moment. I think conferences could have more of &ldquo;soft&rdquo; talks as I find them refreshing when mixed with technical talks.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/18667539664" title="DPC15 - Journey into your Lizard Brain by Rafael Dohms by Andrew Marcinkevičius, on Flickr"><img src="https://c1.staticflickr.com/1/469/18667539664_38611826a4_z.jpg" width="640" height="480" alt="DPC15 - Journey into your Lizard Brain by Rafael Dohms"></a></p>
+
+<p>The Conference Social was at Akhnaton. Organizers provided directions how to get from venue to it. It was easy to find the bar and after arrival everyone received drink tokens. Received enough tokens to spend the rest of the evening with a bottle of water in my hand (might be a different experience depending on your drinking habits).</p>
+
+<p>The day before I decided to skip the morning talk. Even thought woke up refreshed I&rsquo;m trying to learn to make a decision and keep with it (unless the situation changes).</p>
+
+<p>For second talk I went to <a href="https://joind.in/talk/view/14238">Hexagonal architecture &ndash; message-oriented software design</a> by <a href="https://twitter.com/matthiasnoback">Matthias Noback</a>. The talk was well paced, explaining how to improve your applications by focusing on messages.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/19293946821" title="DPC15 - Hexagonal architecture - message-oriented software design by Matthias Noback by Andrew Marcinkevičius, on Flickr"><img src="https://c1.staticflickr.com/1/445/19293946821_426765221f_z.jpg" width="640" height="480" alt="DPC15 - Hexagonal architecture - message-oriented software design by Matthias Noback"></a></p>
+
+<p>I think the composer is a wonderful tool making my life much easier. I think I know enough of it to do what is needed and advise others of best practices (like using CLI and not editing JSON file). It never hurts to make sure so I went to <a href="https://joind.in/talk/view/14245">Composer The Right Way</a> by <a href="https://twitter.com/rdohms">Rafael Dohms</a>. The talk explained some parts which you might not use so often &amp; how to use composer better. If you don&rsquo;t use composer (or know what it is) stop making your life harder!</p>
+
+<p>For the fourth talk was thinking about going to <a href="https://joind.in/talk/view/14248">Implement Single Sign On easily with Symfony</a> by <a href="https://twitter.com/Saro0h">Sarah Khalil</a>. When considered that can&rsquo;t think of anything were I would need to implement it in the near future and need to mix a less technical talk for better ratio. Went to <a href="https://joind.in/talk/view/14249">Software architecture in an agile age</a> by <a href="https://twitter.com/harrieverveer">Harrie Verveer</a>. Maybe it&rsquo;s the trauma from college when had to do a lot of UML diagrams or maybe being sleepy after lunch, but expected a little more from the talk. It was still a good talk explaining how to work better on your projects. I agree with most important idea what no matter which format you use it&rsquo;s good to make at least few notes/diagrams before you start building things.</p>
+
+<p><a href="https://www.flickr.com/photos/ifdattic/19284034222" title="DPC15 - Software architecture in an agile age by Harrie Verveer by Andrew Marcinkevičius, on Flickr"><img src="https://c1.staticflickr.com/1/357/19284034222_5f5d050fb2_z.jpg" width="640" height="480" alt="DPC15 - Software architecture in an agile age by Harrie Verveer"></a></p>
+
+<p>For last talk chose to go to <a href="https://joind.in/talk/view/14253">Adding 1.21 Gigawatts to Application with RabbitMQ</a> by <a href="https://twitter.com/asgrim">James Titcumb</a>. The talk is very technical with code examples and at some points it can feel a little dry. We talked with a speaker about how it can be improved. The talk explains very well how to use RabbitMQ in your projects, including pitfalls to avoid.</p>
+
+<p>The closing keynote <a href="https://joind.in/talk/view/14639">Behind the Scenes of Maintaining an Open Source Project</a> was done by <a href="https://twitter.com/seldaek">Jordi Boggiano</a> about how open source project looks behind the scenes. He went through different stages of it (maintenance, anger, etc.) including anecdotes and personal stories. Staying behind the screen we often forget about the world behind our backs and that open source is only possible thanks to the community and people who spend their energy &amp; time.</p>
+
+<p>I enjoyed the conference a lot and really happy about attending it. It&rsquo;s was nice to put Twitter/GitHub profiles with real people. Would like to thank the organizers, speakers, audience for three great days of new experiences &amp; sharing knowledge. In the end I would like to borrow (in other words steal) the quote from <a href="https://twitter.com/michellesanver">Michelle Sanver</a> which summarizes what is a conference very well &ndash; &ldquo;<em><a href="https://blog.liip.ch/archive/2015/02/10/conferences-that-are-parties-with-talks-phpbenelux-and-sunshinephp.html">A conference is a party with talks</a></em>&rdquo;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
@@ -158,8 +225,6 @@
 <p>After some haggling we decided to try and if it will work, I will pay. If it will not work he will take the card back and I will not need to pay. Good deal, <em>I have nothing to lose after all, or so I thought</em>. After changing the card and rebooting the phone the language automatically changed to Dutch (without asking me about it), started installing some apps and if you enter the settings (to change the language or enable WiFi) the application would just close down. WTF?!? <em>I wasn&rsquo;t expecting my phone catching an STD</em>. I had doubts about myself, who knows were I might end sticking my USB stick in, but I didn&rsquo;t expect this happening to my phone. Thanked the shop keeper for trying and left without local SIM card.</p>
 
 <p>Continued to keep going down the street as somewhere around here was a park (I love green &amp; blue colors on maps). At the same time trying to figure out how to at least change the language to English. What I found is what if you restart the phone you have about few seconds of browsing the settings app before it&rsquo;s closed. Not an easy task to change something in few seconds when you don&rsquo;t even know where it is. After a while I just gave up as this was unsustainable. Restarting the phone took about a minute and it provides only a few seconds which probably won&rsquo;t be enough. Another problem was what I was kind of lost, the GPS/maps application was in Dutch and without any cache. <em>The easy way would be just to go back, which is boring</em>. After calculating the direction I should move to I continued my travels.</p>
-
-<p><a href="http://ifdattic.smugmug.com/2016-June-Amsterdam/i-QWZNbnT/A" title=""><img src="http://ifdattic.smugmug.com/2016-June-Amsterdam/i-QWZNbnT/0/M/IMG_20150622_162833-M.jpg" title="" alt=""></a></p>
 
 <p>After reaching a place which was close to the boat house stopped for some traditional Dutch pancakes. At first trying to think how to fix the phone. Soon changed that with just drinking my mint tea with honey and enjoying the fresh air. Decided my best choice would be to go back home, try to figure out how to fix my phone or at least to cache the map.</p>
 
@@ -3146,51 +3211,6 @@
 <p>This article might not had all the steps required for deploying your Symfony application to ElasticBeanstalk, but it should point you on the right way to deploying your application. If something was not informative enough or confusing, please let me know and I will try to clarify it. If you have any questions or ideas, leave them in the comments to start the knowledge sharing.</p>
 
 <blockquote><p>I&rsquo;m doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,bottom" target="_blank">Google Forms</a>. It&rsquo;s fine if you don&rsquo;t want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What learning to swim reminded me about life]]></title>
-    <link href="http://ifdattic.com/what-learning-to-swim-reminded-me-about-life"/>
-    <updated>2014-08-26T13:21:47+02:00</updated>
-    <id>http://ifdattic.com/what-learning-to-swim-reminded-me-about-life</id>
-    <content type="html"><![CDATA[<p>Recently I decided it would be a good idea to learn how to swim (as I like water and have a few activities planned which might lead to drowning). While doing that, it reminded me of a couple of things which might be used in life.</p>
-
-<h2>Relax</h2>
-
-<p>Panicking in water will lead you to drowning. Which isn&rsquo;t fun at all (I&rsquo;m a bit of an expert in drowning). In life, doing/executing decisions while panicking/stressed could lead to bad results. Try to put decisions until you have cleared your head, or if it&rsquo;s not possible, take a few deep breaths before proceeding.</p>
-
-<h2>Focus</h2>
-
-<p>A beach or pool might be not the easiest location to focus (damn you eyes and beautiful girls/boys), but losing focus will lead to mediocre results. Keep your focus straight to get the best results you can get. And after it&rsquo;s done, reward yourself with a little break.</p>
-
-<h2>Self correct and improve yourself</h2>
-
-<p>All my life I always tried to improve myself, sometimes with better results, sometimes with not so good results. It&rsquo;s a skill you have to grow. If you want to reach the end of the pool you have to improve your form. If you focus and reflect, it&rsquo;s easy to spot when you&rsquo;re not working enough with your legs, when you did something too soon, when you did something you wasn&rsquo;t supposed to do. Try to find something where you can improve, track your progress, improve the parts which doesn&rsquo;t feel right, remove steps if you can get away with it.</p>
-
-<p>The <a href="http://en.wikipedia.org/wiki/Pareto_principle">Pareto principle</a> (80-20 rule) states that, for many events, roughly 80% of the effects come from 20% of the causes. Try to find that 20% and work on improving it as it will get you the most results.</p>
-
-<h2>Experiment</h2>
-
-<p><em>&ldquo;What is the smallest amount of movement, I have to do not to drown?&rdquo;</em> or <em>&ldquo;How long can I float like a corpse before I run out of air?&rdquo;</em>. It&rsquo;s hard to experiment when you&rsquo;re afraid of breaking things or doing something wrong. As soon as you get more confidence, start experimenting. Start asking yourself questions like <em>&ldquo;What if &hellip;?&rdquo;</em>, <em>&ldquo;How about &hellip;?&rdquo;</em>, <em>&ldquo;Why &hellip;?&rdquo;</em> and just do it. Best way to learn is from practice (a bit of theory never hurts). What is the worst that can happen? Well a lot! Just most of the time the worst outcome isn&rsquo;t as bad as you think and even a bad outcome most of the time has many pros (which can outweigh the cons).</p>
-
-<h2>Slow progress is better than no progress</h2>
-
-<p>It would be wonderful if after your finger touched the water you will start swimming like a shark (bitting legs is optional). Without hard work you&rsquo;re rarely good at something right away. As long as you keep working, sooner or later you gonna reach your goal. Even two steps forward, one step backwards is a progress.</p>
-
-<h2>When you stop chasing success it comes to you</h2>
-
-<p>Was reminded of this when for the first time reached the other side of the pool (~22 meters). It happened when I stopped trying to reach the other side and decided <em>&ldquo;just do what you&rsquo;re supposed to do, who cares if you reach the other side or the middle of the pool&rdquo;.</em> I think it must have something to do with your mind stepping away from putting sticks in the wheels and your body + subconscious just doing what they know they have to do.</p>
-
-<h2>You can&rsquo;t avoid bad days, survive them</h2>
-
-<p>Even if you have a very positive attitude to life and everything is great, still sooner or later a bad day will come. Just one of those days were no matter how hard you try the results are never what they should be. Bad days come and go, just try to get as much from it as you can.</p>
-
-<h2>Conclusion</h2>
-
-<p>Most of the points are basic and yet, it&rsquo;s hardest to see that what is simple and in front of your face. Sometimes you just need a slap in the face for you mind to go <em>&ldquo;Oh right, forgot about that one.&rdquo;</em></p>
-
-<p>How about you? Have something recently reminded you that you forgot about life?</p>
 ]]></content>
   </entry>
   
