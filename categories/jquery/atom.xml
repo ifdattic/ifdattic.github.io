@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jQuery | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/jquery/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Review of jQuery Hotshot book]]></title>
     <link href="http://ifdattic.com/review-of-jquery-hotshot-book"/>
-    <updated>2013-05-12T23:50:23+02:00</updated>
+    <updated>2013-05-13T00:50:23+03:00</updated>
     <id>http://ifdattic.com/review-of-jquery-hotshot-book</id>
     <content type="html"><![CDATA[<p>This was the first I read something from the <em>Packt Hotshot</em> series, so I wasn&rsquo;t sure what to expect. For those who haven&rsquo;t tried this series let me explain a bit about them. All of this is more or less logical assumption by checking the table of contents for other books in the series (it&rsquo;s just a way my mind works, I take small pieces of information and then try to connect them together, much more fun and keeps cogs in my head sharp).<!-- more --> In my opinion <em>Hotshot</em> books are somewhere between regular books (where you have a project an add more features with every chapter) and cookbooks (where you have a bunch of recipes to expand your project). Hotshot books give you a few projects (it varies but mostly 8 or 10) concentrating on some topic, but the end result is a project which with a few more additions can be made to a production application. The books have an interesting format by splitting the projects into sub-chapters like <em>Mission Briefing</em>, <em>Mission Accomplished</em>, <em>Classified Intel</em> and tasks to complete for each project. If you have a mind which manufacturer forgot to refurbish (yes I&rsquo;m pointing at you mother Nature) or an overflowing imagination, the learning can be very fun. Just image you&rsquo;re a secret agent disarming an atomic bomb by sliding a puzzle or a cowboy ready to show his skills by gunning down a few bounties on Stack Overflow, or whatever rocks your boat. At the end of each project there is a few ideas provided how it can be expanded, but it&rsquo;s left for the reader to add those changes (even after finishing school homework keeps following you around).</p>
 
@@ -49,7 +49,7 @@
   <entry>
     <title type="html"><![CDATA[Review of Instant jQuery Drag-and-Drop Grids How-to book]]></title>
     <link href="http://ifdattic.com/review-of-instant-jquery-drag-drop-grids-howto-book"/>
-    <updated>2013-04-25T00:26:53+02:00</updated>
+    <updated>2013-04-25T01:26:53+03:00</updated>
     <id>http://ifdattic.com/review-of-instant-jquery-drag-and-drop-grids-how-to-book</id>
     <content type="html"><![CDATA[<p>I like <em>Packt Publishing</em> books for their simplicity and a chance to get starting knowledge on some topic without investing too much time. So recently I had a chance to try <em>&ldquo;Instant&rdquo;</em> series which provide short, fast, focused guide with immediate results.</p>
 
@@ -73,7 +73,7 @@
   <entry>
     <title type="html"><![CDATA[EUpdateDialog Extension]]></title>
     <link href="http://ifdattic.com/eupdatedialog-extension"/>
-    <updated>2011-10-18T19:04:24+02:00</updated>
+    <updated>2011-10-18T20:04:24+03:00</updated>
     <id>http://ifdattic.com/eupdatedialog-extension</id>
     <content type="html"><![CDATA[<p>EUpdateDialog is an extension for Yii framework.</p>
 
@@ -108,7 +108,7 @@
   <entry>
     <title type="html"><![CDATA[EJuiTimePicker Extension]]></title>
     <link href="http://ifdattic.com/ejuitimepicker-extension"/>
-    <updated>2011-10-18T19:01:41+02:00</updated>
+    <updated>2011-10-18T20:01:41+03:00</updated>
     <id>http://ifdattic.com/ejuitimepicker-extension</id>
     <content type="html"><![CDATA[<p>EJuiTimePicker is an extension for Yii framework.</p>
 
@@ -135,7 +135,7 @@
   <entry>
     <title type="html"><![CDATA[EChosen Extension]]></title>
     <link href="http://ifdattic.com/echosen-extension"/>
-    <updated>2011-10-18T19:00:17+02:00</updated>
+    <updated>2011-10-18T20:00:17+03:00</updated>
     <id>http://ifdattic.com/echosen-extension</id>
     <content type="html"><![CDATA[<p>EChosen is an extension for Yii framework.</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mixins | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/mixins/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Converting px to ems with LESS]]></title>
     <link href="http://ifdattic.com/converting-px-to-ems-with-less"/>
-    <updated>2011-10-20T18:46:27+02:00</updated>
+    <updated>2011-10-20T19:46:27+03:00</updated>
     <id>http://ifdattic.com/converting-px-to-ems-with-less</id>
     <content type="html"><![CDATA[<p><a href="http://lesscss.org">LESS</a> is great with adding variables, mixins, operations and functions to CSS. Here is the little trick to convert pixels to ems I use when coding responsive designs:</p>
 

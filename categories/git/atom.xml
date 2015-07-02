@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/git/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How to move changes between repositories (git cherry-pick)]]></title>
     <link href="http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick"/>
-    <updated>2013-12-29T20:21:07+01:00</updated>
+    <updated>2013-12-29T21:21:07+02:00</updated>
     <id>http://ifdattic.com/how-to-move-changes-between-repositories-git-cherry-pick</id>
     <content type="html"><![CDATA[<p>I&rsquo;m currently refactoring a project which has a lot of similar copies with some slight (most often) differences between them. A difference can be from a simple value to a complete feature. Of course the best way would be to move everything to be modular and configurable, but unfortunately in real life this doesn&rsquo;t always happen instantly (you can always dream about it).</p>
 

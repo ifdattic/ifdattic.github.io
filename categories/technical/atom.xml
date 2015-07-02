@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -14,9 +14,69 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Mock Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/mock-test-double-using-prophecy"/>
+    <updated>2015-07-02T16:42:18+03:00</updated>
+    <id>http://ifdattic.com/mock-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Mock is a test double which simulates behavior and we have expectations for it. You define predictions for it and later check if any of them failed.</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace tests;</p>
+
+<p>use App\Output;
+use App\Questioner;
+use App\Scorer;
+use Prophecy\Argument;</p>
+
+<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
+{</p>
+
+<pre><code>// ...
+
+/**
+ * @test
+ */
+function questioner_is_saved()
+{
+    $outputMock = $this-&gt;prophesize(Output::CLASS);
+    $outputMock-&gt;save([], Argument::type('string'))-&gt;shouldBeCalled();
+    $questioner = new Questioner($outputMock-&gt;reveal());
+
+    $questioner-&gt;saveAs('any name');
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>Some of the predictions you can make:</p>
+
+<ul>
+<li><code>CallPrediction</code> or <code>shouldBeCalled()</code> &ndash; checks that method was called 1 or more times</li>
+<li><code>NoCallsPrediction</code> or <code>shouldNotBeCalled()</code> &ndash; checks that method was not called</li>
+<li><code>CallTimesPrediction</code> or <code>shouldBeCalledTimes($count)</code> &ndash; checks that method was called a specified number of times</li>
+<li><code>CallbackPrediction</code> or <code>should($callback)</code> &ndash; checks method against custom callback</li>
+</ul>
+
+
+<p>Custom predictions can be created by implementing <code>PredictionInterface</code>.</p>
+
+<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
+
+* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
+* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
+* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
+* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Review of Dutch PHP 2015 Conference]]></title>
     <link href="http://ifdattic.com/dutch-php-2015-conference-review"/>
-    <updated>2015-06-29T19:51:19+02:00</updated>
+    <updated>2015-06-29T20:51:19+03:00</updated>
     <id>http://ifdattic.com/review-of-dutch-php-2015-conference</id>
     <content type="html"><![CDATA[<p>On June of 2015 I attended the Dutch PHP conference and this is a short review of it.</p>
 
@@ -83,7 +143,7 @@
   <entry>
     <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
     <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
-    <updated>2015-06-24T07:16:35+02:00</updated>
+    <updated>2015-06-24T08:16:35+03:00</updated>
     <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
     <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
 
@@ -139,7 +199,7 @@ phpspec describe Domain/User/ValueObject/UserName
   <entry>
     <title type="html"><![CDATA[Spy Test Double Using Prophecy]]></title>
     <link href="http://ifdattic.com/spy-test-double-using-prophecy"/>
-    <updated>2015-05-20T12:47:25+02:00</updated>
+    <updated>2015-05-20T13:47:25+03:00</updated>
     <id>http://ifdattic.com/spy-test-double-using-prophecy</id>
     <content type="html"><![CDATA[<p>Spy is a test double which records its actions. After code execution you can check if interaction is as expected. You use it to make sure the method(s) was called.</p>
 
@@ -231,6 +291,7 @@ function score_is_updated_on_save()
 * [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
 * [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
+* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>
@@ -238,7 +299,7 @@ function score_is_updated_on_save()
   <entry>
     <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
     <link href="http://ifdattic.com/stub-test-double-using-prophecy"/>
-    <updated>2015-04-23T08:11:17+02:00</updated>
+    <updated>2015-04-23T09:11:17+03:00</updated>
     <id>http://ifdattic.com/stub-test-double-using-prophecy</id>
     <content type="html"><![CDATA[<p>Stub is the next simplest test double after the <a href="dummy-test-double-using-prophecy">Dummy</a>.</p>
 
@@ -367,78 +428,7 @@ function questioner_is_saved_under_any_name()
 * [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
 * [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
-</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Dummy Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/dummy-test-double-using-prophecy"/>
-    <updated>2015-03-19T15:23:51+01:00</updated>
-    <id>http://ifdattic.com/dummy-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Dummy is the simplest test double.</p>
-
-<p>It doesn&rsquo;t contain any logic and you use it when you need to satisfy a dependency which is not needed for functionality being tested.</p>
-
-<p>Below is the class which has a constructor dependency:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>class Questioner
-{</p>
-
-<pre><code>private $output;
-
-public function __construct(OutputInterface $output)
-{
-    $this-&gt;output = $output;
-}
-
-public function getQuestionsCount()
-{
-    return 0;
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>The dependency can be satisfied by providing a dummy object:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace tests;</p>
-
-<p>use App\Output;
-use App\Questioner;</p>
-
-<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
-{</p>
-
-<pre><code>/**
- * @test
- */
-function new_questioner_has_no_questions()
-{
-    $outputDummy = $this-&gt;prophesize(Output::class);
-    $questioner  = new Questioner($outputDummy-&gt;reveal());
-
-    $this-&gt;assertSame(0, $questioner-&gt;getQuestionsCount());
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
-
-* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
-* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
-* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
+* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
     <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
-    <updated>2015-06-24T07:16:35+02:00</updated>
+    <updated>2015-06-24T08:16:35+03:00</updated>
     <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
     <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
 
@@ -72,7 +72,7 @@ phpspec describe Domain/User/ValueObject/UserName
   <entry>
     <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
     <link href="http://ifdattic.com/how-to-mongodb-nodejs-docker"/>
-    <updated>2015-01-09T18:29:10+01:00</updated>
+    <updated>2015-01-09T19:29:10+02:00</updated>
     <id>http://ifdattic.com/how-to-mongodb-nodejs-docker</id>
     <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
 
@@ -325,7 +325,7 @@ node hw3-2validate.js --db mongodb://mongo:27017/blog
   <entry>
     <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
     <link href="http://ifdattic.com/symfony-events-require-account-information-after-registration"/>
-    <updated>2014-12-03T09:04:45+01:00</updated>
+    <updated>2014-12-03T10:04:45+02:00</updated>
     <id>http://ifdattic.com/symfony-events-require-account-information-after-registration</id>
     <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users' email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
 
@@ -528,7 +528,7 @@ services:</p>
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
     <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
-    <updated>2014-11-26T14:36:49+01:00</updated>
+    <updated>2014-11-26T15:36:49+02:00</updated>
     <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 
@@ -817,7 +817,7 @@ kill -9 $pid
   <entry>
     <title type="html"><![CDATA[How-to: Deploy Symfony Application to AWS ElasticBeanstalk]]></title>
     <link href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
-    <updated>2014-09-19T08:03:02+02:00</updated>
+    <updated>2014-09-19T09:03:02+03:00</updated>
     <id>http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
     <content type="html"><![CDATA[<p>I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to &ldquo;production&rdquo; environment I chose to push it to AWS ElasticBeanstalk as I&rsquo;m quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">github</a>.</p>
 

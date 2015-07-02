@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Node.js | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/node-dot-js/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
     <link href="http://ifdattic.com/how-to-mongodb-nodejs-docker"/>
-    <updated>2015-01-09T18:29:10+01:00</updated>
+    <updated>2015-01-09T19:29:10+02:00</updated>
     <id>http://ifdattic.com/how-to-mongodb-nodejs-docker</id>
     <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
 
@@ -269,7 +269,7 @@ node hw3-2validate.js --db mongodb://mongo:27017/blog
   <entry>
     <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
     <link href="http://ifdattic.com/review-nodejs-right-way-book"/>
-    <updated>2014-12-25T15:08:52+01:00</updated>
+    <updated>2014-12-25T16:08:52+02:00</updated>
     <id>http://ifdattic.com/review-of-node-dot-js-the-right-way-book</id>
     <content type="html"><![CDATA[<p><img class="left <a" src="href="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg">http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg</a>" title="&lsquo;Node.js the Right Way Book Cover&rsquo; &lsquo;Node.js the Right Way Book Cover&rsquo;" ></p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vagrant | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/vagrant/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Review of Vagrant: Up and Running book]]></title>
     <link href="http://ifdattic.com/review-of-vagrant-up-and-running-book"/>
-    <updated>2013-10-15T18:35:14+02:00</updated>
+    <updated>2013-10-15T19:35:14+03:00</updated>
     <id>http://ifdattic.com/review-of-vagrant-up-and-running-book</id>
     <content type="html"><![CDATA[<p>This is the review of <a href="http://www.amazon.com/gp/product/1449335837/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1449335837&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Vagrant: Up and Running by Mitchell Hashimoto</a>. The book gets you started with using <a href="http://www.vagrantup.com">Vagrant</a>. Vagrant allows you to create environments which can be similar or exactly like the environment your application will run on then it reaches the production stage.<!-- more --> Have you ever had a situation where application works perfectly on your Windows environment, but when you push it to Linux server you get errors, because you have a case typo in your code? Or how about when you need some third-party library and installation on Windows is as simple as building an Eiffel Tower, and even then, documentation says it might not work on Windows? Or maybe you&rsquo;re working on a few projects which require different PHP versions? Sounds familiar? Well, this is where Vagrant is going to help you, especially with &ldquo;<em>works on my machine</em>&rdquo; bugs.</p>
 

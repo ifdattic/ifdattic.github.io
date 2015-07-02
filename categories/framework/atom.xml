@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Framework | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/framework/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Using application on production / development environment without making changes]]></title>
     <link href="http://ifdattic.com/using-application-on-production-development-environment-without-making-changes"/>
-    <updated>2011-12-19T13:28:09+01:00</updated>
+    <updated>2011-12-19T14:28:09+02:00</updated>
     <id>http://ifdattic.com/using-application-on-production-slash-development-environment-without-making-changes</id>
     <content type="html"><![CDATA[<p>When I was trying my first application on both development and production machines, the changes I had to make on index.php and config file was really starting to get on my nerves. I like working on my local machine as it’s much faster and I get much more configuration freedom.<!-- more --> But sooner or later (hopefully sooner as projects die from old age too) the time will come then you will have to test your application on a live environment. You might get lucky and your development and production environments will be the same, but most of the time it won’t. You framework on a production machine will be camping at different location, and you will need different credentials to get into ‘Database castle’ so it starts eating a lot of time and patience to keep these small changes between different environments. And you’re lucky if it’s only two machines, what about a third server with different configurations, what about the fourth.. oh what a nightmare..</p>
 

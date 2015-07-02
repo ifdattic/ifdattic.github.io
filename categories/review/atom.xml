@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Review | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/review/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Review of ZivaMind Meditation Course]]></title>
     <link href="http://ifdattic.com/review-zivamind-meditation-course"/>
-    <updated>2015-06-18T14:29:48+02:00</updated>
+    <updated>2015-06-18T15:29:48+03:00</updated>
     <id>http://ifdattic.com/review-of-zivamind-meditation-course</id>
     <content type="html"><![CDATA[<p>If I notice something to be continuously mentioned, it might have some truth to it. When looking into that top performers (like <a href="http://fourhourworkweek.com/2015/02/02/arnold-schwarzenegger/">Tim Ferriss, Arnold Schwarzenegger</a>, etc.) do, most of the time the meditation is mentioned. <strong>As I would like to be top performer after I grow up meditation is something I want to have as a habit</strong>. Had a powerful experience once so know it can be a powerful tool.</p>
 
@@ -57,7 +57,7 @@
   <entry>
     <title type="html"><![CDATA[Review of Node.js the Right Way Book]]></title>
     <link href="http://ifdattic.com/review-nodejs-right-way-book"/>
-    <updated>2014-12-25T15:08:52+01:00</updated>
+    <updated>2014-12-25T16:08:52+02:00</updated>
     <id>http://ifdattic.com/review-of-node-dot-js-the-right-way-book</id>
     <content type="html"><![CDATA[<p><img class="left <a" src="href="http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg">http://ecx.images-amazon.com/images/I/51+VjuSvKJL._SL250_.jpg</a>" title="&lsquo;Node.js the Right Way Book Cover&rsquo; &lsquo;Node.js the Right Way Book Cover&rsquo;" ></p>
 
@@ -100,7 +100,7 @@
   <entry>
     <title type="html"><![CDATA[Review of SQL Performance Explained book]]></title>
     <link href="http://ifdattic.com/review-of-sql-performance-explained-book"/>
-    <updated>2014-07-30T08:36:33+02:00</updated>
+    <updated>2014-07-30T09:36:33+03:00</updated>
     <id>http://ifdattic.com/review-of-sql-performance-explained-book</id>
     <content type="html"><![CDATA[<p>This is the review of <strong>SQL Performance Explained</strong> book by <strong><a href="http://use-the-index-luke.com/about">Markus Winand</a></strong>. The book explains everything developers need to know about the SQL performance. And the only thing that developers need to learn is how to index <a href="http://www.commitstrip.com/en/2014/06/03/the-problem-is-not-the-tool-itself/">(comic strip explaining it)</a>.</p>
 
@@ -132,7 +132,7 @@
   <entry>
     <title type="html"><![CDATA[Review of Vagrant: Up and Running book]]></title>
     <link href="http://ifdattic.com/review-of-vagrant-up-and-running-book"/>
-    <updated>2013-10-15T18:35:14+02:00</updated>
+    <updated>2013-10-15T19:35:14+03:00</updated>
     <id>http://ifdattic.com/review-of-vagrant-up-and-running-book</id>
     <content type="html"><![CDATA[<p>This is the review of <a href="http://www.amazon.com/gp/product/1449335837/ref=as_li_ss_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=390957&amp;amp;creativeASIN=1449335837&amp;amp;linkCode=as2&amp;amp;tag=if015-20">Vagrant: Up and Running by Mitchell Hashimoto</a>. The book gets you started with using <a href="http://www.vagrantup.com">Vagrant</a>. Vagrant allows you to create environments which can be similar or exactly like the environment your application will run on then it reaches the production stage.<!-- more --> Have you ever had a situation where application works perfectly on your Windows environment, but when you push it to Linux server you get errors, because you have a case typo in your code? Or how about when you need some third-party library and installation on Windows is as simple as building an Eiffel Tower, and even then, documentation says it might not work on Windows? Or maybe you&rsquo;re working on a few projects which require different PHP versions? Sounds familiar? Well, this is where Vagrant is going to help you, especially with &ldquo;<em>works on my machine</em>&rdquo; bugs.</p>
 
@@ -175,7 +175,7 @@
   <entry>
     <title type="html"><![CDATA[Review of Yii Application Development Cookbook SE book]]></title>
     <link href="http://ifdattic.com/review-of-yii-application-development-cookbook-se-book"/>
-    <updated>2013-06-02T22:53:41+02:00</updated>
+    <updated>2013-06-02T23:53:41+03:00</updated>
     <id>http://ifdattic.com/review-of-yii-application-development-cookbook-se-book</id>
     <content type="html"><![CDATA[<p>This is the review of <strong>Yii Application Development Cookbook (Second Edition)</strong> book by <strong><a href="http://rmcreative.ru/author">Alexander Makarov</a></strong>. The cookbook covers practical Yii application development tips which will help you develop better applications, and it also has recipes for important Yii features which are very useful to know.</p>
 

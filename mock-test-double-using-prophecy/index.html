@@ -3,11 +3,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Dummy Test Double Using Prophecy - ifdattic</title>
+  <title>Mock Test Double Using Prophecy - ifdattic</title>
   <meta name="author" content="Andrew Marcinkevičius">
 
   
-  <meta name="description" content="Dummy is the simplest test double. It doesn&rsquo;t contain any logic and you use it when you need to satisfy a dependency which is not needed for &hellip;">
+  <meta name="description" content="Mock is a test double which simulates behavior and we have expectations for it. You define predictions for it and later check if any of them failed. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ifdattic.com/dummy-test-double-using-prophecy">
+  <link rel="canonical" href="http://ifdattic.com/mock-test-double-using-prophecy">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ifdattic" type="application/atom+xml">
   <script src="/js/modernizr-2.8.3-custom.min.js"></script>
@@ -78,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Dummy Test Double Using Prophecy</h1>
+      <h1 class="entry-title">Mock Test Double Using Prophecy</h1>
     
     
       <p class="meta">
@@ -94,59 +94,14 @@
   
 
 
-<time datetime="2015-03-19T16:23:51+02:00" pubdate data-updated="true">March 19, 2015</time>
+<time datetime="2015-07-02T16:42:18+03:00" pubdate data-updated="true">July  2, 2015</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Dummy is the simplest test double.</p>
-
-<p>It doesn&rsquo;t contain any logic and you use it when you need to satisfy a dependency which is not needed for functionality being tested.</p>
-
-<p>Below is the class which has a constructor dependency:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The dependency can be satisfied by providing a dummy object:</p>
+<div class="entry-content"><p>Mock is a test double which simulates behavior and we have expectations for it. You define predictions for it and later check if any of them failed.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -168,28 +123,50 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
 </span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">App\Scorer</span><span class="p">;</span>
+</span><span class='line'><span class="k">use</span> <span class="nx">Prophecy\Argument</span><span class="p">;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
 </span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// ...</span>
+</span><span class='line'>
 </span><span class='line'>    <span class="sd">/**</span>
 </span><span class='line'><span class="sd">     * @test</span>
 </span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">function</span> <span class="nf">new_questioner_has_no_questions</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">questioner_is_saved</span><span class="p">()</span>
 </span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$outputDummy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$questioner</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputDummy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
+</span><span class='line'>        <span class="nv">$outputMock</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">CLASS</span><span class="p">);</span>
+</span><span class='line'>        <span class="nv">$outputMock</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="nx">Argument</span><span class="o">::</span><span class="na">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">shouldBeCalled</span><span class="p">();</span>
+</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputMock</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">getQuestionsCount</span><span class="p">());</span>
+</span><span class='line'>        <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;any name&#39;</span><span class="p">);</span>
 </span><span class='line'>    <span class="p">}</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>Some of the predictions you can make:</p>
+
+<ul>
+<li><code>CallPrediction</code> or <code>shouldBeCalled()</code> &ndash; checks that method was called 1 or more times</li>
+<li><code>NoCallsPrediction</code> or <code>shouldNotBeCalled()</code> &ndash; checks that method was not called</li>
+<li><code>CallTimesPrediction</code> or <code>shouldBeCalledTimes($count)</code> &ndash; checks that method was called a specified number of times</li>
+<li><code>CallbackPrediction</code> or <code>should($callback)</code> &ndash; checks method against custom callback</li>
+</ul>
+
+
+<p>Custom predictions can be created by implementing <code>PredictionInterface</code>.</p>
 
 <p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
 
@@ -255,7 +232,7 @@
 </ul>
 
     <p class="meta">
-      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2015-03-19-dummy-test-double-using-prophecy.markdown">Edit this page on GitHub</a><br />
+      <a href="https://github.com/ifdattic/ifdattic.github.io/blob/source/source/_posts/2015-07-02-mock-test-double-using-prophecy.markdown">Edit this page on GitHub</a><br />
       
   
 
@@ -273,7 +250,7 @@
   
 
 
-<time datetime="2015-03-19T16:23:51+02:00" pubdate data-updated="true">March 19, 2015</time>
+<time datetime="2015-07-02T16:42:18+03:00" pubdate data-updated="true">July  2, 2015</time>
       
 
 <span class="categories">
@@ -286,10 +263,8 @@
     </p>
     <p class="meta">
       
-        <a class="basic-alignment left" href="/one-backpack-packing" title="Previous Post: Digital Nomad One Backpack Packing for 6 Weeks Trip (Video)">&laquo; Digital Nomad One Backpack Packing for 6 Weeks Trip (Video)</a>
+        <a class="basic-alignment left" href="/dutch-php-2015-conference-review" title="Previous Post: Review of Dutch PHP 2015 Conference">&laquo; Review of Dutch PHP 2015 Conference</a>
       
-      
-        <a class="basic-alignment right" href="/stub-test-double-using-prophecy" title="Next Post: Stub Test Double Using Prophecy">Stub Test Double Using Prophecy &raquo;</a>
       
     </p>
   </footer>
@@ -320,8 +295,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ifdattic.com/dummy-test-double-using-prophecy';
-        var disqus_url = 'http://ifdattic.com/dummy-test-double-using-prophecy';
+        var disqus_identifier = 'http://ifdattic.com/mock-test-double-using-prophecy';
+        var disqus_url = 'http://ifdattic.com/mock-test-double-using-prophecy';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Symfony | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/symfony/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
     <link href="http://ifdattic.com/my-experience-sensiolabs-symfony-certification-exam"/>
-    <updated>2015-02-17T17:19:52+01:00</updated>
+    <updated>2015-02-17T18:19:52+02:00</updated>
     <id>http://ifdattic.com/my-experience-with-sensiolabs-symfony-certification-exam</id>
     <content type="html"><![CDATA[<p>One day I check my email and see one from Fabien <em>&ldquo;Symfony turned 9 and for being one of top 100 contributors you get a free voucher.&rdquo;</em> It definitely lifted my spirits.</p>
 
@@ -63,7 +63,7 @@
   <entry>
     <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
     <link href="http://ifdattic.com/symfony-events-require-account-information-after-registration"/>
-    <updated>2014-12-03T09:04:45+01:00</updated>
+    <updated>2014-12-03T10:04:45+02:00</updated>
     <id>http://ifdattic.com/symfony-events-require-account-information-after-registration</id>
     <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users' email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
 
@@ -266,7 +266,7 @@ services:</p>
   <entry>
     <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
     <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
-    <updated>2014-11-26T14:36:49+01:00</updated>
+    <updated>2014-11-26T15:36:49+02:00</updated>
     <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
     <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
 
@@ -555,7 +555,7 @@ kill -9 $pid
   <entry>
     <title type="html"><![CDATA[How to Use MongoDB for Sessions in Symfony Application]]></title>
     <link href="http://ifdattic.com/how-to-mongodb-sessions-symfony-application"/>
-    <updated>2014-10-20T15:48:25+02:00</updated>
+    <updated>2014-10-20T16:48:25+03:00</updated>
     <id>http://ifdattic.com/how-to-use-mongodb-for-sessions-in-symfony-application</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 
@@ -630,7 +630,7 @@ framework:</p>
   <entry>
     <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
     <link href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb"/>
-    <updated>2014-10-05T14:01:41+02:00</updated>
+    <updated>2014-10-05T15:01:41+03:00</updated>
     <id>http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb</id>
     <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
 

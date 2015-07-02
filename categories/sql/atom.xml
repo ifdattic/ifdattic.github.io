@@ -4,7 +4,7 @@
   <title><![CDATA[Category: SQL | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/sql/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Review of SQL Performance Explained book]]></title>
     <link href="http://ifdattic.com/review-of-sql-performance-explained-book"/>
-    <updated>2014-07-30T08:36:33+02:00</updated>
+    <updated>2014-07-30T09:36:33+03:00</updated>
     <id>http://ifdattic.com/review-of-sql-performance-explained-book</id>
     <content type="html"><![CDATA[<p>This is the review of <strong>SQL Performance Explained</strong> book by <strong><a href="http://use-the-index-luke.com/about">Markus Winand</a></strong>. The book explains everything developers need to know about the SQL performance. And the only thing that developers need to learn is how to index <a href="http://www.commitstrip.com/en/2014/06/03/the-problem-is-not-the-tool-itself/">(comic strip explaining it)</a>.</p>
 

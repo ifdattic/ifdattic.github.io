@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bookmarks | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/bookmarks/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Using same native bookmarks between Firefox profiles]]></title>
     <link href="http://ifdattic.com/using-same-native-bookmarks-between-firefox-profiles"/>
-    <updated>2011-10-19T18:32:33+02:00</updated>
+    <updated>2011-10-19T19:32:33+03:00</updated>
     <id>http://ifdattic.com/using-same-native-bookmarks-between-firefox-profiles</id>
     <content type="html"><![CDATA[<p>Firefox profiles are a great way to keep your personal and work habits separate. For example to save yourself from procrastinating you can log in to Facebook only on your personal profile, or you can save yourself from clutter and performance problems by keeping your work extensions on your work profile. However, one thing I wanted to keep between profiles were bookmarks, as few bookmarks are used on both profiles. Or I find a bookmark while I’m on personal profile and I would like to check it then I’m in a work mood, and vice versa.</p>
 

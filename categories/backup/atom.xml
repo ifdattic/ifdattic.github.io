@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Backup | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/backup/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How to set up encrypted backup with duplicity]]></title>
     <link href="http://ifdattic.com/howto-encrypted-backup-with-duplicity"/>
-    <updated>2014-06-11T08:11:39+02:00</updated>
+    <updated>2014-06-11T09:11:39+03:00</updated>
     <id>http://ifdattic.com/how-to-set-up-encrypted-backup-with-duplicity</id>
     <content type="html"><![CDATA[<p>In the last half year or so, I started moving to the point where for example getting my laptop stolen (or I noticed a lot of people like installing liquids on their laptops) would be just a loss of money and a few hours. Rather than a complete disaster which might take a few days to recover. The first step of course was cleaning up my hard drive from all the personal photos, videos and a bunch of other stuff you constantly keep, but never really use. The great step to automating everything was using <a href="https://github.com/ifdattic/dotfiles">dotfiles</a> (or you can check original project <a href="https://github.com/mathiasbynens/dotfiles">mathiasbynens/dotfiles</a>). Not only it allows to automate how my machine behaves, but if I will have to set up a different one I won&rsquo;t miss some step for setting it up. Mostly what was left to do, was keeping some files available for any device. <em>Google Drive</em> was working great for it at first, but unfortunately the files in the drive isn&rsquo;t encrypted. It&rsquo;s fine for simple un-important files, but once you start adding more important files you start wanting a bit more security. This let to searching for a solution which will back up and encrypt my files and <a href="http://duplicity.nongnu.org">duplicity</a> looked promising.</p>
 
@@ -126,7 +126,7 @@ What keysize do you want?: 2048
 Key is valid for?: 0 = key does not expire
 Is this correct?: y
 Real name: duplicityencrypt
-Email address: <a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x64;&#117;&#x70;&#x6c;&#105;&#x63;&#x69;&#116;&#x79;&#101;&#x6e;&#x63;&#114;&#121;&#x70;&#x74;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x64;&#x75;&#x70;&#108;&#x69;&#99;&#105;&#x74;&#x79;&#x65;&#x6e;&#99;&#114;&#121;&#112;&#116;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>
+Email address: <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x64;&#117;&#x70;&#x6c;&#105;&#x63;&#x69;&#x74;&#121;&#x65;&#x6e;&#x63;&#114;&#x79;&#x70;&#x74;&#x40;&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#109;">&#100;&#x75;&#x70;&#x6c;&#x69;&#99;&#x69;&#116;&#x79;&#101;&#x6e;&#x63;&#x72;&#121;&#x70;&#x74;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>
 Comment:
 Change &hellip; (O)kay/(Q)uit?: O
 Enter passphrase: P$ts&amp;#@qgD
@@ -143,11 +143,11 @@ gpg &mdash;list-keys</p>
 <h2>/home/vagrant/.gnupg/pubring.gpg</h2>
 
 <p>pub   2048R/841BFBA2 2014-06-10
-uid                  duplicitysign <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x64;&#x75;&#x70;&#x6c;&#105;&#99;&#105;&#x74;&#121;&#x73;&#x69;&#x67;&#x6e;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#111;&#109;">&#100;&#x75;&#x70;&#108;&#105;&#99;&#x69;&#116;&#x79;&#115;&#105;&#x67;&#x6e;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#x63;&#111;&#x6d;</a>
+uid                  duplicitysign <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#100;&#117;&#112;&#108;&#105;&#x63;&#x69;&#x74;&#121;&#x73;&#105;&#103;&#x6e;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#109;">&#100;&#117;&#112;&#x6c;&#105;&#x63;&#105;&#x74;&#121;&#115;&#x69;&#x67;&#110;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#111;&#x6d;</a>
 sub   2048R/B5C9CA2B 2014-06-10</p>
 
 <p>pub   2048R/F953BE5A 2014-06-10
-uid                  duplicityencrypt <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#100;&#117;&#x70;&#x6c;&#105;&#99;&#x69;&#x74;&#x79;&#x65;&#110;&#99;&#x72;&#121;&#112;&#x74;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;">&#100;&#x75;&#x70;&#108;&#x69;&#99;&#x69;&#x74;&#121;&#101;&#110;&#x63;&#114;&#121;&#x70;&#x74;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#x6d;</a>
+uid                  duplicityencrypt <a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#x64;&#117;&#112;&#108;&#x69;&#99;&#x69;&#x74;&#x79;&#101;&#110;&#x63;&#114;&#121;&#112;&#x74;&#x40;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">&#x64;&#117;&#112;&#108;&#105;&#x63;&#105;&#116;&#x79;&#x65;&#x6e;&#99;&#x72;&#121;&#x70;&#116;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#111;&#x6d;</a>
 sub   2048R/BE767308 2014-06-10
 ```</p>
 
@@ -179,7 +179,7 @@ gpg &mdash;armor &mdash;export-secret-keys -a F953BE5A > duplicityencryptprivate
 gpg &mdash;sign-key duplicityencrypt</p>
 
 <p>Are you sure that you want to sign this key with your
-key &ldquo;duplicitysign <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#100;&#117;&#112;&#x6c;&#105;&#99;&#x69;&#116;&#121;&#115;&#x69;&#x67;&#x6e;&#x40;&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#100;&#117;&#x70;&#x6c;&#105;&#x63;&#105;&#116;&#x79;&#x73;&#x69;&#103;&#x6e;&#x40;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;</a>&rdquo; (841BFBA2)</p>
+key &ldquo;duplicitysign <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#100;&#117;&#112;&#108;&#105;&#x63;&#x69;&#116;&#x79;&#x73;&#105;&#x67;&#x6e;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;">&#100;&#117;&#x70;&#108;&#105;&#x63;&#105;&#116;&#x79;&#115;&#105;&#103;&#x6e;&#x40;&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;</a>&rdquo; (841BFBA2)</p>
 
 <p>Really sign? (y/N) y</p>
 

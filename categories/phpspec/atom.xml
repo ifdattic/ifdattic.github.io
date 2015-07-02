@@ -4,7 +4,7 @@
   <title><![CDATA[Category: phpspec | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/phpspec/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-06-30T10:32:04+02:00</updated>
+  <updated>2015-07-02T16:49:18+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
     <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
-    <updated>2015-06-24T07:16:35+02:00</updated>
+    <updated>2015-06-24T08:16:35+03:00</updated>
     <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
     <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
 
