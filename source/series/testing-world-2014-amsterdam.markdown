@@ -1,4 +1,5 @@
 * [Amsterdam - First Experiences](/amsterdam-first-experiences)
 * [Amsterdam - Phone STD & Parks](/amsterdam-phone-std-and-parks)
+* [Amsterdam - Exploring the City](/amsterdam-exploring-city)
 * [Photo album](http://bit.ly/1IvAlYb)
 * to be continued...
