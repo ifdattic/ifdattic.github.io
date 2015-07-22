@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-07-16T09:41:08+03:00</updated>
+  <updated>2015-07-22T09:27:12+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,154 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fake Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/fake-test-double-using-prophecy"/>
+    <updated>2015-07-22T09:17:53+03:00</updated>
+    <id>http://ifdattic.com/fake-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Fake test double is a simplified version of a dependency. A good example is an in memory or file system repository in exchange for database repository. Fake objects implement the interface of dependency.</p>
+
+<p>Below is the class which has a constructor dependency:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/** @var OutputInterface */</span>
+</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>OutputInterface</code> is:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">interface</span> <span class="nx">OutputInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/**</span>
+</span><span class='line'><span class="sd">     * Save the data.</span>
+</span><span class='line'><span class="sd">     *</span>
+</span><span class='line'><span class="sd">     * @param  array  $data</span>
+</span><span class='line'><span class="sd">     * @param  string $name</span>
+</span><span class='line'><span class="sd">     * @return boolean</span>
+</span><span class='line'><span class="sd">     */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In production you would like to use a database output for persistence. The following object might be used:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">DatabaseOutput</span> <span class="k">implements</span> <span class="nx">OutputInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/** @inheritDoc */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// call database or do other time consuming tasks</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will make unit testing impossible. To test the code you would need to use functional tests which would require a database. Code using the database will run much longer and the longer tests run the higher the chance they won&rsquo;t be run at all.</p>
+
+<p>For this reason in unit testing a simpler version of dependency can be used:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">InMemoryOutput</span> <span class="k">implements</span> <span class="nx">OutputInterface</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="sd">/** @inheritDoc */</span>
+</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">save</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="nv">$name</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="c1">// simple, fast implementation for testing</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
+
+<ul>
+<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Amsterdam - Museums &amp; Attractions (part 4) - Testing the World and Looking for Home series]]></title>
@@ -190,6 +338,7 @@
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -594,6 +743,7 @@
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -892,6 +1042,7 @@
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -999,6 +1150,7 @@
 <li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
 <li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
+<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
@@ -2086,95 +2238,6 @@
 <p>All files can be found in the <a href="https://gist.github.com/ifdattic/61a5b2708dff8811e7e2">gist</a>, the first line displays the full path for it and should be removed from files.</p>
 
 <p>What about you: are you tracking how your application is performing? Or maybe you have suggestions? Please share them in comments.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Use MongoDB for Sessions in Symfony Application]]></title>
-    <link href="http://ifdattic.com/how-to-mongodb-sessions-symfony-application"/>
-    <updated>2014-10-20T16:48:25+03:00</updated>
-    <id>http://ifdattic.com/how-to-use-mongodb-for-sessions-in-symfony-application</id>
-    <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
-
-<p>Add the services to <code>app/config/services.yml</code>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">mongo</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Mongo</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">factory_service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo.connection</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">factory_method</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">getMongo</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="l-Scalar-Plain">mongo.connection</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">MongoDoctrine\MongoDB\Connection</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">factory_service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">doctrine.odm.mongodb.document_manager</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">factory_method</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">getConnection</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">calls</span><span class="p-Indicator">:</span>
-</span><span class='line'>            <span class="p-Indicator">-</span> <span class="p-Indicator">[</span><span class="nv">initialize</span><span class="p-Indicator">,</span> <span class="p-Indicator">[]]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="l-Scalar-Plain">mongo.session.handler</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">arguments</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;@mongo&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;%mongo.session.options%&quot;</span><span class="p-Indicator">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add the parameters for session handler:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># app/config/parameters.yml.dist</span>
-</span><span class='line'><span class="l-Scalar-Plain">parameters</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">mongo.session.options</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span> <span class="s">&quot;%mongodb_database%&quot;</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">collection</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sessions</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Change the session handler in <code>app/config/config.yml</code>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">handler_id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo.session.handler</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now your sessions should be saved in the MongoDB database.</p>
-
-<p>If you want to change how long the session is persisted and improve security, add the following code to your configuration:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">framework</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">cookie_lifetime</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1209600</span> <span class="c1"># 14 days</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">cookie_httponly</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You might also find &ldquo;<a href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb">How to save Symfony logs to MongoDB</a>&rdquo; interesting.</p>
 ]]></content>
   </entry>
   

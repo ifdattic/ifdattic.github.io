@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-07-16T09:41:08+03:00</updated>
+  <updated>2015-07-22T09:27:12+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fake Test Double Using Prophecy]]></title>
+    <link href="http://ifdattic.com/fake-test-double-using-prophecy"/>
+    <updated>2015-07-22T09:17:53+03:00</updated>
+    <id>http://ifdattic.com/fake-test-double-using-prophecy</id>
+    <content type="html"><![CDATA[<p>Fake test double is a simplified version of a dependency. A good example is an in memory or file system repository in exchange for database repository. Fake objects implement the interface of dependency.</p>
+
+<p>Below is the class which has a constructor dependency:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>class Questioner
+{</p>
+
+<pre><code>/** @var OutputInterface */
+private $output;
+
+public function __construct(OutputInterface $output)
+{
+    $this-&gt;output = $output;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>The <code>OutputInterface</code> is:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>interface OutputInterface
+{</p>
+
+<pre><code>/**
+ * Save the data.
+ *
+ * @param  array  $data
+ * @param  string $name
+ * @return boolean
+ */
+public function save(array $data, $name = null);
+</code></pre>
+
+<p>}
+```</p>
+
+<p>In production you would like to use a database output for persistence. The following object might be used:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>class DatabaseOutput implements OutputInterface
+{</p>
+
+<pre><code>/** @inheritDoc */
+public function save(array $data, $name = null)
+{
+    // call database or do other time consuming tasks
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This will make unit testing impossible. To test the code you would need to use functional tests which would require a database. Code using the database will run much longer and the longer tests run the higher the chance they won&rsquo;t be run at all.</p>
+
+<p>For this reason in unit testing a simpler version of dependency can be used:</p>
+
+<p>```php
+&lt;?php</p>
+
+<p>namespace App;</p>
+
+<p>class InMemoryOutput implements OutputInterface
+{</p>
+
+<pre><code>/** @inheritDoc */
+public function save(array $data, $name = null)
+{
+    // simple, fast implementation for testing
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
+
+* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
+* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
+* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
+* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
+* [Fake Test Double Using Prophecy](/fake-test-double-using-prophecy)
+</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mock Test Double Using Prophecy]]></title>
@@ -69,6 +175,7 @@ function questioner_is_saved()
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
 * [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
 * [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
+* [Fake Test Double Using Prophecy](/fake-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>
@@ -292,143 +399,7 @@ function score_is_updated_on_save()
 * [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
 * [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
 * [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
-</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/stub-test-double-using-prophecy"/>
-    <updated>2015-04-23T09:11:17+03:00</updated>
-    <id>http://ifdattic.com/stub-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Stub is the next simplest test double after the <a href="dummy-test-double-using-prophecy">Dummy</a>.</p>
-
-<p>It doesn&rsquo;t have any expectations about the object behavior, but behaves in a specific way when put in a specific environment.</p>
-
-<p>Below is the class under the test:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>class Questioner
-{</p>
-
-<pre><code>private $output;
-private $questions = [];
-
-public function __construct(OutputInterface $output)
-{
-    $this-&gt;output = $output;
-}
-
-/** @return int */
-public function getQuestionsCount()
-{
-    return 0;
-}
-
-/**
- * Save under a new name.
- *
- * @param  string $name
- * @return boolean
- */
-public function saveAs($name)
-{
-    return $this-&gt;output-&gt;save($this-&gt;questions, $name);
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p><code>saveAs</code> method can be tested by using a stub test double:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace tests;</p>
-
-<p>use App\Output;
-use App\Questioner;</p>
-
-<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
-{</p>
-
-<pre><code>/**
- * @test
- */
-function new_questioner_has_no_questions()
-{
-    $outputDummy = $this-&gt;prophesize(Output::class);
-    $questioner  = new Questioner($outputDummy-&gt;reveal());
-
-    $this-&gt;assertSame(0, $questioner-&gt;getQuestionsCount());
-}
-
-/**
- * @test
- */
-function questioner_is_saved_under_a_new_name()
-{
-    $outputStub = $this-&gt;prophesize(Output::class);
-    $outputStub-&gt;save([], 'new name')-&gt;willReturn(true);
-    $questioner = new Questioner($outputStub-&gt;reveal());
-
-    $this-&gt;assertTrue($questioner-&gt;saveAs('new name'));
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>The test will pass as long as first parameter for <code>save</code> method is an empty array (<code>[]</code>) and the second parameter is <code>new name</code>. Prophecy allows you to use argument wildcards making your tests more durable. Below you can see a new test which allows any string for a name:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>// &hellip;
-use Prophecy\Argument;</p>
-
-<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
-{</p>
-
-<pre><code>// ...
-
-/**
- * @test
- */
-function questioner_is_saved_under_any_name()
-{
-    $outputStub = $this-&gt;prophesize(Output::class);
-    $outputStub-&gt;save([], Argument::type('string'))-&gt;willReturn(true);
-    $questioner = new Questioner($outputStub-&gt;reveal());
-
-    $this-&gt;assertTrue($questioner-&gt;saveAs('any name'));
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>For the full list of arguments you can you check the code of <code>Prophecy\Argument</code> class. Here&rsquo;s some of them you might want to use in your tests:</p>
-
-<ul>
-<li><code>Argument::is($value)</code> checks that the argument is identical to a specific value</li>
-<li><code>Argument::exact($value)</code> checks that the arguments matches a specific value</li>
-<li><code>Argument::type($typeOrClass)</code> checks that the argument matches a specific type or class name</li>
-<li><code>Argument::any()</code> matches any argument</li>
-</ul>
-
-
-<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
-
-* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
-* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
-* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
-* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
+* [Fake Test Double Using Prophecy](/fake-test-double-using-prophecy)
 </p>
 ]]></content>
   </entry>
