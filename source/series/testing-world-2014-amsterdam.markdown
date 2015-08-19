@@ -3,5 +3,6 @@
 * [Amsterdam - Exploring the City](/amsterdam-exploring-city)
 * [Amsterdam - Museums & Attractions](/amsterdam-museums-attractions)
 * [Amsterdam Dungeon](/amsterdam-dungeon)
+* [Amsterdam - More museums & RLD](/asmterdam-museums-rld)
 * [Photo album](http://bit.ly/1IvAlYb)
 * to be continued...
