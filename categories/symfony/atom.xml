@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Symfony | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/symfony/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-08-19T16:22:30+03:00</updated>
+  <updated>2015-08-24T15:23:05+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,230 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Continuous Integration of PHP Project Using Shippable]]></title>
+    <link href="http://ifdattic.com/continuous-integration-php-project-using-shippable"/>
+    <updated>2015-08-24T14:14:23+03:00</updated>
+    <id>http://ifdattic.com/continuous-integration-of-php-project-using-shippable</id>
+    <content type="html"><![CDATA[<p>Recently I started using <a href="https://app.shippable.com/">Shippable</a> as my continuous integration service. It adds a lot to peace of mind knowing that your tests are always run (even if you forget to do it on your local environment) and you have another point of failure for your application.</p>
+
+<p>The biggest reason I chose Shippable is that it has a sane pricing. You get one concurrent build for free and this includes the private repositories. This works great for side projects which you don&rsquo;t want to make public, but want to use good tools without a lot of hassle. If the project picks up and you need more hamster power it&rsquo;s easy to ramp it up without having to sell a kidney or two. For those wanting to say that &ldquo;We need to charge that much to provide good service&rdquo; I understand that and I personally look with one eyebrow raised at software which is just free (business needs to make money to survive). Just that for simple side projects (hobby) that will probably won&rsquo;t bring even a dollar spending hundreds a month is not a best financial decision.</p>
+
+<p>You can jump to any of the sections:</p>
+
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#initial-config">Initial configuration</a></li>
+<li><a href="#phpunit-testing">PHPUnit testing</a></li>
+<li><a href="#enable-project">Enable project in Shippable</a></li>
+<li><a href="#phpspec-testing">phpspec testing</a></li>
+<li><a href="#behat-testing">Behat testing</a></li>
+<li><a href="#environment-variables-mysql">Environment variables &amp; MySQL</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+
+<h2>Prerequisites <a name="prerequisites"></a></h2>
+
+<p>To start using this service you just need to sign up using your GitHub or BitBucket account. If you want to test private repositories you will have to give Shippable permission to them (by default it only sees public repositories). The code used in this article is available at <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code">GitHub</a>. It&rsquo;s a Symfony project, but with small changes any PHP project could be tested.</p>
+
+<h2>Initial configuration <a name="initial-config"></a></h2>
+
+<p>Your project needs to have a <code>shippable.yml</code> configuration file. In it you define scripts which will be run, environment variables, language, versions to test, etc.</p>
+
+<p>First let&rsquo;s configure Shippable to test a PHP project and do it for <code>5.5</code> &amp; <code>5.6</code> versions. Add the following to your <code>shippable.yml</code> file:</p>
+
+<p>```yml
+language: php</p>
+
+<p>php:</p>
+
+<pre><code>- 5.5
+- 5.6
+</code></pre>
+
+<p>```</p>
+
+<p>Just in case it might be helpful to have the application log files (in case the build is failing and you&rsquo;re not sure why). You can tell shippable to save the artifacts from a build and make it available for download using the <code>archive</code> option. The <code>shippable</code> directory is a special one were all the files from build is being kept (like test coverage reports, etc.). Add the following to your <code>shippable.yml</code> file:</p>
+
+<p>```yml
+archive: true</p>
+
+<p>after_script:</p>
+
+<pre><code>- cp -r ./app/logs shippable/logs
+</code></pre>
+
+<p>```</p>
+
+<p>This will create an archive for download after the build is done. The <code>after_script</code> is commands which are run after the build and they will not affect the status of the build.</p>
+
+<p>To have our project working we need to install libraries using composer. First we update composer to have the latest version and then install all the required libraries:</p>
+
+<p>```yml
+before_script:</p>
+
+<pre><code>  - composer self-update -n
+  - composer install --prefer-dist -n
+</code></pre>
+
+<p>```</p>
+
+<h2>PHPUnit testing <a name="phpunit-testing"></a></h2>
+
+<p>The <code>AppBundle</code> which comes with new Symfony project has a simple PHPUnit test. Add the following to run the PHPUnit tests:</p>
+
+<p>```yml
+script:</p>
+
+<pre><code>- phpunit -c app --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage
+</code></pre>
+
+<p>```</p>
+
+<p><a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/commit/b07abaccb788284c17901796e1849ca24fd57972">Commit the changes</a> and push it to GitHub. Now that we have the basic set-up for Shippable it&rsquo;s time to add it to a service.</p>
+
+<h2>Enable project in Shippable <a name="enable-project"></a></h2>
+
+<p>First choose the subscription to use and when in projects section click the big plus icon which says &ldquo;Enable Project.&rdquo;</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20815778916/in/album-72157650815525029/" title="shippable-choose-subscription"><img src="https://farm6.staticflickr.com/5824/20815778916_6d4e51a029.jpg" width="421" height="212" alt="shippable-choose-subscription"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Force a synchronization if the repository you want is not in the list. Click on key icon to enable the project.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20219448984/in/album-72157650815525029/" title="shippable-enable-project"><img src="https://farm1.staticflickr.com/577/20219448984_b17b72e6a4_c.jpg" width="800" height="738" alt="shippable-enable-project"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>After it is done you can manually start a build or it will happen automatically the next time you will push a commit.</p>
+
+<p>After a while a build should finish and you should get the similar view.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20832499472/in/album-72157650815525029/" title="shippable-phpunit"><img src="https://farm1.staticflickr.com/696/20832499472_42578b27d8_c.jpg" width="800" height="654" alt="shippable-phpunit"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>By clicking &ldquo;Download Artifacts&rdquo; you can download the logs &amp; other files which were generated during the build.</p>
+
+<h2>phpspec testing <a name="phpspec-testing"></a></h2>
+
+<p>Lets expand our testing suite with <a href="http://www.phpspec.net">phpspec</a>. You can see that code was added in this <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/pull/1">pull request</a>.</p>
+
+<p>To run phpspec tests just add a command to <code>script</code> in your <code>shippable.yml</code> file:</p>
+
+<p>```yml
+script:</p>
+
+<pre><code># ...
+- ./bin/phpspec run -fpretty --verbose -n
+</code></pre>
+
+<p>```</p>
+
+<p>You should be able to see similar view if everything was correct.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20815778566/in/album-72157650815525029/" title="shippable-phpspec"><img src="https://farm6.staticflickr.com/5699/20815778566_b826863744_c.jpg" width="800" height="632" alt="shippable-phpspec"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2>Behat testing <a name="behat-testing"></a></h2>
+
+<p>Lets expand our testing suite with <a href="http://behat.org/">Behat</a>. You can see that code was added in this <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/pull/2">pull request</a>. Please note that currently there is no tagged version of Behat (at the time of writing latest is <code>3.0.15</code>) which has <code>junit</code> formatter, for that reason a <code>dev</code> version is installed.</p>
+
+<p>To run Behat tests we will start the built-in web server &amp; then run the tests. This can be done by adding following commands:</p>
+
+<p>```yml
+script:</p>
+
+<pre><code># ...
+- ./app/console server:start -n
+- ./bin/behat --format=progress --out=std --format=junit --out=shippable/testresults -n
+</code></pre>
+
+<p>```</p>
+
+<p>After the tests are finished, stop the built-in web server:</p>
+
+<p>```yml
+after_script:</p>
+
+<pre><code>- ./app/console server:stop -n
+</code></pre>
+
+<p>```</p>
+
+<p>The default XDebug nesting level is set at 100 which is very small and throws a fatal PHP error. This can be fixed by setting it at higher level in <code>php.ini</code> file. Add the following to your <code>shippable.yml</code> file:</p>
+
+<p>```yml
+before_install:</p>
+
+<pre><code>- echo "xdebug.max_nesting_level = 1000" &gt;&gt; ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+</code></pre>
+
+<p>```</p>
+
+<p>You should be able to see similar view if everything was correct.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20832501252/in/album-72157650815525029/" title="shippable-behat"><img src="https://farm1.staticflickr.com/603/20832501252_9f8620943e_c.jpg" width="800" height="636" alt="shippable-behat"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2>Environment variables &amp; MySQL <a name="environment-variables-mysql"></a></h2>
+
+<p>You will probably be using a MySQL or something similar for the persistence in your application. It&rsquo;s very easy to include services with Shippable.</p>
+
+<p>You don&rsquo;t want to hard code configuration variables for your application. To fix that we will use the environment variables to configure the application depending on the environment it is in. You can set the global environment variables which are the same between builds and you can set simple environment variables which are different between builds (extending your testing matrix). If you have environment variables which you don&rsquo;t want to show (like passwords) you can add it as a secure environment variable.</p>
+
+<p>You can see the code which was added in this <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/pull/3">pull request</a>.</p>
+
+<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt Env Vars.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can past in your <code>shippable.yml</code> file.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20849195481/in/album-72157650815525029/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/757/20849195481_146797af4e_c.jpg" width="800" height="513" alt="shippable-secure-environment-variable"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Environment variables which start with <code>SYMFONY__</code> are converted to normal variables after composer finishes the install. The double underscore becomes a dot. The environment variable <code>SYMFONY__ENV__DATABASE_NAME</code> becomes <code>env.database_name</code> parameter in your application. Lets add the database configuration and a secret value:</p>
+
+<p>```yml
+env:</p>
+
+<pre><code>global:
+    - SYMFONY__ENV__DATABASE_HOST=127.0.0.1
+    - SYMFONY__ENV__DATABASE_PORT=~
+    - SYMFONY__ENV__DATABASE_NAME=symfony
+    - SYMFONY__ENV__DATABASE_USER=shippable
+    - SYMFONY__ENV__DATABASE_PASSWORD=
+    # Secret parameter value
+    - secure: L9Ws6Wcx1XVoJYAP/YINXd4tGJwDsdG1yj7M/dLtvhZBhS2oLUvtxir7MGWDpbV69Qc+/FWUgUchpd4NUNHqEwc80YUFGLxylJ5Z82Cqnp9cf1qoM+gtHAM6J6o4TY7/jnuYsjvK0f++G+PJKiTYaky9QvK1qb+ERRxfk2AqoM7p7J3PYQz05lIKwuGmmmONfvlelT4Sv+8RPgfWSbJ1RBEN9zPS4Psh23QZ4T/zThQwyiNDwCv0QcUyQ7Mm+SFo59Eh34901DJwttZKYXG8ruO9iJs+ow7cAMAAAZ7sqgx7PWWIodMfpUjAlut45m/AMDi3AsAeG42262/o/9hRkA==
+</code></pre>
+
+<p>```</p>
+
+<p>The MySQL database can be created by adding the command in <code>before_script</code> option:</p>
+
+<p>```yml
+before_script:</p>
+
+<pre><code># ...
+- mysql -e "CREATE DATABASE $SYMFONY__ENV__DATABASE_NAME"
+- ./app/console doctrine:schema:create -n
+</code></pre>
+
+<p>```</p>
+
+<p>This will create the database as it&rsquo;s defined in the environment variable. After the database is created it will run the queries to create a schema for your application.</p>
+
+<p>We&rsquo;re using built-in server for testing our application. However it has no access to environment variables. To fix that extend your <code>php.ini</code> configuration to include them (you probably won&rsquo;t need this if you&rsquo;re using Apache or different web server):</p>
+
+<p>```yml
+before_install:</p>
+
+<pre><code># ...
+- echo 'variables_order = "EGPCS"' &gt;&gt; ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+</code></pre>
+
+<p>```</p>
+
+<p>You should be able to see similar view if everything was correct.</p>
+
+<p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20654012310/in/album-72157650815525029/" title="shippable-environment-variables-mysql"><img src="https://farm6.staticflickr.com/5681/20654012310_f41801b45a_c.jpg" width="800" height="670" alt="shippable-environment-variables-mysql"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2>Conclusion <a name="conclusion"></a></h2>
+
+<p>With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My experience with SensioLabs Symfony certification exam]]></title>
@@ -624,113 +848,6 @@ framework:</p>
 <p>```</p>
 
 <p>You might also find &ldquo;<a href="/how-to-send-symfony-application-logs-to-mongodb">How to save Symfony logs to MongoDB</a>&rdquo; interesting.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to Send Symfony Application Logs to MongoDB]]></title>
-    <link href="http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb"/>
-    <updated>2014-10-05T15:01:41+03:00</updated>
-    <id>http://ifdattic.com/how-to-send-symfony-application-logs-to-mongodb</id>
-    <content type="html"><![CDATA[<p>The tutorial assumes that the project is using MongoDB and has everything configured (Doctrine ODM bundle, etc.).</p>
-
-<p>Add the log connection to <code>app/config/config.yml</code>:</p>
-
-<p>```yaml
-doctrine_mongodb:</p>
-
-<pre><code>connections:
-    log:
-        server: "%mongodb_log_server%"
-        options:
-            password: "%mongodb_log_password%"
-            username: "%mongodb_log_username%"
-document_managers:
-    log:
-        auto_mapping: false
-        logging: false
-</code></pre>
-
-<p>```</p>
-
-<p>A separate connection is needed with <code>logging</code> disabled as otherwise it will lead to a circular reference error (as the connection is using a logger).</p>
-
-<p>In <code>app/config/config_prod.yml</code> add the mongo handler for Monolog and replace <code>fingers_crossed</code> handler with it:</p>
-
-<p>```yaml
-monolog:</p>
-
-<pre><code>handlers:
-    main:
-        type:         fingers_crossed
-        action_level: error
-        handler:      mongo
-    mongo:
-        type: mongo
-        level: debug
-        mongo:
-            id: mongolog
-            database: "%mongodb_log_database%"
-            collection: "%mongodb_log_collection%"
-</code></pre>
-
-<p>```</p>
-
-<p>If you want to log to MongoDB on development environment, replace main handler with following code (or add an additional handler):</p>
-
-<p>```yaml
-monolog:</p>
-
-<pre><code>handlers:
-    main:
-        type: mongo
-        level: debug
-        mongo:
-            id: mongolog
-            database: "%mongodb_log_database%"
-            collection: "logs_%kernel.environment%"
-</code></pre>
-
-<p>```</p>
-
-<p>Update the parameters file <code>app/config/parameters.yml.dist</code>:</p>
-
-<p>```yaml
-parameters:</p>
-
-<pre><code>mongodb_log_server: "%env.mongodb_log.server%"
-mongodb_log_database: "%env.mongodb_log.database%"
-mongodb_log_password: "%env.mongodb_log.password%"
-mongodb_log_username: "%env.mongodb_log.username%"
-mongodb_log_collection: "%env.mongodb_log.collection%"
-</code></pre>
-
-<p>```</p>
-
-<p>Create the services used by Monolog handler.</p>
-
-<p>```yaml</p>
-
-<h1>app/config/services.yml</h1>
-
-<p>services:</p>
-
-<pre><code>mongolog:
-    class: Mongo
-    factory_service: mongolog.connection
-    factory_method: getMongo
-
-mongolog.connection:
-    class: MongoDoctrine\MongoDB\Connection
-    factory_service: doctrine_mongodb.odm.log_document_manager
-    factory_method: getConnection
-    calls:
-        - [initialize, []]
-</code></pre>
-
-<p>```</p>
-
-<p>If everything was set correctly the logs should start appearing in MongoDB database.</p>
 ]]></content>
   </entry>
   
