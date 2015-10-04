@@ -10,8 +10,6 @@ path: /source/_posts/2014-09-19-how-to-deploy-symfony-application-to-aws-elastic
 
 I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to "production" environment I chose to push it to AWS ElasticBeanstalk as I'm quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at [github][symfony-demo-app-github-repo].
 
-> I'm doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,top" target="_blank">Google Forms</a>. It's fine if you don't want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.
-
 You can jump to any of the sections:
 
 * [Update on 2014-10-03](#update-20141003)
@@ -659,8 +657,6 @@ container_commands:
 ## Conclusion <a name="conclusion"></a>
 
 This article might not had all the steps required for deploying your Symfony application to ElasticBeanstalk, but it should point you on the right way to deploying your application. If something was not informative enough or confusing, please let me know and I will try to clarify it. If you have any questions or ideas, leave them in the comments to start the knowledge sharing.
-
-> I'm doing research on this topic and would appreciate if you would like to fill some questions at <a href="http://goo.gl/forms/cmEu5sio7G" data-ga-event="eb,click,bottom" target="_blank">Google Forms</a>. It's fine if you don't want to answer any of them or only answer one, every bit helps. Thank you for your time and enjoy the article.
 
 [aws-home]: http://aws.amazon.com
 [aws-cli-home]: http://aws.amazon.com/cli
