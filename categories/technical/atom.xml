@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-10-14T14:29:30+03:00</updated>
+  <updated>2015-11-04T18:52:05+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iTerm Shortcut Keys]]></title>
+    <link href="http://ifdattic.com/iterm-shortcut-keys"/>
+    <updated>2015-11-04T17:26:09+02:00</updated>
+    <id>http://ifdattic.com/iterm-shortcut-keys</id>
+    <content type="html"><![CDATA[<p>If you use Mac OSX and do a lot of work in terminal the <a href="https://www.iterm2.com">iTerm</a> application will become your friend fast. It&rsquo;s a great terminal application and it would be hard to imagine my days without it.</p>
+
+<p>Once you learn a few shortcut keys and develop your personal work flow you would hardly want to leave that black (differs) window.</p>
+
+<p>Below is some of the shortcut keys I use.</p>
+
+<h2>Working with multiple terminals</h2>
+
+<p>It&rsquo;s rare occasion having only one terminal open as often I&rsquo;m working with multiple projects / tools at the same time. Sometimes even if I&rsquo;m not using something at the moment (or in the last few days / weeks) the terminal windows are left as is (often to avoid going to the needed directory). And sometimes you just need to try something fast and close it. Following shortcuts allow me to open new terminals, move between them, close once I&rsquo;m done with it.</p>
+
+<blockquote><p>New Tab <code>⌘T</code></p>
+
+<p>Previous Tab <code>⌘←</code></p>
+
+<p>Next Tab <code>⌘→</code></p>
+
+<p>Close tab <code>⌘w</code></p></blockquote>
+
+<p>You could move the tabs around using the following shortcut keys, but I rarely use them.</p>
+
+<blockquote><p>Move Tab Right <code>⇧⌘→</code></p>
+
+<p>Move Tab Left <code>⇧⌘←</code></p></blockquote>
+
+<h2>Working with multiple terminals in same tab</h2>
+
+<p>Opening a new tab takes care of the most use cases, but sometimes there&rsquo;s a need to see multiple terminals at the same time. The splitting the tab shortcut keys are the lifesaver in those moments. You can go crazy with splitting the current tab (if you need to)!</p>
+
+<blockquote><p>Split Vertically with Current Profile <code>⌘D</code></p>
+
+<p>Split Horizontally with Current Profile <code>⇧⌘D</code></p></blockquote>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22596362330/in/dateposted-public/" title="iterm-split-windows-go-crazy"><img src="https://farm6.staticflickr.com/5658/22596362330_9a8d2fabed_c.jpg" width="733" height="800" alt="iterm-split-windows-go-crazy"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Your performance would suffer a lot if you had to use the mouse to use any of those terminals. For that problem the shortcut keys to move between the panes solve it.</p>
+
+<blockquote><p>Next Pane <code>⌘]</code></p>
+
+<p>Previous Pane <code>⌘[</code></p></blockquote>
+
+<p>You can also move between panes directionally. Most of the time I can&rsquo;t remember the shortcut keys for it, previous/next pane works great, rarely have more than 2 panes at the time.</p>
+
+<blockquote><p>Select Pane Above <code>⌥⌘↑</code></p>
+
+<p>Select Pane Below <code>⌥⌘↓</code></p>
+
+<p>Select Pane Left <code>⌥⌘←</code></p>
+
+<p>Select Pane Right <code>⌥⌘→</code></p></blockquote>
+
+<h2>Interacting with the terminal</h2>
+
+<p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
+
+<blockquote><p>Clear Buffer <code>⌘K</code></p>
+
+<p>Scroll Up <code>⇧Page Up</code></p>
+
+<p>Scroll Down <code>⇧Page Down</code></p>
+
+<p>Find&hellip; <code>⌘F</code></p></blockquote>
+
+<h2>Changing font size</h2>
+
+<p>The iTerm on my machine is configured to my liking and works for almost all the use cases. For that reason it&rsquo;s rare to change the font size. If you&rsquo;re making a presentation, recording screen cast or your eyes are tired shortcut keys for changing font size solves that problem.</p>
+
+<blockquote><p>Make Text Bigger <code>⌘+</code></p>
+
+<p>Make Text Normal Size <code>⌘0</code></p>
+
+<p>Make Text Smaller <code>⌘-</code></p></blockquote>
+
+<h2>Conclusion</h2>
+
+<p>These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Continuous Integration of PHP Project Using Shippable]]></title>
@@ -468,62 +551,6 @@ function questioner_is_saved()
 <p>The closing keynote <a href="https://joind.in/talk/view/14639">Behind the Scenes of Maintaining an Open Source Project</a> was done by <a href="https://twitter.com/seldaek">Jordi Boggiano</a> about how open source project looks behind the scenes. He went through different stages of it (maintenance, anger, etc.) including anecdotes and personal stories. Staying behind the screen we often forget about the world behind our backs and that open source is only possible thanks to the community and people who spend their energy &amp; time.</p>
 
 <p>I enjoyed the conference a lot and really happy about attending it. It&rsquo;s was nice to put Twitter/GitHub profiles with real people. Would like to thank the organizers, speakers, audience for three great days of new experiences &amp; sharing knowledge. In the end I would like to borrow (in other words steal) the quote from <a href="https://twitter.com/michellesanver">Michelle Sanver</a> which summarizes what is a conference very well &ndash; &ldquo;<em><a href="https://blog.liip.ch/archive/2015/02/10/conferences-that-are-parties-with-talks-phpbenelux-and-sunshinephp.html">A conference is a party with talks</a></em>&rdquo;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
-    <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
-    <updated>2015-06-24T08:16:35+03:00</updated>
-    <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
-    <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
-
-<p>While developing an application I try to keep the code separated. I also love testing and one wonderful tool which helps me produce good quality code is <a href="http://www.phpspec.net/">phpspec</a>. The issue is what by default it keeps all the tests in the root directory.</p>
-
-<p>phpspec requires some configuration to keep the tests where they belong. You might notice that I&rsquo;m using Symfony framework for my application. When you do DDD development the framework used isn&rsquo;t that important. My domain login is kept in <code>src/Domain</code> directory &amp; infrastructure code is kept as bundles in <code>src</code> directory.</p>
-
-<p>The following configuration is required to make phpspec work correctly (finding specs, creating/updating specs, running specs):</p>
-
-<p>```yml
-suites:</p>
-
-<pre><code>core_suite:
-    namespace: Domain\Core
-    psr4_prefix: Domain\Core
-    spec_path: src/Domain/Core
-    src_path: src/Domain/Core
-    spec_prefix: Spec
-
-user_infrastructure_suite:
-    namespace: UserBundle
-    psr4_prefix: UserBundle
-    spec_path: src/UserBundle
-    src_path: src/UserBundle
-    spec_prefix: Spec
-
-user_suite:
-    namespace: Domain\User
-    psr4_prefix: Domain\User
-    spec_path: src/Domain/User
-    src_path: src/Domain/User
-    spec_prefix: Spec
-</code></pre>
-
-<p>```</p>
-
-<p>Save the file as <code>phpspec.yml</code> in root directory.</p>
-
-<p><a href="https://www.flickr.com/photos/ifdattic/18485964273" title="Configure phpspec for DDD by Andrew Marcinkevičius, on Flickr"><img src="https://c4.staticflickr.com/4/3898/18485964273_ac0e4e5e5b_z.jpg" width="640" height="296" alt="Configure phpspec for DDD"></a></p>
-
-<p>If you would run:</p>
-
-<p><code>bash
-phpspec describe Domain/User/ValueObject/UserName
-</code></p>
-
-<p>It should create a file <code>UserNameSpec.php</code> in <code>src/Domain/User/Spec/ValueObject</code>.</p>
-
-<p>Some lines in suites might look like duplication, but I found that you have to set all the options. Otherwise there are issues with file creation/updating. You could skip <code>spec_prefix</code> option if you don&rsquo;t mind specifications directory in lowercase.</p>
 ]]></content>
   </entry>
   

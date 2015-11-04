@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-10-14T14:29:30+03:00</updated>
+  <updated>2015-11-04T18:52:05+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iTerm Shortcut Keys]]></title>
+    <link href="http://ifdattic.com/iterm-shortcut-keys"/>
+    <updated>2015-11-04T17:26:09+02:00</updated>
+    <id>http://ifdattic.com/iterm-shortcut-keys</id>
+    <content type="html"><![CDATA[<p>If you use Mac OSX and do a lot of work in terminal the <a href="https://www.iterm2.com">iTerm</a> application will become your friend fast. It&rsquo;s a great terminal application and it would be hard to imagine my days without it.</p>
+
+<p>Once you learn a few shortcut keys and develop your personal work flow you would hardly want to leave that black (differs) window.</p>
+
+<p>Below is some of the shortcut keys I use.</p>
+
+<h2>Working with multiple terminals</h2>
+
+<p>It&rsquo;s rare occasion having only one terminal open as often I&rsquo;m working with multiple projects / tools at the same time. Sometimes even if I&rsquo;m not using something at the moment (or in the last few days / weeks) the terminal windows are left as is (often to avoid going to the needed directory). And sometimes you just need to try something fast and close it. Following shortcuts allow me to open new terminals, move between them, close once I&rsquo;m done with it.</p>
+
+<blockquote><p>New Tab <code>⌘T</code></p>
+
+<p>Previous Tab <code>⌘←</code></p>
+
+<p>Next Tab <code>⌘→</code></p>
+
+<p>Close tab <code>⌘w</code></p></blockquote>
+
+<p>You could move the tabs around using the following shortcut keys, but I rarely use them.</p>
+
+<blockquote><p>Move Tab Right <code>⇧⌘→</code></p>
+
+<p>Move Tab Left <code>⇧⌘←</code></p></blockquote>
+
+<h2>Working with multiple terminals in same tab</h2>
+
+<p>Opening a new tab takes care of the most use cases, but sometimes there&rsquo;s a need to see multiple terminals at the same time. The splitting the tab shortcut keys are the lifesaver in those moments. You can go crazy with splitting the current tab (if you need to)!</p>
+
+<blockquote><p>Split Vertically with Current Profile <code>⌘D</code></p>
+
+<p>Split Horizontally with Current Profile <code>⇧⌘D</code></p></blockquote>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22596362330/in/dateposted-public/" title="iterm-split-windows-go-crazy"><img src="https://farm6.staticflickr.com/5658/22596362330_9a8d2fabed_c.jpg" width="733" height="800" alt="iterm-split-windows-go-crazy"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Your performance would suffer a lot if you had to use the mouse to use any of those terminals. For that problem the shortcut keys to move between the panes solve it.</p>
+
+<blockquote><p>Next Pane <code>⌘]</code></p>
+
+<p>Previous Pane <code>⌘[</code></p></blockquote>
+
+<p>You can also move between panes directionally. Most of the time I can&rsquo;t remember the shortcut keys for it, previous/next pane works great, rarely have more than 2 panes at the time.</p>
+
+<blockquote><p>Select Pane Above <code>⌥⌘↑</code></p>
+
+<p>Select Pane Below <code>⌥⌘↓</code></p>
+
+<p>Select Pane Left <code>⌥⌘←</code></p>
+
+<p>Select Pane Right <code>⌥⌘→</code></p></blockquote>
+
+<h2>Interacting with the terminal</h2>
+
+<p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
+
+<blockquote><p>Clear Buffer <code>⌘K</code></p>
+
+<p>Scroll Up <code>⇧Page Up</code></p>
+
+<p>Scroll Down <code>⇧Page Down</code></p>
+
+<p>Find&hellip; <code>⌘F</code></p></blockquote>
+
+<h2>Changing font size</h2>
+
+<p>The iTerm on my machine is configured to my liking and works for almost all the use cases. For that reason it&rsquo;s rare to change the font size. If you&rsquo;re making a presentation, recording screen cast or your eyes are tired shortcut keys for changing font size solves that problem.</p>
+
+<blockquote><p>Make Text Bigger <code>⌘+</code></p>
+
+<p>Make Text Normal Size <code>⌘0</code></p>
+
+<p>Make Text Smaller <code>⌘-</code></p></blockquote>
+
+<h2>Conclusion</h2>
+
+<p>These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Continuous Integration of PHP Project Using Shippable]]></title>
@@ -1579,298 +1662,6 @@
 <p>Unlike with PHP certificate my reaction at the end of exam was much more &ldquo;professional.&rdquo; It still felt awesome!!!</p>
 
 <p>Note: For anyone who is interested I made a <a href="https://trello.com/c/aHnP3WUI/1-learn-for-symfony-certification">Trello card</a> public.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to use MongoDB & NodeJS with Docker (video included)]]></title>
-    <link href="http://ifdattic.com/how-to-mongodb-nodejs-docker"/>
-    <updated>2015-01-09T19:29:10+02:00</updated>
-    <id>http://ifdattic.com/how-to-mongodb-nodejs-docker</id>
-    <content type="html"><![CDATA[<p>This is the short intro on how to use spin up MongoDB and NodeJS containers using Docker. This will take you step by step on how to run those containers, some problems you might run into, how to avoid some pitfalls. After it you will have enough experience on working with Docker, MongoDB &amp; NodeJS. It will provide enough foundation to use those technologies and will give a head start if you will want to learn more. Initial intent was to use it for MongDB course from MongoDBUniversity, but it was reworked for general use. Part of the tutorial will provide tips on how to use it with the mentioned course.</p>
-
-<p><del datetime="2015-01-27">A few months ago a friend mentioned a <a href="https://university.mongodb.com/courses/M101JS/about">MongoDB course from MongoDBUniversity</a>, which sounded like a lot of fun so of course I enrolled into it. It started a few days ago and it&rsquo;s a lot of fun. As I like to keep my OS clean the Docker looked like a great solution (one of the reasons I like it, just do something and throw it away after you&rsquo;re done, just like with cloud computing). This way I could take three rabbits with one shot learning <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://nodejs.org/">Node.js</a> and <a href="https://www.docker.com/">Docker</a> at the same time.</del></p>
-
-<p><del datetime="2015-01-27">I just noticed that because I had to figure some things to make it all work this can be a great opportunity for an article to help my fellow companions with this step.</del></p>
-
-<p>Please note that I&rsquo;m using Mac OS so you might need to adjust examples to your OS and/or user. Please use the <a href="https://docs.docker.com/installation/#installation">installation instructions</a> to launch the docker on your machine.</p>
-
-<h2>MongoDB</h2>
-
-<p>First get the latest <a href="https://registry.hub.docker.com/_/mongo/">mongo image</a>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker pull mongo:latest
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And when launch your MongoDB container:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker run -v <span class="s2">&quot;$(pwd)&quot;</span>:/data --name mongo -d mongo mongod --smallfiles
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The current directory you&rsquo;re running this command from will be used as data directory in your container (provided by <code>$(pwd)</code>). Change it if you need to by entering the full path.</p>
-
-<p>The running containers can be checked by:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># display only running containers</span>
-</span><span class='line'>docker ps
-</span><span class='line'>
-</span><span class='line'><span class="c"># or if you want all containers displayed</span>
-</span><span class='line'>docker ps -a
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>There are two options for connecting to your Mongo database.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker run -it <span class="se">\</span>
-</span><span class='line'>    --link mongo:mongo <span class="se">\</span>
-</span><span class='line'>    --rm mongo sh <span class="se">\</span>
-</span><span class='line'>    -c <span class="s1">&#39;exec mongo &quot;$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test&quot;&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># or on one line for easier copy-paste</span>
-</span><span class='line'>docker run -it --link mongo:mongo --rm mongo sh -c <span class="s1">&#39;exec mongo &quot;$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT/test&quot;&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will create a new mongo container which is linked with an existing mongo container. After container is created the command which connects to database is executed.</p>
-
-<p>Personally, I like just connecting to a running container and executing needed commands from it. You can do what with:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker <span class="nb">exec</span> -it 442c2541fe1a bash <span class="c"># by ID</span>
-</span><span class='line'><span class="c"># or</span>
-</span><span class='line'>docker <span class="nb">exec</span> -it mongo bash <span class="c"># by Name</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To test that your mongo database is working execute the following commands from mongo container:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mongo
-</span><span class='line'>db.col.insert<span class="o">({</span><span class="s2">&quot;a&quot;</span>: 4<span class="o">})</span>
-</span><span class='line'>db.col.find<span class="o">()</span>.pretty<span class="o">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The new document should have been inserted and displayed back to you. You Mongo database is up and ready to be used in your projects.</p>
-
-<h3>Dump and restore the database</h3>
-
-<p>Please note that depending on your set up the database files might not be synced with your host OS. You can check this by listing the files of database directory:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ls -la db
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If it&rsquo;s empty then database files are not synced.</p>
-
-<p>If the data you have in your database is important and you don&rsquo;t want to lose it export it before removing your container (stopping the container will preserve the files).</p>
-
-<p>Please check the documentation or <code>--help</code> output for more information, but to do a simple export run the following from the container (export <code>test</code> database to <code>/data/test-backup</code> destination):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mongodump --db <span class="nb">test</span> --out /data/test-backup
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Your data directory (from the container) should now contain the backup files and it should be synced with your host OS.</p>
-
-<p>To restore the data run the following from container (restore <code>/data/test-backup/test/</code> into a <code>test-restored</code> database):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>mongorestore --db <span class="nb">test</span>-restored /data/test-backup/test
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Node.js</h2>
-
-<p>First get the latest <a href="https://registry.hub.docker.com/_/node/">node image</a>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker pull node:latest
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To launch the NodeJS container run:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker run -it --rm node
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will run the node container and will put you in the interactive shell (REPL) from which you can execute code. You can test it by entering:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>console.log<span class="o">(</span><span class="s1">&#39;It works!!&#39;</span><span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To exit the interactive shell and remove the container (as it contains <code>--rm</code> option) press <code>Control+C</code> twice.</p>
-
-<p>You have multiple ways of running your NodeJS applications. One which I personally like (especially for MongoDB course) is to create a container which has all the required data mounted and is linked to mongo container. This allows to run multiple applications without having to create new containers. It also exposes the port to host machine so you could open the application in your browser. If you want you can set working directory with <code>-w</code> option.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>docker run -it --name node -v <span class="s2">&quot;$(pwd)&quot;</span>:/data --link mongo:mongo -w /data -p 8082:8082 node bash
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now to run the application just enter its directory, install dependencies and run front controller script:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># execute commands in container</span>
-</span><span class='line'><span class="nb">cd </span>hw3-2and3-3/blog
-</span><span class='line'>npm install
-</span><span class='line'>node app.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you&rsquo;re running these examples with MongoDB course examples it will fail. This is because it&rsquo;s trying to connect to Mongo database on localhost, but our Mongo database isn&rsquo;t on local machine. There are multiple ways to fix this:</p>
-
-<ul>
-<li>hard code the connection string (with linked container IP);</li>
-<li>use environment variables which are added automatically by Docker (when linking);</li>
-<li>use hosts entry which is added automatically by Docker (when linking).</li>
-</ul>
-
-
-<p>Example below contains the representation of all those methods. Please choose the one which you like most or is best for your use case.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// Original connect</span>
-</span><span class='line'><span class="nx">MongoClient</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://localhost:27017/blog&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Connect using environment variables</span>
-</span><span class='line'><span class="nx">MongoClient</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://&#39;</span><span class="o">+</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MONGO_PORT_27017_TCP_ADDR</span><span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MONGO_PORT_27017_TCP_PORT</span><span class="o">+</span><span class="s1">&#39;/blog&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// Connect using hosts entry</span>
-</span><span class='line'><span class="nx">MongoClient</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;mongodb://mongo:27017/blog&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After fixing the <code>connect()</code> method the application should run successfully. You can reach it by opening <code>http://192.168.59.103:8082</code> (if it was IP address of your Docker application) or if you added the Docker IP as <code>docker</code> in your hosts file <code>http://docker:8082</code>.</p>
-
-<p>To exit your application press <code>Control-C</code></p>
-
-<p>It&rsquo;s also possible to run the application in container directly.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># from host OS terminal</span>
-</span><span class='line'>docker run <span class="se">\</span>
-</span><span class='line'>    --name nodeapp <span class="se">\</span>
-</span><span class='line'>    -v <span class="s2">&quot;$(pwd)&quot;</span>:/data <span class="se">\</span>
-</span><span class='line'>    --link mongo:mongo <span class="se">\</span>
-</span><span class='line'>    -w /data/hw3-2and3-3/blog <span class="se">\</span>
-</span><span class='line'>    -p 8082:8082 <span class="se">\</span>
-</span><span class='line'>    -d node node app.js
-</span><span class='line'>
-</span><span class='line'><span class="c"># or on one line for easy copy-paste</span>
-</span><span class='line'>docker run --name nodeapp -v <span class="s2">&quot;$(pwd)&quot;</span>:/data --link mongo:mongo -w /data/hw3-2and3-3/blog -p 8082:8082 -d node node app.js
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The following commands might be useful when running containers as daemons (replace <code>nodeapp</code> with ID or name of container):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># to see running containers</span>
-</span><span class='line'>docker ps
-</span><span class='line'>
-</span><span class='line'><span class="c"># to check output of container</span>
-</span><span class='line'>docker logs nodeapp
-</span><span class='line'>
-</span><span class='line'><span class="c"># to tail the output of container</span>
-</span><span class='line'>docker logs -f nodeapp
-</span><span class='line'>
-</span><span class='line'><span class="c"># to stop running container</span>
-</span><span class='line'>docker stop nodeapp
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>MongoDB Course Manual Validation Tips</h2>
-
-<p>If you using this for MongoDB University course and chose to do manual validation (haven&rsquo;t tested with MongoProc validation) you will need to keep a few things in your mind.</p>
-
-<p>For second week second homework it&rsquo;s not possible to configure the validation script and it tries to connect to Mongo database which is on localhost. To fix this open your <code>/etc/hosts</code> file (you might need to install some editor on your container), enter the <code>MONGOIP localhost</code> as the first entry (<strong>replace <code>MONGOIP</code> with mongo container IP address, should be in the same hosts file</strong>) and comment out the real <code>localhost</code> entry. Now running validation script should succeed and you should receive the validation code if you did homework assignment correctly. <strong>Don&rsquo;t forget to revert the changes to <code>/etc/hosts</code> file!!!</strong></p>
-
-<p>Other assignment validation is simpler as it allows to configure the validation script. Run validation with <code>--help</code> to see what is available for configuration. The defaults for web server should be correct (as you should have one container and two terminals for it, one running the application, another executing validation) you only need to change connection string for Mongo database. Enter the following to validate third week second assignment:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>node hw3-2validate.js --db mongodb://mongo:27017/blog
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you done your homework correctly you should receive the validation code.</p>
-
-<h2>Conclusion</h2>
-
-<p>Now you should have enough knowledge to be able to run MongoDB and NodeJS using Docker. You can take most of that knowledge and expand it to other containers even if you don&rsquo;t want to learn more about Docker. This would still provide you with ability to rapidly test your ideas and throw away the resources as needed.</p>
-
-<p>If you&rsquo;re using this for MongoDB University course it should help with most of the issues you could run while completing your assignments.</p>
-
-<p>If you&rsquo;re willing to hurt your ears by listening to my voice you can find the screen cast of this whole tutorial at <a href="https://www.youtube.com/playlist?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt">YouTube</a>. If you&rsquo;re listening on mute or can&rsquo;t understand what I&rsquo;m saying the <a href="scripts/screencast-how-to-mongo-node-docker">script for screen cast is available</a>.</p>
-
-<p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
 ]]></content>
   </entry>
   

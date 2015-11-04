@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-10-14T14:29:30+03:00</updated>
+  <updated>2015-11-04T18:52:05+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iTerm Shortcut Keys]]></title>
+    <link href="http://ifdattic.com/iterm-shortcut-keys"/>
+    <updated>2015-11-04T17:26:09+02:00</updated>
+    <id>http://ifdattic.com/iterm-shortcut-keys</id>
+    <content type="html"><![CDATA[<p>If you use Mac OSX and do a lot of work in terminal the <a href="https://www.iterm2.com">iTerm</a> application will become your friend fast. It&rsquo;s a great terminal application and it would be hard to imagine my days without it.</p>
+
+<p>Once you learn a few shortcut keys and develop your personal work flow you would hardly want to leave that black (differs) window.</p>
+
+<p>Below is some of the shortcut keys I use.</p>
+
+<h2>Working with multiple terminals</h2>
+
+<p>It&rsquo;s rare occasion having only one terminal open as often I&rsquo;m working with multiple projects / tools at the same time. Sometimes even if I&rsquo;m not using something at the moment (or in the last few days / weeks) the terminal windows are left as is (often to avoid going to the needed directory). And sometimes you just need to try something fast and close it. Following shortcuts allow me to open new terminals, move between them, close once I&rsquo;m done with it.</p>
+
+<blockquote><p>New Tab <code>⌘T</code></p>
+
+<p>Previous Tab <code>⌘←</code></p>
+
+<p>Next Tab <code>⌘→</code></p>
+
+<p>Close tab <code>⌘w</code></p></blockquote>
+
+<p>You could move the tabs around using the following shortcut keys, but I rarely use them.</p>
+
+<blockquote><p>Move Tab Right <code>⇧⌘→</code></p>
+
+<p>Move Tab Left <code>⇧⌘←</code></p></blockquote>
+
+<h2>Working with multiple terminals in same tab</h2>
+
+<p>Opening a new tab takes care of the most use cases, but sometimes there&rsquo;s a need to see multiple terminals at the same time. The splitting the tab shortcut keys are the lifesaver in those moments. You can go crazy with splitting the current tab (if you need to)!</p>
+
+<blockquote><p>Split Vertically with Current Profile <code>⌘D</code></p>
+
+<p>Split Horizontally with Current Profile <code>⇧⌘D</code></p></blockquote>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22596362330/in/dateposted-public/" title="iterm-split-windows-go-crazy"><img src="https://farm6.staticflickr.com/5658/22596362330_9a8d2fabed_c.jpg" width="733" height="800" alt="iterm-split-windows-go-crazy"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Your performance would suffer a lot if you had to use the mouse to use any of those terminals. For that problem the shortcut keys to move between the panes solve it.</p>
+
+<blockquote><p>Next Pane <code>⌘]</code></p>
+
+<p>Previous Pane <code>⌘[</code></p></blockquote>
+
+<p>You can also move between panes directionally. Most of the time I can&rsquo;t remember the shortcut keys for it, previous/next pane works great, rarely have more than 2 panes at the time.</p>
+
+<blockquote><p>Select Pane Above <code>⌥⌘↑</code></p>
+
+<p>Select Pane Below <code>⌥⌘↓</code></p>
+
+<p>Select Pane Left <code>⌥⌘←</code></p>
+
+<p>Select Pane Right <code>⌥⌘→</code></p></blockquote>
+
+<h2>Interacting with the terminal</h2>
+
+<p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
+
+<blockquote><p>Clear Buffer <code>⌘K</code></p>
+
+<p>Scroll Up <code>⇧Page Up</code></p>
+
+<p>Scroll Down <code>⇧Page Down</code></p>
+
+<p>Find&hellip; <code>⌘F</code></p></blockquote>
+
+<h2>Changing font size</h2>
+
+<p>The iTerm on my machine is configured to my liking and works for almost all the use cases. For that reason it&rsquo;s rare to change the font size. If you&rsquo;re making a presentation, recording screen cast or your eyes are tired shortcut keys for changing font size solves that problem.</p>
+
+<blockquote><p>Make Text Bigger <code>⌘+</code></p>
+
+<p>Make Text Normal Size <code>⌘0</code></p>
+
+<p>Make Text Smaller <code>⌘-</code></p></blockquote>
+
+<h2>Conclusion</h2>
+
+<p>These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
@@ -811,773 +894,6 @@ kill -9 $pid
 <p>All files can be found in the <a href="https://gist.github.com/ifdattic/61a5b2708dff8811e7e2">gist</a>, the first line displays the full path for it and should be removed from files.</p>
 
 <p>What about you: are you tracking how your application is performing? Or maybe you have suggestions? Please share them in comments.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How-to: Deploy Symfony Application to AWS ElasticBeanstalk]]></title>
-    <link href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk"/>
-    <updated>2014-09-19T09:03:02+03:00</updated>
-    <id>http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk</id>
-    <content type="html"><![CDATA[<p>I while ago I started working on an application so I could learn Symfony and solve a problem I had. After it reached a minimal state where it could be deployed to &ldquo;production&rdquo; environment I chose to push it to AWS ElasticBeanstalk as I&rsquo;m quite comfortable with using it. Unfortunately (or maybe fortunately as the best way to learn something is still through practice), I bumped into a few problems while deploying. The article is split into sections explaining what and why a piece of code is added. You might not need all of them or you might need some adjustments. For this article I will use the default Symfony application and full code can be found at <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">github</a>.</p>
-
-<p>You can jump to any of the sections:</p>
-
-<ul>
-<li><a href="#update-20141003">Update on 2014-10-03</a></li>
-<li><a href="#update-20141108">Update on 2014-11-08</a></li>
-<li><a href="#update-20141207">Update on 2014-12-07</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#add-awsdevtools">Add AWSDevTools to Repository</a></li>
-<li><a href="#create-key-pair">Create a Key Pair (optional)</a></li>
-<li><a href="#create-eb-config">Create ElasticBeanstalk environment configuration/description</a></li>
-<li><a href="#add-environment-variables">Add environment variables</a></li>
-<li><a href="#add-vendors-dir">Add vendors Directory to Repository</a></li>
-<li><a href="#add-environment-config">Add environment configuration and Update Composer</a></li>
-<li><a href="#install-mongo-extension">Install mongo extension</a></li>
-<li><a href="#run-composer-install">Run Composer Install</a></li>
-<li><a href="#update-cache-files">Update Cache Files</a></li>
-<li><a href="#add-apache-config">Add Apache Configuration (optional)</a></li>
-<li><a href="#remove-dev-entry">Remove dev Entry Point (optional)</a></li>
-<li><a href="#add-cron">Add Cron (optional)</a></li>
-<li><a href="#add-new-relic-config">Add New Relic Configuration (optional)</a></li>
-<li><a href="#install-nodejs">Install nodejs With Front-End Tools (2014-10-03)</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
-
-
-<h2>Update on 2014-10-03 <a name="update-20141003"></a></h2>
-
-<p>Thanks to the <a href="http://ifdattic.com/how-to-deploy-symfony-application-to-aws-elasticbeanstalk/#comment-1604895694">tip from Philipp Rieber</a> the code can be simplified by removing the environment in console applications. If your environment has <code>SYMFONY_ENV</code> and <code>SYMFONY_DEBUG</code> set, they will be automatically retrieved by console script. This will allow to remove <code>--env</code> and <code>--no-debug</code> from console commands. This will also allow you to leave scripts in <code>composer.json</code> as the correct environment will be chosen.</p>
-
-<h2>Update on 2014-11-08 <a name="update-20141108"></a></h2>
-
-<p>Thanks to the tip from Nicolae Darie the <code>update-cache.sh</code> script was improved to replace all occurrences of <code>ondeck</code> in <a href="#update-cache-files">cache files</a>.</p>
-
-<h2>Update on 2014-12-07 <a name="update-20141207"></a></h2>
-
-<p>Thanks to the tip from Sergio Marchesini the <a href="#update-cache-files">Update Cache Files</a> section is not needed anymore if you&rsquo;re using at least Symfony 2.6.1.</p>
-
-<h2>Prerequisites <a name="prerequisites"></a></h2>
-
-<p>The article assumes you already have the <a href="http://aws.amazon.com">AWS account</a>, <a href="http://aws.amazon.com/cli">AWS CLI</a> configured and a project in <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code">git repository</a> ready to be deployed. The application will be deployed to <code>us-east-1</code> region, so make changes accordingly if you want to deploy to a different region.</p>
-
-<p>For deployment we will use the <code>t2.micro</code> instance type, which is a new free tier eligible instance type. This updated instance type can only be launched in VPC so you might need to create it for your account, it can be done using a <a href="https://console.aws.amazon.com/vpc/home">wizard</a>.</p>
-
-<p>If you will be creating a single instance ElasticBeanstalk application you only need <em>&ldquo;VPC with a Single Public Subnet.&rdquo;</em> If you want to create a load balanced application you will need <em>&ldquo;VPC with Public and Private Subnets.&rdquo;</em> Just note what VPC with public and private subnets requires a NAT instance which will add additional charges. You can learn more about creating VPC at <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo-vpc-basic.html">AWS Docs</a>.</p>
-
-<p>You will also need to create the IAM role to be used for ElasticBeanstalk deployments.</p>
-
-<p>Some of the steps can be done using the web GUI or different applications, but for the most part I will be using the terminal on OS X.</p>
-
-<p>Check <strong><a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code/tree/master/.ebextensions/misc">.ebextensions/misc/aws-cli-commands-used.md</a></strong> from demo application for more information (commands used).</p>
-
-<h2>Add AWSDevTools to Repository <a name="add-awsdevtools"></a></h2>
-
-<p>To be able to push your repository to the ElasticBeanstalk the repository has to be extended with <a href="http://aws.amazon.com/code/6752709412171743">AWSDevTools</a>. Download, extract and go to correct directory depending on your OS (for Linux and Mac it will be <code>AWSDevTools/Linux</code>). You need to run the <code>AWSDevTools-RepositorySetup.sh</code> from the directory which contains your repository.</p>
-
-<p>If everything was done correctly you should get a few new commands under <code>git aws.</code> namespace. Now run the <code>git aws.config</code> command to initialize configuration required for pushing repository to ElasticBeanstalk (comments after <code>#</code>, don&rsquo;t enter them).</p>
-
-<p><code>bash
-AWS Region [default to us-east-1]: # enter your region
-AWS Elastic Beanstalk Application: demo-app # enter your application name
-AWS Elastic Beanstalk Environment: demo-prod-env # enter your environment name
-</code></p>
-
-<p>The command should output some explanations about how to set the AWS credentials. As I work with multiple AWS accounts I personally set the credentials in the project. The command created a <code>.elasticbeanstalk</code> directory which you should avoid adding to source control (especially if it contains credentials). The directory should have <code>config</code> and <code>aws_credential_file</code> files with contents (including a manual change for credentials):</p>
-
-<p>```ini</p>
-
-<h1>below is contents of .elasticbeanstalk/config</h1>
-
-<p>[global]
-ApplicationName=demo-app
-DevToolsEndpoint=git.elasticbeanstalk.us-east-1.amazonaws.com
-EnvironmentName=demo-prod-env
-Region=us-east-1
-AwsCredentialFile=.elasticbeanstalk/aws_credential_file</p>
-
-<h1>below is contents of .elasticbeanstalk/aws_credential_file</h1>
-
-<p>AWSAccessKeyId=your-access-key
-AWSSecretKey=your-secret-key
-```</p>
-
-<p><strong>Bonus tip:</strong> One of <a href="http://youtu.be/tTJrbsu_Wzc">best IAM practices</a> is to allow users only what they need. I use the separate group and user for pushing repository to ElasticBeanstalk. Bellow is the policy you can attach to your group/user to allow only what is needed for deploying an application (modify for your own needs):</p>
-
-<p>```json
-{
-  &ldquo;Version&rdquo;: &ldquo;2012-10-17&rdquo;,
-  &ldquo;Statement&rdquo;: [</p>
-
-<pre><code>{
-  "Effect": "Allow",
-  "Action": [
-    "elasticbeanstalk:*",
-    "ec2:*",
-    "elasticloadbalancing:*",
-    "autoscaling:*",
-    "cloudwatch:*",
-    "s3:*",
-    "sns:*",
-    "cloudformation:*",
-    "rds:*"
-  ],
-  "Resource": "*"
-}
-</code></pre>
-
-<p>  ]
-}
-```</p>
-
-<h2>Create a Key Pair (optional) <a name="create-key-pair"></a></h2>
-
-<p>If you want to connect to your instances (e.g., to debug) you will need a key pair. You should avoid making any changes to your instances as it won&rsquo;t persist and can bring your instance to unknown state.</p>
-
-<p>You can create a key pair by running:</p>
-
-<p><code>bash
-aws ec2 create-key-pair --key-name demoapp_prodkey &gt; demoapp_prodkey.pem
-</code></p>
-
-<p>After the command completes open the file, delete everything that is not inside <code>KeyMaterial</code> value and replace <code>\n</code> with newlines.</p>
-
-<p>Before you start using the key pair you need to change the permissions which can be done with command:</p>
-
-<p><code>bash
-chmod 400 demoapp_prodkey.pem
-</code></p>
-
-<p>To connect to your instance you will need to know the IP address of it. So for example if it was <code>54.88.29.72</code> you could SSH to it with the following command (to connect to Amazon Linux instances the user is <code>ec2-user</code>):</p>
-
-<p><code>bash
-ssh -i demoapp_prodkey.pem ec2-user@54.88.29.72
-</code></p>
-
-<h2>Create ElasticBeanstalk environment configuration/description <a name="create-eb-config"></a></h2>
-
-<p>To always get the ElasticBeanstalk environment in the same state all the required information should be saved inside configuration files.</p>
-
-<p>Create a file <code>.ebextensions/env/prod-single.json</code> with the following contents:</p>
-
-<p>```json
-[</p>
-
-<pre><code>{
-    "Namespace": "aws:elasticbeanstalk:environment",
-    "OptionName": "EnvironmentType",
-    "Value": "SingleInstance"
-},
-{
-    "Namespace": "aws:autoscaling:launchconfiguration",
-    "OptionName": "EC2KeyName",
-    "Value": "demoapp_prodkey"
-},
-{
-    "Namespace": "aws:autoscaling:launchconfiguration",
-    "OptionName": "IamInstanceProfile",
-    "Value": "aws-elasticbeanstalk-ec2-role"
-},
-{
-    "Namespace": "aws:autoscaling:launchconfiguration",
-    "OptionName": "InstanceType",
-    "Value": "t2.micro"
-},
-{
-    "Namespace": "aws:ec2:vpc",
-    "OptionName": "VPCId",
-    "Value": ""
-},
-{
-    "Namespace": "aws:ec2:vpc",
-    "OptionName": "Subnets",
-    "Value": ""
-},
-{
-    "Namespace": "aws:ec2:vpc",
-    "OptionName": "ELBSubnets",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:container:php:phpini",
-    "OptionName": "memory_limit",
-    "Value": "800M"
-},
-{
-    "Namespace": "aws:elasticbeanstalk:container:php:phpini",
-    "OptionName": "document_root",
-    "Value": "/web"
-},
-{
-    "Namespace": "aws:elasticbeanstalk:hostmanager",
-    "OptionName": "LogPublicationControl",
-    "Value": "true"
-}
-</code></pre>
-
-<p>]
-```</p>
-
-<p>This configuration will create a single instance environment. For all available options and their explanations check the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html">docs</a>. If you would like to create a load balanced environment you will need to make some changes to the configuration file (you can find it all at <code>.ebextensions/env/prod-load.json</code>). In short, you should remove <code>EnvironmentType</code> option (or change to <code>LoadBalanced</code>) and add the options provided below (just know what you will need a VPC with private and public subnets if you want to use new instance types):</p>
-
-<p>```json
-[</p>
-
-<pre><code>{
-    "Namespace": "aws:autoscaling:asg",
-    "OptionName": "MinSize",
-    "Value": "1"
-},
-{
-    "Namespace": "aws:autoscaling:asg",
-    "OptionName": "MaxSize",
-    "Value": "4"
-},
-{
-    "Namespace": "aws:autoscaling:launchconfiguration",
-    "OptionName": "SecurityGroups",
-    "Value": ""
-}
-</code></pre>
-
-<p>]
-```</p>
-
-<p>You will also need to fill values (will depend on application type, read <strong><a href="#prerequisites">Prerequisites</a></strong> and <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo-vpc-basic.html">AWS VPC How To</a>) for <code>VPCId</code>, <code>Subnets</code>, <code>ELBSubnets</code>, <code>SecurityGroups</code> from your created VPC.</p>
-
-<p>Run the following command to create your <code>demo-app</code> ElasticBeanstalk application (change the name or provide description if needed):</p>
-
-<p><code>bash
-aws elasticbeanstalk create-application --application-name demo-app --description ""
-</code></p>
-
-<p>Now you only need to choose the the solution stack name. All available stacks can be returned with command (we will choose the latest as of this writing 64 bit stack named <code>64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5</code>):</p>
-
-<p><code>bash
-aws elasticbeanstalk list-available-solution-stacks
-</code></p>
-
-<p>Run the command below to create the ElasticBeanstalk environment (configure the arguments if needed):</p>
-
-<p>```bash
-aws elasticbeanstalk create-environment \</p>
-
-<pre><code>--application-name demo-app \
---environment-name demo-prod-env \
---description "" \
---option-settings file://.ebextensions/env/prod-single.json \
---solution-stack-name "64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5"
-</code></pre>
-
-<p>```</p>
-
-<p>After a while if everything was fine the new environment for application should be up and ready.</p>
-
-<h2>Add environment variables <a name="add-environment-variables"></a></h2>
-
-<p>Keeping credentials and other information (API keys, passwords, connection data, etc.) in source control is a bad idea and not really scalable. Your environment should contain all the information needed to make the application on it work. You can configure your environment variables using <code>aws:elasticbeanstalk:application:environment</code> namespace. Create the <code>.ebextensions/env/prod-variables.json</code> file and put the following into it:</p>
-
-<p>```json
-[</p>
-
-<pre><code>{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY_ENV",
-    "Value": "prod"
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY_DEBUG",
-    "Value": "0"
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__SECRET",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__MONGODB__SERVER",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__MONGODB__DATABASE",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__MONGODB__PASSWORD",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__MONGODB__USERNAME",
-    "Value": ""
-}
-</code></pre>
-
-<p>]
-```</p>
-
-<p>You should fill the <code>Value</code> key with your values (just avoid committing the values to repository). The <code>SYMFONY_ENV</code> is the variable for describing the type of environment and will be used later. As the deployment should happen automatically and you won&rsquo;t be able to enter your parameters manually they should be set automatically using the environment variables. This can be done using variables which start with <code>SYMFONY__</code> as they are automatically converted (the <code>__</code> becomes a <code>.</code>). As an example the <code>SYMFONY__ENV__MONGODB__SERVER</code> will become <code>%env.mongodb.server%</code>. The <code>parameters.yml.dist</code> has to be updated for this to work, make sure it contains the following changes:</p>
-
-<p>```yaml
-parameters:</p>
-
-<pre><code>secret:           "%env.secret%"
-
-mongodb_server:   "%env.mongodb.server%"
-mongodb_database: "%env.mongodb.database%"
-mongodb_password: "%env.mongodb.password%"
-mongodb_username: "%env.mongodb.username%"
-</code></pre>
-
-<p>```</p>
-
-<p>Run the following command to update your environment with variables:</p>
-
-<p>```bash
-aws elasticbeanstalk update-environment \</p>
-
-<pre><code>--environment-name demo-prod-env \
---option-settings file://.ebextensions/env/prod-variables.json
-</code></pre>
-
-<p>```</p>
-
-<h2>Add vendors Directory to Repository <a name="add-vendors-dir"></a></h2>
-
-<p>The <code>10_composer_install.sh</code> hook on application deployment automatically runs <code>composer install</code> if it finds the <code>composer.json</code> file in the root directory. As I would like to run composer myself (and it might fail depending on your application) it can be disabled by moving <code>composer.json</code> file outside of main directory or by adding vendor directory to repository. This can be done by creating a <code>.gitkeep</code> file inside <code>vendor</code> directory and modifying <code>.gitignore</code> to contain:</p>
-
-<p><code>text
-/vendor/*
-!vendor/.gitkeep
-</code></p>
-
-<p>This change will add a <code>vendor</code> directory to your repository, but everything inside it will be ignored (as it has to be installed automatically and not committed to repository).</p>
-
-<h2>Add environment configuration and Update Composer <a name="add-environment-config"></a></h2>
-
-<p>The ElasticBeanstalk environment can be configured by using <code>.config</code> files inside <code>.ebextensions</code> directory. You can read more about how to <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers-ec2.html">customize EC2 intances in docs</a>. In short it reads the <code>.config</code> files from <code>.ebextensions</code> directory and runs them in alphabetical order. After the deployment <code>.ebextensions</code> directory is removed.</p>
-
-<p>The composer by default used in environments has an old version, it&rsquo;s a good idea to have it updated. All of this can be done by creating <code>03-main.config</code> file and adding the following contents to it:</p>
-
-<p>```yaml
-commands:</p>
-
-<pre><code>300-composer-update:
-    command: "export COMPOSER_HOME=/root &amp;&amp; composer.phar self-update -n"
-</code></pre>
-
-<p>```</p>
-
-<p>The config file starts with <code>03-</code> so we could have some breathing room if other configuration files have to be run before it. The commands are also run alphabetically so it&rsquo;s a good idea to start with a hundred based number as it will give you enough space for 99 commands before you will need to modify the order of them.</p>
-
-<p>Now you could push your application to the environment (it still won&rsquo;t work as additional steps are required) by running:</p>
-
-<p><code>bash
-git aws.push
-</code></p>
-
-<h2>Install mongo extension <a name="install-mongo-extension"></a></h2>
-
-<p>Our project uses the MongoDB and the required PHP mongo extension is not available by default on created environment. This can be easily taken care of by adding a command to install it.</p>
-
-<p>```yaml
-commands:</p>
-
-<pre><code>200-install-mongo-ext:
-    command: "yes '' | pecl install mongo"
-    ignoreErrors: true
-</code></pre>
-
-<p>```</p>
-
-<p>The <code>ignoreErrors</code> is required as it would be thrown if the extension is already installed. This way if extension is already installed, it just skips this step. If for some reason the extension failed to install, your deployment would still fail on composer install step as it won&rsquo;t have the required extension.</p>
-
-<h2>Run Composer Install <a name="run-composer-install"></a></h2>
-
-<p>The next step would be to run the composer install. This can be done by adding <code>container_command</code> which runs after the application and web server have been set up, but before the application version is deployed. Add the following to <code>03-main.config</code>:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>300-run-composer:
-    command: "composer.phar install --no-dev --optimize-autoloader --prefer-dist --no-interaction"
-</code></pre>
-
-<p>```</p>
-
-<p>This will run composer install without <code>require-dev</code> packages (in production we don&rsquo;t need them), optimize the autoloader (performance improvements), preferring distribution packages (performance improvement) and without any interaction (as the deployment is being done automatically).</p>
-
-<h2>Update Cache Files <a name="update-cache-files"></a></h2>
-
-<p><strong>Important:</strong> If you&rsquo;re using at least <a href="http://symfony.com/blog/symfony-2-6-1-released">Symfony 2.6.1</a> this is not needed anymore as cache files are now relative.</p>
-
-<p>Because all commands are being run while in <em>&ldquo;staging&rdquo;</em> area the locations are incorrect after deployment (<code>/var/app/ondeck</code> should be changed to <code>/var/app/current</code>). This can be fixed by running a <code>sed</code> command on cache files. Add the following to <code>03-main.config</code>:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>600-update-cache:
-    command: "source .ebextensions/bin/update-cache.sh"
-</code></pre>
-
-<p>```</p>
-
-<p>Create the file <code>.ebextensions/bin/update-cache.sh</code> with contents:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash</h1>
-
-<p>for i in $(grep -l -R &ldquo;ondeck&rdquo; /var/app/ondeck/app/cache/$SYMFONY_ENV/*); do</p>
-
-<pre><code>sed -i -e "s/\/var\/app\/ondeck/\/var\/app\/current/g" $i
-</code></pre>
-
-<p>done
-```</p>
-
-<p>This script will replace all <code>/var/app/ondeck</code> occurrences with <code>/var/app/current</code> in cache files.</p>
-
-<p>If you pushed your application to an environment at this moment you should have a completely functioning application. Read the following sections to improve your deployment.</p>
-
-<h2>Add Apache Configuration (optional) <a name="add-apache-config"></a></h2>
-
-<p>The PHP values can be changed using Apache configuration. The Apache configuration can also be updated to improve the security of your application (e.g., disallow entering hidden directories or files). Add an Apache configuration file to <code>.ebextensions/apache/zapplication.conf</code> with following contents:</p>
-
-<p>```apache
-php_value short_open_tag off</p>
-
-<h1>&ldquo;-Indexes&rdquo; will have Apache block users from browsing folders without a</h1>
-
-<h1>default document Usually you should leave this activated, because you</h1>
-
-<h1>shouldn&rsquo;t allow everybody to surf through every folder on your server (which</h1>
-
-<h1>includes rather private places like CMS system folders).</h1>
-
-<p><IfModule mod_autoindex.c>
-  Options -Indexes
-</IfModule></p>
-
-<h1>Block access to &ldquo;hidden&rdquo; directories or files whose names begin with a</h1>
-
-<h1>period. This includes directories used by version control systems such as</h1>
-
-<h1>Subversion or Git.</h1>
-
-<p><IfModule mod_rewrite.c>
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
-  RewriteCond %{SCRIPT_FILENAME} -f
-  RewriteRule &ldquo;(^|/).&rdquo; &ndash; [F]
-</IfModule></p>
-
-<h1>Block access to backup and source files. These files may be left by some</h1>
-
-<h1>text/html editors and pose a great security danger, when anyone can access</h1>
-
-<h1>them.</h1>
-
-<p><FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|pem)|~)$">
-  Order allow,deny
-  Deny from all
-  Satisfy All
-</FilesMatch></p>
-
-<h1>Block access to files &amp; directories starting with a dot</h1>
-
-<p><FilesMatch "^\.">
-  Order allow,deny
-  Deny from all
-</FilesMatch>
-<DirectoryMatch "^\.|\/\.">
-  Order allow,deny
-  Deny from all
-</DirectoryMatch>
-```</p>
-
-<p>This will change PHP <code>short_open_tag</code> value to <code>off</code> and make other changes to make your application more secure. The configuration file starts with letter <code>z</code> as we want to load this configuration at the end.</p>
-
-<p>Add the container command to your <code>03-main.config</code> file to copy this configuration file:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>200-copy-apache-config:
-    command: "cp .ebextensions/apache/zapplication.conf /etc/httpd/conf.d/zapplication.conf"
-</code></pre>
-
-<p>```</p>
-
-<h2>Remove dev Entry Point (optional) <a name="remove-dev-entry"></a></h2>
-
-<p>As we are deploying to production, it doesn&rsquo;t make a lot of sense to keep development environment entry point (especially if you remove IP or similar checks). This entry point can be removed on deployment by adding following container command to <code>03-main.config</code>:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>700-remove-dev-app:
-    command: "rm web/app_dev.php"
-</code></pre>
-
-<p>```</p>
-
-<h2>Add Cron (optional) <a name="add-cron"></a></h2>
-
-<p>Your application might need to use the cron to run some tasks on schedule. Create a new file <code>.ebextensions/cron/main</code> and put your commands in it (just make sure this file ends with an empty line).</p>
-
-<p>```bash
-*/5 * * * * . /opt/elasticbeanstalk/support/envvars &amp;&amp; php /var/app/current/app/console acme:hello</p>
-
-<p>```</p>
-
-<p>This command will run every five minutes. Crontab runs in a minimal environment so we start with <code>. /opt/elasticbeanstalk/support/envvars</code> to make sure it has all the environment variables. After that we run the Symfony console command from our application using the environment which is set as the environment variable. Add as many commands as you need in this file.</p>
-
-<p>Make changes to <code>03-main.config</code> to update crontab tasks:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>800-run-cron:
-    command: "crontab .ebextensions/cron/main"
-</code></pre>
-
-<p>```</p>
-
-<p>If you decide you don&rsquo;t need to run cron tasks anymore, <strong>don&rsquo;t</strong> just delete the container command. Make sure you make this change incrementally, by first removing all the contents from <code>.ebextensions/cron/main</code> file (leave it empty or change the existing <code>800-run-cron</code> command to <code>crontab -r</code>) and deploying it to your ElasticBeanstalk environment. Only after it&rsquo;s done should you remove the container command and a file. If you just removed the container command, your existing instances will keep the commands in <code>crontab</code> from previous deployment.</p>
-
-<h2>Add New Relic Configuration (optional) <a name="add-new-relic-config"></a></h2>
-
-<p>In case you would like to add <a href="http://newrelic.com">New Relic</a> monitoring for your application, all the required configuration can be added to your deployment. Create a new file <code>02-newrelic.config</code> which will contain the following configuration:</p>
-
-<p>```yaml
-packages:</p>
-
-<pre><code>yum:
-    newrelic-php5: []
-    newrelic-sysmond: []
-rpm:
-    newrelic: http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm
-</code></pre>
-
-<p>commands:</p>
-
-<pre><code>300-install-newrelic:
-    command: "newrelic-install install"
-</code></pre>
-
-<p>container_commands:</p>
-
-<pre><code>300-update-newrelic-ini:
-    command: "source .ebextensions/bin/update-newrelic-ini.sh"
-400-configure-newrelic-sysmond:
-    command: "nrsysmond-config --set license_key=$NEW_RELIC_LICENSE_KEY"
-430-start-sysmond:
-    command: "/etc/init.d/newrelic-sysmond start"
-</code></pre>
-
-<p>```</p>
-
-<p>This will install New Relic agent and system monitoring daemon and update configuration used by them.</p>
-
-<p>To update the configuration used by the agent create a <code>.ebextensions/bin/update-newrelic-ini.sh</code> script:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash</h1>
-
-<p>sed -i -e &rsquo;s/newrelic.license.<em>/newrelic.license = &lsquo;&ldquo;$NEW_RELIC_LICENSE_KEY&rdquo;&rsquo;/&lsquo; /etc/php-5.5.d/newrelic.ini
-sed -i -e &rsquo;s/newrelic.appname.</em>/newrelic.appname = &ldquo;&rsquo;&rdquo;$SYMFONY<strong>ENV</strong>NEW_RELIC__APPLICATION_NAME"&lsquo;&ldquo;/&rsquo; /etc/php-5.5.d/newrelic.ini
-```</p>
-
-<p>The script will set the license and application name using values from environment variables. Add the new environment variables to <code>.ebextensions/env/prod-variables.json</code> file and update your environment using AWS CLI.</p>
-
-<p>```json
-[</p>
-
-<pre><code>...
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__NEW_RELIC__API__KEY",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "SYMFONY__ENV__NEW_RELIC__APPLICATION_NAME",
-    "Value": ""
-},
-{
-    "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "NEW_RELIC_LICENSE_KEY",
-    "Value": ""
-}
-</code></pre>
-
-<p>]
-```</p>
-
-<p>Install <a href="https://github.com/ekino/EkinoNewRelicBundle">EkinoNewRelicBundle</a> in your Symfony application by running the following on your development environment (don&rsquo;t forget to enable the bundle in your <code>app/AppKernel.php</code>):</p>
-
-<p><code>bash
-composer require ekino/newrelic-bundle "1.2.*@dev"
-</code></p>
-
-<p>Add the following to your configuration files:</p>
-
-<p>```yaml</p>
-
-<h1>in app/config/config.yml</h1>
-
-<p>ekino_new_relic:</p>
-
-<pre><code>enabled: false
-application_name: "%new_relic_application_name%"
-api_key: "%new_relic_api_key%"
-</code></pre>
-
-<h1>in app/config/config_prod.yml</h1>
-
-<p>ekino_new_relic:</p>
-
-<pre><code>enabled: true
-</code></pre>
-
-<p>```</p>
-
-<p>Update your <code>app/config/parameters.yml.dist</code> with new parameters:</p>
-
-<p>```yaml
-parameters:</p>
-
-<pre><code>new_relic_application_name: "%env.new_relic.application_name%"
-new_relic_api_key: "%env.new_relic.api.key%"
-</code></pre>
-
-<p>```</p>
-
-<p>To notify about deployment add a new container command to <code>03-main.config</code>:</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>900-notify-deployment:
-    command: "php app/console newrelic:notify-deployment --user=eb"
-</code></pre>
-
-<p>```</p>
-
-<p>Push the application to your environment and if everything was done correctly you should start seeing some stats in your New Relic account.</p>
-
-<h2>Install nodejs With Front-End Tools (2014-10-03 <a name="install-nodejs"></a></h2>
-
-<p>If you watched a <a href="https://www.youtube.com/watch?v=R7iN5SFglMo">Ryan Weaver &ndash; Cool like Frontend Developer</a> or a similar talk you might want to add some front end goodness to your project. For this you will need to install nodejs, Grunt, Bower. Below are the steps on how to do it.</p>
-
-<p>Create <code>.ebextensions/bin/install-nodejs.sh</code> with the contents:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash</h1>
-
-<p>hash_file=&ldquo;/tmp/nodejshash&rdquo;</p>
-
-<p>check_if_npm_packages_has_to_be_installed () {</p>
-
-<pre><code>if [ -f $hash_file ]; then
-    check_if_same_hash
-else
-    return 0
-fi
-</code></pre>
-
-<p>}</p>
-
-<p>check_if_same_hash () {</p>
-
-<pre><code>hash_new="$(md5sum .ebextensions/bin/install-nodejs.sh 2&gt; /dev/null | cut -d ' ' -f 1)"
-hash_current="$(cat "$hash_file" 2&gt; /dev/null | cut -d ' ' -f 1)"
-
-if [ $hash_new == $hash_current ]; then
-    return 1
-else
-    return 0
-fi
-</code></pre>
-
-<p>}</p>
-
-<p>install_node () {</p>
-
-<pre><code>if hash nodejs 2&gt; /dev/null; then
-    echo 'nodejs install, add more processing if needed' &gt; /dev/null
-else
-    curl -sL https://rpm.nodesource.com/setup | bash -
-    yum install -y nodejs-0.10.32
-fi
-</code></pre>
-
-<p>}</p>
-
-<p>install_npm_packages () {</p>
-
-<pre><code>npm install -g bower
-npm install -g grunt-cli
-</code></pre>
-
-<p>}</p>
-
-<p>update_current_hash () {</p>
-
-<pre><code>echo $hash_new &gt; $hash_file
-</code></pre>
-
-<p>}</p>
-
-<p>install_node</p>
-
-<p>if check_if_npm_packages_has_to_be_installed; then</p>
-
-<pre><code>install_npm_packages
-update_current_hash
-</code></pre>
-
-<p>fi
-```</p>
-
-<p>This script will install nodejs if it&rsquo;s not installed. Then it will check if npm packages have to be installed (new added or this is the first run) and install them if needed. Bower and Grunt-cli will be installed globally.</p>
-
-<p>Add a container command to <code>03-main.config</code> to run this install script:</p>
-
-<p>```json
-container_commands:</p>
-
-<pre><code>100-install-nodejs:
-    command: "source .ebextensions/bin/install-nodejs.sh"
-</code></pre>
-
-<p>```</p>
-
-<p>To install local npm packages, bower packages and run grunt production tasks add the following container commands (see <a href="https://github.com/ifdattic/symfony-app-deploy-to-aws-eb-article-code/commit/1a651a94c134a80eb9895b4eb5aee99d37ad5823">repository</a> for file contents):</p>
-
-<p>```json
-container_commands:</p>
-
-<pre><code>400-install-npm-packages:
-    command: "npm install"
-425-install-bower-packages:
-    command: "bower install --allow-root"
-450-run-grunt:
-    command: "grunt production"
-</code></pre>
-
-<p>```</p>
-
-<h2>Conclusion <a name="conclusion"></a></h2>
-
-<p>This article might not had all the steps required for deploying your Symfony application to ElasticBeanstalk, but it should point you on the right way to deploying your application. If something was not informative enough or confusing, please let me know and I will try to clarify it. If you have any questions or ideas, leave them in the comments to start the knowledge sharing.</p>
 ]]></content>
   </entry>
   

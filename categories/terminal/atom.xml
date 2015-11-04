@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Terminal | ifdattic]]></title>
+  <link href="http://ifdattic.com/categories/terminal/atom.xml" rel="self"/>
+  <link href="http://ifdattic.com/"/>
+  <updated>2015-11-04T18:52:05+02:00</updated>
+  <id>http://ifdattic.com/</id>
+  <author>
+    <name><![CDATA[Andrew Marcinkevičius]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iTerm Shortcut Keys]]></title>
+    <link href="http://ifdattic.com/iterm-shortcut-keys"/>
+    <updated>2015-11-04T17:26:09+02:00</updated>
+    <id>http://ifdattic.com/iterm-shortcut-keys</id>
+    <content type="html"><![CDATA[<p>If you use Mac OSX and do a lot of work in terminal the <a href="https://www.iterm2.com">iTerm</a> application will become your friend fast. It&rsquo;s a great terminal application and it would be hard to imagine my days without it.</p>
+
+<p>Once you learn a few shortcut keys and develop your personal work flow you would hardly want to leave that black (differs) window.</p>
+
+<p>Below is some of the shortcut keys I use.</p>
+
+<h2>Working with multiple terminals</h2>
+
+<p>It&rsquo;s rare occasion having only one terminal open as often I&rsquo;m working with multiple projects / tools at the same time. Sometimes even if I&rsquo;m not using something at the moment (or in the last few days / weeks) the terminal windows are left as is (often to avoid going to the needed directory). And sometimes you just need to try something fast and close it. Following shortcuts allow me to open new terminals, move between them, close once I&rsquo;m done with it.</p>
+
+<blockquote><p>New Tab <code>⌘T</code></p>
+
+<p>Previous Tab <code>⌘←</code></p>
+
+<p>Next Tab <code>⌘→</code></p>
+
+<p>Close tab <code>⌘w</code></p></blockquote>
+
+<p>You could move the tabs around using the following shortcut keys, but I rarely use them.</p>
+
+<blockquote><p>Move Tab Right <code>⇧⌘→</code></p>
+
+<p>Move Tab Left <code>⇧⌘←</code></p></blockquote>
+
+<h2>Working with multiple terminals in same tab</h2>
+
+<p>Opening a new tab takes care of the most use cases, but sometimes there&rsquo;s a need to see multiple terminals at the same time. The splitting the tab shortcut keys are the lifesaver in those moments. You can go crazy with splitting the current tab (if you need to)!</p>
+
+<blockquote><p>Split Vertically with Current Profile <code>⌘D</code></p>
+
+<p>Split Horizontally with Current Profile <code>⇧⌘D</code></p></blockquote>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22596362330/in/dateposted-public/" title="iterm-split-windows-go-crazy"><img src="https://farm6.staticflickr.com/5658/22596362330_9a8d2fabed_c.jpg" width="733" height="800" alt="iterm-split-windows-go-crazy"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Your performance would suffer a lot if you had to use the mouse to use any of those terminals. For that problem the shortcut keys to move between the panes solve it.</p>
+
+<blockquote><p>Next Pane <code>⌘]</code></p>
+
+<p>Previous Pane <code>⌘[</code></p></blockquote>
+
+<p>You can also move between panes directionally. Most of the time I can&rsquo;t remember the shortcut keys for it, previous/next pane works great, rarely have more than 2 panes at the time.</p>
+
+<blockquote><p>Select Pane Above <code>⌥⌘↑</code></p>
+
+<p>Select Pane Below <code>⌥⌘↓</code></p>
+
+<p>Select Pane Left <code>⌥⌘←</code></p>
+
+<p>Select Pane Right <code>⌥⌘→</code></p></blockquote>
+
+<h2>Interacting with the terminal</h2>
+
+<p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
+
+<blockquote><p>Clear Buffer <code>⌘K</code></p>
+
+<p>Scroll Up <code>⇧Page Up</code></p>
+
+<p>Scroll Down <code>⇧Page Down</code></p>
+
+<p>Find&hellip; <code>⌘F</code></p></blockquote>
+
+<h2>Changing font size</h2>
+
+<p>The iTerm on my machine is configured to my liking and works for almost all the use cases. For that reason it&rsquo;s rare to change the font size. If you&rsquo;re making a presentation, recording screen cast or your eyes are tired shortcut keys for changing font size solves that problem.</p>
+
+<blockquote><p>Make Text Bigger <code>⌘+</code></p>
+
+<p>Make Text Normal Size <code>⌘0</code></p>
+
+<p>Make Text Smaller <code>⌘-</code></p></blockquote>
+
+<h2>Conclusion</h2>
+
+<p>These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.</p>
+]]></content>
+  </entry>
+  
+</feed>
