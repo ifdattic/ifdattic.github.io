@@ -4,5 +4,6 @@
 * [Amsterdam - Museums & Attractions](/amsterdam-museums-attractions)
 * [Amsterdam Dungeon](/amsterdam-dungeon)
 * [Amsterdam - More museums & RLD](/asmterdam-museums-rld)
+* [Amsterdam - Natura Artis Magistra Zoo](/natura-artis-magistra-zoo)
 * [Photo album](http://bit.ly/1IvAlYb)
 * to be continued...
