@@ -19,10 +19,10 @@ body > header {
 
 .sitelogo {
     background: url(../images/ifdattic-logo.png) no-repeat;
-    width: 140px;
-    height: 35px;
+    width: 280px;
+    height: 70px;
     .svg & {
         background: url(../images/ifdattic-logo.svg) no-repeat;
-        background-size: 140px 35px;
+        background-size: 280px 70px;
     }
 }

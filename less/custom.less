@@ -41,6 +41,12 @@
     transition: none;
 }
 
+.simple-bar .logo {
+    position: relative;
+    max-height: 80px;
+    bottom: 20px;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     .tagline h3 {
         font-size: 12px;
@@ -49,6 +55,10 @@
 
     .simple-bar .nav-menu {
         padding-top: 20px;
+    }
+
+    .simple-bar .logo {
+        bottom: 16px;
     }
 
     #about {
@@ -79,14 +89,14 @@
 
 .logo {
     background: url(../images/ifdattic-logo.png) no-repeat;
-    width: 140px;
-    height: 35px;
+    width: 280px;
+    height: 70px;
 }
 
 .svg {
     .logo {
         background: url(../images/ifdattic-logo.svg) no-repeat;
-        background-size: 140px 35px;
+        background-size: 280px 70px;
     }
 }
 
