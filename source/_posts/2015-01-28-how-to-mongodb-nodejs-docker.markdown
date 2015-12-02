@@ -20,6 +20,8 @@ Please note that I'm using Mac OS so you might need to adjust examples to your O
 
 ## MongoDB
 
+<iframe width="732" height="412" src="https://www.youtube.com/embed/axt6O6myUvs?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
 First get the latest [mongo image][mongo-image-link]:
 
 ```bash
@@ -78,6 +80,8 @@ The new document should have been inserted and displayed back to you. You Mongo 
 
 ### Dump and restore the database
 
+<iframe width="732" height="412" src="https://www.youtube.com/embed/bZFXxhkrD44?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
 Please note that depending on your set up the database files might not be synced with your host OS. You can check this by listing the files of database directory:
 
 ```bash
@@ -103,6 +107,8 @@ mongorestore --db test-restored /data/test-backup/test
 ```
 
 ## Node.js
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/0frJFB9toFQ?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
 
 First get the latest [node image][node-image-link]:
 
@@ -201,6 +207,8 @@ docker stop nodeapp
 ```
 
 ## MongoDB Course Manual Validation Tips
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/TwzNfD1L3vM?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
 
 If you using this for MongoDB University course and chose to do manual validation (haven't tested with MongoProc validation) you will need to keep a few things in your mind.
 
