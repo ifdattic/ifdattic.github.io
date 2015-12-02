@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-12-02T15:26:14+02:00</updated>
+  <updated>2015-12-02T15:41:09+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -89,6 +89,12 @@
 <p>Make Text Normal Size <code>⌘0</code></p>
 
 <p>Make Text Smaller <code>⌘-</code></p></blockquote>
+
+<h2>Custom shortcuts keys</h2>
+
+<p>You can change global shortcut keys from profile preferences <code>Keys</code> tab. One shortcut key I find useful is deleting the last word. It uses the <code>⌘←Delete</code> as keyboard shortcut and sends the <code>0x1B 0x08</code> hex code (action).</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22841825873/in/dateposted-public/" title="iterm-custom-shortcut-key"><img src="https://farm1.staticflickr.com/597/22841825873_9521a2502d_c.jpg" width="800" height="464" alt="iterm-custom-shortcut-key"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 
 <h2>Conclusion</h2>
 
