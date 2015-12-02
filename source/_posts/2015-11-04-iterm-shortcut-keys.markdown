@@ -80,6 +80,12 @@ The iTerm on my machine is configured to my liking and works for almost all the 
 > 
 > Make Text Smaller `⌘-`
 
+## Custom shortcuts keys
+
+You can change global shortcut keys from profile preferences `Keys` tab. One shortcut key I find useful is deleting the last word. It uses the `⌘←Delete` as keyboard shortcut and sends the `0x1B 0x08` hex code (action).
+
+<a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22841825873/in/dateposted-public/" title="iterm-custom-shortcut-key"><img src="https://farm1.staticflickr.com/597/22841825873_9521a2502d_c.jpg" width="800" height="464" alt="iterm-custom-shortcut-key"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
 ## Conclusion
 
 These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.
