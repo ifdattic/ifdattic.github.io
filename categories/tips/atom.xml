@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-11-18T18:49:21+02:00</updated>
+  <updated>2015-12-02T15:26:14+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -167,6 +167,9 @@ phpspec describe Domain/User/ValueObject/UserName
 
 <h2>MongoDB</h2>
 
+<iframe width="732" height="412" src="https://www.youtube.com/embed/axt6O6myUvs?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
+
 <p>First get the latest <a href="https://registry.hub.docker.com/_/mongo/">mongo image</a>:</p>
 
 <p><code>bash
@@ -233,6 +236,9 @@ db.col.find().pretty()
 
 <h3>Dump and restore the database</h3>
 
+<iframe width="732" height="412" src="https://www.youtube.com/embed/bZFXxhkrD44?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
+
 <p>Please note that depending on your set up the database files might not be synced with your host OS. You can check this by listing the files of database directory:</p>
 
 <p><code>bash
@@ -258,6 +264,9 @@ mongorestore --db test-restored /data/test-backup/test
 </code></p>
 
 <h2>Node.js</h2>
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/0frJFB9toFQ?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
 
 <p>First get the latest <a href="https://registry.hub.docker.com/_/node/">node image</a>:</p>
 
@@ -380,6 +389,9 @@ MongoClient.connect(&lsquo;mongodb://mongo:27017/blog&rsquo;, function(err, db) 
 ```</p>
 
 <h2>MongoDB Course Manual Validation Tips</h2>
+
+<iframe width="732" height="412" src="https://www.youtube.com/embed/TwzNfD1L3vM?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt" frameborder="0" allowfullscreen></iframe>
+
 
 <p>If you using this for MongoDB University course and chose to do manual validation (haven&rsquo;t tested with MongoProc validation) you will need to keep a few things in your mind.</p>
 
