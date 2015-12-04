@@ -5,5 +5,6 @@
 * [Amsterdam Dungeon](/amsterdam-dungeon)
 * [Amsterdam - More museums & RLD](/asmterdam-museums-rld)
 * [Amsterdam - Natura Artis Magistra Zoo](/natura-artis-magistra-zoo)
+* [Amsterdam - Getting Lost](/leaving-by-getting-lost)
 * [Photo album](http://bit.ly/1IvAlYb)
-* to be continued...
+* [Photo album from 2015](http://bit.ly/1m0XfxT)
