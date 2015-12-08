@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Symfony | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/symfony/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-12-02T15:41:09+02:00</updated>
+  <updated>2015-12-08T12:13:42+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -181,7 +181,7 @@ before_install:</p>
 
 <p>You can see the code which was added in this <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/pull/3">pull request</a>.</p>
 
-<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt Env Vars.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can past in your <code>shippable.yml</code> file.</p>
+<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt Env Vars.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can paste in your <code>shippable.yml</code> file.</p>
 
 <p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20849195481/in/album-72157650815525029/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/757/20849195481_146797af4e_c.jpg" width="800" height="513" alt="shippable-secure-environment-variable"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 

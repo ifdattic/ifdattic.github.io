@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-12-02T15:41:09+02:00</updated>
+  <updated>2015-12-08T12:13:42+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,213 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Continuous Integration of Node.js Project Using Shippable]]></title>
+    <link href="http://ifdattic.com/continuous-integration-nodejs-project-using-shippable"/>
+    <updated>2015-12-08T11:02:05+02:00</updated>
+    <id>http://ifdattic.com/continuous-integration-of-node-dot-js-project-using-shippable</id>
+    <content type="html"><![CDATA[<p>A while ago I wrote an article <a href="http://ifdattic.com/continuous-integration-php-project-using-shippable">how to use Shippable as continuous integration service for PHP project</a>. This is similar article except that it is for a Node.js project.</p>
+
+<p>One of the biggest benefits of Shippable is that you are able to test private repository before needing to pay for it (good for hobby projects which you don&rsquo;t know there they might lead).</p>
+
+<p>You can jump to any of the sections:</p>
+
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#initial-config">Initial configuration</a></li>
+<li><a href="#environment-variables-mongodb">Environment variables &amp; MongoDB</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#update-nodejs-version">Update Node.js version</a></li>
+<li><a href="#enable-project">Enable project in Shippable</a></li>
+<li><a href="#code-coverage">Cove coverage</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+
+<h2>Prerequisites <a name="prerequisites"></a></h2>
+
+<p>To start using this service you just need to sign up using your GitHub or BitBucket account. If you want to test private repositories you will have to give Shippable permission to them (by default it only sees public repositories). The code used in this article is available at <a href="https://github.com/ifdattic/javascript-shippable-ci-article-code">GitHub</a>. It&rsquo;s an Express.js project, but with small changes any Node.js project could be tested.</p>
+
+<h2>Initial configuration <a name="initial-config"></a></h2>
+
+<p>Your project needs to have a <code>shippable.yml</code> configuration file. In it you define scripts which will be run, environment variables, language, versions to test, etc.</p>
+
+<p>First let&rsquo;s configure Shippable to test a Node.js project and do it for <code>5.1.1</code> version. Add the following to your <code>shippable.yml</code> file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">node_js</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">node_js</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">5.1.1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To have our project working we need to install modules using <code>npm</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">before_script</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">npm install</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Environment variables &amp; MongoDB <a name="environment-variables-mongodb"></a></h2>
+
+<p>The application uses MongoDB for persistence. It&rsquo;s very easy to include services with Shippable.</p>
+
+<p>You don&rsquo;t want to hard code configuration variables for your application. To fix that we will use the environment variables to configure the application depending on the environment it is in. You can set the global environment variables which are the same between builds and you can set simple environment variables which are different between builds (extending your testing matrix). If you have environment variables which you don&rsquo;t want to show (like passwords) you can add it as a secure environment variable.</p>
+
+<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can paste in your <code>shippable.yml</code> file.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23308845230/in/dateposted-public/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/677/23308845230_5b6041b93f_c.jpg" width="800" height="530" alt="shippable-secure-environment-variable"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Then add the environment variable and MongoDB service to <code>shippable.yml</code> file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">env</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">global</span><span class="p-Indicator">:</span>
+</span><span class='line'>        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">XUNIT_FILE=shippable/testresults/result.xml</span>
+</span><span class='line'>        <span class="c1"># MongoDB URL</span>
+</span><span class='line'>        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">secure</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">lPx/1fe8RFUSPv1F1D3Fujd14afop7NPSAF6IirmO4YbfRc3MkiTHbkSuiQzniOccC5TC2kd1//hdBd9vnSOCVpS1+3Xs4ZVKj8VfnN2nEokMTnHGYuwB36tW1js/u734NKBl+R5se+140bAORjcrpxcSyQjlDDCCdgZbx00M2FvX4kDPXtZ17z9h2eViC70im5q4qoapzsu1+6U6BjAYnF+QAGoxBe1X3FOjlOgRo/G4/Z6E8nVgNMnx5jqX380ImSC8Hsy7D8MX6U0NelnhjBSc3NrWVYbCNNYVWQA4Zw8aXlZzf3gPF0zhdGt1eBUPgNmxJyXCF4rxsfQjI99zA==</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">mongodb</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At the moment of writing there is issues while connecting to the default MongoDB service. If you have the same issue you might need to install the MongoDB manually. To do that add the <code>installMongo.sh</code> script to your repository:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/bash -x</span>
+</span><span class='line'>
+</span><span class='line'>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s1">&#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&#39;</span> | sudo tee /etc/apt/sources.list.d/mongodb.list
+</span><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install -y mongodb-org<span class="o">=</span>2.6.11 mongodb-org-server<span class="o">=</span>2.6.11 mongodb-org-shell<span class="o">=</span>2.6.11 mongodb-org-mongos<span class="o">=</span>2.6.11 mongodb-org-tools<span class="o">=</span>2.6.11
+</span><span class='line'>
+</span><span class='line'>sudo mkdir -p /data/db
+</span><span class='line'>
+</span><span class='line'><span class="c"># Pin the current version</span>
+</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;mongodb-org hold&quot;</span> | sudo dpkg --set-selections
+</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;mongodb-org-server hold&quot;</span> | sudo dpkg --set-selections
+</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;mongodb-org-shell hold&quot;</span> | sudo dpkg --set-selections
+</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;mongodb-org-mongos hold&quot;</span> | sudo dpkg --set-selections
+</span><span class='line'>sudo <span class="nb">echo</span> <span class="s2">&quot;mongodb-org-tools hold&quot;</span> | sudo dpkg --set-selections
+</span><span class='line'>
+</span><span class='line'><span class="c">#replace closed port &amp; bing IP</span>
+</span><span class='line'>sudo sed -i <span class="s1">&#39;s/#port = 27017/port = 27017/&#39;</span> /etc/mongod.conf
+</span><span class='line'>sudo sed -i <span class="s1">&#39;s/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/&#39;</span> /etc/mongod.conf
+</span><span class='line'>sudo sed -i <span class="s1">&#39;s/# nojournal = true/nojournal = true/&#39;</span> /etc/mongod.conf
+</span><span class='line'>sudo sed -i <span class="s1">&#39;s/#noprealloc = true/noprealloc = true/&#39;</span> /etc/mongod.conf
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And extend your <code>shippable.yml</code> with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">. installMongo.sh</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sudo mongod --smallfiles &gt; /dev/null &amp;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Testing <a name="testing"></a></h2>
+
+<p>The tests are run through custom <code>npm</code> script. Add the following to run the tests:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">script</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">npm run shippable</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Update Node.js version <a name="update-nodejs-version"></a></h2>
+
+<p>At the time of writing Shippable doesn&rsquo;t provide Node.js versions 4 or higher. To fix that add the following which will update and NVM and install the correct Node.js version.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">build_image</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">shippableimages/ubuntu1404_nodejs</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">before_install</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">sudo apt-get install -y --force-yes build-essential</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.27.1/install.sh | bash</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">source ~/.nvm/nvm.sh &amp;&amp; nvm install $SHIPPABLE_NODE_VERSION</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">node --version</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Enable project in Shippable <a name="enable-project"></a></h2>
+
+<p>First choose the subscription to use and when in projects section click the big plus icon which says &ldquo;Enable Project.&rdquo;</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23495966402/in/dateposted-public/" title="shippable-choose-subscription"><img src="https://farm1.staticflickr.com/628/23495966402_66458459ef_o.png" width="311" height="85" alt="shippable-choose-subscription"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Force a synchronization if the repository you want is not in the list. Click on key icon to enable the project.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23495966152/in/dateposted-public/" title="shippable-enable-project"><img src="https://farm6.staticflickr.com/5693/23495966152_b074facd7d_c.jpg" width="800" height="744" alt="shippable-enable-project"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>After it is done you can manually start a build or it will happen automatically the next time you will push a commit.</p>
+
+<p>After a while a build should finish and you should get the similar view.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23236632269/in/dateposted-public/" title="shippable-build"><img src="https://farm6.staticflickr.com/5810/23236632269_6400f9a983_c.jpg" width="800" height="509" alt="shippable-build"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<h2>Cove coverage <a name="code-coverage"></a></h2>
+
+<p>If you need code coverage for your code you can do it with Istanbul. Replace the <code>shippable</code> script in <code>package.json</code> with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">./node_modules/.bin/istanbul cover _mocha --dir shippable/codecoverage --report cobertura -- -R xunit-file</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion <a name="conclusion"></a></h2>
+
+<p>With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Natura Artis Magistra Zoo (part 7) - Testing the World and Looking for Home series]]></title>
@@ -337,7 +544,7 @@
 
 <p>You can see the code which was added in this <a href="https://github.com/ifdattic/symfony-shippable-ci-article-code/pull/3">pull request</a>.</p>
 
-<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt Env Vars.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can past in your <code>shippable.yml</code> file.</p>
+<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt Env Vars.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can paste in your <code>shippable.yml</code> file.</p>
 
 <p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20849195481/in/album-72157650815525029/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/757/20849195481_146797af4e_c.jpg" width="800" height="513" alt="shippable-secure-environment-variable"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 
@@ -1665,35 +1872,6 @@
 
 
 <p>For the list of gear mentioned in the video check the <a href="https://bitly.com/bundles/ifdattic/1#">bitly collection</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Most important skill I learned from stopping smoking &amp; drinking]]></title>
-    <link href="http://ifdattic.com/important-skill-learned-from-no-smoking-drinking"/>
-    <updated>2015-03-08T12:03:17+02:00</updated>
-    <id>http://ifdattic.com/most-important-skill-i-learned-from-stopping-smoking-and-drinking</id>
-    <content type="html"><![CDATA[<blockquote><p><strong>tl;dr; Headbutt the problem and solve it right now as it won&rsquo;t go away</strong></p></blockquote>
-
-<p>I stopped (will allow to say &ldquo;quit&rdquo; in 10 years) smoking about one year and 7 months ago (2013/08/10). I stopped drinking about 7 months ago (2014/08/15).</p>
-
-<p>Funny thing is on 2013 I was burning a bunch of personal crap (dreadlocks, paintings, clothes, etc). A year later, I&rsquo;m burning the rest of my personal crap (letters, talismans, diaries, photos, etc.). Remembered that a year before I was doing the same thing and stopped smoking. Thought that it would be great if I stopped drinking after this burning.</p>
-
-<p><a href="https://www.flickr.com/photos/ifdattic/16565367989" title="Burning personal crap, last day of drinking by Andrew Marcinkevičius, on Flickr" target="_blank"><img src="https://farm9.staticflickr.com/8743/16565367989_8462b9b24c_c.jpg" width="724" height="800" alt="Burning personal crap, last day of drinking"></a></p>
-
-<p>It wasn&rsquo;t exactly easy and my though always was to not give any of them away. I liked both of guilty pleasures a lot. Actually, I thought it would be impossible to give them away. But once you challenge yourself you find that &ldquo;impossible&rdquo; is just a state of mind. Everything is possible when you don&rsquo;t know it&rsquo;s impossible. Or don&rsquo;t allow yourself to fail before trying.</p>
-
-<p>I&rsquo;m not against smoking or drinking. I&rsquo;m not saying I won&rsquo;t start doing it ever again. I do know, I don&rsquo;t want to do them ever again, but I don&rsquo;t know if I&rsquo;m yet strong enough to keep it forever.</p>
-
-<p>Even writing this article requires a lot of willpower to keep yourself from thinking how delicious is a thick smoke filling your lungs or a cold alcoholic beverage touching the tip of your tongue.</p>
-
-<p>Only my thinking changed &ndash; they are the same as crutches are for a healthy person. Most of the time they are only hiding a deeper issue which won&rsquo;t go away. Feeling stressed? Go have a cigarette or a cold beer. Yes, it will get better. For now. The problem is that the issue is still there. Only hidden under a wall which will crumble like  a sand castle.</p>
-
-<p>An believe me, the mind/body plays tricks on you trying to trip you. <em>&ldquo;Oh, this is such a perfect problem to have a cold beer over. Let me start you salivating from your mouth.&rdquo;</em> But if you win and reply with <em>&ldquo;No. It won&rsquo;t help with a problem. It won&rsquo;t solve a problem. It won&rsquo;t make me feel any better now or tomorrow and I will still have the same problem the next day. It&rsquo;s time to think how to solve this problem.&rdquo;</em> This moment is so empowering as you know that you took the hard way out, not the easy one out.</p>
-
-<p>Stopping to drink and/or smoke might have improved my health &amp; finances. But the most important skill it taught me is to <strong>take the hard way out and solve a problem right away, not to hide away from it</strong>.</p>
-
-<p>Have you tried to stop drinking or smoking? Have it taught you anything?</p>
 ]]></content>
   </entry>
   
