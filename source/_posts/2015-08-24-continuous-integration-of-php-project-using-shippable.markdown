@@ -144,7 +144,7 @@ You don't want to hard code configuration variables for your application. To fix
 
 You can see the code which was added in this [pull request][environment-variables-pr].
 
-To get the secure environment variable you need to go to project settings. It has a panel "Encrypt Env Vars." You provide the environment variables in the box and after clicking "Encrypt" you get the snippet of code you can past in your `shippable.yml` file.
+To get the secure environment variable you need to go to project settings. It has a panel "Encrypt Env Vars." You provide the environment variables in the box and after clicking "Encrypt" you get the snippet of code you can paste in your `shippable.yml` file.
 
 <a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20849195481/in/album-72157650815525029/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/757/20849195481_146797af4e_c.jpg" width="800" height="513" alt="shippable-secure-environment-variable"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
