@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2015-12-15T08:53:24+02:00</updated>
+  <updated>2015-12-23T11:16:45+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,181 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to create a Tunnel to Local Machine with ngrok]]></title>
+    <link href="http://ifdattic.com/how-to-create-tunnel-with-ngrok"/>
+    <updated>2015-12-23T08:15:17+02:00</updated>
+    <id>http://ifdattic.com/how-to-create-a-tunnel-to-local-machine-with-ngrok</id>
+    <content type="html"><![CDATA[<p>When developing applications sometimes you need to access your current application using external sources. For example you want to test an application using a mobile device or how your application responds to a webhook. You could deploy your application on the publicly accessible server, but it will make development slow, having to deploy on each change.</p>
+
+<p>The solution would be to create a tunnel to a local server on your machine. This way you could test your application on the mobile devices, show it to the clients, test webhooks. All of this can be achieved with <a href="https://ngrok.com/">ngrok</a>.</p>
+
+<p>You can jump to any of the sections:</p>
+
+<ul>
+<li><a href="#sample-application">Sample application</a></li>
+<li><a href="#installing">Installing ngrok</a></li>
+<li><a href="#http-tunnel">Creating local HTTP tunnel</a></li>
+<li><a href="#tcp-tunnel">Creating local TCP tunnel</a></li>
+<li><a href="#configuring">Configuring ngrok</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ul>
+
+
+<p><a name="sample-application"></a></p>
+
+<h2>Sample application</h2>
+
+<p>You can create a tunnel for any web server.</p>
+
+<p>For this article the simple Express.js application will be used. It has two routes for receiving <code>GET</code> and <code>POST</code> requests. You can find the code on <a href="https://github.com/ifdattic/ngrok-article-code">GitHub</a></p>
+
+<p>```javascript
+&lsquo;use strict&rsquo;;</p>
+
+<p>const express = require(&lsquo;express&rsquo;);
+const bodyParser = require(&lsquo;body-parser&rsquo;);
+const app = express();</p>
+
+<p>app.use(bodyParser.urlencoded({extended: false}));</p>
+
+<p>app.get(&lsquo;/&rsquo;, function (request, response) {</p>
+
+<pre><code>response.send('Hello');
+</code></pre>
+
+<p>});</p>
+
+<p>app.post(&lsquo;/&rsquo;, function (request, response) {</p>
+
+<pre><code>response.send(request.body);
+</code></pre>
+
+<p>});</p>
+
+<p>app.listen(3000);</p>
+
+<p>console.log(&lsquo;Open: <a href="http://127.0.0.1:3000">http://127.0.0.1:3000</a>&rsquo;);
+```</p>
+
+<p>To launch the server execute the following command (<a href="https://nodejs.org">Node.js</a> is required):</p>
+
+<p><code>bash
+node server.js
+</code></p>
+
+<p><a name="installing"></a></p>
+
+<h2>Installing ngrok</h2>
+
+<p>ngrok is easy to install and works on all major platforms. <a href="https://ngrok.com/download">Download</a> the archive, unzip it, and run it. If you want to run it from any location move it to a directory which is in your <code>PATH</code> (e.g., <code>/usr/local/bin</code>).</p>
+
+<p>Run <code>ngrok -h</code> to make sure it works and to get the documentation on how to use it.</p>
+
+<p><a name="http-tunnel"></a></p>
+
+<h2>Creating local HTTP tunnel</h2>
+
+<p>To expose the web server simply provide the port number it is running on:</p>
+
+<p><code>bash
+ngrok http 3000
+</code></p>
+
+<p>It will give you the URL to your tunnel and statistics.</p>
+
+<p>If you will make a request to an URL you should get the response (replace the URL with one you got).</p>
+
+<p>```bash
+curl <a href="http://7711dd0d.ngrok.io">http://7711dd0d.ngrok.io</a></p>
+
+<p>curl <a href="http://7711dd0d.ngrok.io">http://7711dd0d.ngrok.io</a> -d name=Andrew
+```</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23840463581/in/dateposted-public/" title="ngrok-http-tunnel"><img src="https://farm6.staticflickr.com/5705/23840463581_2e6551dcb3_o.gif" width="1082" height="300" alt="ngrok-http-tunnel"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>ngrok provides the real-time web UI from which you can inspect the HTTP traffic for the tunnel. Open the URL provided by the created tunnel. From this web interface you can see all the information about requests and responses made.</p>
+
+<p>One great feature which will be very handy when integrating webhooks is an ability to replay requests. This way you don&rsquo;t need to do anything to trigger the webhook; you could just replay the request after making changes.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23840462921/in/dateposted-public/" title="ngrok-replay-request"><img src="https://farm6.staticflickr.com/5797/23840462921_0ff96d97f3_o.gif" width="1160" height="580" alt="ngrok-replay-request"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>If you would like to add some basic protection to avoid anyone accessing your web server you can add an HTTP Basic Authentication:</p>
+
+<p><code>bash
+ngrok http -auth="username:password" 3000
+</code></p>
+
+<p>Replace the <code>username</code> and <code>password</code> with credentials you want.</p>
+
+<p>If you want to use advanced features of ngrok (like having custom subdomain or running from your domain) you will need an ngrok account and a paid plan.</p>
+
+<p><a name="tcp-tunnel"></a></p>
+
+<h2>Creating local TCP tunnel</h2>
+
+<p>With ngrok you can expose SSH, database or some other service which runs over TCP. For example you could expose the MongoDB database running on your machine:</p>
+
+<p><code>bash
+ngrok tcp 27017
+</code></p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23922941705/in/dateposted-public/" title="ngrok-tcp-tunnel"><img src="https://farm2.staticflickr.com/1534/23922941705_f4d1692373_o.gif" width="1077" height="262" alt="ngrok-tcp-tunnel"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p><a name="configuring"></a></p>
+
+<h2>Configuring ngrok</h2>
+
+<p>ngrok can be configured using YAML configuration file. If no configuration file is provided the ngrok will try to load one from a default location (<code>$HOME/.ngrok2/ngrok.yml</code>).</p>
+
+<p>By using <code>-config</code> option an explicit configuration file can be provided. It&rsquo;s possible to provide multiple configuration files and they are merged on top of each other. This way you can have global and project settings.</p>
+
+<p><code>bash
+ngrok http -config ~/.ngrok2/ngrok.yml -config project-config.yml 3000
+</code></p>
+
+<p>The most common use for configuration file is defining tunnels. Tunnels are defined under the <code>tunnels</code> property in the configuration file:</p>
+
+<p>```yml
+tunnels:</p>
+
+<pre><code>app:
+    proto: http
+    addr: 3000
+    bind_tls: false
+app-protected:
+    proto: http
+    addr: 3000
+    auth: "username:password"
+mongo:
+    proto: tcp
+    addr: 27017
+</code></pre>
+
+<p>```</p>
+
+<p>To start the tunnel provide the name of the tunnel:</p>
+
+<p><code>bash
+ngrok start -config ~/.ngrok2/ngrok.yml -config project-config.yml app-protected
+</code></p>
+
+<p>To start all the defined tunnels use <code>--all</code> switch:</p>
+
+<p><code>bash
+ngrok start -config ~/.ngrok2/ngrok.yml -config project-config.yml --all
+</code></p>
+
+<p><a name="conclusions"></a></p>
+
+<h2>Conclusions</h2>
+
+<p>This should be enough to take care of the most use cases you will need. ngrok probably won&rsquo;t be the tool you will be using everyday (depends on what you work on). For those days when you need to test a webhook or from another device you will be great for having ngrok in your toolbox.</p>
+
+<p>Do you have a story of when a local tunnel helped / would have helped to solve your problem?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Continuous Integration of Node.js Project Using Shippable]]></title>
@@ -601,67 +776,6 @@ public function save(array $data, $name = null)
 
 <p>}
 ```</p>
-
-<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
-
-* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
-* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
-* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
-* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
-* [Fake Test Double Using Prophecy](/fake-test-double-using-prophecy)
-</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mock Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/mock-test-double-using-prophecy"/>
-    <updated>2015-07-02T16:42:18+03:00</updated>
-    <id>http://ifdattic.com/mock-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Mock is a test double which simulates behavior and we have expectations for it. You define predictions for it and later check if any of them failed.</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace tests;</p>
-
-<p>use App\Output;
-use App\Questioner;
-use App\Scorer;
-use Prophecy\Argument;</p>
-
-<p>class QuestionerTest extends \PHPUnit_Framework_TestCase
-{</p>
-
-<pre><code>// ...
-
-/**
- * @test
- */
-function questioner_is_saved()
-{
-    $outputMock = $this-&gt;prophesize(Output::CLASS);
-    $outputMock-&gt;save([], Argument::type('string'))-&gt;shouldBeCalled();
-    $questioner = new Questioner($outputMock-&gt;reveal());
-
-    $questioner-&gt;saveAs('any name');
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Some of the predictions you can make:</p>
-
-<ul>
-<li><code>CallPrediction</code> or <code>shouldBeCalled()</code> &ndash; checks that method was called 1 or more times</li>
-<li><code>NoCallsPrediction</code> or <code>shouldNotBeCalled()</code> &ndash; checks that method was not called</li>
-<li><code>CallTimesPrediction</code> or <code>shouldBeCalledTimes($count)</code> &ndash; checks that method was called a specified number of times</li>
-<li><code>CallbackPrediction</code> or <code>should($callback)</code> &ndash; checks method against custom callback</li>
-</ul>
-
-
-<p>Custom predictions can be created by implementing <code>PredictionInterface</code>.</p>
 
 <p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
 
