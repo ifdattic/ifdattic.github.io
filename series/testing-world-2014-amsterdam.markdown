@@ -8,3 +8,4 @@
 * [Amsterdam - Getting Lost](/leaving-by-getting-lost)
 * [Photo album](http://bit.ly/1IvAlYb)
 * [Photo album from 2015](http://bit.ly/1m0XfxT)
+* [Intro to testing the world series](testing-world-series-intro)

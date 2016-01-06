@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-01-01T18:34:39+02:00</updated>
+  <updated>2016-01-06T13:05:09+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Spain - Intro (part 1) - Testing the World and Looking for Home series]]></title>
+    <link href="http://ifdattic.com/spain-intro"/>
+    <updated>2016-01-06T12:23:47+02:00</updated>
+    <id>http://ifdattic.com/spain-intro-part-1-testing-the-world-and-looking-for-home-series</id>
+    <content type="html"><![CDATA[<p>After purchasing the tickets to a SymfonyCon in Madrid I decided it would be great way to explore Spain. In Lithuania during that time weather gets colder so this will let me enjoy summer for a bit longer. My trip was supposed to be from October 23rd to December 9th. Maybe not the warmest months in Spain, but for someone who doesn&rsquo;t enjoy when it&rsquo;s very hot it looked like it will be a pleasantly warm trip.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/24182297796/in/album-72157663094134401/" title="2014-spain-cover"><img src="https://farm2.staticflickr.com/1675/24182297796_34b637327f_c.jpg" width="800" height="400" alt="2014-spain-cover"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Some might wonder why it was &ldquo;supposed&rdquo; to be during that time range. The reason is simple with two great lessons for traveling: <strong>don&rsquo;t oversleep your flight</strong> and <strong>adapt</strong>.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/24100061032/in/album-72157663094134401/" title="3"><img src="https://farm2.staticflickr.com/1581/24100061032_55b0332923_c.jpg" width="450" height="800" alt="3"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Actually, I wasn&rsquo;t surprised when this happened as the beginning of the trip wasn&rsquo;t going so well. Almost forgot my passport and almost got into head-on car crash. And I knew I will have to learn this lesson sooner or latter. For people who might be thinking &ldquo;<em>what an idiot, oversleeping a flight after setting up 10 different alarms</em>,&rdquo; I completely agree with you. Just not much to do when you set it for PM, not AM. But you can be damn sure I won&rsquo;t allow this to happen again anytime soon. Now I&rsquo;m too paranoid and have multiple systems in place.</p>
+
+<p>You would also want to adapt quickly to situations and react with a cool head. I won&rsquo;t lie, I had thought about just dropping the whole thing and going back home where it&rsquo;s safe and relaxing. <em>You can&rsquo;t succeed without failing</em>. Half an hour later I had bought new tickets, canceled the reservations I won&rsquo;t be able to take, booked new places to stay at and ready to go for a chilly morning walk to freshen my head. It might have added an extra expense of $1000, but I always laugh remembering it, while the people who hear it are recovering from the shock.</p>
+
+<p>After a long 3 hours flight and enjoying a wonderful sunrise I&rsquo;m in Barcelona ready to be overwhelmed by new experiences. It&rsquo;s an early morning. Streets are almost empty and it&rsquo;s something indescribable to see palms and enormous buildings for the first time. Unfortunately it doesn&rsquo;t last for long as palms get filtered out just like ordinary street posts. Streets are dirty like everywhere else (cans, cigarette buts, etc.) and the buildings just give a feeling like they are trying to measure who has a bigger one (you know what).</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/24208105595/in/album-72157663094134401/" title="5"><img src="https://farm2.staticflickr.com/1479/24208105595_6d13a8cc23_c.jpg" width="800" height="600" alt="5"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>Still, it&rsquo;s not everyday you travel hundreds of miles to a completely different country, and I&rsquo;m grateful for that.</p>
+
+<p>To be continued&hellip;</p>
+
+<p>Read the rest of the series:</p>
+
+<ul>
+<li><a href="http://ifdattic.com/spain-intro">Spain &ndash; Intro</a></li>
+<li><a href="http://bit.ly/1O4N2tD">Photo album</a></li>
+<li>to be continued&hellip;</li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to create a Tunnel to Local Machine with ngrok]]></title>
@@ -266,6 +303,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -540,6 +578,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -916,6 +955,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -959,6 +999,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -1164,6 +1205,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -1213,6 +1255,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -1543,6 +1586,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -1754,6 +1798,7 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
@@ -1791,229 +1836,17 @@
 <li><a href="http://ifdattic.com/leaving-by-getting-lost">Amsterdam &ndash; Getting Lost</a></li>
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 
 <h2>Barcelona / Seville / Madrid, Spain [2014]</h2>
 
 <ul>
-<li>Intro</li>
+<li><a href="http://ifdattic.com/spain-intro">Spain &ndash; Intro</a></li>
+<li><a href="http://bit.ly/1O4N2tD">Photo album</a></li>
 <li>to be continued&hellip;</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Stub Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/stub-test-double-using-prophecy"/>
-    <updated>2015-04-23T09:11:17+03:00</updated>
-    <id>http://ifdattic.com/stub-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Stub is the next simplest test double after the <a href="dummy-test-double-using-prophecy">Dummy</a>.</p>
-
-<p>It doesn&rsquo;t have any expectations about the object behavior, but behaves in a specific way when put in a specific environment.</p>
-
-<p>Below is the class under the test:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$questions</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/** @return int */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * Save under a new name.</span>
-</span><span class='line'><span class="sd">     *</span>
-</span><span class='line'><span class="sd">     * @param  string $name</span>
-</span><span class='line'><span class="sd">     * @return boolean</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveAs</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">questions</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>saveAs</code> method can be tested by using a stub test double:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * @test</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">function</span> <span class="nf">new_questioner_has_no_questions</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$outputDummy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$questioner</span>  <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputDummy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertSame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">getQuestionsCount</span><span class="p">());</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * @test</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">function</span> <span class="nf">questioner_is_saved_under_a_new_name</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="s1">&#39;new name&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;new name&#39;</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The test will pass as long as first parameter for <code>save</code> method is an empty array (<code>[]</code>) and the second parameter is <code>new name</code>. Prophecy allows you to use argument wildcards making your tests more durable. Below you can see a new test which allows any string for a name:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// ...</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Prophecy\Argument</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * @test</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">function</span> <span class="nf">questioner_is_saved_under_any_name</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="nx">Argument</span><span class="o">::</span><span class="na">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">assertTrue</span><span class="p">(</span><span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;any name&#39;</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For the full list of arguments you can you check the code of <code>Prophecy\Argument</code> class. Here&rsquo;s some of them you might want to use in your tests:</p>
-
-<ul>
-<li><code>Argument::is($value)</code> checks that the argument is identical to a specific value</li>
-<li><code>Argument::exact($value)</code> checks that the arguments matches a specific value</li>
-<li><code>Argument::type($typeOrClass)</code> checks that the argument matches a specific type or class name</li>
-<li><code>Argument::any()</code> matches any argument</li>
-</ul>
-
-
-<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
-
-<ul>
-<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
+<li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
 </ul>
 
 ]]></content>
