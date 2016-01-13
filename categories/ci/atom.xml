@@ -4,7 +4,7 @@
   <title><![CDATA[Category: CI | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/ci/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-01-06T18:20:03+02:00</updated>
+  <updated>2016-01-13T12:01:19+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -31,7 +31,7 @@
 <li><a href="#testing">Testing</a></li>
 <li><a href="#update-nodejs-version">Update Node.js version</a></li>
 <li><a href="#enable-project">Enable project in Shippable</a></li>
-<li><a href="#code-coverage">Cove coverage</a></li>
+<li><a href="#code-coverage">Code coverage</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
@@ -180,7 +180,7 @@ build_image: shippableimages/ubuntu1404_nodejs</p>
 
 <p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23236632269/in/dateposted-public/" title="shippable-build"><img src="https://farm6.staticflickr.com/5810/23236632269_6400f9a983_c.jpg" width="800" height="509" alt="shippable-build"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 
-<h2>Cove coverage <a name="code-coverage"></a></h2>
+<h2>Code coverage <a name="code-coverage"></a></h2>
 
 <p>If you need code coverage for your code you can do it with Istanbul. Replace the <code>shippable</code> script in <code>package.json</code> with:</p>
 
