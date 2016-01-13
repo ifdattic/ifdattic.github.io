@@ -20,7 +20,7 @@ You can jump to any of the sections:
 * [Testing](#testing)
 * [Update Node.js version](#update-nodejs-version)
 * [Enable project in Shippable](#enable-project)
-* [Cove coverage](#code-coverage)
+* [Code coverage](#code-coverage)
 * [Conclusion](#conclusion)
 
 ## Prerequisites <a name="prerequisites"></a>
@@ -144,7 +144,7 @@ After a while a build should finish and you should get the similar view.
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23236632269/in/dateposted-public/" title="shippable-build"><img src="https://farm6.staticflickr.com/5810/23236632269_6400f9a983_c.jpg" width="800" height="509" alt="shippable-build"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
-## Cove coverage <a name="code-coverage"></a>
+## Code coverage <a name="code-coverage"></a>
 
 If you need code coverage for your code you can do it with Istanbul. Replace the `shippable` script in `package.json` with:
 
