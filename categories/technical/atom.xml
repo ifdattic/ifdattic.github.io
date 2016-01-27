@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-01-13T12:01:19+02:00</updated>
+  <updated>2016-01-27T16:51:48+02:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Top 11 AWS IAM Best Practices]]></title>
+    <link href="http://ifdattic.com/top-11-aws-iam-best-practices"/>
+    <updated>2016-01-27T15:37:51+02:00</updated>
+    <id>http://ifdattic.com/top-11-aws-iam-best-practices</id>
+    <content type="html"><![CDATA[<p>AWS Identity and Access Management (IAM) enables you to control access to AWS services and resources. Following few best practices makes sure that your account is secure and easy to manage.</p>
+
+<h2>1. Users &ndash; Create individual users</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Unique credentials</li>
+<li>Individual credential rotation</li>
+<li>Individual permissions</li>
+</ul>
+
+
+<h2>2. Groups &ndash; Manage permissions with groups</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Easier to assign the same permissions to multiple users</li>
+<li>Simpler to re-assign permissions based on change in responsibilities</li>
+<li>Only one change to update permissions for multiple users</li>
+</ul>
+
+
+<h2>3. Permissions &ndash; Grant least privilege</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>More granular control</li>
+<li>Less chance of people making mistakes</li>
+<li>Easier to relax than to tighten up</li>
+</ul>
+
+
+<h2>4. Auditing &ndash; Enable AWS CloudTrail to get logs of API calls</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Visibility into your user activity by recording AWS API calls to an Amazon S3 bucket</li>
+</ul>
+
+
+<h2>5. Passwords &ndash; Configure a strong password policy</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Ensures your users and your data are protected</li>
+</ul>
+
+
+<h2>6. MFA &ndash; Enable MFA for privileged users</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Supplements username and password to require a one-time code during authentication</li>
+</ul>
+
+
+<h2>7. Roles &ndash; Use IAM roles for EC2 instances</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Easy to manage access keys on EC2 instances</li>
+<li>Automatic key rotation</li>
+<li>Assign least privilege to the application</li>
+<li>AWS SDKs fully integrated</li>
+</ul>
+
+
+<h2>8. Sharing &ndash; Use IAM roles to share access</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>No need for security credentials</li>
+<li>Easy to break sharing relationship</li>
+<li>Use cases (cross-account access, intra-account delegation, federation)</li>
+</ul>
+
+
+<h2>9. Rotation &ndash; Rotate security credentials regularly</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Normal best practice</li>
+</ul>
+
+
+<h2>10. Conditions &ndash; Restrict privileged access further with conditions</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Additional granularity when defining permissions</li>
+<li>Can be enabled for any AWS service API</li>
+<li>Minimizes accidentally performing privileged actions</li>
+</ul>
+
+
+<h2>11. Root &ndash; Reduce/remove use of root</h2>
+
+<p>Benefits of the practice are:</p>
+
+<ul>
+<li>Reduce potential for misuse of credentials</li>
+</ul>
+
+
+<p>You can get all of them as a check list at this <a href="https://trello.com/c/9cW2qarm/2-top-11-aws-iam-best-practices">public Trello card</a>.</p>
+
+<p>This is the reference post from the <a href="https://www.youtube.com/watch?v=tTJrbsu_Wzc">https://www.youtube.com/watch?v=tTJrbsu_Wzc</a> and <a href="https://www.youtube.com/watch?v=ZhvXW-ILyPs">https://www.youtube.com/watch?v=ZhvXW-ILyPs</a> videos.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to create a Tunnel to Local Machine with ngrok]]></title>
@@ -679,112 +804,6 @@ before_install:</p>
 <h2>Conclusion <a name="conclusion"></a></h2>
 
 <p>With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fake Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/fake-test-double-using-prophecy"/>
-    <updated>2015-07-22T09:17:53+03:00</updated>
-    <id>http://ifdattic.com/fake-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Fake test double is a simplified version of a dependency. A good example is an in memory or file system repository in exchange for database repository. Fake objects implement the interface of dependency.</p>
-
-<p>Below is the class which has a constructor dependency:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>class Questioner
-{</p>
-
-<pre><code>/** @var OutputInterface */
-private $output;
-
-public function __construct(OutputInterface $output)
-{
-    $this-&gt;output = $output;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>```</p>
-
-<p>The <code>OutputInterface</code> is:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>interface OutputInterface
-{</p>
-
-<pre><code>/**
- * Save the data.
- *
- * @param  array  $data
- * @param  string $name
- * @return boolean
- */
-public function save(array $data, $name = null);
-</code></pre>
-
-<p>}
-```</p>
-
-<p>In production you would like to use a database output for persistence. The following object might be used:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>class DatabaseOutput implements OutputInterface
-{</p>
-
-<pre><code>/** @inheritDoc */
-public function save(array $data, $name = null)
-{
-    // call database or do other time consuming tasks
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>This will make unit testing impossible. To test the code you would need to use functional tests which would require a database. Code using the database will run much longer and the longer tests run the higher the chance they won&rsquo;t be run at all.</p>
-
-<p>For this reason in unit testing a simpler version of dependency can be used:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace App;</p>
-
-<p>class InMemoryOutput implements OutputInterface
-{</p>
-
-<pre><code>/** @inheritDoc */
-public function save(array $data, $name = null)
-{
-    // simple, fast implementation for testing
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>This article is from the **Test doubles using Prophecy** series which is made from following articles:
-
-* [Dummy Test Double Using Prophecy](/dummy-test-double-using-prophecy)
-* [Stub Test Double Using Prophecy](/stub-test-double-using-prophecy)
-* [Spy Test Double Using Prophecy](/spy-test-double-using-prophecy)
-* [Mock Test Double Using Prophecy](/mock-test-double-using-prophecy)
-* [Fake Test Double Using Prophecy](/fake-test-double-using-prophecy)
-</p>
 ]]></content>
   </entry>
   
