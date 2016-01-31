@@ -86,6 +86,10 @@ You can change global shortcut keys from profile preferences `Keys` tab. One sho
 
 <a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/22841825873/in/dateposted-public/" title="iterm-custom-shortcut-key"><img src="https://farm1.staticflickr.com/597/22841825873_9521a2502d_c.jpg" width="800" height="464" alt="iterm-custom-shortcut-key"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
+> Go Left One Word `⌥←` (send escape sequence `b`)
+> 
+> Go Right One Word `⌥→` (send escape sequence `f`)
+
 ## Conclusion
 
 These are the shortcut keys I use daily with iTerm. Learning shortcut keys for any application can move you to a power user level and improve your productivity a lot. The problem is remembering all of them.
