@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-02-10T16:03:54+02:00</updated>
+  <updated>2016-03-29T19:53:17+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,598 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to use Composer - a PHP package manager]]></title>
+    <link href="http://ifdattic.com/how-to-use-composer"/>
+    <updated>2016-03-29T19:15:26+03:00</updated>
+    <id>http://ifdattic.com/how-to-use-composer-a-php-package-manager</id>
+    <content type="html"><![CDATA[<p>Composer is a tool for dependency management in PHP. It allows you to declare the libraries your project depends on and helps to manage those dependencies.</p>
+
+<p>Dependencies are managed on a per-project basis, installing them in a directory inside your project. For convenience some dependencies can be installed globally (e.g., Symfony project installer).</p>
+
+<p>Skip to any of the sections:</p>
+
+<ul>
+<li><a href="#how-to-install-update#">How to install and update</a>
+
+<ul>
+<li><a href="#install-on-osx">Installing on OS X</a></li>
+</ul>
+</li>
+<li><a href="#adding-dependencies">Adding dependencies</a>
+
+<ul>
+<li><a href="#adding-specific-version">Adding specific version</a></li>
+</ul>
+</li>
+<li><a href="#removing-dependency">Removing dependency</a></li>
+<li><a href="#initializing-composerjson-file">Initializing composer.json file</a></li>
+<li><a href="#updating-dependency">Updating the dependency</a></li>
+<li><a href="#installing-dependencies">Installing dependencies</a>
+
+<ul>
+<li><a href="#installing-dependencies-on-production">Installing dependencies on production servers</a></li>
+</ul>
+</li>
+<li><a href="#autoloading">Autoloading</a>
+
+<ul>
+<li><a href="#psr4">PSR-4</a></li>
+<li><a href="#psr0">PSR-0</a></li>
+<li><a href="#classmap">Classmap</a></li>
+<li><a href="#development-autoloading">Development autoloading</a></li>
+</ul>
+</li>
+<li><a href="#creating-project">Creating a project</a></li>
+<li><a href="#loading-custom-package">Loading custom package / replacing existing package</a>
+
+<ul>
+<li><a href="#adding-repository-cli">Adding / removing repository through CLI</a></li>
+</ul>
+</li>
+<li><a href="#running-composer-globally">Running Composer globally</a></li>
+<li><a href="#adding-platform-requirements">Adding platform requirements</a></li>
+</ul>
+
+
+<p><a name="how-to-install-update"></a></p>
+
+<h2>How to install and update</h2>
+
+<p>Composer can be installed by running:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -sS https://getcomposer.org/installer | sudo php -- --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will install Composer in the directory <code>/usr/local/bin</code> (which should be in your path) allowing you to run it from anywhere by using <code>composer</code> command.</p>
+
+<p>If your installation is working correctly you should see the version and available commands:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To make sure that you&rsquo;re using the latest version of Composer, constantly run the self update:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer self-update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="install-on-osx"></a></p>
+
+<h3>Installing on OS X</h3>
+
+<p>If you use OS X you can install Composer through <a href="http://brew.sh/">Homebrew</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install homebrew/php/composer
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check the <a href="https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx">documentation</a> if any of the installation options doesn&rsquo;t work for you (e.g., install locally or on Windows).</p>
+
+<p><a name="adding-dependencies"></a></p>
+
+<h2>Adding dependencies</h2>
+
+<p>To add a dependency your project needs to use the <code>require</code> command with a package name (format <code>&lt;vendor&gt;/&lt;name&gt;</code>) command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer require monolog/monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer require &lt;vendor&gt;/&lt;name&gt;
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature of adding multiple dependencies:</span>
+</span><span class='line'>composer require &lt;vendor&gt;/&lt;name&gt; &lt;vendor2&gt;/&lt;name&gt; &lt;vendor2&gt;/&lt;name2&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This creates the <code>composer.json</code> file (if it doesn&rsquo;t exist), and installs the dependency (including dependencies your dependency depends on).</p>
+
+<p><strong>Avoid changing <code>composer.json</code> file manually</strong>, most of the time the <code>require</code> command is enough to manage dependencies.</p>
+
+<p>To add a development dependency use the <code>--dev</code> flag with <code>require</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer require --dev phpspec/phpspec
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer require --dev &lt;vendor&gt;/&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="adding-specific-version"></a></p>
+
+<h3>Adding specific version</h3>
+
+<p>The <code>require</code> command <strong>will automatically choose a suitable version</strong> you can use in your project. If you need to provide the specific version of dependency provide it with the package name:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer require monolog/monolog:~1.17.0
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer require &lt;vendor&gt;/&lt;name&gt;:&lt;version&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Version to use can be defined in the following ways:</p>
+
+<ul>
+<li>The <code>^</code> (caret) operator means <em>any non-breaking version / until major</em> (e.g., <code>^1.2.3</code> is equivalent to <code>&gt;=1.2.3 &lt;2.0.0</code>)</li>
+<li>The <code>~</code> (tilde) operator means <em>approximate / increment right most digit</em> (e.g., <code>~1.2</code> is equivalent to <code>&gt;=1.2 &lt;2.0.0</code> or <code>~1.2.3</code> is equivalent to <code>&gt;=1.2.3 &lt;1.3.0</code>)</li>
+<li>Read the <a href="https://getcomposer.org/doc/articles/versions.md">documentation</a> to learn about other version constraints (exact, range, wildcard)</li>
+</ul>
+
+
+<p>Versions are described using semantic versioning (SemVer) which uses the format <code>MAJOR.MINOR.PATCH</code>. Each of the numbers have a specific meaning:</p>
+
+<ul>
+<li><code>MAJOR</code> &ndash; API changes that break backwards-compatibility</li>
+<li><code>MINOR</code> &ndash; new features</li>
+<li><code>PATCH</code> &ndash; bug fixes</li>
+</ul>
+
+
+<p><a name="removing-dependency"></a></p>
+
+<h2>Removing dependency</h2>
+
+<p>If you don&rsquo;t need the dependency anymore use the <code>remove</code> command to remove it from the <code>composer.json</code> file and directory:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer remove monolog/monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer remove &lt;vendor&gt;/&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To remove the development dependency add <code>--dev</code> flag to <code>remove</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer remove --dev phpspec/phpspec
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer remove --dev &lt;vendor&gt;/&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="initializing-composerjson-file"></a></p>
+
+<h2>Initializing composer.json file</h2>
+
+<p>If you are creating a package or want to fill a <code>composer.json</code> file interactively, use the <code>init</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will ask you to provide information like package name, description, dependencies, etc. After you provide all the information it will generate a <code>composer.json</code> file.</p>
+
+<p><a name="updating-dependency"></a></p>
+
+<h2>Updating the dependency</h2>
+
+<p>To get the latest versions of the dependencies (also updates the <code>composer.lock</code> file) use the <code>update</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to update only specific packages provide them to the <code>update</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer update monolog/monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer update &lt;vendor&gt;/&lt;name&gt;
+</span><span class='line'>
+</span><span class='line'><span class="c"># Wildcard is allowed to update multiple packages (without listing them):</span>
+</span><span class='line'>composer update &lt;vendor&gt;/*
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="installing-dependencies"></a></p>
+
+<h2>Installing dependencies</h2>
+
+<p>Use the <code>install</code> command to install project dependencies:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will read the <code>composer.json</code> file and resolve your dependencies. After finishing the installation it will create a <code>composer.lock</code> file, which contains the exact versions installed. This makes sure that the same versions are installed every time the <code>install</code> command is executed.</p>
+
+<p><strong>Commit your application&rsquo;s <code>composer.lock</code> file (along with <code>composer.json</code>) into version control</strong>.</p>
+
+<p>By convention dependencies are installed into a <code>vendor</code> directory, which <strong>should not be committed to version control</strong>.</p>
+
+<p><a name="installing-dependencies-on-production"></a></p>
+
+<h3>Installing dependencies on production servers</h3>
+
+<p>You will want to use a few flags when installing dependencies on production servers:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer install --prefer-dist --no-dev --optimize-autoloader --no-interaction
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will optimize the dependency installation which is really useful for production servers. It will try to install distribution packages (<code>--prefer-dist</code> flag), won&rsquo;t install development dependencies (<code>--no-dev</code> flag), and generate a classmap for faster autoloader (<code>--optimize-autoloader</code> flag). The <code>--no-interaction</code> flag will make sure that no interactive questions are asked (needed for automated deployments).</p>
+
+<p><a name="autoloading"></a></p>
+
+<h2>Autoloading</h2>
+
+<p>Composer generates a <code>vendor/autoload.php</code> file which automatically loads the classes your project depends on. Just include that file in your PHP script:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">require</span> <span class="nx">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can change the <code>autoload</code> key in your <code>composer.json</code> file to define the mapping.</p>
+
+<p>If you added new classes you might need to update the autoloader. Use the <code>dump-autoload</code> command to do that:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer dump-autoload
+</span><span class='line'>
+</span><span class='line'><span class="c"># For production use</span>
+</span><span class='line'>composer dump-autoload --optimize --no-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- https://getcomposer.org/doc/01-basic-usage.md#autoloading -->
+
+
+<p><a name="psr4"></a></p>
+
+<h3>PSR-4</h3>
+
+<p>Under the <code>psr-4</code> key you define a mapping from namespaces to paths, relative to the package root. The PSR-4 is the <em>recommended</em> choice for autoloading (avoids having to regenerate the autoloader after adding classes).</p>
+
+<p><strong>Namespace prefixes must end in <code>\\</code> to avoid conflicts between similar prefixes</strong>.</p>
+
+<p>In addition to normal mapping definition, you can define multiple directories, or define a fallback directory:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;Vendor\\Namespace\\Normal\\&quot;</span><span class="p">:</span> <span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;Vendor\\Namespace\\Multi\\&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;src/&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/&quot;</span><span class="p">],</span>
+</span><span class='line'>            <span class="nt">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;src/fallback/&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="psr0"></a></p>
+
+<h3>PSR-0</h3>
+
+<p>Under the <code>psr-0</code> key you define a mapping from namespaces to paths, relative to the package root. This also supports the PEAR-style non-namespaced convention.</p>
+
+<p><strong>Namespace prefixes should end in <code>\\</code> to avoid conflicts between similar prefixes</strong>.</p>
+
+<p>In addition to normal mapping definition, you can define multiple directories, or define a fallback directory:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;psr-0&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;Vendor\\Namespace\\Normal\\&quot;</span><span class="p">:</span> <span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;Vendor_Namespace_PEAR_&quot;</span><span class="p">:</span> <span class="s2">&quot;src/&quot;</span><span class="p">,</span>
+</span><span class='line'>            <span class="nt">&quot;Vendor\\Namespace\\Multi\\&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;src/&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/&quot;</span><span class="p">],</span>
+</span><span class='line'>            <span class="nt">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;src/fallback/&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="classmap"></a></p>
+
+<h3>Classmap</h3>
+
+<p>For libraries that do not follow PSR-0/4 you can specify directories or files to search for classes (using the <code>classmap</code> key):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;autoload&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;classmap&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;src/&quot;</span><span class="p">,</span> <span class="s2">&quot;lib/&quot;</span><span class="p">,</span> <span class="s2">&quot;Something.php&quot;</span><span class="p">]</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="development-autoloading"></a></p>
+
+<h3>Development autoloading</h3>
+
+<p>You should avoid polluting the autoloader in production with classes it doesn&rsquo;t need (like test suite). Using the <code>autoload-dev</code> key you can define classes that should be loaded only in development:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;autoload-dev&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;psr-4&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nt">&quot;MyLibrary\\Tests\\&quot;</span><span class="p">:</span> <span class="s2">&quot;tests/&quot;</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="creating-project"></a></p>
+
+<h2>Creating a project</h2>
+
+<p>The <code>create-project</code> command will create a new project from an existing package. It&rsquo;s the equivalent of doing a git clone followed by installation of dependencies. The command takes the package name and the directory to create it in (optional: provide the version as third parameter):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer create-project symfony/framework-standard-edition my_project_name
+</span><span class='line'><span class="c"># or</span>
+</span><span class='line'>composer create-project symfony/framework-standard-edition my_project_name 3.1.*
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer create-project &lt;vendor&gt;/&lt;name&gt; &lt;path&gt; &lt;optional:version&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a name="loading-custom-package"></a></p>
+
+<h2>Loading custom package / replacing existing package</h2>
+
+<p>In some cases you might want to use a custom package. For example you fixed a bug in open source library and while waiting for PR to be merged you want to use the fixed library.</p>
+
+<p>The branch on the forked repository should be prefixed with <code>dev-</code> (e.g., in the repository it will be <code>bugfix</code>, in the <code>composer.json</code> file it will be <code>dev-bugfix</code>). Then change the <code>repositories</code> key in <code>composer.json</code> (in example assume that I forked <code>Monolog</code> and created <code>bugfix</code> branch):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;repositories&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>        <span class="s2">&quot;type&quot;</span><span class="err">:</span> <span class="s2">&quot;vcs&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;url&quot;</span><span class="err">:</span> <span class="s2">&quot;https://github.com/ifdattic/monolog&quot;</span>
+</span><span class='line'>    <span class="p">],</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-bugfix&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now after updating the dependency it should replace the original package with a changed one (don&rsquo;t change the package name for override to work):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer update monolog/monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature</span>
+</span><span class='line'>composer update
+</span><span class='line'><span class="c"># or</span>
+</span><span class='line'>composer update &lt;vendor&gt;/&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To avoid conflicts you might need to alias the branch for it to be treated as a specific version. To make in-line aliases use the <code>as</code> keyword:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span> <span class="s2">&quot;dev-bugfix as 1.18.1&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- https://getcomposer.org/doc/articles/aliases.md -->
+
+
+<p><a name="adding-repository-cli"></a></p>
+
+<h3>Adding / removing repository through CLI</h3>
+
+<p>If you don&rsquo;t want to manually add repository use the <code>composer config repositories</code> command:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer config repositories.monolog vcs https://github.com/ifdattic/monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer config repositories.&lt;name&gt; &lt;<span class="nb">type</span>&gt; &lt;url&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To remove a repository use <code>--unset</code> flag (<code>repo</code> is alias for <code>repositories</code>):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer config --unset repo.monolog
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer config --unset repo.&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- https://getcomposer.org/doc/05-repositories.md#loading-a-package-from-a-vcs-repository -->
+
+
+<p><a name="running-composer-globally"></a></p>
+
+<h2>Running Composer globally</h2>
+
+<p>Sometimes you might want to install some CLI tools globally. Using <code>global</code> command it will allow to install them to the directory defined in <code>COMPOSER_HOME</code> environment variable:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer global require fabpot/php-cs-fixer
+</span><span class='line'>
+</span><span class='line'><span class="c"># Signature:</span>
+</span><span class='line'>composer global &lt;<span class="nb">command</span>&gt; &lt;vendor&gt;/&lt;name&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- https://getcomposer.org/doc/03-cli.md#global  -->
+
+
+<p><a name="adding-platform-requirements"></a></p>
+
+<h2>Adding platform requirements</h2>
+
+<p>If you need to add requirements for the system you can use platform packages. They are virtual packages of the things that are installed on the system. For example the following snippet requires for PHP 7 to be available:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="nt">&quot;require&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nt">&quot;php&quot;</span><span class="p">:</span> <span class="s2">&quot;^7.0&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following platform packages are available: <code>php</code>, <code>hhvm</code>, <code>ext-&lt;name&gt;</code>, <code>lib-&lt;name&gt;</code>.</p>
+
+<p>To get a list of locally available platform packages run:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>composer show --platform
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- https://getcomposer.org/doc/02-libraries.md#platform-packages -->
+
+
+<h2>Conclusion</h2>
+
+<p>You can do a lot more with Composer, but this should take care of most of the use cases while developing.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Spain - Barcelona First Impressions (part 2) - Testing the World and Looking for Home series]]></title>
@@ -1767,170 +2359,6 @@
 <li><a href="http://bit.ly/1IvAlYb">Photo album</a></li>
 <li><a href="http://bit.ly/1m0XfxT">Photo album from 2015</a></li>
 <li><a href="testing-world-series-intro">Intro to testing the world series</a></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Spy Test Double Using Prophecy]]></title>
-    <link href="http://ifdattic.com/spy-test-double-using-prophecy"/>
-    <updated>2015-05-20T13:47:25+03:00</updated>
-    <id>http://ifdattic.com/spy-test-double-using-prophecy</id>
-    <content type="html"><![CDATA[<p>Spy is a test double which records its actions. After code execution you can check if interaction is as expected. You use it to make sure the method(s) was called.</p>
-
-<p>Below is the class which has an optional dependency which is called:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">App</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Questioner</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$questions</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'>    <span class="k">private</span> <span class="nv">$scorer</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">OutputInterface</span> <span class="nv">$output</span><span class="p">,</span> <span class="nx">ScorerInterface</span> <span class="nv">$scorer</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="nv">$output</span><span class="p">;</span>
-</span><span class='line'>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span> <span class="o">=</span> <span class="nv">$scorer</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/** @return int */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">getQuestionsCount</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * Save under a new name.</span>
-</span><span class='line'><span class="sd">     *</span>
-</span><span class='line'><span class="sd">     * @param  string $name</span>
-</span><span class='line'><span class="sd">     * @return boolean</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">public</span> <span class="k">function</span> <span class="nf">saveAs</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$saved</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">questions</span><span class="p">,</span> <span class="nv">$name</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nv">$saved</span> <span class="o">&amp;&amp;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">scorer</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="nv">$saved</span><span class="p">;</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To check that the <code>update()</code> method on <code>Scorer</code> is called use the following spy test double:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">namespace</span> <span class="nx">tests</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">use</span> <span class="nx">App\Output</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">App\Questioner</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">App\Scorer</span><span class="p">;</span>
-</span><span class='line'><span class="k">use</span> <span class="nx">Prophecy\Argument</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">QuestionerTest</span> <span class="k">extends</span> <span class="nx">\PHPUnit_Framework_TestCase</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="sd">/**</span>
-</span><span class='line'><span class="sd">     * @test</span>
-</span><span class='line'><span class="sd">     */</span>
-</span><span class='line'>    <span class="k">function</span> <span class="nf">score_is_updated_on_save</span><span class="p">()</span>
-</span><span class='line'>    <span class="p">{</span>
-</span><span class='line'>        <span class="nv">$outputStub</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Output</span><span class="o">::</span><span class="na">CLASS</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([],</span> <span class="nx">Argument</span><span class="o">::</span><span class="na">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">willReturn</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$scorerSpy</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">prophesize</span><span class="p">(</span><span class="nx">Scorer</span><span class="o">::</span><span class="na">CLASS</span><span class="p">);</span>
-</span><span class='line'>        <span class="nv">$questioner</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Questioner</span><span class="p">(</span><span class="nv">$outputStub</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">(),</span> <span class="nv">$scorerSpy</span><span class="o">-&gt;</span><span class="na">reveal</span><span class="p">());</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nv">$questioner</span><span class="o">-&gt;</span><span class="na">saveAs</span><span class="p">(</span><span class="s1">&#39;any name&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nv">$scorerSpy</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">shouldHaveBeenCalled</span><span class="p">();</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This article is from the <strong>Test doubles using Prophecy</strong> series which is made from following articles:</p>
-
-<ul>
-<li><a href="http://ifdattic.com/dummy-test-double-using-prophecy">Dummy Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/stub-test-double-using-prophecy">Stub Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/spy-test-double-using-prophecy">Spy Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/mock-test-double-using-prophecy">Mock Test Double Using Prophecy</a></li>
-<li><a href="http://ifdattic.com/fake-test-double-using-prophecy">Fake Test Double Using Prophecy</a></li>
 </ul>
 
 ]]></content>
