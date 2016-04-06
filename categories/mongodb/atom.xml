@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MongoDB | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/mongodb/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-03-30T16:37:29+03:00</updated>
+  <updated>2016-04-06T17:40:09+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -275,6 +275,8 @@ node hw3-2validate.js --db mongodb://mongo:27017/blog
 <p>If you&rsquo;re willing to hurt your ears by listening to my voice you can find the screen cast of this whole tutorial at <a href="https://www.youtube.com/playlist?list=PLOyuTJZcQNNDSVMlAkIEoPX9CDrOGyTVt">YouTube</a>. If you&rsquo;re listening on mute or can&rsquo;t understand what I&rsquo;m saying the <a href="scripts/screencast-how-to-mongo-node-docker">script for screen cast is available</a>.</p>
 
 <p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
+
+<blockquote><p>If you liked this article and would like to learn more about developing web applications try out the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">Web Development with Node.js and MongoDB</a> video course (created by me). In that course you will learn how to convert the ideas in your head to custom web applications. It covers the topics like preparing development environment, scaffolding a web application, storing data, working with RESTful APIs, testing your application and improving performance. <strong>Take the course and learn how to convert your ideas into web applications</strong>.</p></blockquote>
 ]]></content>
   </entry>
   
