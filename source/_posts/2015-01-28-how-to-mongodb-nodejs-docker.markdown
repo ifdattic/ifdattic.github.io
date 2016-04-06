@@ -232,6 +232,8 @@ If you're willing to hurt your ears by listening to my voice you can find the sc
 
 If you have any questions, suggestions or any part of it is unclear please leave a comment.
 
+>If you liked this article and would like to learn more about developing web applications try out the [Web Development with Node.js and MongoDB](https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video) video course (created by me). In that course you will learn how to convert the ideas in your head to custom web applications. It covers the topics like preparing development environment, scaffolding a web application, storing data, working with RESTful APIs, testing your application and improving performance. **Take the course and learn how to convert your ideas into web applications**.
+
 [mongodb-course-from-mongodb-university]: https://university.mongodb.com/courses/M101JS/about
 [nodejs-home]: http://nodejs.org/
 [mongodb-home]: http://www.mongodb.org/
