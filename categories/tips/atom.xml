@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-04-06T17:40:09+03:00</updated>
+  <updated>2016-04-12T15:57:09+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Making a Video Course - Behind the Scenes]]></title>
+    <link href="http://ifdattic.com/making-video-course-reflection"/>
+    <updated>2016-04-12T12:53:48+03:00</updated>
+    <id>http://ifdattic.com/making-a-video-course-behind-the-scenes</id>
+    <content type="html"><![CDATA[<p>This post is my reflection on creating a video course. It contains personal thoughts, processes used &amp; possible improvements for them. This might be helpful if you&rsquo;re thinking about creating a video course and not sure that it might require or where to start. And if you want to learn how to convert your ideas to web applications you can check the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">course</a> itself.</p>
+
+<p>First when I got an offer to produce a video course my reaction was to do what I often do &ndash; run &amp; hide (something called impostor syndrome).</p>
+
+<blockquote><p>Impostor syndrome is a term referring to high-achieving individuals marked by an inability to internalize their accomplishments and a persistent fear of being exposed as a &ldquo;fraud&rdquo;. Despite external evidence of their competence, those exhibiting the syndrome remain convinced that they are frauds and do not deserve the success they have achieved. Proof of success is dismissed as luck, timing, or as a result of deceiving others into thinking they are more intelligent and competent than they believe themselves to be.</p>
+
+<p>Source: <a href="https://en.wikipedia.org/wiki/Impostor_syndrome">Wikipedia</a></p></blockquote>
+
+<p>Of course you start making excuses for it &mdash; I don&rsquo;t know enough, I don&rsquo;t have time, etc. &mdash; in the end they are still only excuses. No one ever did something great just by making excuses. By remembering a saying <em>&ldquo;Experts are experts because they started before they knew enough&rdquo;</em> &amp; confirming that it&rsquo;s something I can do (even if it will require banging the head against a wall once in a while).</p>
+
+<p>So, what do you do when you have a project with the deadline &amp; have no idea how long it will take? You procrastinate of course! Like by making a calendar with inner deadlines, and then making a second version as you notice an issue. It&rsquo;s easy to avoid work when you don&rsquo;t know anything about it. The issue with that is that you took the challenge, and sooner or later it will start staring you in the eyes. The question is whose ass kicking will commence.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/26115403990/in/dateposted-public/" title="01 - procrastinating, deadline calendar"><img src="https://farm2.staticflickr.com/1714/26115403990_b194e22121_c.jpg" width="672" height="800" alt="01 - procrastinating, deadline calendar"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p><strong>The secret is inertia</strong>. No matter how scary the task is you can endure it for half an hour. After half an hour you know more about it &amp; another half an hour doesn&rsquo;t sound so bad. In a few days you get a better idea of that it will require from you and you get high from being an ass kicker.</p>
+
+<p>I always enjoyed learning something &amp; teaching it to others. The issue with that is that it requires a lot of reading and experimenting. Kept noticing myself falling in the trap of &ldquo;just one more page&rdquo;, which is bottomless. At some point you have to stomp down your foot &amp; say &ldquo;enough!&rdquo; It gets easier after a while as you start time-boxing it &amp; cutting down research (at least initial) to few hours.</p>
+
+<p>After the research comes the writing. You stare at the cursor on the empty display &amp; have no idea what to write about. 500-700 words looks like Mount Everest as you stare at the excitedly blinking cursor at its starting position.</p>
+
+<p>At this point you go back to inertia. Using the structure from a provided template you try to write down the problem, the solution, and three steps to move between them. This gives you a few anchor points &amp; keyboard starts getting some exercise. After a little bit you look at the word count &amp; swear. You went past 700 words, by a lot. And you still have a bunch to write about.</p>
+
+<p>It might be fine in un-official atmosphere (especially with a drink in hand), but <strong>the secret is quality, not quantity</strong>. You just reached a point most creative people dread &ndash; killing your babies. You spent a lot of time &amp; energy making it, you can&rsquo;t just get rid of it. It would be wrong! Wrong, I say! This is where you have to <strong>punch your ego to the face</strong>. You have to understand that you are doing this to help others, not to make yourself feel better. As the ego runs away with the tail between its legs &amp; you start deleting words, the smile comes to your face as you notice that the message you are trying to convey is becoming easier to understand (and yes I noticed that this sentence goes on forever).</p>
+
+<p>After a while <strong>you get better at writing</strong>. Most of the time you still start with a blinking cursor on an empty page, stumble around till you find the direction you want to go, and try to avoid ending in a ditch too often.</p>
+
+<p>The challenge might have been a lot harder if I was at it alone (and quality wouldn&rsquo;t be as good). By getting support from other people (reviewers, editors, etc.), it&rsquo;s much easier to notice that can be improved or what to do next. The process wasn&rsquo;t always going smoothly as you would like. It doesn&rsquo;t help being an old grumpy man who runs on logic &amp; works in software development. It is only so many times you can fill same information in different format documents before you shout &ldquo;this needs to be an application!&rdquo; Some decisions logically didn&rsquo;t make sense to me. Like asking if I have no days off planned so we could finish the course sooner (answer No). Then after a week of silence (during which I couldn&rsquo;t continue without feedback on existing work) getting a reply about getting back from holidays. Even if multiple people work on the course the distance between them feels enormous. You get feedback on your work, but getting repeated feedback on some point (e.g., elaborating on the comment) feels like dredging through the pitch black silence. And like everywhere there&rsquo;s always some issues with payments. They were trivial, but still I find it strange, as in my opinion finances are the thing you take care right away so you could go back to doing the business which brings in the money.</p>
+
+<p>In the beginning it took a while to get myself rolling. So that calendar with the deadlines came in handy. You could of course just mark the dates on digital calendar, but for me personally it doesn&rsquo;t work as well as taking a deliberate action and getting feedback (like crossing the date and seeing that tomorrow is the deadline). At points, I remembered the words from <em>The Shinning &ldquo;&hellip; All work and no play makes &mdash;&ndash; a dull boy &hellip;&rdquo;</em> My roommates probably wouldn&rsquo;t have liked that scenario. At other times it reminded me of school/college &ndash; doing some assignment for which I will be graded. Can&rsquo;t say I liked that feeling. Mostly, because I didn&rsquo;t like school/college as they interfered with me learning things.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/26115405600/in/dateposted-public/" title="05 - being chased by the deadline"><img src="https://farm2.staticflickr.com/1692/26115405600_a0fd711a92_c.jpg" width="592" height="800" alt="05 - being chased by the deadline"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>I did start making great progress once I got myself rolling. Batching the tasks helped a lot. During writing I kept to focusing on a single topic at a time. Which sounds like a smart decision in theory, but didn&rsquo;t work well in practice. It might be hard to notice, but context switching does take its toll. Once I <strong>started taking hours/days for same tasks</strong> (research, writing, editing, recording, video editing) <strong>time savings became noticeable</strong>.</p>
+
+<p>Trello was used for project management &amp; it worked well. This is kind of DIY project management. But that works well for one project might not be good for another one. All that you really need is to note some tasks, know in which state they are and keep some relevant info.</p>
+
+<p>Doing a video in a single swoop isn&rsquo;t for me &amp; it often ends in a big mess. For that reason, I chose to split everything in smallest possible pieces &amp; then glue them together for the final result. It made batching tasks, recording &amp; editing a lot easier. Of course, the final result is not as natural, and sometimes can feel &ldquo;robotic.&rdquo; The process was kept simple &ndash; scripts in text files under version control, moved to word templates with screenshots, audio in many files, lots of screenshot images, single screenflow recording for each topic (if doing again would probably use many recordings).</p>
+
+<p>One of big parts of making a video course is audio. With my current housing situation it wasn&rsquo;t easy to do. First, for good quality you need good set-up (good microphone, unobstructed lungs, good sound isolation, not being ill, etc.). It&rsquo;s not easy to keep up your cool when dogs start to bark and people start walking around just as soon as you start recording. Good thing that it was decided to add voice over &amp; my audio was only needed for reference, so quality wasn&rsquo;t as important. Another issue with audio recording is that English is not my native language, and I&rsquo;m not a big user of my voice. If it&rsquo;s one of the days where I don&rsquo;t feel like wasting my voice, I can easily spend whole day around people doing chores/errands without saying a single letter (sometimes for fun I just challenge myself with this to see how creative I will get). It was a good practice even if some days the tongue wasn&rsquo;t cooperating. An iodine spray (or something similar) helps a lot as your throat will hurt when recording for long periods. The sentences with a lot of &ldquo;s&rdquo; letters was fun as I started to sound like a snake :D</p>
+
+<p>One thing worth deciding while/before writing scripts is how the commands will be spelled. It&rsquo;s not a problem with simple single word commands, but once they contain dashes/colons, or you start using flags/options, it can be very awkward to convert them to audio. I think, for the next time I will go with making them sound as human as possible (without dashes or anything fancy), and would mention them as little as possible. Maybe say it for the first time or explain a new option when it&rsquo;s used, but otherwise leave it to the video to show the command. Using &ldquo;execute the following command&rdquo; doesn&rsquo;t work as well as you would think &amp; in my opinion worth to avoid using. <strong>Avoid using exact numbers</strong> (like <code>13 ms</code> or version <code>3.3.10</code>). Might be fine in some cases, but you want to avoid running tests multiple times just to hit that 13 ms execution time which is used in the script &amp; audio. If you want to make it specific try to <em>use less / greater than with a good margin</em> (e.g., less than a second).</p>
+
+<p>After learning that a voice over will be used felt hurt for a moment; starting to get angry macho voices inside. This is where you have to punch your ego in the face again. Once you do that you realize that this is being done to help as much people as possible, not for stroking your ego.</p>
+
+<p>By this time had a script with screenshots, so recording was easier. You always have to <strong>remember to put everything in the recording state</strong> &ndash; set resolution to one which translates to <code>720p</code>, put everything in full-screen, hide that you don&rsquo;t need, etc. It&rsquo;s not fun to record for a while &amp; notice that something is not right. <strong>Make a checklist you go over before recording</strong>. <em>Two screens help</em> a lot as one contains the recording &amp; another the script. You go through each script step planning how the end result will look like &amp; then recording it. Still, can get frustrating when you mess something up or for example get &ldquo;connection lost&rdquo; in the middle of display as bluetooth mouse decided to save batteries. Then you have to go back to known state (which sometimes can be hard), and repeat again, and somehow mess up again. Took a lot of screenshots, before &amp; after each step. The pace of the video is dictated by the audio and you often need video to stay in place. It can be done by using freeze frames from a video, but found it a lot easier to use an image.</p>
+
+<p>Google Drive was used for storing &amp; sharing the files. Found the whole experience terrible. It works well for storage, but just making the damn thing work takes forever. Never ending loading &amp; refreshes until it finally decides &ldquo;OK, now I will work, you can upload&rdquo; (sometimes taking up to half an hour). Lost any will to use Google Drive again.</p>
+
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/26362331236/in/dateposted-public/" title="07 - editing videos"><img src="https://farm2.staticflickr.com/1704/26362331236_589d19162e_c.jpg" width="800" height="450" alt="07 - editing videos"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+
+<p>The last part is editing, which by this time is easy as all the work was done before hand. So you wake up half past six in the morning, get a cup of tea with a butter, put on the headphones,and start editing. You throw in the audio, add the video accordingly &amp; make improvements often taking a gut guess. Two monitors are very helpful as you do editing on one &amp; script is on another. The only change I would probably do is to batch the export (like before going for lunch). Exporting takes a long time (at least couple minutes for 5 minute video). After the export you need to watch the video to make sure it&rsquo;s correct and make adjustments. By batching those tasks I could do the export while eating and watch them at the end of the day when already tired.</p>
+
+<p>You could go on forever improving &amp; polishing everything, but in the end you have to remember to just fucking ship it.</p>
+
+<p>So, would I do it again? I don&rsquo;t know. I&rsquo;m really glad I took this challenge. Learned a lot during those months &amp; it feels awesome being able to help others. But at least right away I don&rsquo;t feel like taking a similar challenge. It&rsquo;s the direction I wouldn&rsquo;t mind going, but first, should experiment with it in small scale to see exactly where to go.</p>
+
+<p>I would like to thank the people who helped me on this journey. Especially Sigita Mikuckytė, who encouraged me to take this challenge by reminding me that I&rsquo;m trying to hide behind the impostor syndrome.</p>
+
+<p>Have you ever created a similar product? What was your experience? Share it in the comments.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iTerm Shortcut Keys]]></title>
@@ -629,295 +696,6 @@ services:</p>
 <p>Source files are available as a <a href="https://gist.github.com/ifdattic/21a0575dc4878633430e">gist</a>.</p>
 
 <p>Do you have any suggestions, ideas, questions? Please share them.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Integrating DataDog &amp; logstash on AWS EC2]]></title>
-    <link href="http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2"/>
-    <updated>2014-11-26T15:36:49+02:00</updated>
-    <id>http://ifdattic.com/integrating-datadog-and-logstash-on-aws-ec2</id>
-    <content type="html"><![CDATA[<p>If you have an application you should collect metrics and data about it to be able to improve your application. There is multiple solutions for collecting stats, but I chose <a href="http://www.datadoghq.com/">DataDog</a> for my application. Below you will find how to integrate DataDog agent on EC2 server using ElasticBeanstalk and how to send Apache logs to DataDog using logstash.</p>
-
-<p><strong>Note:</strong> The tutorial assumes that you&rsquo;re <a href="/how-to-deploy-symfony-application-to-aws-elasticbeanstalk">deploying a Symfony application using AWS ElasticBeanstalk</a> (the link points to an article on how to do it). If you&rsquo;re deploying a different application or don&rsquo;t want to use EB, you will need to make some changes (which will be left as an exercise for the reader).</p>
-
-<h2>Add DataDog Config</h2>
-
-<p>To install and configure the DataDog agent create <code>.ebextensions/02-datadog.config</code> file with following contents:</p>
-
-<p>```yaml
-packages:</p>
-
-<pre><code>yum:
-    datadog-agent: []
-rpm:
-    datadog: http://yum.datadoghq.com/rpm/x86_64/datadog-agent-5.1.0-539.x86_64.rpm
-</code></pre>
-
-<p>container_commands:</p>
-
-<pre><code>100-copy-config:
-    command: "source .ebextensions/bin/copy-datadog-config.sh"
-200-restart-agent:
-    command: "/etc/init.d/datadog-agent restart"
-    test: "[ $SYMFONY__ENV__DATADOG__API__KEY ]"
-250-stop-agent:
-    command: "/etc/init.d/datadog-agent stop"
-    test: "[ ! $SYMFONY__ENV__DATADOG__API__KEY ]"
-</code></pre>
-
-<p>```</p>
-
-<p>And <code>.ebextensions/bin/copy-datadog-config.sh</code> file:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash</h1>
-
-<p>sed &rsquo;s/api_key:.*/api_key: &lsquo;&ldquo;$SYMFONY<strong>ENV</strong>DATADOG<strong>API</strong>KEY&rdquo;&rsquo;/&lsquo; /etc/dd-agent/datadog.conf.example > /etc/dd-agent/datadog.conf
-```</p>
-
-<p>If you will deploy an application with these configuration files, EB will install DataDog agent and run the configuration script to update the API key. The API key should be set as an environment variable for the hosts you want to measure. When if <code>SYMFONY__ENV__DATADOG__API__KEY</code> environment variable is set on the host it will restart the DataDog agent to reload the configuration and give a deployment event in DataDog application. If the environment variable is not set (for example you don&rsquo;t want to track a host anymore) it would stop the agent.</p>
-
-<p>This is enough to start receiving some metrics about your hosts on DataDog application, but more can be done.</p>
-
-<h2>Apache Rewrite For Symfony</h2>
-
-<p>Apache has a <code>server-status</code> handler which provides some statistics about current server status. The Symfony application configuration blocks this route, add the following condition in your <code>.htaccess</code> or Apache configuration file (will depend on your project) before queries are rewritten to front controller:</p>
-
-<p>```apache</p>
-
-<h1>Allow internal requests</h1>
-
-<p>RewriteCond %{REQUEST_URI} !^/internal/.+$
-```</p>
-
-<p>This will allow requests to <code>/internal</code> URLS (in case you need to add more locations reachable by URL).</p>
-
-<h2>DataDog Apache Integration</h2>
-
-<p>To send server statistics first create internal server status location in your Apache configuration:</p>
-
-<p>```apache</p>
-
-<h1>Enable server-status for internal IP</h1>
-
-<p><Location /internal/server-status>
-   SetHandler server-status
-   Order Deny,Allow
-   Deny from all
-   Allow from 127.0.0.1
-</Location>
-```</p>
-
-<p>This will allow to get server statistics locally (when connected to a host or from the host).</p>
-
-<p>Next update <code>.ebextensions/02-datadog.config</code> file and add:</p>
-
-<p>```yaml
-files:</p>
-
-<pre><code>/etc/dd-agent/conf.d/apache.yaml:
-    mode: "000644"
-    owner: dd-agent
-    group: root
-    content: |
-        init_config:
-
-        instances:
-            -   apache_status_url: http://127.0.0.1/internal/server-status?auto
-</code></pre>
-
-<p>```</p>
-
-<p>This will create Apache configuration file for DataDog agent pointing it to an URL where it can get server statistics. After deployment you should start receiving metrics about your current server status.</p>
-
-<h2>Install &amp; logstash</h2>
-
-<p><a href="http://logstash.net/">logstash</a> is a tool for managing events and logs.</p>
-
-<p>To install logstash (optional: contrib plugin is installed only once, if you don&rsquo;t use it you can remove the <code>200-install-contrib-plugin</code> command) on deployment create <code>.ebextensions/02-logstash.config</code> file with following contents:</p>
-
-<p>```yaml
-files:</p>
-
-<pre><code>/etc/yum.repos.d/logstash.repo:
-    mode: "000644"
-    owner: root
-    group: root
-    content: |
-        [logstash-1.4]
-        name=logstash repository for 1.4.x packages
-        baseurl=http://packages.elasticsearch.org/logstash/1.4/centos
-        gpgcheck=1
-        gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
-        enabled=1
-</code></pre>
-
-<p>commands:</p>
-
-<pre><code>100-install-logstash:
-    command: "yum -y install logstash-1.4.2"
-200-install-contrib-plugin:
-    command: "wget -O /tmp/logstash-contrib-1.4.2.tar.gz http://download.elasticsearch.org/logstash/logstash/logstash-contrib-1.4.2.tar.gz &amp;&amp; tar zxf /tmp/logstash-contrib-1.4.2.tar.gz -C /opt/logstash --strip 1 &amp;&amp; touch /tmp/logstash-contrib-installed"
-    test: "[ ! -f /tmp/logstash-contrib-installed ]"
-</code></pre>
-
-<p>```</p>
-
-<h2>Parse Apache Logs</h2>
-
-<p>To start parsing Apache logs the logstash first has to be configured. Add the contents bellow to <code>.ebextensions/02-logstash.config</code> file. You will notice what command <code>300-restart-service</code> is commented out, why will be explained shortly.</p>
-
-<p>```yaml
-container_commands:</p>
-
-<pre><code>100-delete-configs:
-    command: "rm -f /etc/logstash/conf.d/*"
-200-copy-configs:
-    command: "cp .ebextensions/logstash/* /etc/logstash/conf.d/"
-# 300-restart-service:
-#     command: "service logstash restart"
-</code></pre>
-
-<p>```</p>
-
-<p>Add the following to Apache configuration to have more information in Apache logs:</p>
-
-<p>```apache
-<IfModule log_config_module></p>
-
-<pre><code>LogFormat "%h %l %u %t \"%r\" %&gt;s %b \"%{Referer}i\" \"%{User-Agent}i\" %D %T" combined
-</code></pre>
-
-<p></IfModule>
-```</p>
-
-<p>Create logstash configuration for parsing Apache logs in <code>.ebextensions/logstash/apache.conf</code>:</p>
-
-<p>```
-input {
-  file {</p>
-
-<pre><code>exclude =&gt; "*.gz"
-path =&gt; "/var/log/httpd/*"
-type =&gt; "apache-access"
-</code></pre>
-
-<p>  }
-}</p>
-
-<p>filter {
-  grok {</p>
-
-<pre><code>match =&gt; ["message", "%{COMBINEDAPACHELOG} %{NUMBER:microseconds} %{NUMBER:seconds}"]
-</code></pre>
-
-<p>  }
-}</p>
-
-<p>output {
-  statsd {</p>
-
-<pre><code>count =&gt; ["apache.count.bytes", "%{bytes}"]
-increment =&gt; "apache.count.response.%{response}"
-increment =&gt; "apache.count.request.%{request}"
-timing =&gt; ["apache.timing.request.%{request}", "%{microseconds}"]
-</code></pre>
-
-<p>  }</p>
-
-<p>  if [response] =~ /^2\d\d/ {</p>
-
-<pre><code>statsd { increment =&gt; "apache.count.response.2XX" }
-</code></pre>
-
-<p>  } else if [response] =~ /^3\d\d/ {</p>
-
-<pre><code>statsd { increment =&gt; "apache.count.response.3XX" }
-</code></pre>
-
-<p>  } else if [response] =~ /^4\d\d/ {</p>
-
-<pre><code>statsd { increment =&gt; "apache.count.response.4XX" }
-</code></pre>
-
-<p>  } else if [response] =~ /^5\d\d/ {</p>
-
-<pre><code>statsd { increment =&gt; "apache.count.response.5XX" }
-</code></pre>
-
-<p>  }
-}
-```</p>
-
-<p>This will process apache logs and will send metrics using statsd output. Make changes to track what you need.</p>
-
-<p><img class="<a" src="href="https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png">https://googledrive.com/host/0B3f3EKRXYPx4dUxwcTdSUk0tU0U/content/images/datadog-http-response-chart.png</a>" title="&lsquo;&rsquo; &lsquo;Chart of HTTP status responses&rsquo;" ></p>
-
-<p>As a use case one of tracked metrics with this configuration is HTTP status responses by type. You can create a graph helping you visualize for spikes of 4xx responses (e.g., a bug was introduced in latest deployment or hackers are scanning for vulnerabilities).</p>
-
-<p>Unfortunately I wasn&rsquo;t able to make any of logstash service scripts to work (this is why restart command was commented out). With all the scripts the logstash service is started fine, but no metrics are being output. If you have any suggestions please share. For now I&rsquo;m using the following way to run logstash.</p>
-
-<p>Create the <code>.ebextensions/01-pre.config</code> file with following contents:</p>
-
-<p>```yaml
-commands:</p>
-
-<pre><code>100-create-posthook-dir:
-    command: "mkdir /opt/elasticbeanstalk/hooks/appdeploy/post"
-    test: "[ ! -d /opt/elasticbeanstalk/hooks/appdeploy/post ]"
-</code></pre>
-
-<p>container_commands:</p>
-
-<pre><code>100-chmod-posthooks:
-    command: "chmod +x .ebextensions/hooks/appdeploy/post/*"
-200-copy-posthooks:
-    command: "cp .ebextensions/hooks/appdeploy/post/* /opt/elasticbeanstalk/hooks/appdeploy/post/"
-</code></pre>
-
-<p>```</p>
-
-<p>This will create a post hooks directory for ElasticBeanstalk and copy the post hooks to it. Create the <code>.ebextensions/hooks/appdeploy/post/logstash-background-job.sh</code> script which will start logstash after deployment:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash</h1>
-
-<p>. /opt/elasticbeanstalk/support/envvars</p>
-
-<p>for pid in <code>ps aux | grep /etc/logstash/conf.d | grep -v grep | tr -s ' ' | cut -d ' ' -f 2</code>
-do</p>
-
-<pre><code>disown $pid
-kill -9 $pid
-</code></pre>
-
-<p>done</p>
-
-<p>export HOME=/var/lib/logstash</p>
-
-<p>/opt/logstash/bin/logstash \</p>
-
-<pre><code>-f /etc/logstash/conf.d \
--l /var/log/logstash/logstash.log \
-&gt; /var/log/logstash/logstash.stdout \
-2&gt; /var/log/logstash/logstash.err \
-&amp;
-</code></pre>
-
-<p>```</p>
-
-<p>This script will first kill all the running logstash processes (you should have only one, otherwise your metrics would be sent multiple times) and then start a new logstash process. After deployment you should start receiving metrics from processed Apache logs.</p>
-
-<h2>Conclusion</h2>
-
-<p>You should be receiving a lot of different metrics in your DataDog account and it&rsquo;s easy to extend to receive even more. This will allow you to measure how your application is performing and make important business decisions.</p>
-
-<p>All files can be found in the <a href="https://gist.github.com/ifdattic/61a5b2708dff8811e7e2">gist</a>, the first line displays the full path for it and should be removed from files.</p>
-
-<p>What about you: are you tracking how your application is performing? Or maybe you have suggestions? Please share them in comments.</p>
 ]]></content>
   </entry>
   
