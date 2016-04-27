@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/php/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-04-26T11:27:47+03:00</updated>
+  <updated>2016-04-27T15:58:29+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -64,6 +64,7 @@
 </li>
 <li><a href="#running-composer-globally">Running Composer globally</a></li>
 <li><a href="#adding-platform-requirements">Adding platform requirements</a></li>
+<li><a href="#speed-up-install">Speed up installation of dependencies</a></li>
 </ul>
 
 
@@ -509,6 +510,20 @@ composer show --platform
 
 <!-- https://getcomposer.org/doc/02-libraries.md#platform-packages -->
 
+
+<p><a name="speed-up-install"></a></p>
+
+<h2>Speed up installation of dependencies</h2>
+
+<p>If your project has a lot of dependencies, it can take a long time for them to install. You can speed up the installation by installing dependencies in parallel.</p>
+
+<p>To achieve this install <a href="https://github.com/hirak/prestissimo">prestissimo composer plugin</a>:</p>
+
+<p><code>bash
+composer global require hirak/prestissimo
+</code></p>
+
+<p>It might not make a difference if you&rsquo;re updating a single dependency for your project (it might still use only a single connection). It does improve the speed when installing a lot of dependencies (like when starting a new project or deploying to production).</p>
 
 <h2>Conclusion</h2>
 
