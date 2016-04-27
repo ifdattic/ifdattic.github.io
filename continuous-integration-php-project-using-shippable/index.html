@@ -322,6 +322,15 @@
 
 <p><a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20654012310/in/album-72157650815525029/" title="shippable-environment-variables-mysql"><img src="https://farm6.staticflickr.com/5681/20654012310_f41801b45a_c.jpg" width="800" height="670" alt="shippable-environment-variables-mysql"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
 
+<p><em>Update 2016-04-27:</em> In the new build systems MySQL is not started automatically. If you get an error <code>ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)</code>, enable MySQL in Shippable configuration file:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">mysql</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h2>Conclusion <a name="conclusion"></a></h2>
 
 <p>With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.</p>
