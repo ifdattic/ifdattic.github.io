@@ -185,6 +185,13 @@ You should be able to see similar view if everything was correct.
 
 <a data-flickr-embed="true" data-header="false" data-footer="false" data-context="false"  href="https://www.flickr.com/photos/ifdattic/20654012310/in/album-72157650815525029/" title="shippable-environment-variables-mysql"><img src="https://farm6.staticflickr.com/5681/20654012310_f41801b45a_c.jpg" width="800" height="670" alt="shippable-environment-variables-mysql"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 
+*Update 2016-04-27:* In the new build systems MySQL is not started automatically. If you get an error `ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)`, enable MySQL in Shippable configuration file:
+
+```yml
+services:
+    - mysql
+```
+
 ## Conclusion <a name="conclusion"></a>
 
 With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.
