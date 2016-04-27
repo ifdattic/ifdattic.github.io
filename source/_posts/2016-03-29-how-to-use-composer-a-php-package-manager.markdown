@@ -33,6 +33,7 @@ Skip to any of the sections:
     * [Adding / removing repository through CLI](#adding-repository-cli)
 * [Running Composer globally](#running-composer-globally)
 * [Adding platform requirements](#adding-platform-requirements)
+* [Speed up installation of dependencies](#speed-up-install)
 
 <a name="how-to-install-update"></a>
 ## How to install and update
@@ -407,6 +408,19 @@ composer show --platform
 ```
 
 <!-- https://getcomposer.org/doc/02-libraries.md#platform-packages -->
+
+<a name="speed-up-install"></a>
+## Speed up installation of dependencies
+
+If your project has a lot of dependencies, it can take a long time for them to install. You can speed up the installation by installing dependencies in parallel.
+
+To achieve this install [prestissimo composer plugin](https://github.com/hirak/prestissimo):
+
+```bash
+composer global require hirak/prestissimo
+```
+
+It might not make a difference if you're updating a single dependency for your project (it might still use only a single connection). It does improve the speed when installing a lot of dependencies (like when starting a new project or deploying to production).
 
 ## Conclusion
 
