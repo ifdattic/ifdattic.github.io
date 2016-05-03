@@ -62,6 +62,8 @@ You can also move between panes directionally. Most of the time I can't remember
 
 The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.
 
+> Clear Window `⌃L`
+> 
 > Clear Buffer `⌘K`
 > 
 > Scroll Up `⇧Page Up`
