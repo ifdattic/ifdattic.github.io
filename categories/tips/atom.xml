@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tips | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/tips/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-05-03T13:51:31+03:00</updated>
+  <updated>2016-05-03T14:06:46+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Keyboard Shortcuts I Found Useful While Recording a Video Course]]></title>
+    <link href="http://ifdattic.com/useful-keyboard-shortcuts-recording-video-course"/>
+    <updated>2016-05-03T11:51:43+03:00</updated>
+    <id>http://ifdattic.com/keyboard-shortcuts-i-found-useful-while-recording-a-video-course</id>
+    <content type="html"><![CDATA[<p>While recording a video course you constantly need to put your environment in the same state and you often repeat the same action. Having a few keyboard shortcuts up your sleeve can make your life a lot easier. Here is some keyboard shortcuts that I found useful while recording the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">Web Development with Node.JS and MongoDB</a> video course.</p>
+
+<p>Please keep in mind that my local environment is OSX, so shortcuts and applications are based for it. Not all shortcuts are set by default (for example I set them myself for Screenflow).</p>
+
+<p>Skip to any of the sections or continue reading:</p>
+
+<ul>
+<li><a href="#full-screen">Full screen</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#finder">Finder</a></li>
+<li><a href="#chrome">Chrome</a></li>
+<li><a href="#sublime-text">Sublime Text</a></li>
+<li><a href="#iterm">iTerm</a></li>
+<li><a href="#screenflow">Screenflow</a></li>
+<li><a href="#resolution">Recording resolution</a></li>
+<li><a href="#display-mirroring">Quick display mirroring</a></li>
+</ul>
+
+
+<p><a name="full-screen"></a></p>
+
+<h2>Full screen</h2>
+
+<p>Note that for most of applications <code>⌃⌘F</code> will put them in full screen mode.</p>
+
+<p><a name="screenshots"></a></p>
+
+<h2>Screenshots</h2>
+
+<p>The <code>⇧⌘3</code> (<em>whole screen</em>) and <code>⇧⌘4</code> (<em>selected area</em>) was really helpful for taking screenshots. The screenshots were later used inside the scripts, slides, or videos. <strong>Use the mouse</strong> when taking area screenshots for the scripts. If you don&rsquo;t have one, spend a few bucks for a cheap one. It will be much faster and less painful.</p>
+
+<p><a name="finder"></a></p>
+
+<h2>Finder</h2>
+
+<p>You will probably end managing a lot of files. Finder might not be the best application for managing files, but it&rsquo;s perfectly fine once I learned how to do <strong>copy/paste</strong>. This was a life saver and saved me from using the mouse for file manipulations.</p>
+
+<p><code>⌘C</code> => Cut</p>
+
+<p><code>⌥⌘V</code> => Paste</p>
+
+<p>It&rsquo;s mostly fine to use the default Finder. Though, depending on your set up you might want to make a few changes.</p>
+
+<p><code>⌥⌘P</code> => Hide path bar</p>
+
+<p><code>⌥⌘S</code> => Hide sidebar</p>
+
+<p><code>⌥⌘T</code> => Hide toolbar</p>
+
+<p><a name="chrome"></a></p>
+
+<h2>Chrome</h2>
+
+<p>For my most day to day I use FireFox. Chrome is used for additional testing and video watching (plays most videos without needing Flash). I chose Chrome as my default browser for the course for a single reason. <em>FireFox doesn&rsquo;t have a shortcut to hide bookmarks toolbar</em>. Just didn&rsquo;t feel like constantly going through menus using a mouse to hide/show it.</p>
+
+<p><code>⇧⌘B</code> => Hide bookmarks bar</p>
+
+<p>While doing another video experiment started to notice how problematic bookmarks toolbar is on FireFox, but found one solution for easy hiding. By using <a href="http://www.packal.org/workflow/menu-bar-search">Menu Bar Search Workflow for Alfred</a>, it&rsquo;s possible to hide/show it using only the keyboard. Still not as easy as using a shortcut.</p>
+
+<p><a name="sublime-text"></a></p>
+
+<h2>Sublime Text</h2>
+
+<p>If you do other work with the editor while recording, keeping the font size at <code>16px</code> is not the best choice (depends on preference / quality of eyes). You will want to constantly change the font size depending on the work you do.</p>
+
+<p><code>⌘+</code> => Increase font size</p>
+
+<p><code>⌘-</code> => Decrease font size</p>
+
+<p><a name="iterm"></a></p>
+
+<h2>iTerm</h2>
+
+<p>For the course related terminal I had a new window that run a dedicated profile on a few tabs. That way they didn&rsquo;t get in the way, and didn&rsquo;t need any changes (like making font size bigger).</p>
+
+<p>The iTerm has a different shortcut for a full screen (<code>⌘⏎</code>).</p>
+
+<p>Sometimes something messed up and the terminal was not recorded. In that case turning full screen off and on fixed the problem. This mostly happened on the next day (after a lot of putting laptop to sleep and similar activities).</p>
+
+<p>Another very useful shortcut was <code>⌃L</code> for clearing the terminal window. Unlike <code>⌘K</code> (clear buffer) shortcut, this command re-loads the prompt too.</p>
+
+<p>If you want to learn more useful iTerm shortcuts read <a href="/iterm-shortcut-keys">iTerm Shortcut Keys</a> article.</p>
+
+<p><a name="screenflow"></a></p>
+
+<h2>Screenflow</h2>
+
+<p>Screenflow is a great application for recording and editing your videos. It takes some time to get used to. After a while you make your own workflow and get good at it.</p>
+
+<p><code>⌃⌥⌘R</code> => Record; for starting new a recording and stopping an existing one</p>
+
+<p><code>⌃⌥⌘P</code> => Pause; for pausing a recording, didn&rsquo;t use often as most of recordings was done in short clips (also very long recording are harder to manage/edit)</p>
+
+<p><code>⌃⌥⌘M</code> => Mark; for adding a marker on the recording. Useful for longer recordings. Comes in handy to mark the places you need to edit (like to cut out a part of it)</p>
+
+<p><code>⌥⌘N</code> => Nest clips; would depend on your chosen workflow. As I chose to do everything in small clips (slides), each of them was made from multiple videos/images/audio, and then nested into a single clip for easier maintenance.</p>
+
+<p><a name="resolution"></a></p>
+
+<h2>Recording resolution</h2>
+
+<p>When recording your videos you might want to set your screen resolution to <code>1280x720</code> or an equivalent of it (e.g., at <code>2560x1440</code> for retina display). That way you get a nice HD quality videos without any cropping or similar artifacts (an would guess that exporting is faster).</p>
+
+<p>To change the resolution I used the <a href="https://github.com/ramiroaraujo/alfred-set-resolution-workflow">Set Resolution Workflow for Alfred</a>. Press <code>⌥SPACE</code> (my preference for opening Alfred), enter <code>setresolution</code> (using tab key autocomplete it after a few letters), enter <code>720</code>, and choose the resolution you want. After finishing switch back.</p>
+
+<p><a name="display-mirroring"></a></p>
+
+<h2>Quick display mirroring</h2>
+
+<p>I use the external monitor in my daily life. Normally the laptop is in front (for keyboard and touchpad), with mirroring turned on, and laptop brightness all the way down (only single display used). For recording, having two displays is very useful. You can record on one and have all the notes on another.</p>
+
+<p>Normally it would mean going to <code>System Preferences -&gt; Displays -&gt; Arrangement -&gt; Mirror Displays</code>. That takes a lot of time and a lot of mouse maneuvering.</p>
+
+<p>Oh, how happy I was then I found you can do this with <code>⌘F1</code> (actually it&rsquo;s <code>⌘BrightnessDown</code>). This will turn display mirroring on and off.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Making a Video Course - Behind the Scenes]]></title>
@@ -139,7 +261,9 @@
 
 <p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
 
-<blockquote><p>Clear Buffer <code>⌘K</code></p>
+<blockquote><p>Clear Window <code>⌃L</code></p>
+
+<p>Clear Buffer <code>⌘K</code></p>
 
 <p>Scroll Up <code>⇧Page Up</code></p>
 
@@ -493,209 +617,6 @@ node hw3-2validate.js --db mongodb://mongo:27017/blog
 <p>If you have any questions, suggestions or any part of it is unclear please leave a comment.</p>
 
 <blockquote><p>If you liked this article and would like to learn more about developing web applications try out the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">Web Development with Node.js and MongoDB</a> video course (created by me). In that course you will learn how to convert the ideas in your head to custom web applications. It covers the topics like preparing development environment, scaffolding a web application, storing data, working with RESTful APIs, testing your application and improving performance. <strong>Take the course and learn how to convert your ideas into web applications</strong>.</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Symfony Events: Require Account Information After Registration]]></title>
-    <link href="http://ifdattic.com/symfony-events-require-account-information-after-registration"/>
-    <updated>2014-12-03T10:04:45+02:00</updated>
-    <id>http://ifdattic.com/symfony-events-require-account-information-after-registration</id>
-    <content type="html"><![CDATA[<p>The user visits your application, clicks &ldquo;Sign up with Twitter&rdquo;, authorizes the application and he&rsquo;s ready to use your application with his profile data already filled. Unfortunately in this case you won&rsquo;t have a users' email address as Twitter doesn&rsquo;t share it. Or what if you require something else that might not be provided by a different social network. In this case you might want to require your user to fill mandatory information before using the application. And in Symfony it&rsquo;s easy to do using events.</p>
-
-<p><strong>Note:</strong> the tutorial assumes that your application is using <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUserBundle</a> for user management.  If you want to add registration/login using social networks, I recommend using <a href="https://github.com/hwi/HWIOAuthBundle">HWIOAuthBundle</a> (not needed for this tutorial). Application assumes what when registering a user he is disabled and he is not enabled until he provides all the required information.</p>
-
-<p>First initialize the <code>src/Ifdattic/UserBundle/EventListener/AccountInformationListener.php</code> (change namespaces as required) with following contents:</p>
-
-<p>```php
-&lt;?php</p>
-
-<p>namespace Ifdattic\UserBundle\EventListener;</p>
-
-<p>use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\FOSUserEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;</p>
-
-<p>class AccountInformationListener implements EventSubscriberInterface
-{</p>
-
-<pre><code>/**
- * Route to redirect to
- *
- * @var string
- */
-private $redirectRoute;
-
-/**
- * @param string $redirectRoute Route to redirect to if conditions not met
- */
-public function __construct($redirectRoute)
-{
-    $this-&gt;redirectRoute = $redirectRoute;
-}
-
-/**
- * {@inheritDoc}
- */
-public static function getSubscribedEvents()
-{
-    return [
-        'kernel.controller' =&gt; 'onKernelController',
-        FOSUserEvents::PROFILE_EDIT_SUCCESS =&gt; 'onProfileEdit',
-    ];
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>The listener is provided a route name when initializing it (via constructor argument) and it subscribes to two events: <code>kernel.controller</code> and <code>FOSUserEvents::PROFILE_EDIT_SUCCESS</code>.</p>
-
-<p>Add the method which will be executed on <code>kernel.controller</code> event:</p>
-
-<p>```php
-class AccountInformationListener implements EventSubscriberInterface
-{</p>
-
-<pre><code>// ...
-
-/**
- * If user is not enabled (haven't provided all information) make him to
- * finish it before using the application.
- *
- * @param  FilterControllerEvent $event
- * @return mixed
- */
-public function onKernelController(FilterControllerEvent $event)
-{
-    if ($this-&gt;redirectRoute === $event-&gt;getRequest()-&gt;attributes-&gt;get('_route')) {
-        return;
-    }
-
-    $controller = $event-&gt;getController();
-
-    if (!is_array($controller) || !method_exists($controller[0], 'get')) {
-        return;
-    }
-
-    $security = $controller[0]-&gt;get('security.context');
-
-    if (!$security-&gt;isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-        return;
-    }
-
-    $user = $security-&gt;getToken()-&gt;getUser();
-
-    if ($user-&gt;isEnabled()) {
-        return;
-    }
-
-    $redirectUrl = $controller[0]-&gt;generateUrl($this-&gt;redirectRoute);
-    $event-&gt;setController(function () use ($redirectUrl) {
-        return new RedirectResponse($redirectUrl);
-    });
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>The method first checks what redirect route and controller is provided. Then using <code>security.context</code> service make sure the user is authenticated before continuing. If user is authenticated, but he is not enabled a URL is generated and controller is replaced with an anonymous function which returns a redirect response.</p>
-
-<p>Some might be wondering how much of an overhead this will add. Don&rsquo;t worry, it will probably won&rsquo;t even show on your profiler (if threshold is set to >0ms).</p>
-
-<p>It should be possible to enable a user when he provides all the required information. Add a method to execute on profile edit:</p>
-
-<p>```php
-class AccountInformationListener implements EventSubscriberInterface
-{</p>
-
-<pre><code>// ...
-
-/**
- * Enable user after he filled all the required account information.
- *
- * @param  FormEvent $event
- * @return void
- */
-public function onProfileEdit(FormEvent $event)
-{
-    $user = $event-&gt;getForm()-&gt;getData();
-
-    if (false === $user-&gt;isEnabled()) {
-        $user-&gt;setEnabled(true);
-    }
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>This will return a user after successful form submit (after validation, etc.) and enable him if he was not enabled before. This point is a great place to collect some metrics to help you track activated users, how long it takes to activate, etc. It can be done simply by sending another event (event dispatcher can be returned from current event using <code>getDispatcher()</code> method).</p>
-
-<p>To enable the listener add it as a service (<code>src/Ifdattic/UserBundle/Resources/config/services.yml</code>):</p>
-
-<p>```yaml
-services:</p>
-
-<pre><code>ifdattic_user.account_information.listener:
-    class: Ifdattic\UserBundle\EventListener\AccountInformationListener
-    arguments: ["fos_user_profile_edit"]
-    tags:
-        - { name: kernel.event_subscriber }
-</code></pre>
-
-<p>```</p>
-
-<p>Now if you visited the application with a user which is not enabled, he should be redirected to a profile edit page. If a new field which is required for using the application is added, you could disable a user to make sure he provides that information before continuing. If you want to send a user to a different page (e.g., profile edit page has a lot of optional fields and you want to display only required fields) just change the first argument for the listener.</p>
-
-<p>This is optional, but to help users understand the next step add some visuals.</p>
-
-<p>```yaml</p>
-
-<h1>in app/Resources/FOSUserBundle/translations/FOSUserBundle.en.yml</h1>
-
-<p>profile:</p>
-
-<pre><code>edit:
-    message_for_disabled_user:
-        header: Required account information
-        message: Please provide the required information before using the application
-</code></pre>
-
-<p>```</p>
-
-<p>
-```jinja
-{# in src/Ifdattic/UserBundle/Resources/views/Profile/_disabled_user_message.html.twig #}
-{% trans_default_domain &lsquo;FOSUserBundle&rsquo; %}</p>
-
-<p>{% if app.user.isEnabled == false %}</p>
-
-<pre><code>&lt;div&gt;
-    &lt;h3&gt;{{ 'profile.edit.message_for_disabled_user.header'|trans }}&lt;/h3&gt;
-    &lt;p&gt;{{ 'profile.edit.message_for_disabled_user.message'|trans }}&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>{% endif %}
-```
-</p>
-
-<p>
-<code>jinja
-{# in src/Ifdattic/UserBundle/Resources/views/Profile/edit_content.html.twig #}
-{% include "IfdatticUserBundle:Profile:_disabled_user_message.html.twig" %}
-</code>
-</p>
-
-<p>Requiring account information was very easy to implement with a simple listener and now it can be extended by adding more logic and actions to it.</p>
-
-<p>Source files are available as a <a href="https://gist.github.com/ifdattic/21a0575dc4878633430e">gist</a>.</p>
-
-<p>Do you have any suggestions, ideas, questions? Please share them.</p>
 ]]></content>
   </entry>
   

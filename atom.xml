@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-05-03T13:51:31+03:00</updated>
+  <updated>2016-05-03T14:06:46+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -1671,7 +1671,9 @@
 
 <p>The following shortcut keys are not used that often (sometimes due to failing personal memory). They do come in handy from time to time when you need to do something with the output which is in terminal.</p>
 
-<blockquote><p>Clear Buffer <code>⌘K</code></p>
+<blockquote><p>Clear Window <code>⌃L</code></p>
+
+<p>Clear Buffer <code>⌘K</code></p>
 
 <p>Scroll Up <code>⇧Page Up</code></p>
 
