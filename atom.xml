@@ -4,7 +4,7 @@
   <title><![CDATA[ifdattic]]></title>
   <link href="http://ifdattic.com/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-04-27T16:14:35+03:00</updated>
+  <updated>2016-05-03T13:51:31+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Keyboard Shortcuts I Found Useful While Recording a Video Course]]></title>
+    <link href="http://ifdattic.com/useful-keyboard-shortcuts-recording-video-course"/>
+    <updated>2016-05-03T11:51:43+03:00</updated>
+    <id>http://ifdattic.com/keyboard-shortcuts-i-found-useful-while-recording-a-video-course</id>
+    <content type="html"><![CDATA[<p>While recording a video course you constantly need to put your environment in the same state and you often repeat the same action. Having a few keyboard shortcuts up your sleeve can make your life a lot easier. Here is some keyboard shortcuts that I found useful while recording the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">Web Development with Node.JS and MongoDB</a> video course.</p>
+
+<p>Please keep in mind that my local environment is OSX, so shortcuts and applications are based for it. Not all shortcuts are set by default (for example I set them myself for Screenflow).</p>
+
+<p>Skip to any of the sections or continue reading:</p>
+
+<ul>
+<li><a href="#full-screen">Full screen</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#finder">Finder</a></li>
+<li><a href="#chrome">Chrome</a></li>
+<li><a href="#sublime-text">Sublime Text</a></li>
+<li><a href="#iterm">iTerm</a></li>
+<li><a href="#screenflow">Screenflow</a></li>
+<li><a href="#resolution">Recording resolution</a></li>
+<li><a href="#display-mirroring">Quick display mirroring</a></li>
+</ul>
+
+
+<p><a name="full-screen"></a></p>
+
+<h2>Full screen</h2>
+
+<p>Note that for most of applications <code>⌃⌘F</code> will put them in full screen mode.</p>
+
+<p><a name="screenshots"></a></p>
+
+<h2>Screenshots</h2>
+
+<p>The <code>⇧⌘3</code> (<em>whole screen</em>) and <code>⇧⌘4</code> (<em>selected area</em>) was really helpful for taking screenshots. The screenshots were later used inside the scripts, slides, or videos. <strong>Use the mouse</strong> when taking area screenshots for the scripts. If you don&rsquo;t have one, spend a few bucks for a cheap one. It will be much faster and less painful.</p>
+
+<p><a name="finder"></a></p>
+
+<h2>Finder</h2>
+
+<p>You will probably end managing a lot of files. Finder might not be the best application for managing files, but it&rsquo;s perfectly fine once I learned how to do <strong>copy/paste</strong>. This was a life saver and saved me from using the mouse for file manipulations.</p>
+
+<p><code>⌘C</code> => Cut</p>
+
+<p><code>⌥⌘V</code> => Paste</p>
+
+<p>It&rsquo;s mostly fine to use the default Finder. Though, depending on your set up you might want to make a few changes.</p>
+
+<p><code>⌥⌘P</code> => Hide path bar</p>
+
+<p><code>⌥⌘S</code> => Hide sidebar</p>
+
+<p><code>⌥⌘T</code> => Hide toolbar</p>
+
+<p><a name="chrome"></a></p>
+
+<h2>Chrome</h2>
+
+<p>For my most day to day I use FireFox. Chrome is used for additional testing and video watching (plays most videos without needing Flash). I chose Chrome as my default browser for the course for a single reason. <em>FireFox doesn&rsquo;t have a shortcut to hide bookmarks toolbar</em>. Just didn&rsquo;t feel like constantly going through menus using a mouse to hide/show it.</p>
+
+<p><code>⇧⌘B</code> => Hide bookmarks bar</p>
+
+<p>While doing another video experiment started to notice how problematic bookmarks toolbar is on FireFox, but found one solution for easy hiding. By using <a href="http://www.packal.org/workflow/menu-bar-search">Menu Bar Search Workflow for Alfred</a>, it&rsquo;s possible to hide/show it using only the keyboard. Still not as easy as using a shortcut.</p>
+
+<p><a name="sublime-text"></a></p>
+
+<h2>Sublime Text</h2>
+
+<p>If you do other work with the editor while recording, keeping the font size at <code>16px</code> is not the best choice (depends on preference / quality of eyes). You will want to constantly change the font size depending on the work you do.</p>
+
+<p><code>⌘+</code> => Increase font size</p>
+
+<p><code>⌘-</code> => Decrease font size</p>
+
+<p><a name="iterm"></a></p>
+
+<h2>iTerm</h2>
+
+<p>For the course related terminal I had a new window that run a dedicated profile on a few tabs. That way they didn&rsquo;t get in the way, and didn&rsquo;t need any changes (like making font size bigger).</p>
+
+<p>The iTerm has a different shortcut for a full screen (<code>⌘⏎</code>).</p>
+
+<p>Sometimes something messed up and the terminal was not recorded. In that case turning full screen off and on fixed the problem. This mostly happened on the next day (after a lot of putting laptop to sleep and similar activities).</p>
+
+<p>Another very useful shortcut was <code>⌃L</code> for clearing the terminal window. Unlike <code>⌘K</code> (clear buffer) shortcut, this command re-loads the prompt too.</p>
+
+<p>If you want to learn more useful iTerm shortcuts read <a href="http://ifdattic.com/iterm-shortcut-keys">iTerm Shortcut Keys</a> article.</p>
+
+<p><a name="screenflow"></a></p>
+
+<h2>Screenflow</h2>
+
+<p>Screenflow is a great application for recording and editing your videos. It takes some time to get used to. After a while you make your own workflow and get good at it.</p>
+
+<p><code>⌃⌥⌘R</code> => Record; for starting new a recording and stopping an existing one</p>
+
+<p><code>⌃⌥⌘P</code> => Pause; for pausing a recording, didn&rsquo;t use often as most of recordings was done in short clips (also very long recording are harder to manage/edit)</p>
+
+<p><code>⌃⌥⌘M</code> => Mark; for adding a marker on the recording. Useful for longer recordings. Comes in handy to mark the places you need to edit (like to cut out a part of it)</p>
+
+<p><code>⌥⌘N</code> => Nest clips; would depend on your chosen workflow. As I chose to do everything in small clips (slides), each of them was made from multiple videos/images/audio, and then nested into a single clip for easier maintenance.</p>
+
+<p><a name="resolution"></a></p>
+
+<h2>Recording resolution</h2>
+
+<p>When recording your videos you might want to set your screen resolution to <code>1280x720</code> or an equivalent of it (e.g., at <code>2560x1440</code> for retina display). That way you get a nice HD quality videos without any cropping or similar artifacts (an would guess that exporting is faster).</p>
+
+<p>To change the resolution I used the <a href="https://github.com/ramiroaraujo/alfred-set-resolution-workflow">Set Resolution Workflow for Alfred</a>. Press <code>⌥SPACE</code> (my preference for opening Alfred), enter <code>setresolution</code> (using tab key autocomplete it after a few letters), enter <code>720</code>, and choose the resolution you want. After finishing switch back.</p>
+
+<p><a name="display-mirroring"></a></p>
+
+<h2>Quick display mirroring</h2>
+
+<p>I use the external monitor in my daily life. Normally the laptop is in front (for keyboard and touchpad), with mirroring turned on, and laptop brightness all the way down (only single display used). For recording, having two displays is very useful. You can record on one and have all the notes on another.</p>
+
+<p>Normally it would mean going to <code>System Preferences -&gt; Displays -&gt; Arrangement -&gt; Mirror Displays</code>. That takes a lot of time and a lot of mouse maneuvering.</p>
+
+<p>Oh, how happy I was then I found you can do this with <code>⌘F1</code> (actually it&rsquo;s <code>⌘BrightnessDown</code>). This will turn display mirroring on and off.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Spain - Barcelona Second Impressions (part 3) - Testing the World and Looking for Home series]]></title>
@@ -2329,81 +2451,6 @@
 <p>The closing keynote <a href="https://joind.in/talk/view/14639">Behind the Scenes of Maintaining an Open Source Project</a> was done by <a href="https://twitter.com/seldaek">Jordi Boggiano</a> about how open source project looks behind the scenes. He went through different stages of it (maintenance, anger, etc.) including anecdotes and personal stories. Staying behind the screen we often forget about the world behind our backs and that open source is only possible thanks to the community and people who spend their energy &amp; time.</p>
 
 <p>I enjoyed the conference a lot and really happy about attending it. It&rsquo;s was nice to put Twitter/GitHub profiles with real people. Would like to thank the organizers, speakers, audience for three great days of new experiences &amp; sharing knowledge. In the end I would like to borrow (in other words steal) the quote from <a href="https://twitter.com/michellesanver">Michelle Sanver</a> which summarizes what is a conference very well &ndash; &ldquo;<em><a href="https://blog.liip.ch/archive/2015/02/10/conferences-that-are-parties-with-talks-phpbenelux-and-sunshinephp.html">A conference is a party with talks</a></em>&rdquo;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Configure phpspec for DDD]]></title>
-    <link href="http://ifdattic.com/configure-phpspec-for-ddd"/>
-    <updated>2015-06-24T08:16:35+03:00</updated>
-    <id>http://ifdattic.com/configure-phpspec-for-ddd</id>
-    <content type="html"><![CDATA[<p>A lot of my architecture for DDD is taken from <a href="http://programmingarehard.com/">David Adams</a>, <a href="http://verraes.net/">Mathias Verraes</a>, <a href="http://williamdurand.fr/">William Durand</a> &amp; other smart people.</p>
-
-<p>While developing an application I try to keep the code separated. I also love testing and one wonderful tool which helps me produce good quality code is <a href="http://www.phpspec.net/">phpspec</a>. The issue is what by default it keeps all the tests in the root directory.</p>
-
-<p>phpspec requires some configuration to keep the tests where they belong. You might notice that I&rsquo;m using Symfony framework for my application. When you do DDD development the framework used isn&rsquo;t that important. My domain login is kept in <code>src/Domain</code> directory &amp; infrastructure code is kept as bundles in <code>src</code> directory.</p>
-
-<p>The following configuration is required to make phpspec work correctly (finding specs, creating/updating specs, running specs):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">suites</span><span class="p-Indicator">:</span>
-</span><span class='line'>    <span class="l-Scalar-Plain">core_suite</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">namespace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Domain\Core</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">psr4_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Domain\Core</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/Domain/Core</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">src_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/Domain/Core</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Spec</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="l-Scalar-Plain">user_infrastructure_suite</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">namespace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">UserBundle</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">psr4_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">UserBundle</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/UserBundle</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">src_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/UserBundle</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Spec</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="l-Scalar-Plain">user_suite</span><span class="p-Indicator">:</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">namespace</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Domain\User</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">psr4_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Domain\User</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/Domain/User</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">src_path</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src/Domain/User</span>
-</span><span class='line'>        <span class="l-Scalar-Plain">spec_prefix</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Spec</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Save the file as <code>phpspec.yml</code> in root directory.</p>
-
-<p><a href="https://www.flickr.com/photos/ifdattic/18485964273" title="Configure phpspec for DDD by Andrew Marcinkevičius, on Flickr"><img src="https://c4.staticflickr.com/4/3898/18485964273_ac0e4e5e5b_z.jpg" width="640" height="296" alt="Configure phpspec for DDD"></a></p>
-
-<p>If you would run:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>phpspec describe Domain/User/ValueObject/UserName
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It should create a file <code>UserNameSpec.php</code> in <code>src/Domain/User/Spec/ValueObject</code>.</p>
-
-<p>Some lines in suites might look like duplication, but I found that you have to set all the options. Otherwise there are issues with file creation/updating. You could skip <code>spec_prefix</code> option if you don&rsquo;t mind specifications directory in lowercase.</p>
 ]]></content>
   </entry>
   

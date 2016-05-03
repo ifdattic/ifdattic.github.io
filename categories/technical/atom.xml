@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Technical | ifdattic]]></title>
   <link href="http://ifdattic.com/categories/technical/atom.xml" rel="self"/>
   <link href="http://ifdattic.com/"/>
-  <updated>2016-04-27T16:14:35+03:00</updated>
+  <updated>2016-05-03T13:51:31+03:00</updated>
   <id>http://ifdattic.com/</id>
   <author>
     <name><![CDATA[Andrew Marcinkevičius]]></name>
@@ -12,6 +12,128 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Keyboard Shortcuts I Found Useful While Recording a Video Course]]></title>
+    <link href="http://ifdattic.com/useful-keyboard-shortcuts-recording-video-course"/>
+    <updated>2016-05-03T11:51:43+03:00</updated>
+    <id>http://ifdattic.com/keyboard-shortcuts-i-found-useful-while-recording-a-video-course</id>
+    <content type="html"><![CDATA[<p>While recording a video course you constantly need to put your environment in the same state and you often repeat the same action. Having a few keyboard shortcuts up your sleeve can make your life a lot easier. Here is some keyboard shortcuts that I found useful while recording the <a href="https://www.packtpub.com/web-development/web-development-nodejs-and-mongodb-video">Web Development with Node.JS and MongoDB</a> video course.</p>
+
+<p>Please keep in mind that my local environment is OSX, so shortcuts and applications are based for it. Not all shortcuts are set by default (for example I set them myself for Screenflow).</p>
+
+<p>Skip to any of the sections or continue reading:</p>
+
+<ul>
+<li><a href="#full-screen">Full screen</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li><a href="#finder">Finder</a></li>
+<li><a href="#chrome">Chrome</a></li>
+<li><a href="#sublime-text">Sublime Text</a></li>
+<li><a href="#iterm">iTerm</a></li>
+<li><a href="#screenflow">Screenflow</a></li>
+<li><a href="#resolution">Recording resolution</a></li>
+<li><a href="#display-mirroring">Quick display mirroring</a></li>
+</ul>
+
+
+<p><a name="full-screen"></a></p>
+
+<h2>Full screen</h2>
+
+<p>Note that for most of applications <code>⌃⌘F</code> will put them in full screen mode.</p>
+
+<p><a name="screenshots"></a></p>
+
+<h2>Screenshots</h2>
+
+<p>The <code>⇧⌘3</code> (<em>whole screen</em>) and <code>⇧⌘4</code> (<em>selected area</em>) was really helpful for taking screenshots. The screenshots were later used inside the scripts, slides, or videos. <strong>Use the mouse</strong> when taking area screenshots for the scripts. If you don&rsquo;t have one, spend a few bucks for a cheap one. It will be much faster and less painful.</p>
+
+<p><a name="finder"></a></p>
+
+<h2>Finder</h2>
+
+<p>You will probably end managing a lot of files. Finder might not be the best application for managing files, but it&rsquo;s perfectly fine once I learned how to do <strong>copy/paste</strong>. This was a life saver and saved me from using the mouse for file manipulations.</p>
+
+<p><code>⌘C</code> => Cut</p>
+
+<p><code>⌥⌘V</code> => Paste</p>
+
+<p>It&rsquo;s mostly fine to use the default Finder. Though, depending on your set up you might want to make a few changes.</p>
+
+<p><code>⌥⌘P</code> => Hide path bar</p>
+
+<p><code>⌥⌘S</code> => Hide sidebar</p>
+
+<p><code>⌥⌘T</code> => Hide toolbar</p>
+
+<p><a name="chrome"></a></p>
+
+<h2>Chrome</h2>
+
+<p>For my most day to day I use FireFox. Chrome is used for additional testing and video watching (plays most videos without needing Flash). I chose Chrome as my default browser for the course for a single reason. <em>FireFox doesn&rsquo;t have a shortcut to hide bookmarks toolbar</em>. Just didn&rsquo;t feel like constantly going through menus using a mouse to hide/show it.</p>
+
+<p><code>⇧⌘B</code> => Hide bookmarks bar</p>
+
+<p>While doing another video experiment started to notice how problematic bookmarks toolbar is on FireFox, but found one solution for easy hiding. By using <a href="http://www.packal.org/workflow/menu-bar-search">Menu Bar Search Workflow for Alfred</a>, it&rsquo;s possible to hide/show it using only the keyboard. Still not as easy as using a shortcut.</p>
+
+<p><a name="sublime-text"></a></p>
+
+<h2>Sublime Text</h2>
+
+<p>If you do other work with the editor while recording, keeping the font size at <code>16px</code> is not the best choice (depends on preference / quality of eyes). You will want to constantly change the font size depending on the work you do.</p>
+
+<p><code>⌘+</code> => Increase font size</p>
+
+<p><code>⌘-</code> => Decrease font size</p>
+
+<p><a name="iterm"></a></p>
+
+<h2>iTerm</h2>
+
+<p>For the course related terminal I had a new window that run a dedicated profile on a few tabs. That way they didn&rsquo;t get in the way, and didn&rsquo;t need any changes (like making font size bigger).</p>
+
+<p>The iTerm has a different shortcut for a full screen (<code>⌘⏎</code>).</p>
+
+<p>Sometimes something messed up and the terminal was not recorded. In that case turning full screen off and on fixed the problem. This mostly happened on the next day (after a lot of putting laptop to sleep and similar activities).</p>
+
+<p>Another very useful shortcut was <code>⌃L</code> for clearing the terminal window. Unlike <code>⌘K</code> (clear buffer) shortcut, this command re-loads the prompt too.</p>
+
+<p>If you want to learn more useful iTerm shortcuts read <a href="/iterm-shortcut-keys">iTerm Shortcut Keys</a> article.</p>
+
+<p><a name="screenflow"></a></p>
+
+<h2>Screenflow</h2>
+
+<p>Screenflow is a great application for recording and editing your videos. It takes some time to get used to. After a while you make your own workflow and get good at it.</p>
+
+<p><code>⌃⌥⌘R</code> => Record; for starting new a recording and stopping an existing one</p>
+
+<p><code>⌃⌥⌘P</code> => Pause; for pausing a recording, didn&rsquo;t use often as most of recordings was done in short clips (also very long recording are harder to manage/edit)</p>
+
+<p><code>⌃⌥⌘M</code> => Mark; for adding a marker on the recording. Useful for longer recordings. Comes in handy to mark the places you need to edit (like to cut out a part of it)</p>
+
+<p><code>⌥⌘N</code> => Nest clips; would depend on your chosen workflow. As I chose to do everything in small clips (slides), each of them was made from multiple videos/images/audio, and then nested into a single clip for easier maintenance.</p>
+
+<p><a name="resolution"></a></p>
+
+<h2>Recording resolution</h2>
+
+<p>When recording your videos you might want to set your screen resolution to <code>1280x720</code> or an equivalent of it (e.g., at <code>2560x1440</code> for retina display). That way you get a nice HD quality videos without any cropping or similar artifacts (an would guess that exporting is faster).</p>
+
+<p>To change the resolution I used the <a href="https://github.com/ramiroaraujo/alfred-set-resolution-workflow">Set Resolution Workflow for Alfred</a>. Press <code>⌥SPACE</code> (my preference for opening Alfred), enter <code>setresolution</code> (using tab key autocomplete it after a few letters), enter <code>720</code>, and choose the resolution you want. After finishing switch back.</p>
+
+<p><a name="display-mirroring"></a></p>
+
+<h2>Quick display mirroring</h2>
+
+<p>I use the external monitor in my daily life. Normally the laptop is in front (for keyboard and touchpad), with mirroring turned on, and laptop brightness all the way down (only single display used). For recording, having two displays is very useful. You can record on one and have all the notes on another.</p>
+
+<p>Normally it would mean going to <code>System Preferences -&gt; Displays -&gt; Arrangement -&gt; Mirror Displays</code>. That takes a lot of time and a lot of mouse maneuvering.</p>
+
+<p>Oh, how happy I was then I found you can do this with <code>⌘F1</code> (actually it&rsquo;s <code>⌘BrightnessDown</code>). This will turn display mirroring on and off.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Making a Video Course - Behind the Scenes]]></title>
@@ -895,187 +1017,6 @@ ngrok start -config ~/.ngrok2/ngrok.yml -config project-config.yml --all
 <p>This should be enough to take care of the most use cases you will need. ngrok probably won&rsquo;t be the tool you will be using everyday (depends on what you work on). For those days when you need to test a webhook or from another device you will be great for having ngrok in your toolbox.</p>
 
 <p>Do you have a story of when a local tunnel helped / would have helped to solve your problem?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Continuous Integration of Node.js Project Using Shippable]]></title>
-    <link href="http://ifdattic.com/continuous-integration-nodejs-project-using-shippable"/>
-    <updated>2015-12-08T11:02:05+02:00</updated>
-    <id>http://ifdattic.com/continuous-integration-of-node-dot-js-project-using-shippable</id>
-    <content type="html"><![CDATA[<p>A while ago I wrote an article <a href="/continuous-integration-php-project-using-shippable">how to use Shippable as continuous integration service for PHP project</a>. This is similar article except that it is for a Node.js project.</p>
-
-<p>One of the biggest benefits of Shippable is that you are able to test private repository before needing to pay for it (good for hobby projects which you don&rsquo;t know there they might lead).</p>
-
-<p>You can jump to any of the sections:</p>
-
-<ul>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#initial-config">Initial configuration</a></li>
-<li><a href="#environment-variables-mongodb">Environment variables &amp; MongoDB</a></li>
-<li><a href="#testing">Testing</a></li>
-<li><a href="#update-nodejs-version">Update Node.js version</a></li>
-<li><a href="#enable-project">Enable project in Shippable</a></li>
-<li><a href="#code-coverage">Code coverage</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
-
-
-<h2>Prerequisites <a name="prerequisites"></a></h2>
-
-<p>To start using this service you just need to sign up using your GitHub or BitBucket account. If you want to test private repositories you will have to give Shippable permission to them (by default it only sees public repositories). The code used in this article is available at <a href="https://github.com/ifdattic/javascript-shippable-ci-article-code">GitHub</a>. It&rsquo;s an Express.js project, but with small changes any Node.js project could be tested.</p>
-
-<h2>Initial configuration <a name="initial-config"></a></h2>
-
-<p>Your project needs to have a <code>shippable.yml</code> configuration file. In it you define scripts which will be run, environment variables, language, versions to test, etc.</p>
-
-<p>First let&rsquo;s configure Shippable to test a Node.js project and do it for <code>5.1.1</code> version. Add the following to your <code>shippable.yml</code> file:</p>
-
-<p>```yml
-language: node_js</p>
-
-<p>node_js:</p>
-
-<pre><code>- 5.1.1
-</code></pre>
-
-<p>```</p>
-
-<p>To have our project working we need to install modules using <code>npm</code>:</p>
-
-<p>```yml
-before_script:</p>
-
-<pre><code>- npm install
-</code></pre>
-
-<p>```</p>
-
-<h2>Environment variables &amp; MongoDB <a name="environment-variables-mongodb"></a></h2>
-
-<p>The application uses MongoDB for persistence. It&rsquo;s very easy to include services with Shippable.</p>
-
-<p>You don&rsquo;t want to hard code configuration variables for your application. To fix that we will use the environment variables to configure the application depending on the environment it is in. You can set the global environment variables which are the same between builds and you can set simple environment variables which are different between builds (extending your testing matrix). If you have environment variables which you don&rsquo;t want to show (like passwords) you can add it as a secure environment variable.</p>
-
-<p>To get the secure environment variable you need to go to project settings. It has a panel &ldquo;Encrypt.&rdquo; You provide the environment variables in the box and after clicking &ldquo;Encrypt&rdquo; you get the snippet of code you can paste in your <code>shippable.yml</code> file.</p>
-
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23308845230/in/dateposted-public/" title="shippable-secure-environment-variable"><img src="https://farm1.staticflickr.com/677/23308845230_5b6041b93f_c.jpg" width="800" height="530" alt="shippable-secure-environment-variable"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-<p>Then add the environment variable and MongoDB service to <code>shippable.yml</code> file:</p>
-
-<p>```yml
-env:</p>
-
-<pre><code>global:
-    - XUNIT_FILE=shippable/testresults/result.xml
-    # MongoDB URL
-    - secure: lPx/1fe8RFUSPv1F1D3Fujd14afop7NPSAF6IirmO4YbfRc3MkiTHbkSuiQzniOccC5TC2kd1//hdBd9vnSOCVpS1+3Xs4ZVKj8VfnN2nEokMTnHGYuwB36tW1js/u734NKBl+R5se+140bAORjcrpxcSyQjlDDCCdgZbx00M2FvX4kDPXtZ17z9h2eViC70im5q4qoapzsu1+6U6BjAYnF+QAGoxBe1X3FOjlOgRo/G4/Z6E8nVgNMnx5jqX380ImSC8Hsy7D8MX6U0NelnhjBSc3NrWVYbCNNYVWQA4Zw8aXlZzf3gPF0zhdGt1eBUPgNmxJyXCF4rxsfQjI99zA==
-</code></pre>
-
-<p>services:</p>
-
-<pre><code>- mongodb
-</code></pre>
-
-<p>```</p>
-
-<p>At the moment of writing there is issues while connecting to the default MongoDB service. If you have the same issue you might need to install the MongoDB manually. To do that add the <code>installMongo.sh</code> script to your repository:</p>
-
-<p>```bash</p>
-
-<h1>!/bin/bash -x</h1>
-
-<p>sudo apt-key adv &mdash;keyserver hkp://keyserver.ubuntu.com:80 &mdash;recv 7F0CEB10</p>
-
-<p>echo &lsquo;deb <a href="http://downloads-distro.mongodb.org/repo/ubuntu-upstart">http://downloads-distro.mongodb.org/repo/ubuntu-upstart</a> dist 10gen&rsquo; | sudo tee /etc/apt/sources.list.d/mongodb.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org=2.6.11 mongodb-org-server=2.6.11 mongodb-org-shell=2.6.11 mongodb-org-mongos=2.6.11 mongodb-org-tools=2.6.11</p>
-
-<p>sudo mkdir -p /data/db</p>
-
-<h1>Pin the current version</h1>
-
-<p>sudo echo &ldquo;mongodb-org hold&rdquo; | sudo dpkg &mdash;set-selections
-sudo echo &ldquo;mongodb-org-server hold&rdquo; | sudo dpkg &mdash;set-selections
-sudo echo &ldquo;mongodb-org-shell hold&rdquo; | sudo dpkg &mdash;set-selections
-sudo echo &ldquo;mongodb-org-mongos hold&rdquo; | sudo dpkg &mdash;set-selections
-sudo echo &ldquo;mongodb-org-tools hold&rdquo; | sudo dpkg &mdash;set-selections</p>
-
-<h1>replace closed port &amp; bing IP</h1>
-
-<p>sudo sed -i &rsquo;s/#port = 27017/port = 27017/&lsquo; /etc/mongod.conf
-sudo sed -i &rsquo;s/bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/&rsquo; /etc/mongod.conf
-sudo sed -i &rsquo;s/# nojournal = true/nojournal = true/&lsquo; /etc/mongod.conf
-sudo sed -i &rsquo;s/#noprealloc = true/noprealloc = true/&rsquo; /etc/mongod.conf
-```</p>
-
-<p>And extend your <code>shippable.yml</code> with:</p>
-
-<p>```yml
-install:</p>
-
-<pre><code>- . installMongo.sh
-- sudo mongod --smallfiles &gt; /dev/null &amp;
-</code></pre>
-
-<p>```</p>
-
-<h2>Testing <a name="testing"></a></h2>
-
-<p>The tests are run through custom <code>npm</code> script. Add the following to run the tests:</p>
-
-<p>```yml
-script:</p>
-
-<pre><code>- npm run shippable
-</code></pre>
-
-<p>```</p>
-
-<h2>Update Node.js version <a name="update-nodejs-version"></a></h2>
-
-<p>At the time of writing Shippable doesn&rsquo;t provide Node.js versions 4 or higher. To fix that add the following which will update and NVM and install the correct Node.js version.</p>
-
-<p>```yml
-build_image: shippableimages/ubuntu1404_nodejs</p>
-
-<p>before_install:</p>
-
-<pre><code>- sudo apt-get install -y --force-yes build-essential
-- curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.27.1/install.sh | bash
-- source ~/.nvm/nvm.sh &amp;&amp; nvm install $SHIPPABLE_NODE_VERSION
-- node --version
-</code></pre>
-
-<p>```</p>
-
-<h2>Enable project in Shippable <a name="enable-project"></a></h2>
-
-<p>First choose the subscription to use and when in projects section click the big plus icon which says &ldquo;Enable Project.&rdquo;</p>
-
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23495966402/in/dateposted-public/" title="shippable-choose-subscription"><img src="https://farm1.staticflickr.com/628/23495966402_66458459ef_o.png" width="311" height="85" alt="shippable-choose-subscription"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-<p>Force a synchronization if the repository you want is not in the list. Click on key icon to enable the project.</p>
-
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23495966152/in/dateposted-public/" title="shippable-enable-project"><img src="https://farm6.staticflickr.com/5693/23495966152_b074facd7d_c.jpg" width="800" height="744" alt="shippable-enable-project"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-<p>After it is done you can manually start a build or it will happen automatically the next time you will push a commit.</p>
-
-<p>After a while a build should finish and you should get the similar view.</p>
-
-<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/ifdattic/23236632269/in/dateposted-public/" title="shippable-build"><img src="https://farm6.staticflickr.com/5810/23236632269_6400f9a983_c.jpg" width="800" height="509" alt="shippable-build"></a><script async src="http://ifdattic.com//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
-
-<h2>Code coverage <a name="code-coverage"></a></h2>
-
-<p>If you need code coverage for your code you can do it with Istanbul. Replace the <code>shippable</code> script in <code>package.json</code> with:</p>
-
-<p><code>
-./node_modules/.bin/istanbul cover _mocha --dir shippable/codecoverage --report cobertura -- -R xunit-file
-</code></p>
-
-<h2>Conclusion <a name="conclusion"></a></h2>
-
-<p>With these small changes you should have a CI testing for your application. It will improve your code quality and give you a piece of mind knowing that the changes you made will be tested even if you forgot to run the tests on your development machine.</p>
 ]]></content>
   </entry>
   
