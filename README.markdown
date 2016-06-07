@@ -1,6 +1,9 @@
 ## ifdattic.com
 
+**DEPRECATED**: Read details at [my blog](http://www.ifdattic.com/how-to-octopress-to-sculpin).
+
 Blog source build using [Octopress](http://octopress.org)
+
 ## License
 (The MIT License)
 
